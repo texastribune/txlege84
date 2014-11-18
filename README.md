@@ -56,7 +56,7 @@ npm install && bower install
 
 This project uses `gulp` to run `scss` compiling and other various tasks.
 
-Now here's where the magic happens. Gulp uses [BrowserSync](http://www.browsersync.io) to handle live reloading of the page during development. So when you're working on the front end, you'll need two tabs.
+Now here's where the magic happens. Gulp uses [BrowserSync](http://www.browsersync.io) to handle live reloading of the page during development. So when you're working on the front end, you'll need two terminal windows or tabs.
 
 In the first, you'll run the Django `runserver` command.
 
