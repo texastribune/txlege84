@@ -5,6 +5,9 @@
 # Node things
 node_modules
 
+# Bower things
+bower_components
+
 # SQLite3 things
 *.db
 

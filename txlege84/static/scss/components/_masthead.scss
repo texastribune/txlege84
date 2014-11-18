@@ -1,0 +1,17 @@
+.masthead-container {
+  background-color: $masthead-black;
+  box-shadow: 0 1px 1px $masthead-black;
+  width: 100%;
+
+  .branding {
+    @extend %content-block;
+    padding-bottom: .375em;
+    padding-top: .75em;
+    text-align: center;
+    width: 100%;
+
+    .trib-logo {
+      height: 1.5em;
+    }
+  }
+}
