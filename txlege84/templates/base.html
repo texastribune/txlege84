@@ -39,7 +39,7 @@
   </head>
   <body>
 
-  <header class="masthead">
+  <header class="masthead-container">
     <div class="container">
       <div class="branding">
         <a href="http://www.texastribune.org/">
@@ -49,7 +49,32 @@
     </div>
   </header>
 
+  <section class="main-container">
   {% block content %}{% endblock %}
+  </section>
+
+  <footer class="footer-container">
+    <div class="container">
+      <div class="footer">
+        <nav class="first-nav">
+          <ul>
+            <li>&copy; 2014 <a href="http://www.texastribune.org/">The Texas Tribune</a></li>
+          </ul>
+        </nav>
+        <nav class="last-nav">
+          <ul>
+            <li><a href="http://www.texastribune.org/about/">About Us</a></li>
+            <li><a href="http://www.texastribune.org/contact/">Contact Us</a></li>
+            <li><a href="http://www.texastribune.org/support-us/donors-and-members/">Who Funds Us?</a></li>
+            <li><a href="http://www.texastribune.org/terms-of-service/">Terms of Service</a></li>
+            <li><a href="http://www.texastribune.org/ethics/">Code of Ethics</a></li>
+            <li><a href="http://www.texastribune.org/privacy/">Privacy Policy</a></li>
+            <li class="donor"><a href="https://www.texastribune.org/join/">Donate</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
 
   <script src="{% static 'scripts/main.js' %}"></script>
 

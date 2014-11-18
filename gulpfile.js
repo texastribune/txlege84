@@ -41,6 +41,7 @@ gulp.task('styles', function() {
       extension: '.scss'
     }))
     .pipe(sass({
+      loadPath: 'bower_components',
       precision: 10,
       style: 'expanded',
       // this is nasty, but currently broken otherwise
