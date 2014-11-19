@@ -1,3 +1,5 @@
 .brief {
-
+  @include two-thirds();
+  border: 1px dashed $tribune-yellow;
+  height: 500px;
 }

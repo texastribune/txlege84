@@ -14,10 +14,8 @@ $font-default: $helvetica !default;
 $font-prose: $georgia !default;
 
 // breakpoints
-$medium: 600px;
-$large: 1081px;
-
-
+$medium: new-breakpoint(min-width 600px max-width 1080px);
+$large: new-breakpoint(min-width 1081px);
 
 // placeholders
 %container {
