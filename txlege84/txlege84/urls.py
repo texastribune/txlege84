@@ -7,6 +7,7 @@ from django.contrib import admin
 urlpatterns = patterns(
     '',
     url(r'^$', TemplateView.as_view(template_name='landing.html')),
+    url(r'^list/$', TemplateView.as_view(template_name='list.html')),
 
     # Examples:
     # url(r'^$', 'txlege84.views.home', name='home'),
