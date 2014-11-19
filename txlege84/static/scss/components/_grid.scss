@@ -1,6 +1,6 @@
 // Basic Grid Mixins
 
-@mixin half() {
+@mixin half($last-child: 0) {
   @include span-columns(12);
 
   @include media($medium) {
@@ -11,11 +11,13 @@
     @include span-columns(6);
   }
 
-  @include omega(2n);
+  @if $last-child == 1 {
+    @include omega();
+  }
 
 }
 
-@mixin third() {
+@mixin third($last-child: 0) {
   @include span-columns(12);
 
   @include media($medium) {
@@ -26,11 +28,14 @@
     @include span-columns(4);
   }
 
- @include omega(3n);
-
+  @if $last-child == 1 {
+    @include omega();
+  } @else {
+    @include omega(3n);
+  }
 }
 
-@mixin two-thirds() {
+@mixin two-thirds($last-child: 0) {
   @include span-columns(12);
 
   @include media($medium) {
@@ -41,5 +46,7 @@
     @include span-columns(8);
   }
 
-  @include omega(3n);
+  @if $last-child == 1 {
+    @include omega();
+  }
 }

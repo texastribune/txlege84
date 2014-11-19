@@ -1,0 +1,20 @@
+
+
+.topic-list {
+  @include span-columns(12);
+}
+
+.topic-list-box {
+  @extend %content-block;
+  @include third(1);
+  border: 1px solid $href-teal;
+
+  .tagline {
+
+  }
+
+  .headline {
+
+  }
+
+}
