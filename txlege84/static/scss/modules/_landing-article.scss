@@ -1,0 +1,6 @@
+.landing-article {
+  @include third();
+  border: 1px solid $href-teal;
+  height: 200px;
+
+}

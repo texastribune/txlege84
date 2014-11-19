@@ -1,5 +1,5 @@
 .upcoming {
-  @include third(1);
+  @include third();
   border: 1px dashed $tribune-yellow;
   height: 500px;
 }
