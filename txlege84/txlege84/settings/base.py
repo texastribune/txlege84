@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     # apps
+    'committees',
     'legislators',
 )
 
@@ -176,7 +177,6 @@ ZIPPED_DATA_FILE_URL = ('http://static.openstates.org/downloads'
                         '/2014-10-02-tx-json.zip')
 
 DOWNLOAD_DIR = os.path.join(BASE_DIR, 'data')
-
-DOWNLOAD_PATH = os.path.join(DOWNLOAD_DIR, '2014-10-02-tx-json.zip')
+DOWNLOAD_PATH = os.path.join(DOWNLOAD_DIR, 'data-json.zip')
 
 BULK_BATCH_SIZE = 10000
