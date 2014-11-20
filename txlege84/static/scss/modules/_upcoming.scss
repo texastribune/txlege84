@@ -1,8 +1,18 @@
 .upcoming {
   @extend %content-block;
-  @include third();
+  @include span-columns(12);
   border: 1px dashed $tribune-yellow;
   height: 500px;
+
+  @include media($medium) {
+    @include span-columns(4);
+    @include omega();
+  }
+
+  @include media($large) {
+    @include span-columns(4);
+    @include omega();
+  }
 
   .chamber-livestream {
     @include span-columns(6);
