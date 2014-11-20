@@ -1,20 +1,20 @@
 
 
 .topic-list {
+  @extend %content-block;
   @include span-columns(12);
+  border: 1px dashed $href-teal;
+
 }
 
 .topic-list-box {
-  @extend %content-block;
-  @include third(1);
+  @include col-size(12, 2, 1);
   border: 1px solid $href-teal;
+  padding: .5em;
+  margin-bottom: 1em;
 
-  .tagline {
-
-  }
-
-  .headline {
-
+  h4 {
+    margin: .25em 0;
   }
 
 }

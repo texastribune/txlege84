@@ -1,5 +1,23 @@
 // Basic Grid Mixins
 
+@mixin col-size($total-col, $width, $last-child: 0) {
+  @include span-columns($total-col);
+
+  @include media($medium) {
+    @include span-columns($width);
+  }
+
+  @include media($large) {
+    @include span-columns($width);
+  }
+
+  @if $last-child == 1 {
+    @include omega();
+  } @else {
+    @include omega($total-col / $width + 'n');
+  }
+}
+
 @mixin half($last-child: 0) {
   @include span-columns(12);
 

@@ -1,0 +1,9 @@
+.featured-content {
+  @extend %content-block;
+  @include two-thirds();
+  border: 1px dashed $tribune-yellow;
+
+  img {
+    width: 100%;
+  }
+}
