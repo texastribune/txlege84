@@ -1,0 +1,4 @@
+.primer {
+  @extend %content-block;
+  @include span-columns(12);
+}
