@@ -27,3 +27,6 @@ txlege84/static/css/*.css*
 # Django things
 txlege84/media/
 txlege84/assets/
+
+# Data things
+txlege84/txlege84/data/
