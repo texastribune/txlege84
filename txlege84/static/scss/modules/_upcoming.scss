@@ -1,5 +1,19 @@
 .upcoming {
+  @extend %content-block;
   @include third();
   border: 1px dashed $tribune-yellow;
   height: 500px;
+
+  .chamber-livestream {
+    @include span-columns(6);
+    margin-bottom: 1em;
+
+    &.senate {
+      @include omega();
+    }
+  }
+
+  .meetings {
+    @include span-columns(12);
+  }
 }
