@@ -2,7 +2,6 @@
   @extend %content-block;
   @include span-columns(12);
   border: 1px dashed $tribune-yellow;
-  height: 500px;
 
   @include media($medium) {
     @include span-columns(4);
@@ -23,7 +22,9 @@
     }
   }
 
-  .meetings {
+  .meetings,
+  .links,
+  .countdown-clock {
     @include span-columns(12);
   }
 }
