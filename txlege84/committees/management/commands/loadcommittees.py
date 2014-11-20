@@ -1,8 +1,6 @@
 from datetime import datetime
 from glob import glob
 import json
-# from optparse import make_option
-import os
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
@@ -13,19 +11,6 @@ from legislators.models import Chamber, Legislator
 
 class Command(BaseCommand):
     help = u'Bulk load the committee data into the database.'
-
-    # custom_options = (
-    #     make_option(
-    #         '-s',
-    #         '--since',
-    #         action='store',
-    #         dest='since',
-    #         default=None,
-    #         help='Load all filings since this date ("2013-07-01")'
-    #     ),
-    # )
-
-    # option_list = BaseCommand.option_list + custom_options
 
     def handle(self, *args, **kwargs):
         self.load_committees()
