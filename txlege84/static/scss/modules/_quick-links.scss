@@ -1,7 +1,6 @@
-.bill-search {
+.quick-links {
   @extend %content-block;
   @include span-columns(12);
-  height: 150px;
   border: 1px dashed $href-teal;
 
   @include media($large) {
@@ -9,13 +8,4 @@
     @include omega();
   }
 
-  .bill-search-box {
-    h3 {
-      display: inline-block;
-    }
-
-    form {
-      display: inline-block;
-    }
-  }
 }

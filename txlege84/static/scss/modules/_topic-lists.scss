@@ -1,6 +1,6 @@
 .topic-lists {
   @include span-columns(12);
-  @include div-grid(12, 3);
+  @include div-grid(12, 2);
 
   div {
     @extend %content-block;
@@ -11,6 +11,7 @@
   }
 
   .topic-list-box {
-    height: 370px;
+    border: 1px dashed $tribune-yellow;
   }
+
 }

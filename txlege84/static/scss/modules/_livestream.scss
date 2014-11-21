@@ -1,20 +1,47 @@
 .livestream {
   @extend %content-block;
   @include span-columns(12);
-  @include div-grid(12, 2);
+
+
+  // @include media($medium) {
+  //   @include span-columns(8);
+  // }
+
+  @include media($large) {
+    @include span-columns(8);
+  }
+
+  .watch,
+  .upcoming-meetings {
+    @include div-grid(12, 2);
+  }
+
   border: 1px dashed $href-teal;
 
   .house,
   .senate {
-
+    @extend %content-block;
   }
 
   .upcoming-meetings {
-    @include span-columns(12);
+    @extend %content-block;
+    display: none;
+
+    @include media($medium) {
+      @include span-columns(12);
+      display: block;
+
+    }
+
+    @include media($large) {
+      @include span-columns(12);
+      display: block;
+
+    }
+
   }
 
   img {
-    padding: 0 1em 0 0;
     width: 100%;
   }
 }

@@ -1,14 +1,14 @@
 .featured-content {
+  @include span-columns(12);
   @include div-grid(12, 3);
 
   div {
     @extend %content-block;
     border: 1px dashed $tribune-yellow;
-    height: 530px;
   }
-
 
   img {
     width: 100%;
   }
+
 }
