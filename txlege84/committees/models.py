@@ -6,7 +6,7 @@ from legislators.models import Chamber, Legislator
 class Committee(models.Model):
     name = models.CharField(max_length=60)
     chamber = models.ForeignKey(Chamber, related_name='committees')
-    openstates_id = models.CharField(max_length=9)
+    openstates_id = models.CharField(max_length=9, unique=True)
     members = models.ManyToManyField(Legislator, through='Membership')
 
     def __unicode__(self):
