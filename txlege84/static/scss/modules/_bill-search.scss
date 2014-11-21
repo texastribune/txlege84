@@ -1,16 +1,17 @@
 .bill-search {
   @extend %content-block;
-  @include span-columns(12);
-  height: 150px;
   border: 1px dashed $href-teal;
 
   .bill-search-box {
+    margin-bottom: 1em;
     h3 {
       display: inline-block;
     }
 
-    form {
-      display: inline-block;
+    input {
+      font-size: em(24);
+      padding: .5em;
+      width: 100%;
     }
   }
 }

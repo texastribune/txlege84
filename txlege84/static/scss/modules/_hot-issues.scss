@@ -3,6 +3,7 @@
   @include span-columns(12);
   @include div-grid(12, 3);
   border: 1px dashed $href-teal;
+  margin-bottom: 1em;
 
   h3 {
     margin: .25em 0;
@@ -19,7 +20,6 @@
 -item {
   border: 1px solid $href-teal;
   padding: .5em;
-  margin-bottom: 1em;
 
   h4 {
     margin: .25em 0;
