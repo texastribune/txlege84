@@ -1,4 +1,4 @@
-.hot-list {
+.hot-issues {
   @extend %content-block;
   @include span-columns(12);
   @include div-grid(12, 3);
@@ -15,7 +15,8 @@
 
 }
 
-.hot-list-item {
+.hot-issues
+-item {
   border: 1px solid $href-teal;
   padding: .5em;
   margin-bottom: 1em;
