@@ -1,42 +1,81 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section class="topic-list">
-  <h3>Legislative Hot Lists</h3>
-  <p>A rundown of the top issues our reporters are following during the Texas Legislative Session by topic.</p>
-  <div class="topic-list-box">
-    <h4 class="headline">Health Care</h4>
+<section class="app-title" style="margin: 2em;">
+  <h1>Lege App Title</h1>
+</section>
+
+<section class="hot-list">
+  <h3>Hot Issues</h3>
+  <div class="hot-list-box">
+    <h4 class="hot-issue">More regulations on abortion providers</h4>
   </div>
-  <div class="topic-list-box">
-    <h4 class="headline">Public Education</h4>
+  <div class="hot-list-box">
+    <h4 class="hot-issue">Lt. Gov. Dan Patrick's voucher plan</h4>
   </div>
-  <div class="topic-list-box">
-    <h4 class="headline">Transportation</h4>
-  </div>
-  <div class="topic-list-box">
-    <h4 class="headline">Energy</h4>
-  </div>
-  <div class="topic-list-box">
-    <h4 class="headline">Water</h4>
-  </div>
-  <div class="topic-list-box">
-    <h4 class="headline">Immigration</h4>
+  <div class="hot-list-box">
+    <h4 class="hot-issue">Limits proposed on fracking in South Texas</h4>
   </div>
 </section>
 
+<section class="livestream">
+  <h2>WATCH: The Lege in Action</h2>
+  <div class="house">
+    <h2>House: <em>Live</em></h2>
+    <img src="http://placehold.it/400x250">
+    <div class="upcoming-meetings">
+      <h4>Upcoming Meetings:</h4>
+      <ul>
+        <li><a href="">Public Health</a>, Location: E1.024, Time: 2 p.m. or upon ajournment <em>(<a href="">Watch</a>)</em> </li>
+      </ul>
+    </div>
+  </div>
+  <div class="senate">
+    <h2>Senate: <em>Convenes at 11 a.m. on 2/13/15</em></h2>
+    <img src="http://placehold.it/400x250">
+    <div class="upcoming-meetings">
+      <h4>Upcoming Meetings:</h4>
+      <ul>
+        <li><a href="">Health and Human Services</a>, Location: E1.024, Time: 2 p.m. or upon ajournment <em>(<a href="">Watch</a>)</em> </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="bill-search">
+  <div class="bill-search-box">
+    <h3>Bill Search: </h3>
+    <form>
+      <input type="text"></input>
+    </form>
+  </div>
+
+</section>
 <section class="featured-content">
-  <h3>Talk of the Dome</h3>
-  <h1>A move to consolidate the state's five health agencies</h1>
-  <p><strong><em>The gist:</em></strong> Lawmakers are trying to streamline the state's health system by consolidating five agencies into one. The move could potentially save billions of dollars, but top officials inside the agencies have voiced concerns.</p>
-  <h4><em>The Latest:</em></h4>
-  <img src="http://placehold.it/1024x680">
-  <h3><a href="">Senate Health Committee Considers Merging Agencies</a></h3>
-  <h4><em>The Legislation:</em></h3>
-  <p>Primary Bill: <a href="">SB 7</a> &mdash; Authored by <a href="">Sen. Charles Schwertner</a></p>
-  <p>Companion Bill: <a href="">HB 25</a> &mdash; Authored by <a href="">Rep. Charles Perry</a></p>
+  <div>
+    <h4>Talk of the Dome</h4>
+    <h2>A move to consolidate the state's five health agencies</h2>
+    <p><strong><em>The Gist:</em></strong> Lawmakers are trying to streamline the state's health system by consolidating five agencies into one. The move could potentially save billions of dollars, but top officials inside the agencies have voiced concerns.</p>
+    <h4><em>The Latest:</em> <a href="">Senate Health Committee Considers Merging Agencies</a></h4>
+    <img src="http://placehold.it/1024x680">
+
+<!--     <h4><em>The Legislation:</em></h3>
+    <p>Primary Bill: <a href="">SB 7</a> &mdash; Authored by <a href="">Sen. Charles Schwertner</a></p>
+    <p>Companion Bill: <a href="">HB 25</a> &mdash; Authored by <a href="">Rep. Charles Perry</a></p> -->
+  </div>
+  <div>
+    <h4>WTF, #txlege?</h4>
+    <h2 class="headline">What Really Happens During the 5 Months of Session</h2>
+    <iframe width="300" height="169" src="//www.youtube.com/embed/OhfZlznuaVE" frameborder="0" allowfullscreen></iframe>
+    <p>The Tribune's Ross Ramsey explains what lawmakers are really doing over the arch of the state's five month session.</p>
+  </div>
+  <div>
+    <h4>Quick Links</h4>
+    <h3><a href=""></a></h3>
+  </div>
 </section>
 
-<section class="upcoming">
+<!-- <section class="upcoming">
   <h2>BILL SEARCH</h2>
   <h2>WATCH: The Lege in Action</h2>
   <div class="chamber-livestream">
@@ -56,7 +95,7 @@
     <iframe width="300" height="169" src="//www.youtube.com/embed/OhfZlznuaVE" frameborder="0" allowfullscreen></iframe>
     <p>The Tribune's Ross Ramsey explains what lawmakers are really doing over the arch of the state's five month session.</p>
   </div>
-</section>
+</section> -->
 <!--
 <section>
     <div class="article-box">

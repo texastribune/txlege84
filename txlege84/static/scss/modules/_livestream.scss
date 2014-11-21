@@ -1,0 +1,22 @@
+.livestream {
+  @extend %content-block;
+  @include span-columns(12);
+  @include div-grid(12, 2);
+  border: 1px dashed $href-teal;
+
+  .house,
+  .senate {
+
+  }
+
+  .upcoming-meetings {
+    @include span-columns(12);
+  }
+
+  img {
+    padding: 0 1em 0 0;
+    width: 100%;
+  }
+}
+
+

@@ -1,0 +1,16 @@
+.bill-search {
+  @extend %content-block;
+  @include span-columns(12);
+  height: 150px;
+  border: 1px dashed $href-teal;
+
+  .bill-search-box {
+    h3 {
+      display: inline-block;
+    }
+
+    form {
+      display: inline-block;
+    }
+  }
+}

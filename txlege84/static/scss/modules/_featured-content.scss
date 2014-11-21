@@ -1,7 +1,11 @@
 .featured-content {
-  @extend %content-block;
-  @include two-thirds();
-  border: 1px dashed $tribune-yellow;
+  @include div-grid(12, 3);
+
+  div {
+    @extend %content-block;
+    border: 1px dashed $tribune-yellow;
+  }
+
 
   img {
     width: 100%;

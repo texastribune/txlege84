@@ -13,18 +13,4 @@
     @include omega();
   }
 
-  .chamber-livestream {
-    @include span-columns(6);
-    margin-bottom: 1em;
-
-    &.senate {
-      @include omega();
-    }
-  }
-
-  .meetings,
-  .links,
-  .countdown-clock {
-    @include span-columns(12);
-  }
 }

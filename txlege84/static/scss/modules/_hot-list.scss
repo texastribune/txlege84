@@ -1,14 +1,21 @@
-
-
-.topic-list {
+.hot-list {
   @extend %content-block;
   @include span-columns(12);
+  @include div-grid(12, 3);
   border: 1px dashed $href-teal;
+
+  h3 {
+    margin: .25em 0;
+  }
+
+  h4 {
+    font-style: italic;
+    margin: .5em 0;
+  }
 
 }
 
-.topic-list-box {
-  @include col-size(12, 2, 1);
+.hot-list-item {
   border: 1px solid $href-teal;
   padding: .5em;
   margin-bottom: 1em;
