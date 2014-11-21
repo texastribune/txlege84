@@ -34,7 +34,7 @@ class Legislator(models.Model):
     district = models.IntegerField(null=True, blank=True)
     profile_url = models.URLField()
 
-    openstates_id = models.CharField(max_length=9)
+    openstates_id = models.CharField(max_length=9, unique=True)
 
     def __unicode__(self):
         return self.full_name
