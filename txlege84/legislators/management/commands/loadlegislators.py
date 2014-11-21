@@ -31,23 +31,27 @@ class Command(BaseCommand):
                 data = json.loads(f.read())
 
                 # if they have roles, they're active
-                if not data['roles']:
+                if data['roles']:
+                    primary_role = data['roles'][0]
+                elif '83' in data['old_roles']:
+                    primary_role = data['old_roles']['83'][0]
+                else:
                     continue
 
                 self.stdout.write(u'Loading {0} {1}...'.format(
                     data['first_name'],
                     data['last_name']))
 
-                party, _ = Party.objects.get_or_create(name=data['party'])
+                party, _ = Party.objects.get_or_create(
+                    name=primary_role['party'])
 
-                if data['chamber']:
+                if 'chamber' in primary_role:
                     chamber, _ = Chamber.objects.get_or_create(
-                        name=u'Texas Senate' if data['chamber'] == 'upper'
-                             else u'Texas House')
+                        name=u'Texas Senate' if primary_role['chamber']
+                             == 'upper' else u'Texas House'
+                    )
                 else:
                     chamber = None
-
-                primary_role = data['roles'][0]
 
                 if 'district' in primary_role:
                     district = int(primary_role['district'])
