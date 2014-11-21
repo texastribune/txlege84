@@ -1,0 +1,16 @@
+.topic-lists {
+  @include span-columns(12);
+  @include div-grid(12, 3);
+
+  div {
+    @extend %content-block;
+  }
+
+  img {
+    max-height: 100px;
+  }
+
+  .topic-list-box {
+    height: 370px;
+  }
+}
