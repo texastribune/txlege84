@@ -5,7 +5,7 @@
 
   var navdrawerContainer = querySelector('.navdrawer-container');
   var body = document.body;
-  var appbarElement = querySelector('.app-bar');
+  var appbarElement = querySelector('.nav-bar');
   var menuBtn = querySelector('.menu');
   var main = querySelector('.main');
   var icon = querySelector('.menu-icon');

@@ -1,21 +1,4 @@
-.hot-issues {
-  @extend %content-block;
-  @include span-columns(12);
-  @include div-grid(12, 3);
-  color: $text-black;
-
-  h3 {
-    margin: .25em 0;
-  }
-
-  h4 {
-    font-style: italic;
-    margin: .5em 0;
-  }
-
-}
-
-.app-bar {
+.nav-bar {
   @include span-columns(12);
   display: block;
   left: 0;
@@ -76,18 +59,18 @@
 
 }
 
-.app-bar-container {
+.nav-bar-container {
   margin: 0 auto;
   position: relative;
   width: 100%;
 }
 
-.app-bar.open,
-.app-bar.open ~ .main {
+.nav-bar.open,
+.nav-bar.open ~ .main {
   transform: translate(250px, 0);
 }
 
-.app-bar-actions {
+.nav-bar-actions {
   @include div-grid(12, 3);
   z-index: 2;
 }
@@ -153,7 +136,7 @@
 
 }
 
-.app-bar,
+.nav-bar,
 .navdrawer-container.opened,
 .main {
   transition: transform .3s ease-out;
