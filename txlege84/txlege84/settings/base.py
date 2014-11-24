@@ -53,6 +53,7 @@ INSTALLED_APPS = (
     'bills',
     'committees',
     'legislators',
+    'topics',
 )
 
 
