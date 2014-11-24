@@ -2,8 +2,7 @@
   @extend %content-block;
   @include span-columns(12);
   @include div-grid(12, 3);
-  border: 1px dashed $href-teal;
-  color: #ccc;
+  color: $text-black;
 
   h3 {
     margin: .25em 0;
@@ -16,10 +15,8 @@
 
 }
 
-.hot-issue-box {
-}
-
 .app-bar {
+  @include span-columns(12);
   display: block;
   left: 0;
   overflow: hidden;
@@ -50,17 +47,32 @@
 
   }
 
+  h1 {
+    color: $masthead-black;
+    display: initial;
+    float: none;
+    font-size: 2em;
+    font-weight: 300;
+    line-height: 60px;
+    margin: 2em 0;
+    max-width: none;
+    padding: 0;
+  }
+
   h3 {
-    color: $tribune-yellow;
-    padding: 1em;
-    margin-left: 3em;
+    color: $text-black;
+    font-weight: 400;
+    display: inline-block;
+    margin: 1em;
+  }
+
+  .nav-button {
+    border: 1px solid;
   }
 
 }
 
 .app-bar-container {
-  background-color: $masthead-black;
-  height: 60px;
   margin: 0 auto;
   position: relative;
   width: 100%;
@@ -72,8 +84,11 @@
 }
 
 .app-bar-actions {
+  @include div-grid(12, 3);
   z-index: 2;
 }
+
+
 
 .navdrawer-container {
   background-color: $masthead-black;
@@ -145,24 +160,8 @@
   min-height: 100%;
 }
 
-p.menu {
-  color: #fff;
-  float: left;
-  margin: 1em;
-}
-
-li.menu {
-  .fa {
-    font-size: 1em;
-    margin-right: 1em;
-    width: 1em;
-  }
-
-}
-
 .menu-icon {
   display: inline-block;
-  float: left;
   height: 1.25em;
   margin: 1em;
   position: relative;
