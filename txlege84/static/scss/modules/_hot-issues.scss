@@ -3,6 +3,7 @@
   @include span-columns(12);
   @include div-grid(12, 3);
   border: 1px dashed $href-teal;
+  color: #ccc;
 
   h3 {
     margin: .25em 0;
@@ -15,14 +16,204 @@
 
 }
 
-.hot-issues
--item {
-  border: 1px solid $href-teal;
-  padding: .5em;
-  margin-bottom: 1em;
+.hot-issue-box {
+}
 
-  h4 {
-    margin: .25em 0;
+.app-bar {
+  display: block;
+  left: 0;
+  overflow: hidden;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+
+  button {
+    background-color: transparent;
+    background-image: none;
+    border: 0;
+    display: inline-block;
+    padding: 0;
+    transition: background-color .2s ease-out;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, .1);
+    }
+
+    &:focus {
+      background-color: rgba(255, 255, 255, 0);
+      outline: 0;
+    }
+
+    &:active {
+      background-color: rgba(255, 255, 255, .4);
+    }
+
   }
 
+  h3 {
+    color: $tribune-yellow;
+    padding: 1em;
+    margin-left: 3em;
+  }
+
+}
+
+.app-bar-container {
+  background-color: $masthead-black;
+  height: 60px;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+}
+
+.app-bar.open,
+.app-bar.open ~ .main {
+  transform: translate(250px, 0);
+}
+
+.app-bar-actions {
+  z-index: 2;
+}
+
+.navdrawer-container {
+  background-color: $masthead-black;
+  display: none;
+  overflow-y: auto;
+  transform: translate(-250px, 0);
+  width: 250px;
+  height: 100%;
+  z-index: 1;
+
+  &.open {
+    display: block;
+    position: fixed;
+    transform: translate(0, 0);
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    border-bottom-style: solid;
+    border-color: #fff;
+    border-width: 1px;
+    padding: 0;
+
+    &::before {
+      content: none;
+    }
+  }
+
+  a {
+    color: #fff;
+    display: block;
+    font-size: .8em;
+    height: 40px;
+    line-height: 1em;
+    padding: 12px 20px;
+    text-decoration: none;
+    transition: background-color .2s ease-out;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, .2);
+    }
+
+    &:focus {
+      background-color: rgba(255, 255, 255, 0);
+      outline: 0;
+    }
+
+    &:active {
+      background-color: rgba(255, 255, 255, .4);
+    }
+  }
+
+}
+
+.app-bar,
+.navdrawer-container.opened,
+.main {
+  transition: transform .3s ease-out;
+}
+
+.main {
+  margin: 0 auto;
+  min-height: 100%;
+}
+
+p.menu {
+  color: #fff;
+  float: left;
+  margin: 1em;
+}
+
+li.menu {
+  .fa {
+    font-size: 1em;
+    margin-right: 1em;
+    width: 1em;
+  }
+
+}
+
+.menu-icon {
+  display: inline-block;
+  float: left;
+  height: 1.25em;
+  margin: 1em;
+  position: relative;
+  width: 1.25em;
+
+  span {
+    background-color: #ccc;
+    display: block;
+    height: .4em;
+    margin: 0 auto;
+    position: relative;
+    transition-delay: .2s;
+    transition-duration: 0;
+    width: 2em;
+
+    &:before,
+    &:after {
+      background-color: #ccc;
+      content: '';
+      display: block;
+      height: .4em;
+      position: absolute;
+      transition-delay: .2s, 0;
+      transition-duration: .2s;
+      transition-property: margin, transform;
+      width: 2em;
+    }
+
+    &:before {
+      margin-top: -.75em;
+    }
+
+    &:after {
+      margin-top: .75em;
+    }
+  }
+}
+
+.x span {
+  background-color: rgba(0, 0, 0, 0);
+  transition-delay: .2s;
+
+  &:before {
+    margin-top: 0;
+    transform: rotate(45deg);
+    transition-delay: 0, .2s;
+  }
+
+  &:after {
+    margin-top: 0;
+    transform: rotate(-45deg);
+    transition-delay: 0, .2s;
+  }
 }

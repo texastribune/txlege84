@@ -10,6 +10,13 @@ body {
   color: $text-black;
   font-family: $font-default;
   line-height: 1;
+  min-height: 100%;
+  position: relative;
+
+  &.open {
+    overflow: hidden;
+  }
+
 }
 
 .container,
