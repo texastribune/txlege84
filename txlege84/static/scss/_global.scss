@@ -12,7 +12,20 @@ body {
   line-height: 1;
 }
 
+a {
+  color: $href-teal;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .container,
 .main-container {
   @extend %container;
+}
+
+.content-block {
+  @extend %content-block;
 }

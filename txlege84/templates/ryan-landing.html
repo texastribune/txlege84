@@ -1,0 +1,352 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<header class="site-header">
+  <h1>84th Legislative Session App</h1>
+</header>
+
+<nav class="menu">
+  <ul class="menu-list">
+    <li><a href="#"><i class="fa fa-bars"></i> Topics</a></li>
+    <li><a href="#">Elected Officials Directory</a></li>
+    <li><a href="#">Ethics Explorer</a></li>
+    <li><a href="#">WTF, #txlege?</a></li>
+  </ul>
+</nav>
+
+<!-- <nav class="topic-menu">
+  <header class="nav-list-header">
+    <h4>Session Topics</h4>
+  </header>
+  <div class="nav-list">
+    <ul class="column column-split">
+      <li><a href="#">Criminal Justice</a></li>
+      <li><a href="#">Economy</a></li>
+      <li><a href="#">Energy</a></li>
+      <li><a href="#">Environment</a></li>
+      <li><a href="#">Ethics</a></li>
+    </ul>
+    <ul class="column column-split">
+      <li><a href="#">Healthcare</a></li>
+      <li><a href="#">Higher Education</a></li>
+      <li><a href="#">Immigration</a></li>
+      <li><a href="#">Public Education</a></li>
+      <li><a href="#">Transportation</a></li>
+    </ul>
+  </div>
+</nav> -->
+
+<section class="issues">
+  <div class="issues-container">
+    <header class="section-header">
+      <h2>Today's Hot Issues</h2>
+    </header>
+    <ul class="issues-list">
+      <li class="issue-box">
+        <div class="issue-topic"><a href="#">Criminal Justice</a></div>
+        <div class="issue-blurb"><a href="#">Better accountability concerning early releases</a></div>
+      </li>
+      <li class="issue-box">
+        <div class="issue-topic"><a href="#">Economy</a></div>
+        <div class="issue-blurb"><a href="#">Pouring more money out of the Rainy Fund</a></div>
+      </li>
+      <li class="issue-box">
+        <div class="issue-topic"><a href="#">Energy</a></div>
+        <div class="issue-blurb"><a href="#">Limits proposed on fracking in South Texas</a></div>
+      </li>
+      <li class="issue-box">
+        <div class="issue-topic"><a href="#">Environment</a></div>
+        <div class="issue-blurb"><a href="#">Fast-tracking the Keystone Pipeline</a></div>
+      </li>
+      <li class="issue-box">
+        <div class="issue-topic"><a href="#">Ethics</a></div>
+        <div class="issue-blurb"><a href="#">Increases in lobbyist disclosures</a></div>
+      </li>
+      <li class="issue-box">
+        <div class="issue-topic"><a href="#">Healthcare</a></div>
+        <div class="issue-blurb"><a href="#">More regulations on abortion providers</a></div>
+      </li>
+      <li class="issue-box">
+        <div class="issue-topic"><a href="#">Higher Education</a></div>
+        <div class="issue-blurb"><a href="#">UT System's administrative woes</a></div>
+      </li>
+      <li class="issue-box">
+        <div class="issue-topic"><a href="#">Immigration</a></div>
+        <div class="issue-blurb"><a href="#">Paying for more security on the border</a></div>
+      </li>
+      <li class="issue-box">
+        <div class="issue-topic"><a href="#">Public Education</a></div>
+        <div class="issue-blurb"><a href="#">Lt. Gov. Dan Patrick's voucher plan</a></div>
+      </li>
+      <li class="issue-box">
+        <div class="issue-topic"><a href="#">Transportation</a></div>
+        <div class="issue-blurb"><a href="#">More toll roads?</a></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="bill-search">
+  <div class="bill-search-container">
+    <label for="bill-search-input">Know what you're looking for? Search by bill number, legislator, committee or subject:</label>
+    <input id="bill-search-input" type="text" placeholder="E.g. HB22, State Affairs"></input>
+  </div>
+</section>
+
+<div class="ad-container banner-ad">
+    <img src="http://placehold.it/728x90&text=Banner ad" alt="ad">
+</div>
+
+<section class="streams">
+  <div class="stream-column house-column">
+    <header class="chamber-header">
+      <h3>Texas House Livestream</h3>
+      <p>Convenes at <span class="time-highlight">10 a.m. tomorrow</span></p>
+    </header>
+    <div class="video">
+      <iframe width="560" height="315" src="//www.youtube.com/embed/JUDSeb2zHQ0" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="meetings">
+      <header>
+        <h4>Upcoming committee meetings</h4>
+      </header>
+      <ul class="meeting-list">
+        <li>
+          <div class="committee-name"><a href="#">Public Health</a> <span class="watch-callout"><a href="#"><i class="fa fa-video-camera"></i> watch</a></span></div>
+          <div class="committee-where">Where: E1.024</div>
+          <div class="committee-when">When: 2 p.m. or upon ajournment</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="stream-column senate-column">
+    <header class="chamber-header">
+      <h3>Texas Senate Livestream</h3>
+      <p>Convenes at <span class="time-highlight">11 a.m. tomorrow</span></p>
+    </header>
+    <div class="video">
+      <iframe width="560" height="315" src="//www.youtube.com/embed/QH0Hl31vdF4" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="meetings">
+      <header>
+        <h4>Upcoming committee meetings</h4>
+      </header>
+      <ul class="meeting-list">
+        <li>
+          <div class="committee-name"><a href="#">Health and Human Services</a> <span class="watch-callout"><a href="#"><i class="fa fa-video-camera"></i> watch</a></span></div>
+          <div class="committee-where">Where: E1.024</div>
+          <div class="committee-when">When: 2 p.m. or upon ajournment</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="content-block">
+  <header class="dome-section-header">
+    <h2>Talk of the Dome</h2>
+  </header>
+  <div class="talk-of-the-dome">
+    <div class="dome-content">
+    <header>
+      <h3><a href="#">A move to consolidate the state's five health agencies</a></h3>
+    </header>
+    <div class="the-gist">
+      <header>
+        <h4>The Gist</h4>
+      </header>
+      <p>Lawmakers are trying to streamline the state's health system by consolidating five agencies into one. The move could potentially save billions of dollars, but top officials inside the agencies have voiced concerns.</p>
+    </div>
+    <div class="the-latest">
+      <header>
+        <h4>The Latest</h4>
+      </header>
+      <ul class="latest-story-list">
+        <li><a href="#">Senate Health Committee Considers Merging Agencies</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ad-container box-ad">
+    <img src="http://placehold.it/300x250&text=Box ad" alt="ad">
+  </div>
+  </div>
+</section>
+
+<section class="wtf-txlege">
+  <div class="wtf-txlege-container">
+    <header class="section-header">
+      <h2><a href="#">WTF, #txlege?</a></h2>
+      <p>Explaining the Texas Legislature, one video at a time</p>
+    </header>
+    <div class="wtf-boxes">
+      <div class="wtf-box">
+        <header>
+          <h3>What the hell is the Calendars Committee?</h3>
+        </header>
+        <div class="video">
+          <iframe width="560" height="315" src="//www.youtube.com/embed/OhfZlznuaVE" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="wtf-box">
+        <header>
+          <h3>This is embarrassing, but what does the lieutenant governor do?</h3>
+        </header>
+        <div class="video">
+          <iframe width="560" height="315" src="//www.youtube.com/embed/OhfZlznuaVE" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="see-more"><a href="#">See more ></a></span>
+</section>
+
+<section class="topics">
+  <header class="section-header">
+    <h2><a href="#">Insider Guides to #txlege</a></h2>
+    <p>Description of these lists and why they exist</p>
+  </header>
+  <div class="topic-boxes">
+    <div class="topic-box">
+      <header class="topic-header">
+        <h3><a href="#">Criminal Justice</a></h3>
+        <p>Curated by Terri Langford</p>
+      </header>
+      <ul class="issue-list">
+        <li>Better accountability concerning early releases</li>
+        <li>Issue #2</li>
+        <li>Issue #3</li>
+      </ul>
+      <span class="see-more"><a href="#">See more ></a></span>
+    </div>
+    <div class="topic-box">
+      <header class="topic-header">
+        <h3><a href="#">Economy</a></h3>
+        <p>Curated by Aman Batheja</p>
+      </header>
+      <ul class="issue-list">
+        <li>Pouring more money out of the Rainy Fund</li>
+        <li>Issue #2</li>
+        <li>Issue #3</li>
+      </ul>
+      <span class="see-more"><a href="#">See more ></a></span>
+    </div>
+    <div class="topic-box">
+      <header class="topic-header">
+        <h3><a href="#">Energy</a></h3>
+        <p>Curated by Jim Malewitz</p>
+      </header>
+      <ul class="issue-list">
+        <li>Limits proposed on fracking in South Texas</li>
+        <li>Issue #2</li>
+        <li>Issue #3</li>
+      </ul>
+      <span class="see-more"><a href="#">See more ></a></span>
+    </div>
+    <div class="topic-box">
+      <header class="topic-header">
+        <h3><a href="#">Environment</a></h3>
+        <p>Curated by Neena Satija</p>
+      </header>
+      <ul class="issue-list">
+        <li>Fast-tracking the Keystone Pipeline</li>
+        <li>Issue #2</li>
+        <li>Issue #3</li>
+      </ul>
+      <span class="see-more"><a href="#">See more ></a></span>
+    </div>
+    <div class="topic-box">
+      <header class="topic-header">
+        <h3><a href="#">Ethics</a></h3>
+        <p>Curated by Jay Root and Terri Langford</p>
+      </header>
+      <ul class="issue-list">
+        <li>Increases in lobbyist disclosures</li>
+        <li>Issue #2</li>
+        <li>Issue #3</li>
+      </ul>
+      <span class="see-more"><a href="#">See more ></a></span>
+    </div>
+    <div class="topic-box">
+      <header class="topic-header">
+        <h3><a href="#">Healthcare</a></h3>
+        <p>Curated by Alexa Ura and Edgar Walters</p>
+      </header>
+      <ul class="issue-list">
+        <li>More regulations on abortion providers</li>
+        <li>Issue #2</li>
+        <li>Issue #3</li>
+      </ul>
+      <span class="see-more"><a href="#">See more ></a></span>
+    </div>
+    <div class="topic-box">
+      <header class="topic-header">
+        <h3><a href="#">Higher Education</a></h3>
+        <p>Curated by Reeve Hamilton</p>
+      </header>
+      <ul class="issue-list">
+        <li>UT System's administrative woes</li>
+        <li>Issue #2</li>
+        <li>Issue #3</li>
+      </ul>
+      <span class="see-more"><a href="#">See more ></a></span>
+    </div>
+    <div class="topic-box">
+      <header class="topic-header">
+        <h3><a href="#">Immigration</a></h3>
+        <p>Curated by Julián Aguilar</p>
+      </header>
+      <ul class="issue-list">
+        <li>Paying for more security on the border</li>
+        <li>Issue #2</li>
+        <li>Issue #3</li>
+      </ul>
+      <span class="see-more"><a href="#">See more ></a></span>
+    </div>
+    <div class="topic-box">
+      <header class="topic-header">
+        <h3><a href="#">Public Education</a></h3>
+        <p>Curated by Morgan Smith</p>
+      </header>
+      <ul class="issue-list">
+        <li>Lt. Gov. Dan Patrick's voucher plan</li>
+        <li>Issue #2</li>
+        <li>Issue #3</li>
+      </ul>
+      <span class="see-more"><a href="#">See more ></a></span>
+    </div>
+    <div class="topic-box">
+      <header class="topic-header">
+        <h3><a href="#">Transportation</a></h3>
+        <p>Curated by Aman Batheja</p>
+      </header>
+      <ul class="issue-list">
+        <li>More toll roads?</li>
+        <li>Issue #2</li>
+        <li>Issue #3</li>
+      </ul>
+      <span class="see-more"><a href="#">See more ></a></span>
+    </div>
+  </div>
+</section>
+
+<div class="ad-container banner-ad">
+    <img src="http://placehold.it/728x90&text=Banner ad" alt="ad">
+</div>
+
+<!-- <h2>AD SPACE??</h2>
+<section class="featured-content">
+    <h4>Talk of the Dome</h4>
+    <h2>A move to consolidate the state's five health agencies</h2>
+    <p><strong><em>The Gist:</em></strong> Lawmakers are trying to streamline the state's health system by consolidating five agencies into one. The move could potentially save billions of dollars, but top officials inside the agencies have voiced concerns.</p>
+    <h4><em>The Latest:</em> <a href="">Senate Health Committee Considers Merging Agencies</a></h4>
+    <img src="http://placehold.it/1024x680">
+
+     <h4><em>The Legislation:</em></h3>
+    <p>Primary Bill: <a href="">SB 7</a> &mdash; Authored by <a href="">Sen. Charles Schwertner</a></p>
+    <p>Companion Bill: <a href="">HB 25</a> &mdash; Authored by <a href="">Rep. Charles Perry</a></p>
+  </div>
+
+</section> -->
+
+{% endblock %}

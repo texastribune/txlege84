@@ -10,7 +10,7 @@ $text-black: rgb(40, 40, 40) !default;
 $text-offwhite: rgb(238, 238, 238) !default;
 
 // fonts
-$font-default: $helvetica !default;
+$font-default: 'PT Sans', $helvetica !default;
 $font-prose: $georgia !default;
 
 // breakpoints
@@ -25,4 +25,10 @@ $large: new-breakpoint(min-width 1081px);
 %content-block {
   padding-left: em(20);
   padding-right: em(20);
+}
+
+%ul-clean {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
