@@ -3,9 +3,12 @@
   @include span-columns(12);
   @include div-grid(12, 3);
   color: $text-black;
+  margin-bottom: 2em;
 
   h3 {
-    margin: .25em 0;
+    margin: 2em 0 1em;
+    padding-bottom: .5em;
+    border-bottom: 2px solid $text-black;
   }
 
   h4 {
@@ -13,210 +16,13 @@
     margin: .5em 0;
   }
 
-}
-
-.app-bar {
-  @include span-columns(12);
-  display: block;
-  left: 0;
-  overflow: hidden;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-
-  button {
-    background-color: transparent;
-    background-image: none;
-    border: 0;
-    display: inline-block;
-    padding: 0;
-    transition: background-color .2s ease-out;
-
-    &:hover {
-      background-color: rgba(255, 255, 255, .1);
-    }
-
-    &:focus {
-      background-color: rgba(255, 255, 255, 0);
-      outline: 0;
-    }
-
-    &:active {
-      background-color: rgba(255, 255, 255, .4);
-    }
-
-  }
-
-  h1 {
-    color: $masthead-black;
-    display: initial;
-    float: none;
-    font-size: 2em;
-    font-weight: 300;
-    line-height: 60px;
-    margin: 2em 0;
-    max-width: none;
-    padding: 0;
-  }
-
-  h3 {
-    color: $text-black;
-    font-weight: 400;
-    display: inline-block;
-    margin: .5em 1em;
-  }
-
-  .nav-button {
-    border: 1px solid;
-
-    &:hover {
-      background-color: $href-offwhite;
-    }
-  }
-
-}
-
-.app-bar-container {
-  margin: 0 auto;
-  position: relative;
-  width: 100%;
-}
-
-.app-bar.open,
-.app-bar.open ~ .main {
-  transform: translate(250px, 0);
-}
-
-.app-bar-actions {
-  @include div-grid(12, 3);
-  z-index: 2;
-}
-
-
-
-.navdrawer-container {
-  background-color: $href-offwhite;
-  display: none;
-  overflow-y: auto;
-  transform: translate(-250px, 0);
-  width: 250px;
-  height: 100%;
-  z-index: 1;
-
-  &.open {
-    display: block;
-    position: fixed;
-    transform: translate(0, 0);
-  }
-
-  ul {
-    list-style-type: none;
-    margin: 1em;
-    padding: 0;
-  }
-
-  li {
-    border-bottom-style: solid;
-    border-color: #fff;
-    border-width: 1px;
-    padding: 0;
-
-    &::before {
-      content: none;
-    }
-  }
-
-  a {
-    color: #fff;
-    display: block;
+  h5 {
+    text-transform: uppercase;
     font-size: .8em;
-    height: 40px;
-    line-height: 1em;
-    padding: 12px 20px;
-    text-decoration: none;
-    transition: background-color .2s ease-out;
-    white-space: nowrap;
-
-    &:hover {
-      background-color: rgba(255, 255, 255, .2);
-    }
-
-    &:focus {
-      background-color: rgba(255, 255, 255, 0);
-      outline: 0;
-    }
-
-    &:active {
-      background-color: rgba(255, 255, 255, .4);
-    }
+    font-weight: 300;
+    margin: .25em;
   }
 
 }
 
-.app-bar,
-.navdrawer-container.opened,
-.main {
-  transition: transform .3s ease-out;
-}
 
-.main {
-  margin: 0 auto;
-  min-height: 100%;
-}
-
-.menu-icon {
-  display: inline-block;
-  height: 1em;
-  margin: .5em 0 .5em 1em;
-  position: relative;
-  width: 1em;
-
-  span {
-    background-color: #ccc;
-    display: block;
-    height: .2em;
-    margin: 0 auto;
-    position: relative;
-    transition-delay: .2s;
-    transition-duration: 0;
-    width: 1.5em;
-
-    &:before,
-    &:after {
-      background-color: #ccc;
-      content: '';
-      display: block;
-      height: .2em;
-      position: absolute;
-      transition-delay: .2s, 0;
-      transition-duration: .2s;
-      transition-property: margin, transform;
-      width: 1.5em;
-    }
-
-    &:before {
-      margin-top: -.5em;
-    }
-
-    &:after {
-      margin-top: .5em;
-    }
-  }
-}
-
-.x span {
-  background-color: rgba(0, 0, 0, 0);
-  transition-delay: .2s;
-
-  &:before {
-    margin-top: 0;
-    transform: rotate(45deg);
-    transition-delay: 0, .2s;
-  }
-
-  &:after {
-    margin-top: 0;
-    transform: rotate(-45deg);
-    transition-delay: 0, .2s;
-  }
-}

@@ -1,17 +1,22 @@
 .livestream {
   @extend %content-block;
   @include span-columns(12);
+  background-color: $href-offwhite;
 
   .watch,
   .upcoming-meetings {
     @include div-grid(12, 2);
   }
 
-  border: 1px dashed $href-teal;
-
   .house,
   .senate {
-    @extend %content-block;
+    h2 {
+      margin: .25em 0;
+    }
+
+    h4 {
+      margin: .25em 0 1em;
+    }
   }
 
   .upcoming-meetings {
@@ -34,6 +39,7 @@
 
   img {
     width: 100%;
+    margin-bottom: 1em;
   }
 }
 

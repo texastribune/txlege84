@@ -1,4 +1,5 @@
 .nav-bar {
+  @extend %content-block;
   @include span-columns(12);
   display: block;
   left: 0;

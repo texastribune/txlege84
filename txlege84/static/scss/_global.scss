@@ -19,6 +19,19 @@ body {
 
 }
 
+a {
+  color: $href-teal;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: $href-teal;
+  }
+}
+
 .container,
 .main-container {
   @extend %container;
