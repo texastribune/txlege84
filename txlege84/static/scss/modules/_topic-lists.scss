@@ -1,17 +1,28 @@
 .topic-lists {
   @include span-columns(12);
-  @include div-grid(12, 2);
-
-  div {
-    @extend %content-block;
-  }
+  @include div-grid(12, 3);
 
   img {
+    margin-right: 1em;
     max-height: 100px;
   }
 
   .topic-list-box {
-    border: 1px dashed $tribune-yellow;
+    @extend %content-block;
+  }
+
+  .curated {
+    @include span-columns(12);
+    @include row();
+
+    p {
+      font-style: italic;
+      font-size: .8em;
+    }
+  }
+
+  .see-all {
+    font-size: .8em;
   }
 
 }

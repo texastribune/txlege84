@@ -32,6 +32,35 @@ a {
   }
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 1em 0;
+}
+
+h4 {
+  font-style: italic;
+  margin-top: .5em;
+}
+
+h5 {
+  text-transform: uppercase;
+  font-size: .8em;
+  font-weight: 300;
+  margin: 1em 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 1em 0;
+}
+
 .container,
 .main-container {
   @extend %container;

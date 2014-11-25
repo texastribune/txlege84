@@ -1,10 +1,42 @@
 .featured-content {
   @include span-columns(12);
-  @include div-grid(12, 3);
+  @include row();
+  background-color: #ddd;
 
   div {
     @extend %content-block;
-    border: 1px dashed $tribune-yellow;
+
+  }
+
+  .feature-box {
+    @include span-columns(12);
+
+    @include media($medium) {
+      @include span-columns(4);
+    }
+
+    @include media($large) {
+      @include span-columns(4);
+    }
+
+  }
+
+  .feature-ad-box {
+    visibility: hidden;
+
+    @include media($medium) {
+      @include span-columns(4);
+      @include omega();
+      visibility: visible;
+
+    }
+
+    @include media($large) {
+      @include span-columns(4);
+      @include omega();
+      visibility: visible;
+    }
+
   }
 
   img {
