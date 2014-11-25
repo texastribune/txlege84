@@ -24,6 +24,28 @@
     @include span-columns(5 of 8);
   }
 
+  .story-stream {
+    @include span-columns(12);
+
+    @include media($large) {
+      @include span-columns(3 of 8);
+      @include omega();
+    }
+
+  }
+
+  .slick-prev,
+  .slick-next {
+    top: inherit;
+  }
+
+  .slick-prev {
+    left: 4%;
+  }
+
+  .slick-next {
+    right: 0;
+  }
 
   .feature-ad-box {
     visibility: hidden;

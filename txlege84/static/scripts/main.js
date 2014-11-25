@@ -35,7 +35,7 @@
 })();
 
 $(document).ready(function() {
-  $('.single-item').slick({
+  $('.story-stream').slick({
       dots: true,
       infinite: true,
       speed: 500,
