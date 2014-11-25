@@ -14,6 +14,7 @@
     body.classList.remove('open');
     appbarElement.classList.remove('open');
     navdrawerContainer.classList.remove('open');
+    icon.classList.remove('x');
   }
 
   function toggleMenu() {

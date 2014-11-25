@@ -1,20 +1,58 @@
-.bill-search {
+.bill-search-box {
   @extend %content-block;
   @include span-columns(12);
-  height: 150px;
-  border: 1px dashed $href-teal;
+  border: 1px solid #ccc;
 
-  @include media($large) {
-    @include span-columns(8);
+  h3 {
+    display: inline-block;
   }
 
-  .bill-search-box {
-    h3 {
-      display: inline-block;
+  i.fa-search {
+    display: inline-block;
+    font-size: 1.2em;
+    margin-right: .5em;
+  }
+
+  input[type="text"] {
+    display: inline-block;
+    border: none;
+    outline: none;
+    color: $text-black;
+    padding: .5em 0;
+    width: 100%;
+    transition: width .4s ease;
+    cursor: pointer;
+    margin-bottom: 1em;
+
+    @include media($medium) {
+      width: 60%;
     }
 
-    form {
-      display: inline-block;
+    @include media($large) {
+      width: 50%;
     }
   }
+
+  input[type="text"]:hover {
+    border-bottom: 1px solid #BBB;
+    width: 100%;
+    z-index: 1;
+    border-bottom: 1px solid #BBB;
+    cursor: text;
+  }
+
+  input[type="text"]:focus {
+    border-bottom: 1px solid #BBB;
+    width: 100%;
+    z-index: 1;
+    border-bottom: 1px solid #BBB;
+    cursor: text;
+  }
+
+  form {
+    display: inline-block;
+    width: 100%;
+  }
+
 }
+
