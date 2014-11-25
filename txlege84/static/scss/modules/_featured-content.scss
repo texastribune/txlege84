@@ -36,11 +36,15 @@
 
   .slick-prev,
   .slick-next {
-    top: inherit;
+    top: 25%;
+
+    @include media($large){
+      top: 20%;
+    }
   }
 
   .slick-prev {
-    left: 4%;
+    left: 80%;
   }
 
   .slick-next {
