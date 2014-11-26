@@ -1,4 +1,5 @@
 .topic-lists {
+  @extend %content-block;
   @include span-columns(12);
   @include div-grid(12, 3);
 
@@ -8,7 +9,18 @@
   }
 
   .topic-list-box {
-    @extend %content-block;
+    @include span-columns(12);
+
+    @include media($medium){
+      @include span-columns(4);
+      @include omega(3n);
+    }
+
+    @include media($large){
+      @include span-columns(4);
+      @include omega(3n);
+    }
+
   }
 
   .curated {
