@@ -1,0 +1,49 @@
+.topic-list-landing {
+  img {
+    margin-right: 1em;
+    max-height: 100px;
+  }
+}
+
+.issue-list-header {
+  @include span-columns(12);
+
+  @include media($medium) {
+    @include span-columns(4);
+
+  }
+
+  @include media($large) {
+    @include span-columns(4);
+
+  }
+
+}
+
+.issue-list-landing {
+  @include span-columns(12);
+
+  @include media($medium) {
+    @include span-columns(8);
+    @include omega();
+
+    li {
+      @include span-columns(4 of 8);
+      @include omega(2n);
+    }
+
+  }
+
+  @include media($large) {
+    @include span-columns(8);
+    @include omega();
+
+    li {
+      @include span-columns(4 of 8);
+      @include omega(2n);
+    }
+
+  }
+
+
+}

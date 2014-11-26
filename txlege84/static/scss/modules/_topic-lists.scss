@@ -3,38 +3,18 @@
   @include span-columns(12);
   @include div-grid(12, 3);
 
-  img {
-    margin-right: 1em;
-    max-height: 100px;
-  }
+}
 
-  .topic-list-box {
-    @include span-columns(12);
+img.headshot {
+  margin-right: 1em;
+  max-height: 100px;
+}
 
-    @include media($medium){
-      @include span-columns(4);
-      @include omega(3n);
-    }
+.curated {
+  font-style: italic;
+  font-size: .8em;
+}
 
-    @include media($large){
-      @include span-columns(4);
-      @include omega(3n);
-    }
-
-  }
-
-  .curated {
-    @include span-columns(12);
-    @include row();
-
-    p {
-      font-style: italic;
-      font-size: .8em;
-    }
-  }
-
-  .see-all {
-    font-size: .8em;
-  }
-
+.see-all {
+  font-size: .8em;
 }
