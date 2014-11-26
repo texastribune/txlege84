@@ -16,6 +16,7 @@
   input[type="text"] {
     display: inline-block;
     border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
     outline: none;
     color: $text-black;
     padding: .5em 0;
