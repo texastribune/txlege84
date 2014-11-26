@@ -1,8 +1,17 @@
 .topic-list-landing {
-  img {
-    margin-right: 1em;
-    max-height: 100px;
+  @extend %content-block;
+  @include span-columns(12);
+  h2 {
+    margin-top: 2em;
   }
+
+}
+
+.issue-list-block {
+  @include span-columns(12);
+  border-bottom: 1px solid $tribune-yellow;
+  padding-bottom: 1em;
+
 }
 
 .issue-list-header {

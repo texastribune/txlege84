@@ -1,5 +1,5 @@
-.top-issues {
-  @extend %content-block;
+.top-issues,
+.browse-topics {
   @include span-columns(12);
   @include div-grid(12, 3);
   color: $text-black;
@@ -16,4 +16,7 @@
 
 }
 
+.top-issues {
+  @extend %content-block;
+}
 
