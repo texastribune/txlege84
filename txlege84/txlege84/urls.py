@@ -8,6 +8,7 @@ urlpatterns = patterns(
     '',
     url(r'^$', TemplateView.as_view(template_name='landing.html')),
     url(r'^topic-list-landing/$', TemplateView.as_view(template_name='topic-list-landing.html')),
+    url(r'^topic-list/$', TemplateView.as_view(template_name='topic-list.html')),
 
     # Examples:
     # url(r'^$', 'txlege84.views.home', name='home'),

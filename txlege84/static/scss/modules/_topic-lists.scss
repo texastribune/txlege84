@@ -18,3 +18,48 @@ img.headshot {
 .see-all {
   font-size: .8em;
 }
+
+.topic-list-embed-block {
+  @extend %content-block;
+  border: 1px solid;
+  display: inline-block;
+}
+
+.topic-list-header {
+  h3 {
+    display: inline-block;
+  }
+}
+
+.share-topic {
+  display: inline-block;
+  float: right;
+
+  h4 {
+    display: inline-block;
+    margin: 1em 0;
+  }
+
+}
+
+.topic-list-legislation {
+  h5 {
+    display: inline-block;
+  }
+
+  ul {
+    margin: 0;
+  }
+
+  li {
+    margin: 0 0 1em;
+
+    @include media($medium) {
+      @include span-columns(6);
+    }
+
+    @include media($large) {
+      @include span-columns(6);
+    }
+  }
+}
