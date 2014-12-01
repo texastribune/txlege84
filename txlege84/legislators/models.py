@@ -28,7 +28,8 @@ class Legislator(models.Model):
     first_name = models.CharField(max_length=40)
     middle_name = models.CharField(max_length=40)
     last_name = models.CharField(max_length=40)
-    party = models.ForeignKey(Party, related_name='legislators')
+    party = models.ForeignKey(
+        Party, related_name='legislators', null=True, blank=True)
     chamber = models.ForeignKey(
         Chamber, related_name='legislators', null=True, blank=True)
     district = models.IntegerField(null=True, blank=True)
