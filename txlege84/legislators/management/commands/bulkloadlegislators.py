@@ -30,33 +30,36 @@ class Command(BaseCommand):
             with open(path, 'rb') as f:
                 data = json.loads(f.read())
 
-                # if they have roles, they're active
-                if data['roles']:
-                    primary_role = data['roles'][0]
-                elif '83' in data['old_roles']:
-                    primary_role = data['old_roles']['83'][0]
-                else:
-                    continue
-
                 self.stdout.write(u'Loading {0} {1}...'.format(
                     data['first_name'],
                     data['last_name']))
 
-                party, _ = Party.objects.get_or_create(
-                    name=primary_role['party'])
+                if 'party' in data:
+                    party, _ = Party.objects.get_or_create(
+                        name=data['party'])
+                else:
+                    party = None
 
-                if 'chamber' in primary_role:
+                if 'chamber' in data:
                     chamber, _ = Chamber.objects.get_or_create(
-                        name=u'Texas Senate' if primary_role['chamber']
-                             == 'upper' else u'Texas House'
+                        name=u'Texas Senate' if data['chamber'] == 'upper'
+                        else u'Texas House'
                     )
                 else:
                     chamber = None
 
-                if 'district' in primary_role:
-                    district = int(primary_role['district'])
+                if 'district' in data:
+                    if data['district']:
+                        district = int(data['district'])
+                    else:
+                        district = None
                 else:
                     district = None
+
+                if 'url' in data:
+                    profile_url = data['url']
+                else:
+                    profile_url = None
 
                 Legislator.objects.get_or_create(
                     first_name=data['first_name'],
@@ -65,6 +68,7 @@ class Command(BaseCommand):
                     party=party,
                     chamber=chamber,
                     district=district,
-                    profile_url=data['url'],
+                    profile_url=profile_url,
+                    active=data['active'],
                     openstates_id=data['leg_id'],
                 )

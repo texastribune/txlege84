@@ -33,7 +33,8 @@ class Legislator(models.Model):
     chamber = models.ForeignKey(
         Chamber, related_name='legislators', null=True, blank=True)
     district = models.IntegerField(null=True, blank=True)
-    profile_url = models.URLField()
+    profile_url = models.URLField(null=True, blank=True)
+    active = models.BooleanField(default=False)
 
     openstates_id = models.CharField(max_length=9, unique=True)
 
