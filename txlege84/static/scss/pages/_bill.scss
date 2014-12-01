@@ -1,0 +1,62 @@
+.bill {
+  @extend %content-block;
+}
+
+.bill-authors {
+  @include span-columns(12);
+
+  @include media($medium) {
+    @include div-grid(12, 3);
+  }
+  @include media($large) {
+    @include div-grid(12, 3);
+  }
+
+}
+
+.bill-links {
+  li {
+    @include media($medium) {
+      @include span-columns(6);
+      @include omega(2n);
+    }
+  }
+
+  li {
+    @include media($large) {
+      @include span-columns(6);
+      @include omega(2n);
+    }
+  }
+}
+
+.bill-stage {
+  border: 1px solid;
+  height: 6em;
+  padding: 1em;
+
+  @include media($medium) {
+    float: left;
+    padding: .25em;
+    width: 14%;
+  }
+
+  @include media($large) {
+    float: left;
+    width: 14%;
+  }
+
+  &.done {
+    background: green;
+  }
+}
+
+.bill-stage-name {
+  font-size: .9em;
+  height: 2em;
+}
+
+.date-stage-complete {
+  font-size: .8em;
+  font-style: italic;
+}

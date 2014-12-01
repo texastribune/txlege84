@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include "modules/nav-bar.html" %}
+<div class="main">
+  {% include "modules/bill-search-box.html" %}
+  <div class="bill">
+    <h2>House Bill 4</h2>
+    <p>Relating to the continuation and functions of the Texas Lottery Commission; providing penalties; imposing fees.</p>
+    <h5>Last Action</h5>
+    <p>Referred to Higher Education &mdash; <em>Feb. 4, 2015</em></p>
+    <div class="bill-links">
+      <h5>Quick Links</h5>
+      <ul>
+        <li>Bill Text</li>
+        <li>Amendments</li>
+      </ul>
+    </div>
+
+    <div class="bill-authors">
+      <div>
+        <h5>Primary Author</h5>
+        <p>Rep. <a href="">Dan Branch</a></p>
+      </div>
+      <div>
+        <h5>Coauthors</h5>
+        <p>Rep. <a href="">Ralph Sheffield</a></p>
+      </div>
+      <div>
+        <h5>Sponsor</h5>
+        <p>None</p>
+      </div>
+    </div>
+    <div>
+      <h5>Actions</h5>
+      <p>Referred to Higher Education &mdash; <em>Feb. 4, 2015</em></p>
+      <p>Read first time &mdash; <em>Feb. 4, 2015</em></p>
+      <p>Filed &mdash; <em>Nov. 12, 1014</em></p>
+    </div>
+    <div class="bill-stages">
+      <h5>Major Bill Stages</h5>
+      <div class="bill-stage done">
+        <div class="bill-stage-name">Filed</div>
+        <div class="date-stage-complete">Nov. 12, 1014</div>
+      </div>
+      <div class="bill-stage">
+        <div class="bill-stage-name">Out of House Committee</div>
+        <div class="date-stage-complete"></div>
+      </div>
+      <div class="bill-stage">
+        <div class="bill-stage-name">Approved by House</div>
+        <div class="date-stage-complete"></div>
+      </div>
+      <div class="bill-stage">
+        <div class="bill-stage-name">Out of Senate Committee</div>
+        <div class="date-stage-complete"></div>
+      </div>
+      <div class="bill-stage">
+        <div class="bill-stage-name">Approved by Senate</div>
+        <div class="date-stage-complete"></div>
+      </div>
+      <div class="bill-stage">
+        <div class="bill-stage-name">Governor Action</div>
+        <div class="date-stage-complete"></div>
+      </div>
+      <div class="bill-stage">
+        <div class="bill-stage-name">Bill Becomes Law</div>
+        <div class="date-stage-complete"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
