@@ -1,0 +1,17 @@
+.legislator {
+  @extend %content-block;
+
+  img {
+    float: left;
+    margin-right: 1em;
+  }
+}
+
+.legislator-info {
+  @include span-columns(12);
+  margin-bottom: 1em;
+
+  h4 {
+    margin-left: 1em;
+  }
+}

@@ -3,6 +3,9 @@
 }
 
 .bill-authors {
+  border-bottom: 1px solid $tribune-yellow;
+  margin-bottom: 2em;
+
   @include span-columns(12);
 
   @include media($medium) {
@@ -14,25 +17,10 @@
 
 }
 
-.bill-links {
-  li {
-    @include media($medium) {
-      @include span-columns(6);
-      @include omega(2n);
-    }
-  }
-
-  li {
-    @include media($large) {
-      @include span-columns(6);
-      @include omega(2n);
-    }
-  }
-}
-
 .bill-stage {
   border: 1px solid;
   height: 6em;
+  margin-bottom: 1em;
   padding: 1em;
 
   @include media($medium) {
