@@ -113,7 +113,7 @@ class Command(BaseCommand):
         bill, _ = Bill.objects.get_or_create(
             name=data['bill_id'],
             description=data['title'],
-            bill_type=data['type'][0].title(),
+            bill_type=data['type'][0].lower(),
             chamber=(self.senate_chamber if data['chamber'] == 'upper'
                      else self.house_chamber),
             openstates_id=data['id']
