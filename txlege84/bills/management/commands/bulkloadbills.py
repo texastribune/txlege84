@@ -133,7 +133,7 @@ class Command(BaseCommand):
             Sponsorship.objects.get_or_create(
                 legislator=legislator,
                 bill=bill,
-                role=member['type'].title()
+                role=member['type'].lower()
             )
 
         for action in data['actions']:
