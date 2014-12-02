@@ -1,5 +1,32 @@
 .bill {
+  @include span-columns(12);
+
+  @include media($large) {
+    @include span-columns(8);
+  }
+}
+
+.related-issue {
   @extend %content-block;
+  @include span-columns(12);
+  border: 1px solid;
+
+  @include media($large) {
+    @include span-columns(4);
+    @include omega();
+  }
+
+  .art {
+    display: none;
+
+    img {
+      width: 100%;
+    }
+
+    @include media($large) {
+      display: block;
+    }
+  }
 }
 
 .bill-authors,
@@ -15,6 +42,12 @@
     @include div-grid(12, 3);
   }
 
+}
+
+
+.bill-stages,
+.bill-actions {
+  @include span-columns(12);
 }
 
 .bill-stage {

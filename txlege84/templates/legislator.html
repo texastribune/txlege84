@@ -13,11 +13,13 @@
       <p>Phone Number: 512-463-0125</p>
       <p><a href="">More Info</a></p>
     </div>
+    {% include "components/bill-filter.html" %}
     <div class="legislator-bills">
       <table>
         <thead>
           <tr>
             <th>Bill Number</th>
+            <th>Category</th>
             <th>Caption</th>
             <th>Status</th>
             <th>Coauthors</th>
@@ -27,6 +29,7 @@
         <tbody>
           <tr>
             <td data-title="Bill Number">SB 38</td>
+            <td data-title="Category">Taxation</td>
             <td data-title="Caption">Relating to the continuation and functions of the Texas Lottery Commission; providing penalties; imposing fees.</td>
             <td data-title="Version">Introduced</td>
             <td data-title="Coauthors"><a href="">Schwertner</a></td>
@@ -34,6 +37,7 @@
           </tr>
           <tr>
             <td data-title="Bill Number">SB 41</td>
+            <td data-title="Category">Taxation</td>
             <td data-title="Caption">Relating to the continuation and functions of the Texas Lottery Commission; providing penalties; imposing fees.</td>
             <td data-title="Version">In Committee</td>
             <td data-title="Coauthors"><a href="">Schwertner</a></td>

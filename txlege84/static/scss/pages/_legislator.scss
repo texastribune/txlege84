@@ -1,6 +1,4 @@
 .legislator {
-  @extend %content-block;
-
   img {
     float: left;
     margin-right: 1em;
@@ -14,4 +12,21 @@
   h4 {
     margin-left: 1em;
   }
+}
+
+.bill-filter {
+  @include span-columns(12);
+  text-align: right;
+
+  h4 {
+    display: inline-block;
+  }
+
+  form {
+    display: inline-block;
+  }
+}
+
+.legislator-bills {
+  @include span-columns(12);
 }

@@ -1,5 +1,4 @@
 .search-box {
-  @extend %content-block;
   @include span-columns(12);
 
   h3 {

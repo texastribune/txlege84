@@ -66,3 +66,7 @@ li {
 .main-container {
   @extend %container;
 }
+
+.main {
+  @extend %content-block;
+}

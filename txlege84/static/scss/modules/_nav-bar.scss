@@ -48,6 +48,11 @@
     font-weight: 400;
     display: inline-block;
     margin: .5em 1em;
+
+    @include media($medium) {
+      font-size: .8em;
+      margin: .5em;
+    }
   }
 
   .nav-button {
@@ -159,32 +164,32 @@
   span {
     background-color: #ccc;
     display: block;
-    height: .2em;
+    height: 3px;
     margin: 0 auto;
     position: relative;
     transition-delay: .2s;
     transition-duration: 0;
-    width: 1.5em;
+    width: 20px;
 
     &:before,
     &:after {
       background-color: #ccc;
       content: '';
       display: block;
-      height: .2em;
+      height: 3px;
       position: absolute;
       transition-delay: .2s, 0;
       transition-duration: .2s;
       transition-property: margin, transform;
-      width: 1.5em;
+      width: 20px;
     }
 
     &:before {
-      margin-top: -.5em;
+      margin-top: -6px;
     }
 
     &:after {
-      margin-top: .5em;
+      margin-top: 6px;
     }
   }
 }
