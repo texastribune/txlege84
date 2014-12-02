@@ -1,5 +1,4 @@
 .topic-list-landing {
-  @extend %content-block;
   @include span-columns(12);
   h2 {
     margin-top: 2em;
