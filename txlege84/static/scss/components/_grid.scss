@@ -35,7 +35,6 @@
 }
 
 @mixin div-grid($col-width, $number-div) {
-  // @include span-columns ($col-width / $min-col);
 
   @include media($medium) {
     div {

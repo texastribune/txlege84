@@ -11,6 +11,8 @@ urlpatterns = patterns(
     url(r'^topic-list/$', TemplateView.as_view(template_name='topic-list.html')),
     url(r'^bill/$', TemplateView.as_view(template_name='bill.html')),
     url(r'^legislator/$', TemplateView.as_view(template_name='legislator.html')),
+    url(r'^committee/$', TemplateView.as_view(template_name='committee.html')),
+
     # Examples:
     # url(r'^$', 'txlege84.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),

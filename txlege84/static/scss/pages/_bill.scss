@@ -2,8 +2,8 @@
   @extend %content-block;
 }
 
-.bill-authors {
-  border-bottom: 1px solid $tribune-yellow;
+.bill-authors,
+.bill-committee-assignment {
   margin-bottom: 2em;
 
   @include span-columns(12);
