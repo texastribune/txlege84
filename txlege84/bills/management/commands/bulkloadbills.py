@@ -1,6 +1,7 @@
 from datetime import datetime
 from glob import glob
 import json
+from optparse import make_option
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
@@ -13,6 +14,19 @@ from legislators.models import Chamber, Legislator
 class Command(BaseCommand):
     help = u'Bulk load the legislator data into the database.'
 
+    custom_options = (
+        make_option(
+            '-s',
+            '--session',
+            action='store',
+            dest='session',
+            default=None,
+            help='Load bills from a particular session.'
+        ),
+    )
+
+    option_list = BaseCommand.option_list + custom_options
+
     def handle(self, *args, **kwargs):
         self.load_subjects()
 
@@ -20,8 +34,14 @@ class Command(BaseCommand):
         self.senate_chamber = Chamber.objects.get(name='Texas Senate')
         self.house_chamber = Chamber.objects.get(name='Texas House')
 
-        self.load_senate()
-        self.load_house()
+        if not kwargs['session']:
+            self.stderr.write('--session is required!')
+
+        # Loading Texas Senate bills
+        self.load_bills(kwargs['session'], 'upper', 'S')
+
+        # Loading Texas House bills
+        self.load_bills(kwargs['session'], 'lower', 'H')
 
     def date_converter(self, date_string):
         if date_string:
@@ -83,25 +103,15 @@ class Command(BaseCommand):
         for subject in subjects:
             Subject.objects.get_or_create(name=subject)
 
-    def load_senate(self):
-        self.stdout.write(u'Loading Senate bills...')
+    def load_bills(self, session, chamber, abbr):
+        bill_files = glob(
+            '{dir}/bills/tx/{session}/{chamber}/{abbr}*'.format(
+                dir=settings.DOWNLOAD_DIR,
+                session=session,
+                chamber=chamber,
+                abbr=abbr))
 
-        senate_bill_files = glob('{}/bills/tx/83/upper/S*'.format(
-            settings.DOWNLOAD_DIR))
-
-        for path in senate_bill_files:
-            with open(path, 'rb') as f:
-                data = json.loads(f.read())
-
-                self.load_bill(data)
-
-    def load_house(self):
-        self.stdout.write(u'Loading House bills...')
-
-        house_bill_files = glob('{}/bills/tx/83/lower/H*'.format(
-            settings.DOWNLOAD_DIR))
-
-        for path in house_bill_files:
+        for path in bill_files:
             with open(path, 'rb') as f:
                 data = json.loads(f.read())
 
