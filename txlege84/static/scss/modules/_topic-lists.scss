@@ -3,6 +3,9 @@
   @include span-columns(12);
   @include div-grid(12, 3);
 
+  h2 {
+    margin: 1em 0;
+  }
 }
 
 img.headshot {
@@ -19,15 +22,16 @@ img.headshot {
   font-size: .8em;
 }
 
-.topic-list-embed-block {
+.issue-embed-block {
   @extend %content-block;
   border: 1px solid;
   display: inline-block;
 }
 
-.topic-list-header {
+.issue-header {
   h3 {
     display: inline-block;
+    margin: 1em 0;
   }
 }
 
@@ -42,7 +46,7 @@ img.headshot {
 
 }
 
-.topic-list-legislation {
+.issue-legislation {
   h5 {
     display: inline-block;
   }

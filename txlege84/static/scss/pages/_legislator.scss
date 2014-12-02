@@ -14,19 +14,6 @@
   }
 }
 
-.bill-filter {
-  @include span-columns(12);
-  text-align: right;
-
-  h4 {
-    display: inline-block;
-  }
-
-  form {
-    display: inline-block;
-  }
-}
-
-.legislator-bills {
+.bill-table {
   @include span-columns(12);
 }

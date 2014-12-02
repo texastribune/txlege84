@@ -12,6 +12,7 @@ urlpatterns = patterns(
     url(r'^bill/$', TemplateView.as_view(template_name='bill.html')),
     url(r'^legislator/$', TemplateView.as_view(template_name='legislator.html')),
     url(r'^committee/$', TemplateView.as_view(template_name='committee.html')),
+    url(r'^issue/$', TemplateView.as_view(template_name='issue.html')),
 
     # Examples:
     # url(r'^$', 'txlege84.views.home', name='home'),
