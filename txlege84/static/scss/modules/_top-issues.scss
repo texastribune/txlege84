@@ -1,7 +1,7 @@
 .top-issues,
 .browse-topics {
+  @extend %content-block;
   @include span-columns(12);
-  @include div-grid(12, 3);
   color: $text-black;
   margin-bottom: 2em;
 
@@ -10,8 +10,22 @@
     padding: 1em 0 .5em;
   }
 
-  h5 {
-    margin-bottom: .5em;
+  // h5 {
+  //   margin-bottom: .5em;
+  // }
+
+  li {
+    @include span-columns(12);
+
+    @include media($medium) {
+      @include span-columns(4);
+      @include omega(3n);
+    }
+
+    @include media($large) {
+      @include span-columns(4);
+      @include omega(3n);
+    }
   }
 
 }

@@ -3,7 +3,7 @@
 
   var querySelector = document.querySelector.bind(document);
 
-  var navdrawerContainer = querySelector('.navdrawer-container');
+  var navdrawerContainer = querySelector('.browse-topics');
   var body = document.body;
   var appbarElement = querySelector('.nav-bar');
   var menuBtn = querySelector('.menu');
