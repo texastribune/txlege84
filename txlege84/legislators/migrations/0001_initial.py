@@ -28,9 +28,10 @@ class Migration(migrations.Migration):
                 ('middle_name', models.CharField(max_length=40)),
                 ('last_name', models.CharField(max_length=40)),
                 ('district', models.IntegerField(null=True, blank=True)),
-                ('profile_url', models.URLField()),
-                ('openstates_id', models.CharField(max_length=9)),
-                ('chamber', models.ForeignKey(related_name='legislators', to='legislators.Chamber')),
+                ('profile_url', models.URLField(null=True, blank=True)),
+                ('active', models.BooleanField(default=False)),
+                ('openstates_id', models.CharField(unique=True, max_length=9)),
+                ('chamber', models.ForeignKey(related_name='legislators', blank=True, to='legislators.Chamber', null=True)),
             ],
             options={
             },
@@ -49,7 +50,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='legislator',
             name='party',
-            field=models.ForeignKey(related_name='legislators', to='legislators.Party'),
+            field=models.ForeignKey(related_name='legislators', blank=True, to='legislators.Party', null=True),
             preserve_default=True,
         ),
     ]

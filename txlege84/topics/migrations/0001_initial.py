@@ -27,6 +27,19 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.CreateModel(
+            name='StoryPointer',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('headline', models.CharField(max_length=200)),
+                ('url', models.URLField()),
+                ('order', models.IntegerField()),
+                ('active', models.BooleanField(default=False)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
             name='Stream',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
@@ -45,6 +58,12 @@ class Migration(migrations.Migration):
             options={
             },
             bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='storypointer',
+            name='stream',
+            field=models.ForeignKey(related_name='stories', to='topics.Stream'),
+            preserve_default=True,
         ),
         migrations.AddField(
             model_name='issue',

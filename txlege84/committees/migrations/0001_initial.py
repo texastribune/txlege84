@@ -7,7 +7,7 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('legislators', '0002_auto_20141120_1213'),
+        ('legislators', '0001_initial'),
     ]
 
     operations = [
@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=60)),
-                ('openstates_id', models.CharField(max_length=9)),
+                ('openstates_id', models.CharField(unique=True, max_length=9)),
                 ('chamber', models.ForeignKey(related_name='committees', to='legislators.Chamber')),
             ],
             options={
