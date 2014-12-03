@@ -78,11 +78,13 @@ Now get to work!
 
 ## Bootstrapping the data
 
-You'll need a [Sunlight Foundation API key](http://sunlightfoundation.com/api/accounts/register/) to run these steps. Once you have it, you'll need to add it to your environment. There are a number of ways to do that, but the easiest is the following:
+You'll need a [Sunlight Foundation API key](http://sunlightfoundation.com/api/accounts/register/) to run these steps. Once you have it, you'll need to add it to your environment. There are a number of ways to do that, but the easiest way is:
 
 ```bash
 export SUNLIGHT_API_KEY=<api-key-characters>
 ```
+
+Then run the following:
 
 ```bash
 python txlege84/manage.py downloadopenstatesdata
