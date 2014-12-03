@@ -6,14 +6,16 @@
   {% include "modules/bill-search-box.html" %}
   <div class="bill">
     <h1>{{ object.name }}</h1>
-    <p>Relating to the continuation and functions of the Texas Lottery Commission; providing penalties; imposing fees.</p>
+    <p>{{ object.description }}</p>
     <p><a href="">Bill Text</a>, <a href="">Amendments</a></p>
     <h5>Last Action</h5>
-    <p>Referred to Higher Education &mdash; <em>Feb. 4, 2015</em></p>
+    <p>{{ object.actions.all.0.text }} <em> {{ object.actions.all.0.date }}</em></p>
     <div class="bill-authors">
       <div>
         <h5>Primary Author</h5>
-        <p>Rep. <a href="">Dan Branch</a></p>
+        {% if object.sponsorships.all.0.role = 'primary' %}
+          <p>Rep. <a href="">{{ object.sponsorships.all.0.legislator }}</a></p>
+        {% endif %}
       </div>
       <div>
         <h5>Coauthors</h5>
