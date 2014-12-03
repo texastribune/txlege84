@@ -59,7 +59,6 @@ class Command(BaseCommand):
         return latest_date['latest_json_date'].split(' ')[0]
 
     def get_updated_bill_list(self):
-        print self.latest_date
         return openstates.bills(
             state='tx',
             updated_since=self.latest_date,
