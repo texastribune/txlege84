@@ -75,3 +75,25 @@ This routes the Django's development server through BrowserSync's development se
 With both of those running, visit [`http://localhost:3000`]() to view the site.
 
 Now get to work!
+
+## Bootstrapping the data
+
+```bash
+python txlege84/manage.py downloadopenstatesdata
+```
+
+```bash
+python txlege84/manage.py bulkloadlegislators
+```
+
+```bash
+python txlege84/manage.py bulkloadcommittees
+```
+
+```bash
+python txlege84/manage.py bulkloadbills -s 84
+```
+
+```bash
+python txlege84/manage.py updatebills --bulk
+```
