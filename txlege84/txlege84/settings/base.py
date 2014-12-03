@@ -48,6 +48,13 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # apps
+    'bills',
+    'core',
+    'committees',
+    'legislators',
+    'topics',
 )
 
 
@@ -164,3 +171,15 @@ MEDIA_URL = '/media/'
 
 # http://whitenoise.evans.io/en/latest/django.html#add-gzip-and-caching-support
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+#########################
+# APP SPECIFIC SETTINGS #
+#########################
+
+ZIPPED_DATA_FILE_URL = ('http://static.openstates.org/downloads'
+                        '/2014-10-02-tx-json.zip')
+
+DOWNLOAD_DIR = os.path.join(BASE_DIR, 'data')
+DOWNLOAD_PATH = os.path.join(DOWNLOAD_DIR, 'data-json.zip')
+
+BULK_BATCH_SIZE = 10000
