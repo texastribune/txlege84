@@ -19,6 +19,7 @@ class Bill(models.Model):
     subjects = models.ManyToManyField(Subject, related_name='bills')
     openstates_id = models.CharField(max_length=11, unique=True)
     bill_type = models.CharField(max_length=21)
+    slug = models.SlugField(null=True, blank=True)
 
     # consider these a bit longer
     # first_action_date = models.DateField(null=True, blank=True)
@@ -29,6 +30,12 @@ class Bill(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = self.name.replace(' ', '')
+
+        super(Bill, self).save(*args, **kwargs)
 
 
 class Action(models.Model):
