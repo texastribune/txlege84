@@ -1,47 +1,52 @@
-from datetime import datetime
-from glob import glob
-import json
+from datetime import datetime, timedelta
 from optparse import make_option
 
-from django.conf import settings
 from django.core.management.base import BaseCommand
 
 from bills.models import Action, Bill, Sponsorship, Subject
 from committees.models import Committee
-from legislators.models import Chamber, Legislator
+from legislators.models import Legislator
+
+from sunlight import openstates
 
 
 class Command(BaseCommand):
-    help = u'Bulk load the legislator data into the database.'
+    help = u'Partially load bills into the database.'
 
     custom_options = (
         make_option(
-            '-s',
-            '--session',
-            action='store',
-            dest='session',
-            default=None,
-            help='Load bills from a particular session.'
+            '-b',
+            '--bulk',
+            action='store_true',
+            dest='bulk',
+            default=False,
+            help='Load all bills since the last bulk update.'
         ),
+        make_option(
+            '-y',
+            '--yesterday',
+            action='store_true',
+            dest='yesterday',
+            default=False,
+            help='Load all bills since yesterday.'
+        ),
+
     )
 
     option_list = BaseCommand.option_list + custom_options
 
     def handle(self, *args, **kwargs):
-        self.load_subjects()
+        if kwargs['bulk']:
+            self.latest_date = self.get_latest_download_date()
+        elif kwargs['yesterday']:
+            yesterday = datetime.now() - timedelta(days=1)
+            self.latest_date = yesterday.date().isoformat()
+        else:
+            self.stderr.write('A time frame must '
+                              'be provided! (--bulk or --yesterday)')
+            return
 
-        # Cache for bill/action loading
-        self.senate_chamber = Chamber.objects.get(name='Texas Senate')
-        self.house_chamber = Chamber.objects.get(name='Texas House')
-
-        if not kwargs['session']:
-            self.stderr.write('--session is required!')
-
-        # Loading Texas Senate bills
-        self.load_bills(kwargs['session'], 'upper', 'S')
-
-        # Loading Texas House bills
-        self.load_bills(kwargs['session'], 'lower', 'H')
+        self.load_bills()
 
     def date_converter(self, date_string):
         if date_string:
@@ -49,73 +54,23 @@ class Command(BaseCommand):
         else:
             return None
 
-    def load_subjects(self):
-        self.stdout.write(u'Loading bill subjects...')
+    def get_latest_download_date(self):
+        latest_date = openstates.state_metadata('tx')
+        return latest_date['latest_json_date'].split(' ')[0]
 
-        subjects = [
-            'Agriculture and Food',
-            'Animal Rights and Wildlife Issues',
-            'Arts and Humanities',
-            'Budget, Spending, and Taxes',
-            'Business and Consumers',
-            'Campaign Finance and Election Issues',
-            'Civil Liberties and Civil Rights',
-            'Commerce',
-            'Crime',
-            'Drugs',
-            'Education',
-            'Energy',
-            'Environmental',
-            'Executive Branch',
-            'Family and Children Issues',
-            'Federal, State, and Local Relations',
-            'Gambling and Gaming',
-            'Government Reform',
-            'Guns',
-            'Health',
-            'Housing and Property',
-            'Immigration',
-            'Indigenous Peoples',
-            'Insurance',
-            'Judiciary',
-            'Labor and Employment',
-            'Legal Issues',
-            'Legislative Affairs',
-            'Military',
-            'Municipal and County Issues',
-            'Nominations',
-            'Other',
-            'Public Services',
-            'Recreation',
-            'Reproductive Issues',
-            'Resolutions',
-            'Science and Medical Research',
-            'Senior Issues',
-            'Sexual Orientation and Gender Issues',
-            'Social Issues',
-            'State Agencies',
-            'Technology and Communication',
-            'Trade',
-            'Transportation',
-            'Welfare and Poverty',
-        ]
+    def get_updated_bill_list(self):
+        print self.latest_date
+        return openstates.bills(
+            state='tx',
+            updated_since=self.latest_date,
+            search_window='session')
 
-        for subject in subjects:
-            Subject.objects.get_or_create(name=subject)
+    def get_bill_data(self, bill_name):
+        return openstates.bill_detail('tx', '84', bill_name)
 
-    def load_bills(self, session, chamber, abbr):
-        bill_files = glob(
-            '{dir}/bills/tx/{session}/{chamber}/{abbr}*'.format(
-                dir=settings.DOWNLOAD_DIR,
-                session=session,
-                chamber=chamber,
-                abbr=abbr))
-
-        for path in bill_files:
-            with open(path, 'rb') as f:
-                data = json.loads(f.read())
-
-                self.load_bill(data)
+    def load_bills(self):
+        for bill_data in self.get_updated_bill_list():
+            self.load_bill(bill_data)
 
     def load_bill(self, data):
         self.stdout.write(u'Loading {}...'.format(data['bill_id']))
