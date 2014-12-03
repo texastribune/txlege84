@@ -78,8 +78,11 @@
 }
 
 .nav-bar-actions {
-  // @include div-grid(12, 4);
   z-index: 2;
+
+  li {
+    display: inline;
+  }
 }
 
 
