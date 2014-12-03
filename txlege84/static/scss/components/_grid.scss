@@ -1,0 +1,18 @@
+// Basic Grid Mixins
+
+@mixin div-grid($col-width, $number-div) {
+
+  @include media($medium) {
+    div {
+      @include span-columns($col-width / $number-div of $col-width);
+      @include omega($number-div+n);
+    }
+  }
+
+  @include media($large) {
+    div {
+      @include span-columns($col-width / $number-div of $col-width);
+      @include omega($number-div+n);
+    }
+  }
+}

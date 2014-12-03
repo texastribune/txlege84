@@ -1,0 +1,69 @@
+.topic-lists {
+  @extend %content-block;
+  @include span-columns(12);
+  @include div-grid(12, 3);
+
+  h2 {
+    margin: 1em 0;
+  }
+}
+
+img.headshot {
+  margin-right: 1em;
+  max-height: 100px;
+}
+
+.curated {
+  font-style: italic;
+  font-size: .8em;
+}
+
+.see-all {
+  font-size: .8em;
+}
+
+.issue-embed-block {
+  @extend %content-block;
+  border: 1px solid;
+  display: inline-block;
+}
+
+.issue-header {
+  h3 {
+    display: inline-block;
+    margin: 1em 0;
+  }
+}
+
+.share-topic {
+  display: inline-block;
+  float: right;
+
+  h4 {
+    display: inline-block;
+    margin: 1em 0;
+  }
+
+}
+
+.issue-legislation {
+  h5 {
+    display: inline-block;
+  }
+
+  ul {
+    margin: 0;
+  }
+
+  li {
+    margin: 0 0 1em;
+
+    @include media($medium) {
+      @include span-columns(6);
+    }
+
+    @include media($large) {
+      @include span-columns(6);
+    }
+  }
+}

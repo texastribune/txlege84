@@ -1,0 +1,11 @@
+.bill-filter {
+  @include span-columns(12);
+
+  h4 {
+    display: inline-block;
+  }
+
+  form {
+    display: inline-block;
+  }
+}

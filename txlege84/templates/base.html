@@ -31,6 +31,10 @@
     <meta property="og:image" content="{% static 'images/facebook-share.jpg' %}">
     <meta property="og:type" content="website">
 
+    <!-- Vendor styles -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'scripts/slick/slick.css' %}">
+
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
     {% block extra_head %}{% endblock %}
@@ -49,9 +53,9 @@
     </div>
   </header>
 
-  <section class="main-container">
+  <div class="main-container">
   {% block content %}{% endblock %}
-  </section>
+  </div>
 
   <footer class="footer-container">
     <div class="container">
@@ -76,6 +80,8 @@
     </div>
   </footer>
 
+  <script src="{% static 'scripts/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'scripts/slick/slick.min.js' %}"></script>
   <script src="{% static 'scripts/main.js' %}"></script>
 
   {% block extra_script %}{% endblock %}

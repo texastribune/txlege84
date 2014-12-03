@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include "modules/nav-bar.html" %}
+
+<div class="main">
+  {% include "modules/bill-search-box.html" %}
+  <div class="committee">
+    <h2>Senate Health and Human Services Committee</h2>
+    <div class="committee-chair">
+      <h5>Chair</h5>
+      <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg">
+      <p><a href="">Sen. Charles Schwertner</a></p>
+    </div>
+    <div class="committee-vice-chair">
+      <h5>Vice Chair</h5>
+      <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/bob-deuell_3_jpg_131x197_crop_q100.jpg">
+      <p><a href="">Sen. Bob Deuell</a></p>
+    </div>
+    <div class="committee-members">
+      <h5>Members</h5>
+      <ul>
+        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="">Sen. Joan Huffman</a></li>
+        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="">Sen. Jane Nelson</a></li>
+        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="">Sen. Robert Nichols</a></li>
+        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="">Sen. Joan Huffman</a></li>
+        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="">Sen. Jane Nelson</a></li>
+        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="">Sen. Robert Nichols</a></li>
+        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="">Sen. Joan Huffman</a></li>
+        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="">Sen. Jane Nelson</a></li>
+        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="">Sen. Robert Nichols</a></li>
+      </ul>
+    </div>
+    {% include "components/bill-filter.html" %}
+    <div class="bill-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Bill Number</th>
+            <th>Category</th>
+            <th>Caption</th>
+            <th>Status</th>
+            <th>Committee Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-title="Bill Number">SB 38</td>
+            <td data-title="Category">Taxation</td>
+            <td data-title="Caption">Relating to the continuation and functions of the Texas Lottery Commission; providing penalties; imposing fees.</td>
+            <td data-title="Version">Introduced</td>
+            <td data-title="Committee Action">Left pending</td>
+          </tr>
+          <tr>
+            <td data-title="Bill Number">SB 41</td>
+            <td data-title="Category">Taxation</td>
+            <td data-title="Caption">Relating to the continuation and functions of the Texas Lottery Commission; providing penalties; imposing fees.</td>
+            <td data-title="Version">In Committee</td>
+            <td data-title="Committee Action">Referred to the Committee on tk/tk/tk</td>
+          </tr>
+          <tr>
+            <td data-title="Bill Number">SB 41</td>
+            <td data-title="Category">Taxation</td>
+            <td data-title="Caption">Relating to the continuation and functions of the Texas Lottery Commission; providing penalties; imposing fees.</td>
+            <td data-title="Version">In Committee</td>
+            <td data-title="Committee Action">Passed on tk/tk/tk</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+
+
+</div>
+
+{% endblock %}

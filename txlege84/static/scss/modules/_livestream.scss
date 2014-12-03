@@ -1,0 +1,54 @@
+.livestream {
+  @extend %content-block;
+  @include span-columns(12);
+  background-color: $href-offwhite;
+
+  h2 {
+    margin: 1em 0;
+  }
+
+  .watch,
+  .upcoming-meetings {
+    @include div-grid(12, 2);
+  }
+
+  .house,
+  .senate {
+    h2 {
+      margin: .25em 0;
+    }
+
+    h3 {
+      margin: .5em 0;
+    }
+
+    h4 {
+      font-weight: 300;
+    }
+  }
+
+  .upcoming-meetings {
+    @extend %content-block;
+    display: none;
+
+    @include media($medium) {
+      @include span-columns(12);
+      display: block;
+
+    }
+
+    @include media($large) {
+      @include span-columns(12);
+      display: block;
+
+    }
+
+  }
+
+  img {
+    width: 100%;
+    margin-bottom: 1em;
+  }
+}
+
+
