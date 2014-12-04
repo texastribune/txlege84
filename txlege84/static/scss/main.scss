@@ -1,10 +1,17 @@
 @import 'bourbon/dist/bourbon';
 @import 'neat/app/assets/stylesheets/neat';
 // @import 'newsapps-styles/main';
+@import 'helpers/variables';
+@import 'helpers/colors';
+@import 'helpers/mixins';
+@import 'helpers/placeholders';
 
 @import '_normalize';
-@import '_utils';
-@import '_global';
+// @import '_utils';
+// @import '_global';
+
+@import 'theme/base-theme';
+@import 'theme/prose';
 
 @import 'components/_grid';
 @import 'components/_tables';
