@@ -19,10 +19,10 @@
 
   }
 
-  .art,
-  .video {
-    @include span-columns(5 of 8);
-  }
+  // .art,
+  // .video {
+  //   @include span-columns(5 of 8);
+  // }
 
   .story-stream {
     @include span-columns(12);
