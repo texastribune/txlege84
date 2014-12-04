@@ -2,7 +2,6 @@ $(function () {
   'use strict';
 
   var navcontent = $('.browse-topics');
-  var body = $(document.body);
   var appbarElement = $('.nav-bar');
   var menuBtn = $('.menu');
   var icon = $('.menu-icon');
