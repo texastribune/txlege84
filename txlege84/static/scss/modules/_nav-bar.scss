@@ -89,12 +89,12 @@
   // width: 250px;
   max-height: 0;
   overflow: hidden;
-  transition: max-height .8s;
+  transition: max-height .2s ease-out;
   z-index: 1;
 
   &.open {
     display: block;
-    max-height: 20em;
+    max-height: 100%;
   }
 
   a {
