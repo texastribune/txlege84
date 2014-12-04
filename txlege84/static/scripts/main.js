@@ -11,17 +11,14 @@
   var icon = querySelector('.menu-icon');
 
   function closeMenu() {
-    body.classList.remove('open');
     appbarElement.classList.remove('open');
     navdrawerContainer.classList.remove('open');
     icon.classList.remove('x');
   }
 
   function toggleMenu() {
-    body.classList.toggle('open');
     appbarElement.classList.toggle('open');
     navdrawerContainer.classList.toggle('open');
-    navdrawerContainer.classList.add('opened');
     icon.classList.toggle('x');
   }
 
