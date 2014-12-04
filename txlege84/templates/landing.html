@@ -1,9 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>
-  <h1>Lege App Title</h1>
-</div>
+<section class="project-header">
+  <header>
+    <h1>Lege App Title</h1>
+  </header>
+  <div class="bill-search-container">
+    <div class="search-box">
+    <h3><i class="fa fa-search"></i> Bill Search</h3>
+<!--     <form>
+      <input id="bill-search" type="text" placeholder="Search by Bill Number or Lawmaker">
+    </form> -->
+    </div>
+  </div>
+</section>
 {% include "modules/top-issues.html" %}
 {% include "modules/nav-bar.html" %}
 
@@ -13,27 +23,7 @@
 <!--   {% include "modules/top-issues.html" %} -->
   {% include "modules/livestream.html" %}
 <!--   {% include "modules/bill-search-box.html" %} -->
-  <section class="quick-links">
-    <header>
-      <h3>Quick Links</h3>
-    </header>
-    <div class="resource-links">
-      <ul>
-        <li><a href="">Ethics Explorer</a> &mdash; A guide to the financial interests of elected officials</a></li>
-        <li><a href="">Elected Officials Directory</a></li>
-        <li>Seating Charts: <a href="">House</a> | <a href="">Senate</a></li>
-        <li><a href="">Capitol Map</a></li>
-        <li><a href="">Upcoming Committee Hearings</a></li>
-      </ul>
-    </div>
-    <div class="subscription">
-      <header>
-        <h4>The Insider's Scoop</h4>
-        <p><a href="">Sign up</a> for email alerts when our reporters update the issues or topics you'd like to follow.</p>
-      </header>
-    </div>
-
-  </section>
+  {% include "modules/quick-links.html" %}
   <section class="featured-content">
 <!--     {% include "components/featured-issue.html" %} -->
     {% include "components/featured-primer.html" %}

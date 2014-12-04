@@ -1,0 +1,37 @@
+.project-header {
+  @extend %content-block;
+  @include span-columns(12);
+
+  h1 {
+    margin: 2em 0;
+
+    @include span-columns(12);
+
+    @include media($medium) {
+      @include span-columns(8);
+    }
+
+    @include media($large) {
+      @include span-columns(8);
+    }
+  }
+
+  .bill-search-container {
+    @include span-columns(12);
+    border: 1px solid;
+    margin-bottom: 1em;
+
+    @include media($medium) {
+      @include span-columns(4);
+      @include omega();
+
+      height: 200px;
+    }
+
+    @include media($large) {
+      @include span-columns(4);
+      @include omega();
+      height: 200px;
+    }
+  }
+}
