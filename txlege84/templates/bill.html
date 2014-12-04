@@ -7,40 +7,58 @@
   <div class="bill">
     <h1>{{ object.name }}</h1>
     <p>{{ object.description }}</p>
-    <p><a href="">Bill Text</a>, <a href="">Amendments</a></p>
+    <p><a href="http://www.legis.state.tx.us/BillLookup/History.aspx?LegSess=84R&Bill={{ object.slug }}" target="_blank">Bill Text</a>, <a href="http://www.capitol.state.tx.us/BillLookup/Amendments.aspx?LegSess=84R&Bill={{ object.slug }}" target="_blank">Amendments</a></p>
     <h5>Last Action</h5>
-    <p>{{ object.actions.all.0.text }} <em> {{ object.actions.all.0.date }}</em></p>
+    <p>{{ object.actions.last.text }} <em> {{ object.actions.last.date }}</em></p>
     <div class="bill-authors">
       <div>
         <h5>Primary Author</h5>
-        {% if object.sponsorships.all.0.role = 'primary' %}
-          <p>Rep. <a href="">{{ object.sponsorships.all.0.legislator }}</a></p>
+        {% if object.sponsorships.all.0.role = 'author' %}
+        <p>Rep. <a href="">{{ object.sponsorships.all.0.legislator }}</a></p>
         {% endif %}
       </div>
       <div>
-        <h5>Coauthors</h5>
-        <p>Rep. <a href="">Ralph Sheffield</a></p>
+      <h5>Coauthors</h5>
+        {% for o in object.sponsorships.all %}
+          {% if o.role = 'coauthor' %}
+          <li>Rep. <a href="">{{ o }}</a></li>
+          {% endif %}
+        {% endfor %}
       </div>
       <div>
         <h5>Sponsor</h5>
-        <p>None</p>
+        {% for o in object.sponsorships.all %}
+          <li>Rep. <a href="">{{ o.legislator }}</a></li>
+        {% endfor %}
       </div>
     </div>
     <div class="bill-committee-assignment">
       <div>
         <h5>House Committee</h5>
-        <p>Higher Education</p>
+        {% for o in object.actions.all reversed %}
+          {% if o.acting_chamber.name != 'Texas Senate' %}
+            {% if o.related_committee.name != 'None' %}
+            <p>{{ o.related_committee.name }}</p>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
       </div>
       <div>
         <h5>Senate Committee</h5>
-        <p>Not assigned</p>
+        {% for o in object.actions.all reversed %}
+          {% if o.acting_chamber.name != 'Texas House' %}
+            {% if o.related_committee.name != 'None' %}
+            <p>{{ o.related_committee.name }}</p>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
     <div class="bill-stages">
       <h5>Bill Stages</h5>
       <div class="bill-stage done">
         <div class="bill-stage-name">Filed</div>
-        <div class="date-stage-complete">Nov. 12, 1014</div>
+        <div class="date-stage-complete">{{ object.actions.first.date }}</div>
       </div>
       <div class="bill-stage">
         <div class="bill-stage-name">Out of House Committee</div>
@@ -69,9 +87,11 @@
     </div>
     <div class="bill-actions">
       <h5>Actions</h5>
-      <p>House - Referred to Higher Education &mdash; <em>Feb. 4, 2015</em></p>
-      <p>House - Read first time &mdash; <em>Feb. 4, 2015</em></p>
-      <p>House - Filed &mdash; <em>Nov. 12, 1014</em></p>
+      <ul>
+      {% for o in object.actions.all %}
+        <li>{{ o.text }}</li>
+      {% endfor %}
+      <ul>
     </div>
   </div>
   <div class="related-issue">
