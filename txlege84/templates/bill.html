@@ -35,23 +35,15 @@
     <div class="bill-committee-assignment">
       <div>
         <h5>House Committee</h5>
-        {% for o in object.actions.all reversed %}
-          {% if o.acting_chamber.name != 'Texas Senate' %}
-            {% if o.related_committee.name != 'None' %}
-            <p>{{ o.related_committee.name }}</p>
-            {% endif %}
-          {% endif %}
-        {% endfor %}
+        {% if object.house_committee != "" %}
+          <p>{{ object.house_committee }}</p>
+        {% endif %}
       </div>
       <div>
         <h5>Senate Committee</h5>
-        {% for o in object.actions.all reversed %}
-          {% if o.acting_chamber.name != 'Texas House' %}
-            {% if o.related_committee.name != 'None' %}
-            <p>{{ o.related_committee.name }}</p>
-            {% endif %}
+          {% if object.senate_committee != "" %}
+            <p>{{ object.senate_committee }}</p>
           {% endif %}
-        {% endfor %}
       </div>
     </div>
     <div class="bill-stages">
