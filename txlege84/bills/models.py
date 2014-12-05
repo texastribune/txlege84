@@ -37,6 +37,16 @@ class Bill(models.Model):
 
         super(Bill, self).save(*args, **kwargs)
 
+    @property
+    def house_committee(self):
+        return self.actions.reverse().exclude(related_committee__isnull=True).filter(
+            acting_chamber__name='Texas House')[0].related_committee
+
+    @property
+    def senate_committee(self):
+        return self.actions.reverse().exclude(related_committee__isnull=True).filter(
+            acting_chamber__name='Texas Senate')[0].related_committee
+
 
 class Action(models.Model):
     number = models.CharField(max_length=4)
@@ -46,6 +56,9 @@ class Action(models.Model):
     related_committee = models.ForeignKey(
         Committee, related_name='actions', null=True, blank=True)
     bill = models.ForeignKey(Bill, related_name='actions')
+
+    class Meta:
+        ordering = ['date', 'pk']
 
 
 class Sponsorship(models.Model):
