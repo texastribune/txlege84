@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 from legislators.models import Chamber, Legislator
 
@@ -15,7 +16,7 @@ class Committee(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.slug = self.name.replace(' ', '-')
+            self.slug = slugify(self.name)
 
         super(Committee, self).save(*args, **kwargs)
 
