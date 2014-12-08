@@ -5,71 +5,125 @@
 <div class="main">
   {% include "modules/bill-search-box.html" %}
   <div class="bill">
-    <h1>House Bill 4</h1>
-    <p>Relating to the continuation and functions of the Texas Lottery Commission; providing penalties; imposing fees.</p>
-    <p><a href="">Bill Text</a>, <a href="">Amendments</a></p>
+    <h1>{{ object.name }}</h1>
+    <p>{{ object.description }}</p>
+    <p><a href="http://www.legis.state.tx.us/BillLookup/History.aspx?LegSess=84R&Bill={{ object.slug }}" target="_blank">Bill Text</a>, <a href="http://www.capitol.state.tx.us/BillLookup/Amendments.aspx?LegSess=84R&Bill={{ object.slug }}" target="_blank">Amendments</a></p>
     <h5>Last Action</h5>
-    <p>Referred to Higher Education &mdash; <em>Feb. 4, 2015</em></p>
+    <p>{{ object.actions.last.text }} <em> {{ object.actions.last.date }}</em></p>
     <div class="bill-authors">
       <div>
         <h5>Primary Author</h5>
-        <p>Rep. <a href="">Dan Branch</a></p>
+        {% if object.sponsorships.all.0.role = 'author' %}
+        <p>Rep. <a href="">{{ object.sponsorships.all.0.legislator }}</a></p>
+        {% endif %}
       </div>
       <div>
-        <h5>Coauthors</h5>
-        <p>Rep. <a href="">Ralph Sheffield</a></p>
+      <h5>Coauthors</h5>
+      <ul>
+        {% for o in object.sponsorships.all %}
+          {% if o.role = 'coauthor' %}
+          <li>Rep. <a href="">{{ o }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
       </div>
       <div>
         <h5>Sponsor</h5>
-        <p>None</p>
+        <ul>
+        {% for o in object.sponsorships.all %}
+          <li>Rep. <a href="">{{ o.legislator }}</a></li>
+        {% endfor %}
+        </ul>
       </div>
     </div>
     <div class="bill-committee-assignment">
       <div>
         <h5>House Committee</h5>
-        <p>Higher Education</p>
+        {% if object.house_committee != "" %}
+          <p>{{ object.house_committee }}</p>
+        {% else %}
+          <p>Committee not yet assigned</p>
+        {% endif %}
       </div>
       <div>
         <h5>Senate Committee</h5>
-        <p>Not assigned</p>
+          {% if object.senate_committee != "" %}
+            <p>{{ object.senate_committee }}</p>
+          {% else %}
+            <p>Committee not yet assigned</p>
+          {% endif %}
       </div>
     </div>
     <div class="bill-stages">
       <h5>Bill Stages</h5>
+      {% if "Filed" in object.actions.text %}
       <div class="bill-stage done">
+      {% else %}
+      <div class="bill-stage">
+      {% endif %}
         <div class="bill-stage-name">Filed</div>
-        <div class="date-stage-complete">Nov. 12, 1014</div>
+        <div class="date-stage-complete">{{ object.actions.first.date }}</div>
       </div>
       <div class="bill-stage">
-        <div class="bill-stage-name">Out of House Committee</div>
+        <div class="bill-stage-name">
+          {% if object.chamber == 'Texas House' %}
+            Out of House Committee
+          {% else %}
+            Out of Senate Committee
+          {% endif %}
+        </div>
         <div class="date-stage-complete"></div>
       </div>
       <div class="bill-stage">
-        <div class="bill-stage-name">Approved by House</div>
+        <div class="bill-stage-name">
+          {% if object.chamber == 'Texas House' %}
+            Approved by House
+          {% else %}
+            Approved by Senate
+          {% endif %}
+        </div>
         <div class="date-stage-complete"></div>
       </div>
       <div class="bill-stage">
-        <div class="bill-stage-name">Out of Senate Committee</div>
+        <div class="bill-stage-name">
+          {% if object.chamber == 'Texas House' %}
+            Out of Senate Committee
+          {% else %}
+            Out of House Committee
+          {% endif %}
+        </div>
         <div class="date-stage-complete"></div>
       </div>
       <div class="bill-stage">
-        <div class="bill-stage-name">Approved by Senate</div>
+        <div class="bill-stage-name">
+        {% if object.chamber == 'Texas House' %}
+          Approved by Senate
+        {% else %}
+          Approved by House
+        {% endif %}
+        </div>
         <div class="date-stage-complete"></div>
       </div>
       <div class="bill-stage">
         <div class="bill-stage-name">Governor Action</div>
         <div class="date-stage-complete"></div>
       </div>
+      {% if 'Effective' in object.actions.text %}
+      <div class="bill-stage done">
+      {% else %}
       <div class="bill-stage">
+      {% endif %}
         <div class="bill-stage-name">Bill Becomes Law</div>
         <div class="date-stage-complete"></div>
       </div>
     </div>
     <div class="bill-actions">
       <h5>Actions</h5>
-      <p>House - Referred to Higher Education &mdash; <em>Feb. 4, 2015</em></p>
-      <p>House - Read first time &mdash; <em>Feb. 4, 2015</em></p>
-      <p>House - Filed &mdash; <em>Nov. 12, 1014</em></p>
+      <ul>
+      {% for o in object.actions.all %}
+        <li>{{ o.text }}</li>
+      {% endfor %}
+      <ul>
     </div>
   </div>
   <div class="related-issue">
