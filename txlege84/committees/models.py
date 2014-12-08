@@ -8,9 +8,14 @@ class Committee(models.Model):
     chamber = models.ForeignKey(Chamber, related_name='committees')
     openstates_id = models.CharField(max_length=9, unique=True)
     members = models.ManyToManyField(Legislator, through='Membership')
+    slug = models.SlugField(null=True, blank=True)
 
     def __unicode__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = self.name.replace(' ', '-')
 
 
 class Membership(models.Model):
