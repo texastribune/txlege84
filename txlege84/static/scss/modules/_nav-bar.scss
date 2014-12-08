@@ -1,5 +1,6 @@
 .nav-bar {
   @extend %content-block;
+  @extend %prose;
   @include span-columns(12);
   display: block;
   margin-bottom: 1em;
@@ -23,48 +24,50 @@
 }
 
 .browse-topics {
-  max-height: 0;
-  overflow: hidden;
+  @extend %prose;
+  // max-height: 0;
+  // overflow: hidden;
   transition: max-height .2s ease-out;
 
   &.open {
-    max-height: auto;
-    overflow: visible;
+    // max-height: auto;
+    // overflow: visible;
   }
 
-  a {
-    font-size: .8em;
-    height: 40px;
-    line-height: 1em;
-    text-decoration: none;
-    transition: background-color .2s ease-out;
+  // a {
+    // font-size: .8em;
+    // height: 40px;
+    // line-height: 1em;
+    // text-decoration: none;
+    // transition: background-color .2s ease-out;
 
-    &:hover {
-      background-color: rgba(255, 255, 255, .2);
-    }
+  //   &:hover {
+  //     background-color: rgba(255, 255, 255, .2);
+  //   }
 
-    &:focus {
-      background-color: rgba(255, 255, 255, 0);
-      outline: 0;
-    }
+  //   &:focus {
+  //     background-color: rgba(255, 255, 255, 0);
+  //     outline: 0;
+  //   }
 
-    &:active {
-      background-color: rgba(255, 255, 255, .4);
-    }
-  }
+  //   &:active {
+  //     background-color: rgba(255, 255, 255, .4);
+  //   }
+  // }
 
   li {
     @extend %content-block;
     @include span-columns(12);
+    margin-bottom: 1em;
 
     @include media($medium) {
-      @include span-columns(4);
-      @include omega(3n);
+      @include span-columns(6);
+      @include omega(2n);
     }
 
     @include media($large) {
-      @include span-columns(4);
-      @include omega(3n);
+      @include span-columns(6);
+      @include omega(2n);
     }
   }
 
@@ -74,10 +77,41 @@
 
 }
 
-// .main {
-//   margin: 0 auto;
-//   min-height: 100%;
-// }
+.topic-graphic {
+  @include span-columns(1 of 6);
+  border: 1px solid;
+  height: 5em;
+
+  // &.test-1 {
+  //   @include span-columns(3 of 6);
+  // }
+}
+
+.topic-lead-issue {
+  @include span-columns(5 of 6);
+
+  &.test-wide {
+    @include span-columns(6 of 6);
+  }
+
+  @include omega();
+
+  h4 {
+    margin-bottom: 1em;
+  }
+
+  p {
+    font-size: .75em;
+  }
+
+  img {
+    float: right;
+  }
+
+  span {
+    font-size: .9em;
+  }
+}
 
 .menu-icon {
   display: inline-block;

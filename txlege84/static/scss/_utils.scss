@@ -1,0 +1,28 @@
+// == VARIABLES ==
+
+// colors
+$tribune-yellow: rgb(255, 194, 0) !default;
+$href-teal: rgb(0, 137, 144) !default;
+$href-offwhite: rgb(221, 221, 221) !default;
+$href-white: rgb(255, 255, 255) !default;
+$masthead-black: rgb(17, 17, 17) !default;
+$text-black: rgb(40, 40, 40) !default;
+$text-offwhite: rgb(238, 238, 238) !default;
+
+// fonts
+$font-default: $helvetica !default;
+$font-prose: $georgia !default;
+
+// breakpoints
+$medium: new-breakpoint(min-width 600px max-width 1080px);
+$large: new-breakpoint(min-width 1081px);
+
+// placeholders
+%container {
+  @include outer-container();
+}
+
+%content-block {
+  padding-left: em(20);
+  padding-right: em(20);
+}
