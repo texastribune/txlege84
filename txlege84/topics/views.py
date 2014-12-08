@@ -1,3 +1,14 @@
-from django.shortcuts import render
+from rest_framework.generics import ListAPIView, RetrieveAPIView
 
-# Create your views here.
+from topics.models import Topic
+from topics.serializers import TopicSerializer
+
+
+class TopicList(ListAPIView):
+    queryset = Topic.objects.all()
+    serializer_class = TopicSerializer
+
+
+class TopicDetail(RetrieveAPIView):
+    queryset = Topic.objects.all()
+    serializer_class = TopicSerializer
