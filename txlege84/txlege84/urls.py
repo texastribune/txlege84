@@ -5,6 +5,7 @@ from django.views.generic import TemplateView
 from django.contrib import admin
 
 from bills.views import BillDetail
+from committees.views import CommitteeDetail
 
 urlpatterns = patterns(
     '',
@@ -13,7 +14,7 @@ urlpatterns = patterns(
     url(r'^topic-list/$', TemplateView.as_view(template_name='topic-list.html')),
     url(r'^84/bills/(?P<slug>[-\w]+)/$', BillDetail.as_view()),
     url(r'^legislator/$', TemplateView.as_view(template_name='legislator.html')),
-    url(r'^committee/$', TemplateView.as_view(template_name='committee.html')),
+    url(r'^committees/(?P<slug>[-\w]+)/$', CommitteeDetail.as_view()),
     url(r'^issue/$', TemplateView.as_view(template_name='issue.html')),
 
     # Examples:
