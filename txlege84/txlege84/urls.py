@@ -4,6 +4,8 @@ from django.views.generic import TemplateView
 
 from django.contrib import admin
 
+from topics.views import TopicDetail, TopicList
+
 urlpatterns = patterns(
     '',
     url(r'^$', TemplateView.as_view(template_name='landing.html')),
@@ -13,6 +15,9 @@ urlpatterns = patterns(
     url(r'^legislator/$', TemplateView.as_view(template_name='legislator.html')),
     url(r'^committee/$', TemplateView.as_view(template_name='committee.html')),
     url(r'^issue/$', TemplateView.as_view(template_name='issue.html')),
+
+    url(r'^api/topics/$', TopicList.as_view()),
+    url(r'^api/topics/(?P<pk>[0-9]+)/$', TopicDetail.as_view()),
 
     # Examples:
     # url(r'^$', 'txlege84.views.home', name='home'),
