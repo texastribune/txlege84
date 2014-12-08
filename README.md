@@ -87,6 +87,10 @@ export SUNLIGHT_API_KEY=<api-key-characters>
 Then run the following:
 
 ```bash
+python txlege84/manage.py migrate
+```
+
+```bash
 python txlege84/manage.py downloadopenstatesdata
 ```
 
