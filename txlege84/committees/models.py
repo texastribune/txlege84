@@ -17,6 +17,8 @@ class Committee(models.Model):
         if not self.id:
             self.slug = self.name.replace(' ', '-')
 
+        super(Committee, self).save(*args, **kwargs)
+
 
 class Membership(models.Model):
     legislator = models.ForeignKey(Legislator, related_name='memberships')
