@@ -6,29 +6,23 @@
 <div class="main">
   {% include "modules/bill-search-box.html" %}
   <div class="committee">
-    <h2>Senate Health and Human Services Committee</h2>
+    <h2>{{ object.name }}</h2>
     <div class="committee-chair">
       <h5>Chair</h5>
-      <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg">
-      <p><a href="">Sen. Charles Schwertner</a></p>
+      <!-- <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"> -->
+        <p><a href="">{{ object.chair }}</a></p>
     </div>
     <div class="committee-vice-chair">
       <h5>Vice Chair</h5>
-      <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/bob-deuell_3_jpg_131x197_crop_q100.jpg">
-      <p><a href="">Sen. Bob Deuell</a></p>
+      <!-- <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/bob-deuell_3_jpg_131x197_crop_q100.jpg"> -->
+      <p><a href="">{{ object.vice_chair }}</a></p>
     </div>
     <div class="committee-members">
       <h5>Members</h5>
       <ul>
-        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="">Sen. Joan Huffman</a></li>
-        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="">Sen. Jane Nelson</a></li>
-        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="">Sen. Robert Nichols</a></li>
-        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="">Sen. Joan Huffman</a></li>
-        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="">Sen. Jane Nelson</a></li>
-        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="">Sen. Robert Nichols</a></li>
-        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="">Sen. Joan Huffman</a></li>
-        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="">Sen. Jane Nelson</a></li>
-        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="">Sen. Robert Nichols</a></li>
+      {% for o in object.member_list %}
+        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="">{{ o.legislator }}</a></li>
+      {% endfor %}
       </ul>
     </div>
     {% include "components/bill-filter.html" %}

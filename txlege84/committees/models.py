@@ -20,6 +20,18 @@ class Committee(models.Model):
 
         super(Committee, self).save(*args, **kwargs)
 
+    @property
+    def chair(self):
+        return self.memberships.get(role='Chair').legislator
+
+    @property
+    def vice_chair(self):
+        return self.memberships.get(role='Vice Chair').legislator
+
+    @property
+    def member_list(self):
+        return self.memberships.filter(role='Member')
+
 
 class Membership(models.Model):
     legislator = models.ForeignKey(Legislator, related_name='memberships')
