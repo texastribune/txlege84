@@ -40,7 +40,7 @@
       <div>
         <h5>House Committee</h5>
         {% if object.house_committee != "" %}
-          <p>{{ object.house_committee }}</p>
+          <p><a href="{% url 'committee-detail' chamber=object.chamber.slug slug=object.house_committee.slug %}">{{ object.house_committee }}</a></p>
         {% else %}
           <p>Committee not yet assigned</p>
         {% endif %}
@@ -48,7 +48,7 @@
       <div>
         <h5>Senate Committee</h5>
           {% if object.senate_committee != "" %}
-            <p>{{ object.senate_committee }}</p>
+            <p><a href="{% url 'committee-detail' chamber=object.chamber.slug slug=object.senate_committee.slug %}">{{ object.senate_committee }}</a></p>
           {% else %}
             <p>Committee not yet assigned</p>
           {% endif %}
