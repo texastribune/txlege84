@@ -26,35 +26,28 @@
       </ul>
     </div>
     {% include "components/bill-filter.html" %}
-
        <div class="bill-table">
       <table>
         <thead>
           <tr>
-            <th>Bill Number</th>
-            <th>Category</th>
+            <th>Bill</th>
+            <th>Categories</th>
             <th>Caption</th>
-            <th>Status</th>
-            <th>Committee Action</th>
+            <th>Referred to committee on</th>
           </tr>
         </thead>
         <tbody>
         {% for o in object.actions.all %}
           <tr>
-            <td data-title="Bill Number">{{ o.number }}</td>
-            <td data-title="Category">{{ o.subject.name }}</td>
+            <td data-title="Bill Number">{{ o.bill.name }}</td>
+            <td data-title="Category">{% for p in o.bill.subjects.all %}{{ p }}<br />{% endfor %}</td>
             <td data-title="Caption">{{ o.bill.description }}</td>
-            <td data-title="Version">Introduced</td>
-            <td data-title="Committee Action">{{ o.text }}</td>
+            <td data-title="Referred to Committee on">{{ o.date|date:"SHORT_DATE_FORMAT" }}</td>
           </tr>
         {% endfor %}
         </tbody>
       </table>
     </div>
-
-      <p>{{ o.text }} | {{ o.bill.description }}</p>
-
-
   </div>
 
 
