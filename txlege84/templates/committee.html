@@ -39,7 +39,7 @@
         <tbody>
         {% for o in object.actions.all %}
           <tr>
-            <td data-title="Bill Number">{{ o.bill.name }}</td>
+            <td data-title="Bill Number"><a href="/84/bills/{{ o.bill.slug }}">{{ o.bill.name }}</a></td>
             <td data-title="Category">{% for p in o.bill.subjects.all %}{{ p }}<br />{% endfor %}</td>
             <td data-title="Caption">{{ o.bill.description }}</td>
             <td data-title="Referred to Committee on">{{ o.date|date:"SHORT_DATE_FORMAT" }}</td>
