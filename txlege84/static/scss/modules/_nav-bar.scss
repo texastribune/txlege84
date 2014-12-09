@@ -25,35 +25,7 @@
 
 .browse-topics {
   @extend %prose;
-  // max-height: 0;
-  // overflow: hidden;
   transition: max-height .2s ease-out;
-
-  &.open {
-    // max-height: auto;
-    // overflow: visible;
-  }
-
-  // a {
-    // font-size: .8em;
-    // height: 40px;
-    // line-height: 1em;
-    // text-decoration: none;
-    // transition: background-color .2s ease-out;
-
-  //   &:hover {
-  //     background-color: rgba(255, 255, 255, .2);
-  //   }
-
-  //   &:focus {
-  //     background-color: rgba(255, 255, 255, 0);
-  //     outline: 0;
-  //   }
-
-  //   &:active {
-  //     background-color: rgba(255, 255, 255, .4);
-  //   }
-  // }
 
   li {
     @extend %content-block;
@@ -78,17 +50,15 @@
 }
 
 .topic-graphic {
-  @include span-columns(1 of 6);
   border: 1px solid;
-  height: 5em;
+  float: left;
+  height: 3em;
+  margin: 0 .5em 1em 0;
+  width: 3em;
 
-  // &.test-1 {
-  //   @include span-columns(3 of 6);
-  // }
 }
 
 .topic-lead-issue {
-  @include span-columns(5 of 6);
 
   &.test-wide {
     @include span-columns(6 of 6);
@@ -97,7 +67,11 @@
   @include omega();
 
   h4 {
-    margin-bottom: 1em;
+    margin-bottom: .5em;
+
+    &.test-small-h4 {
+      margin-bottom: .25em;
+    }
   }
 
   p {
@@ -110,6 +84,10 @@
 
   span {
     font-size: .9em;
+  }
+
+  .topic-page-link {
+    font-weight: 800;
   }
 }
 
