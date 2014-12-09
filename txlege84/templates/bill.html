@@ -40,7 +40,7 @@
       <div>
         <h5>House Committee</h5>
         {% if object.house_committee != "" %}
-          <p>{{ object.house_committee }}</p>
+          <p><a href="{% url 'committee-detail' chamber=object.chamber.slug slug=object.house_committee.slug %}">{{ object.house_committee }}</a></p>
         {% else %}
           <p>Committee not yet assigned</p>
         {% endif %}
@@ -48,7 +48,7 @@
       <div>
         <h5>Senate Committee</h5>
           {% if object.senate_committee != "" %}
-            <p>{{ object.senate_committee }}</p>
+            <p><a href="{% url 'committee-detail' chamber=object.chamber.slug slug=object.senate_committee.slug %}">{{ object.senate_committee }}</a></p>
           {% else %}
             <p>Committee not yet assigned</p>
           {% endif %}
@@ -117,13 +117,25 @@
         <div class="date-stage-complete"></div>
       </div>
     </div>
-    <div class="bill-actions">
-      <h5>Actions</h5>
-      <ul>
-      {% for o in object.actions.all %}
-        <li>{{ o.text }}</li>
-      {% endfor %}
-      <ul>
+    <div class="bill-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Date</th>
+            <th>Acting Chamber</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for o in object.actions.all reversed %}
+          <tr>
+            <td data-title="Action">{{ o.text }}</td>
+            <td data-title="Data">{{ o.date|date:"SHORT_DATE_FORMAT" }}</td>
+            <td data-title="Acting Chamber">{{ o.acting_chamber.name }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
     </div>
   </div>
   <div class="related-issue">

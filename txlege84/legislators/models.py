@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 
 class Party(models.Model):
@@ -19,9 +20,16 @@ class Party(models.Model):
 
 class Chamber(models.Model):
     name = models.CharField(max_length=12)
+    slug = models.SlugField(null=True, blank=True)
 
     def __unicode__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.name)
+
+        super(Chamber, self).save(*args, **kwargs)
 
 
 class Legislator(models.Model):
