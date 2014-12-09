@@ -3,12 +3,15 @@
   @extend %prose;
   @include span-columns(12);
   display: block;
-  margin-bottom: 1em;
+  // margin-bottom: 1em;
   width: 100%;
 
   h3 {
     display: inline-block;
-    margin: .5em 0;
+  }
+
+  h5 {
+    margin-top: 0;
   }
 
   .nav-button {
@@ -25,12 +28,12 @@
 
 .browse-topics {
   @extend %prose;
+  @include clearfix;
   transition: max-height .2s ease-out;
 
   li {
     @extend %content-block;
     @include span-columns(12);
-    margin-bottom: 1em;
 
     @include media($medium) {
       @include span-columns(6);
@@ -41,11 +44,24 @@
       @include span-columns(6);
       @include omega(2n);
     }
+
+    &.subscription {
+      border: 1px solid $tribune-yellow;
+
+      p {
+        font-size: .8em;
+      }
+    }
   }
 
   h5 {
+    line-height: 1.1em;
     margin: .25em 0;
   }
+
+  // &.prose ul li {
+  //   margin-bottom: 0;
+  // }
 
 }
 
@@ -67,15 +83,13 @@
   @include omega();
 
   h4 {
-    margin-bottom: .5em;
-
-    &.test-small-h4 {
-      margin-bottom: .25em;
-    }
+    line-height: 1em;
   }
 
   p {
     font-size: .75em;
+    line-height: 1em;
+    margin-top: .75em;
   }
 
   img {
@@ -91,58 +105,3 @@
   }
 }
 
-.menu-icon {
-  display: inline-block;
-  margin: .5em 0 .35em 1em;
-  position: relative;
-  width: 1em;
-
-  span {
-    background-color: #ccc;
-    display: block;
-    height: 3px;
-    margin: 0 auto;
-    position: relative;
-    transition-delay: .2s;
-    transition-duration: 0;
-    width: 20px;
-
-    &:before,
-    &:after {
-      background-color: #ccc;
-      content: '';
-      display: block;
-      height: 3px;
-      position: absolute;
-      transition-delay: .2s, 0;
-      transition-duration: .2s;
-      transition-property: margin, transform;
-      width: 20px;
-    }
-
-    &:before {
-      margin-top: -6px;
-    }
-
-    &:after {
-      margin-top: 6px;
-    }
-  }
-}
-
-.x span {
-  background-color: rgba(0, 0, 0, 0);
-  transition-delay: .2s;
-
-  &:before {
-    margin-top: 0;
-    transform: rotate(45deg);
-    transition-delay: 0, .2s;
-  }
-
-  &:after {
-    margin-top: 0;
-    transform: rotate(-45deg);
-    transition-delay: 0, .2s;
-  }
-}

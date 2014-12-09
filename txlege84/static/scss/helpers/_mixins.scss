@@ -22,7 +22,7 @@
   @else if $media == large {
     @include media ($bp) {
       @content ;
-    }    
+    }
   }
 }
 
@@ -56,7 +56,7 @@
   ul {
     @include span-columns($col-width);
     @include pad(0);
-    
+
     li {
       @include span-columns($col-width of $col-width);
       @include media($bp) {
@@ -69,7 +69,7 @@
 
 @mixin div-grid ($bp, $col-width, $number-div, $min-col) {
   // @include span-columns ($col-width / $min-col);
-  
+
   @include media($bp) {
     div {
       @include span-columns($col-width / $number-div of $col-width);
@@ -78,3 +78,14 @@
   }
 }
 
+
+@mixin clearfix {
+  &:after {
+   visibility: hidden;
+   display: block;
+   font-size: 0;
+   content: " ";
+   clear: both;
+   height: 0;
+ }
+}

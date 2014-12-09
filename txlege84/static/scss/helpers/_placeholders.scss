@@ -14,7 +14,17 @@
   }
 }
 
-// Footer Links 
+
+%clearfix:after {
+   visibility: hidden;
+   display: block;
+   font-size: 0;
+   content: " ";
+   clear: both;
+   height: 0;
+ }
+
+// Footer Links
 
 %href-on-black {
   color: $href-offwhite;
@@ -33,7 +43,7 @@
 
 
 
-// Prose 
+// Prose
 
 %prose {
   color: $bodytext-black;
@@ -44,7 +54,7 @@
   line-height: 1.4;
   text-align: left;
 }
-  
+
 %paragraph-header {
   font-family: $base-sans-serif;
   font-size: .875em;
