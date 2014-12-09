@@ -1,31 +1,88 @@
-.top-issues {
-  @extend %content-block;
-  @include span-columns(12);
-  @include div-grid(12, 3);
-  color: $text-black;
-  margin-bottom: 2em;
-
-  h3 {
-    border-bottom: 2px solid $text-black;
-    padding: 1em 0 .5em;
-  }
-
-  // h5 {
-  //   margin-bottom: .5em;
-  // }
+.browse-topics {
+  @include clearfix;
+  transition: max-height .2s ease-out;
 
   li {
     @include span-columns(12);
 
     @include media($medium) {
-      @include span-columns(4);
-      @include omega(3n);
+      @include span-columns(6);
+      @include omega(2n);
     }
 
     @include media($large) {
-      @include span-columns(4);
-      @include omega(3n);
+      @include span-columns(6);
+      @include omega(2n);
+    }
+
+    &.subscription {
+      border: 1px solid $tribune-yellow;
+
+      p {
+        font-size: .8em;
+      }
     }
   }
 
+  h5 {
+    line-height: 1.1em;
+    margin: .25em 0;
+  }
+
+  &.prose ul {
+    padding: 0;
+  }
+
+  p.top-issue {
+    display: none;
+
+    @include media($medium) {
+      display: block;
+    }
+
+    @include media($large) {
+      display: block;
+    }
+  }
+
+}
+
+.topic-graphic {
+  border: 1px solid;
+  float: left;
+  height: 3em;
+  margin: 0 .5em 1em 0;
+  width: 3em;
+
+}
+
+.topic-lead-issue {
+
+  &.test-wide {
+    @include span-columns(6 of 6);
+  }
+
+  @include omega();
+
+  h4 {
+    line-height: 1em;
+  }
+
+  p {
+    font-size: .75em;
+    line-height: 1em;
+    margin-top: .75em;
+  }
+
+  img {
+    float: right;
+  }
+
+  span {
+    font-size: .9em;
+  }
+
+  .topic-page-link {
+    font-weight: 800;
+  }
 }
