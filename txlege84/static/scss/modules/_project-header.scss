@@ -1,6 +1,7 @@
 .project-header {
   @extend %content-block;
   @include span-columns(12);
+  background-color: $white;
 
   h1 {
     margin: 2em 0;
