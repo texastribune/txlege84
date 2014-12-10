@@ -40,11 +40,15 @@
     }
   }
 
-  h5 {
-    font-size: .9em;
-    line-height: 1.1em;
-    margin: .25em 0;
+  ul {
+    @include clearfix;
   }
+
+  // h5 {
+  //   font-size: .9em;
+  //   line-height: 1.1em;
+  //   margin: .25em 0;
+  // }
 
   &.prose ul {
     padding: 0;
@@ -62,6 +66,37 @@
     }
   }
 
+  li.top-issues-button {
+    border-bottom: 1px solid;
+    padding: .5em;
+    margin-bottom: 0;
+
+    h5 {
+      font-size: 1.2em;
+      line-height: 1.1em;
+      margin: .5em 0;
+    }
+
+    @include media($medium) {
+      border-bottom: none;
+      padding: 0;
+      margin-bottom: .5em;
+
+      h5 {
+        font-size: .9em;
+      }
+    }
+
+    @include media($large) {
+      border-bottom: none;
+      padding: 0;
+      margin-bottom: .5em;
+
+      h5 {
+        font-size: .9em;
+      }
+    }
+  }
 }
 
 .topic-graphic {
