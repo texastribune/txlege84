@@ -12,13 +12,27 @@
   }
 
   .feature-box {
-
-    h2 {
+    h2,
+    h3 {
       margin: .5em 0;
     }
 
     h4 {
       margin-top: 2em;
+    }
+  }
+
+  .more-videos {
+    h4 {
+      margin-top: 0;
+    }
+
+    div {
+      border: 1px solid;
+      padding: .25em;
+
+      @include span-columns(4 of 8);
+      @include omega(2n);
     }
   }
 
