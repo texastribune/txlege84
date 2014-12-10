@@ -17,7 +17,6 @@
     font-style: italic;
     font-weight: 700;
     line-height: 1.2em;
-    margin: .7em .5em;
     position: relative;
     text-align: left;
   }
@@ -26,8 +25,8 @@
     @extend %paragraph-header;
 
     &.data-header {
-      margin: 0 0 1em; 
-      text-transform: none;   
+      margin: 0 0 1em;
+      text-transform: none;
     }
   }
 
@@ -43,7 +42,7 @@
       }
     }
 
-    &.caption { 
+    &.caption {
       color: $text-gray;
       font-family: $base-sans-serif;
       font-size: .85em;
@@ -69,7 +68,6 @@
     font-size: .875em;
     font-weight: 600;
     list-style-type: disc;
-    padding: 0 1em; 
 
     @include media($default-768) {
       line-height: 1.85em;
@@ -84,7 +82,7 @@
     }
   }
 
-  .block-text { 
+  .block-text {
     border-color: $tribune-yellow;
     border-style: solid;
     border-width: 1px 0;

@@ -1,88 +1,89 @@
+.top-issues,
+.topic-list-nav {
+  header {
+    @extend %content-block;
+    @extend %prose;
+
+    h2 {
+      border-bottom: 1px solid $masthead-black;
+    }
+  }
+
+  h4 {
+    font-size: 1.2em;
+    font-weight: 400;
+    line-height: 1em;
+    margin-bottom: .5em;
+  }
+}
+
 .top-issues {
+  @include clearfix;
   background-color: $background-gray;
 
-  .browse-topics {
-    li {
-      @include span-columns(12);
+  li {
+    @include span-columns(12);
 
-      @include media($medium) {
-        @include span-columns(6);
-        @include omega(2n);
-      }
+    @include media($medium) {
+      @include span-columns(6);
+      @include omega(2n);
+    }
 
-      @include media($large) {
-        @include span-columns(6);
-        @include omega(2n);
-      }
+    @include media($large) {
+      @include span-columns(6);
+      @include omega(2n);
     }
   }
 }
 
-.more-issues {
+.topic-list-nav {
 
-  .browse-topics {
+  nav {
     li {
       @include span-columns(12);
 
       @include media($medium) {
         @include span-columns(4);
         @include omega(3n);
-        &.subscription {
-          @include span-columns(8);
-        }
       }
 
       @include media($large) {
         @include span-columns(4);
         @include omega(3n);
-        &.subscription {
-          @include span-columns(8);
-        }
-      }
-    }
-
-    .topic-more-issues {
-      border-bottom: 1px solid;
-      padding: .5em;
-      margin-bottom: 0;
-
-      h5 {
-        font-size: 1.2em;
-        line-height: 1.1em;
-        margin: .5em 0;
-      }
-
-      @include media($medium) {
-        border-bottom: none;
-        padding: 0;
-        margin-bottom: .5em;
-
-        h5 {
-          font-size: .9em;
-        }
-      }
-
-      @include media($large) {
-        border-bottom: none;
-        padding: 0;
-        margin-bottom: .5em;
-
-        h5 {
-          font-size: .9em;
-        }
       }
     }
   }
 
-  p.issue {
-    display: none;
+
+  .topic-list-box {
+    border-bottom: 1px solid;
+    padding: .5em;
+    margin-bottom: 0;
+
+    h5 {
+      font-size: 1.2em;
+      line-height: 1.1em;
+      margin: .5em 0;
+    }
 
     @include media($medium) {
-      display: block;
+      border-bottom: none;
+      padding: 0;
+      margin-bottom: .5em;
+
+      h5 {
+        font-size: .9em;
+      }
     }
 
     @include media($large) {
-      display: block;
+      border-bottom: none;
+      padding: 0;
+      margin-bottom: .5em;
+
+      h5 {
+        font-size: .9em;
+      }
     }
   }
 
@@ -97,29 +98,9 @@
   }
 }
 
-.top-issues-header {
-  @extend %content-block;
-  @extend %prose;
 
-  h2 {
-    border-bottom: 1px solid $masthead-black;
-  }
 
-}
 
-.browse-topics {
-  @include clearfix;
-  margin-bottom: 2em;
-
-  ul {
-    @include clearfix;
-  }
-
-  &.prose ul {
-    padding: 0;
-  }
-
-}
 
 .topic-graphic {
   border: 1px solid;
@@ -130,33 +111,4 @@
 
 }
 
-.topic-lead-issue {
 
-  h4 {
-    font-size: 1.2em;
-    line-height: 1em;
-    margin-bottom: .5em;
-
-    &.lead-issue {
-      line-height: 1.2em;
-    }
-  }
-
-  p {
-    font-size: .9em;
-    line-height: 1.2em;
-    margin-top: 1em;
-  }
-
-  img {
-    float: right;
-  }
-
-  span {
-    font-size: .9em;
-  }
-
-  .topic-page-link {
-    font-weight: 800;
-  }
-}
