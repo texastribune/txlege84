@@ -28,11 +28,9 @@
     }
 
     div {
-      border: 1px solid;
-      padding: .25em;
-
       @include span-columns(4 of 8);
-      @include omega(2n);
+      @include omega(n);
+      @include pad(.25em);
     }
   }
 
