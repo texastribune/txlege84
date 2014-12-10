@@ -1,6 +1,20 @@
+.top-issues {
+  background-color: $background-gray;
+}
+
+.top-issues-header {
+  @extend %content-block;
+  @extend %prose;
+
+  h2 {
+    border-bottom: 1px solid $masthead-black;
+  }
+
+}
+
 .browse-topics {
   @include clearfix;
-  transition: max-height .2s ease-out;
+  margin-bottom: 2em;
 
   li {
     @include span-columns(12);
@@ -17,6 +31,8 @@
 
     &.subscription {
       border: 1px solid $tribune-yellow;
+      background-color: $white;
+      padding: 0 1em;
 
       p {
         font-size: .8em;
@@ -25,6 +41,7 @@
   }
 
   h5 {
+    font-size: .9em;
     line-height: 1.1em;
     margin: .25em 0;
   }
@@ -50,28 +67,28 @@
 .topic-graphic {
   border: 1px solid;
   float: left;
-  height: 3em;
-  margin: 0 .5em 1em 0;
-  width: 3em;
+  height: 4em;
+  margin: 0 .75em 1em 0;
+  width: 4em;
 
 }
 
 .topic-lead-issue {
 
-  &.test-wide {
-    @include span-columns(6 of 6);
-  }
-
-  @include omega();
-
   h4 {
+    font-size: 1.2em;
     line-height: 1em;
+    margin-bottom: .5em;
+
+    &.lead-issue {
+      line-height: 1.2em;
+    }
   }
 
   p {
-    font-size: .75em;
-    line-height: 1em;
-    margin-top: .75em;
+    font-size: .9em;
+    line-height: 1.2em;
+    margin-top: 1em;
   }
 
   img {

@@ -1,6 +1,14 @@
 .search-box {
   @extend %content-block;
-  @include span-columns(4);
+  @include span-columns(12);
+
+  @include media($medium) {
+    @include span-columns(6);
+  }
+
+  @include media($large) {
+    @include span-columns(4);
+  }
 
   button {
     margin-bottom: .5em;
