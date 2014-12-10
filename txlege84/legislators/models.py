@@ -43,11 +43,18 @@ class Legislator(models.Model):
     district = models.IntegerField(null=True, blank=True)
     profile_url = models.URLField(null=True, blank=True)
     active = models.BooleanField(default=False)
+    slug = models.SlugField(null=True, blank=True)
 
     openstates_id = models.CharField(max_length=9, unique=True)
 
     def __unicode__(self):
         return self.full_name
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.full_name)
+
+        super(Legislator, self).save(*args, **kwargs)
 
     @property
     def full_name(self):

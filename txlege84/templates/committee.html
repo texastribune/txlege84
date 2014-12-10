@@ -21,7 +21,7 @@
       <h5>Members</h5>
       <ul>
       {% for o in object.member_list %}
-        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="">{{ o.legislator }}</a></li>
+        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="{% url 'legislator-detail' o.legislator.slug %}">{{ o.legislator }}</a></li>
       {% endfor %}
       </ul>
     </div>
