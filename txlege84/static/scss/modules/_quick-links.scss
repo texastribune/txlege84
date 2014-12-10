@@ -2,13 +2,13 @@
   @extend %content-block;
   @include span-columns(12);
 
-  @include media($medium) {
-    @include span-columns(4);
-  }
+  // @include media($medium) {
+  //   @include span-columns(4);
+  // }
 
-  @include media($large) {
-    @include span-columns(4);
-  }
+  // @include media($large) {
+  //   @include span-columns(4);
+  // }
   margin: 1em 0;
 
   .resource-links {

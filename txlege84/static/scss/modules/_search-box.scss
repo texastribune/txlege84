@@ -60,15 +60,15 @@
 
 }
 
-.search-form {
-  @include media($medium) {
-    @include span-columns(6);
-    @include omega(2n);
-  }
+// .search-form {
+//   @include media($medium) {
+//     @include span-columns(6);
+//     @include omega(2n);
+//   }
 
-  @include media($large) {
-    @include span-columns(6);
-    @include omega(2n);
-  }
-}
+//   @include media($large) {
+//     @include span-columns(6);
+//     @include omega(2n);
+//   }
+// }
 

@@ -13,8 +13,11 @@
 </div>
 
 {% include "modules/livestream.html" %}
-{% include "modules/bill-search-box.html" %}
-{% include "modules/quick-links.html" %}
+<section class="side-bar">
+  {% include "modules/bill-search-box.html" %}
+  {% include "modules/quick-links.html" %}
+</section>
+
 {% include "components/featured-primer.html" %}
 
 {% endblock %}
