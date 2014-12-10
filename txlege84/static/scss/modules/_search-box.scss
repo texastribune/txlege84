@@ -2,16 +2,18 @@
   @extend %content-block;
   @include span-columns(12);
 
-  @include media($medium) {
-    @include span-columns(6);
-  }
+  // @include media($medium) {
+  //   @include span-columns(6);
+  // }
 
-  @include media($large) {
-    @include span-columns(4);
-  }
+  // @include media($large) {
+  //   @include span-columns(4);
+  // }
 
   button {
     margin-bottom: .5em;
+    @include span-columns(2 of 6);
+    @include omega();
   }
 
   h3 {
@@ -53,8 +55,20 @@
 
   form {
     display: inline-block;
-    width: 100%;
+    @include span-columns(4 of 6);
   }
 
+}
+
+.search-form {
+  @include media($medium) {
+    @include span-columns(6);
+    @include omega(2n);
+  }
+
+  @include media($large) {
+    @include span-columns(6);
+    @include omega(2n);
+  }
 }
 
