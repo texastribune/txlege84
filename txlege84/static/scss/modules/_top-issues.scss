@@ -1,5 +1,68 @@
 .top-issues {
   background-color: $background-gray;
+
+  .browse-topics {
+    li {
+      @include span-columns(12);
+
+      @include media($medium) {
+        @include span-columns(6);
+        @include omega(2n);
+      }
+
+      @include media($large) {
+        @include span-columns(6);
+        @include omega(2n);
+      }
+    }
+  }
+}
+
+.more-issues {
+
+  .browse-topics {
+    li {
+      @include span-columns(12);
+
+      @include media($medium) {
+        @include span-columns(4);
+        @include omega(3n);
+        &.subscription {
+          @include span-columns(8);
+        }
+      }
+
+      @include media($large) {
+        @include span-columns(4);
+        @include omega(3n);
+        &.subscription {
+          @include span-columns(8);
+        }
+      }
+    }
+  }
+
+  p.issue {
+    display: none;
+
+    @include media($medium) {
+      display: block;
+    }
+
+    @include media($large) {
+      display: block;
+    }
+  }
+
+  .subscription {
+    border: 1px solid $tribune-yellow;
+    background-color: $white;
+    padding: 0 1em;
+
+    p {
+      font-size: .9em;
+    }
+  }
 }
 
 .top-issues-header {
@@ -16,87 +79,14 @@
   @include clearfix;
   margin-bottom: 2em;
 
-  li {
-    @include span-columns(12);
-
-    @include media($medium) {
-      @include span-columns(6);
-      @include omega(2n);
-    }
-
-    @include media($large) {
-      @include span-columns(6);
-      @include omega(2n);
-    }
-
-    &.subscription {
-      border: 1px solid $tribune-yellow;
-      background-color: $white;
-      padding: 0 1em;
-
-      p {
-        font-size: .9em;
-      }
-    }
-  }
-
   ul {
     @include clearfix;
   }
-
-  // h5 {
-  //   font-size: .9em;
-  //   line-height: 1.1em;
-  //   margin: .25em 0;
-  // }
 
   &.prose ul {
     padding: 0;
   }
 
-  p.top-issue {
-    display: none;
-
-    @include media($medium) {
-      display: block;
-    }
-
-    @include media($large) {
-      display: block;
-    }
-  }
-
-  li.top-issues-button {
-    border-bottom: 1px solid;
-    padding: .5em;
-    margin-bottom: 0;
-
-    h5 {
-      font-size: 1.2em;
-      line-height: 1.1em;
-      margin: .5em 0;
-    }
-
-    @include media($medium) {
-      border-bottom: none;
-      padding: 0;
-      margin-bottom: .5em;
-
-      h5 {
-        font-size: .9em;
-      }
-    }
-
-    @include media($large) {
-      border-bottom: none;
-      padding: 0;
-      margin-bottom: .5em;
-
-      h5 {
-        font-size: .9em;
-      }
-    }
-  }
 }
 
 .topic-graphic {
