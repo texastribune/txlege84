@@ -2,21 +2,33 @@
   @extend %content-block;
   @include span-columns(12);
 
-  // @include media($medium) {
-  //   @include span-columns(6);
-  // }
-
-  // @include media($large) {
-  //   @include span-columns(4);
-  // }
+  header {
+    display: inline-block;
+  }
 
   button {
     margin-bottom: .5em;
-    @include span-columns(2 of 6);
-    @include omega();
+    @include span-columns(12);
 
     @include media($medium) {
-      @include span-columns(6 of 6);
+      @include span-columns(2);
+      @include omega();
+    }
+
+    @include media($large) {
+      @include span-columns(2);
+      @include omega();
+    }
+  }
+
+  .search-form-wrap {
+    @include span-columns(12);
+    @include media($medium) {
+      @include span-columns(10);
+    }
+
+    @include media($large) {
+      @include span-columns(10);
     }
   }
 
@@ -27,7 +39,7 @@
 
   i.fa-search {
     display: inline-block;
-    font-size: 1.2em;
+    font-size: 2em;
     margin-right: .5em;
   }
 
@@ -41,30 +53,28 @@
     margin-bottom: 1em;
   }
 
-  // input[type="text"]:hover {
-  //   border-bottom: 1px solid #BBB;
-  //   width: 100%;
-  //   z-index: 1;
-  //   border-bottom: 1px solid #BBB;
-  //   cursor: text;
-  // }
-
-  // input[type="text"]:focus {
-  //   border-bottom: 1px solid #BBB;
-  //   width: 100%;
-  //   z-index: 1;
-  //   border-bottom: 1px solid #BBB;
-  //   cursor: text;
-  // }
-
   form {
     display: inline-block;
-    @include span-columns(4 of 6);
-    @include media($medium) {
-      @include span-columns(6 of 6);
-    }
+    width: 55%;
+    // @include span-columns(4 of 6);
+    // @include media($medium) {
+    //   @include span-columns(6 of 6);
+    // }
   }
 
+}
+
+.search-form {
+  i {
+    font-size: 1.2em;
+  }
+  h3 {
+    line-height: 1.4em;
+
+    span {
+      color: $text-gray;
+    }
+  }
 }
 
 // .search-form {
