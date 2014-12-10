@@ -8,29 +8,29 @@
 
   button {
     margin-bottom: .5em;
-    @include span-columns(12);
+    // @include span-columns(12);
 
-    @include media($medium) {
-      @include span-columns(2);
-      @include omega();
-    }
+    // @include media($medium) {
+    //   @include span-columns(2);
+    //   @include omega();
+    // }
 
-    @include media($large) {
-      @include span-columns(2);
-      @include omega();
-    }
+    // @include media($large) {
+    //   @include span-columns(2);
+    //   @include omega();
+    // }
   }
 
-  .search-form-wrap {
-    @include span-columns(12);
-    @include media($medium) {
-      @include span-columns(10);
-    }
+  // .search-form-wrap {
+  //   @include span-columns(12);
+  //   @include media($medium) {
+  //     @include span-columns(10);
+  //   }
 
-    @include media($large) {
-      @include span-columns(10);
-    }
-  }
+  //   @include media($large) {
+  //     @include span-columns(10);
+  //   }
+  // }
 
   h3 {
     display: inline-block;
@@ -55,7 +55,7 @@
 
   form {
     display: inline-block;
-    width: 55%;
+    width: 60%;
     // @include span-columns(4 of 6);
     // @include media($medium) {
     //   @include span-columns(6 of 6);
