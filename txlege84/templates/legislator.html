@@ -13,10 +13,12 @@
       <p>Phone Number: 512-463-0125</p>
       <p><a href="">More Info</a></p>
     </div>
-    {% include "components/bill-filter.html" %}
+    <h3>Committees</h4>
     {% for o in object.committee_set.all %}
-      <p>{{ o }}</p>
+      <p><a href="">{{ o }}</a></p>
     {% endfor %}
+    {% include "components/bill-filter.html" %}
+
     <div class="bill-table">
       <table>
         <thead>
@@ -24,16 +26,14 @@
             <th>Bill Number</th>
             <th>Category</th>
             <th>Caption</th>
-            <th>Status</th>
           </tr>
         </thead>
         <tbody>
         {% for p in object.sponsorships.all %}
           <tr>
-            <td data-title="Bill Number">{{ p.bill.name }}</td>
-            <td data-title="Category">{{ p.bill.subject.all }}</td>
-            <td data-title="Caption">Relating to the continuation and functions of the Texas Lottery Commission; providing penalties; imposing fees.</td>
-            <td data-title="Version">Introduced</td>
+            <td data-title="Bill Number"><a href="{% url 'bill-detail' p.bill.slug %}">{{ p.bill.name }}</a></td>
+            <td data-title="Category">{% for s in p.bill.subjects.all %}{{ s.name }} {% endfor %}</td>
+            <td data-title="Caption">{{ p.bill.description }}</td>
           </tr>
           {% endfor %}
         </tbody>
