@@ -7,13 +7,16 @@
   <div class="legislator">
     <div class="legislator-info">
       <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/Campbell-Donna768updated_1_jpg_131x197_crop_q100.jpg">
-      <h2>Sen. {{ object.full_name }}, R-New Braunfels</h2>
-      <p>District 25</p>
+      <h2>{% if object.chamber != 'Texas House' %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }}, {{ object.party.short_name }}-{{ object.district }}</h2>
+      <p>District {{ object.district }}</p>
       <p>Capitol office: 3E.8</p>
       <p>Phone Number: 512-463-0125</p>
       <p><a href="">More Info</a></p>
     </div>
     {% include "components/bill-filter.html" %}
+    {% for o in object.committee_set.all %}
+      <p>{{ o }}</p>
+    {% endfor %}
     <div class="bill-table">
       <table>
         <thead>
@@ -25,18 +28,14 @@
           </tr>
         </thead>
         <tbody>
+        {% for p in object.sponsorships.all %}
           <tr>
-            <td data-title="Bill Number">SB 38</td>
-            <td data-title="Category">Taxation</td>
+            <td data-title="Bill Number">{{ p.bill.name }}</td>
+            <td data-title="Category">{{ p.bill.subject.all }}</td>
             <td data-title="Caption">Relating to the continuation and functions of the Texas Lottery Commission; providing penalties; imposing fees.</td>
             <td data-title="Version">Introduced</td>
           </tr>
-          <tr>
-            <td data-title="Bill Number">SB 41</td>
-            <td data-title="Category">Taxation</td>
-            <td data-title="Caption">Relating to the continuation and functions of the Texas Lottery Commission; providing penalties; imposing fees.</td>
-            <td data-title="Version">In Committee</td>
-          </tr>
+          {% endfor %}
         </tbody>
       </table>
     </div>
