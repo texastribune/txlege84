@@ -1,35 +1,19 @@
 .quick-links {
   @extend %content-block;
   @include span-columns(12);
+
+  @include media($medium) {
+    @include span-columns(4);
+  }
+
+  @include media($large) {
+    @include span-columns(4);
+  }
   margin: 1em 0;
 
   .resource-links {
-    @include span-columns(12);
+    @include clearfix;
 
-    @include media($medium) {
-      @include span-columns(8);
-    }
-
-    @include media($large) {
-      @include span-columns(8);
-    }
-
-  }
-
-  .subscription {
-    @extend %content-block;
-    @include span-columns(12);
-    border: 1px dashed $href-teal;
-
-    @include media($medium) {
-      @include span-columns(4);
-      @include omega();
-    }
-
-    @include media($large) {
-      @include span-columns(4);
-      @include omega();
-    }
 
   }
 
