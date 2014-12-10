@@ -1,80 +1,25 @@
 .featured-content {
   @include span-columns(12);
-  @include row();
-  background-color: #ddd;
 
+  @include media($medium) {
+    @include span-columns(8);
+    @include omega();
+  }
+
+  @include media($large) {
+    @include span-columns(8);
+    @include omega();
+  }
 
   .feature-box {
-    @extend %content-block;
-    @include span-columns(12);
-    border: 1px solid $text-black;
 
-    @include media($medium) {
-      @include span-columns(8);
+    h2 {
+      margin: .5em 0;
     }
 
-    @include media($large) {
-      @include span-columns(8);
-    }
-
-  }
-
-  // .art,
-  // .video {
-  //   @include span-columns(5 of 8);
-  // }
-
-  .story-stream {
-    @include span-columns(12);
-
-    @include media($large) {
-      @include span-columns(3 of 8);
-      @include omega();
-    }
-
-  }
-
-  .slick-prev,
-  .slick-next {
-    top: 25%;
-
-    @include media($large){
-      top: 20%;
+    h4 {
+      margin-top: 2em;
     }
   }
 
-  .slick-prev {
-    left: 80%;
-  }
-
-  .slick-next {
-    right: 0;
-  }
-
-  .feature-ad-box {
-    visibility: hidden;
-
-    @include media($medium) {
-      @include span-columns(4);
-      @include omega();
-      visibility: visible;
-
-    }
-
-    @include media($large) {
-      @include span-columns(4);
-      @include omega();
-      visibility: visible;
-    }
-
-  }
-
-  img {
-    width: 100%;
-  }
-
-}
-
-.slick-dots {
-  bottom: 0;
 }
