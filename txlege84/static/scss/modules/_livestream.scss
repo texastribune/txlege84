@@ -1,6 +1,6 @@
 .livestream {
-  @include span-columns(12);
-  background-color: $href-offwhite;
+  @include clearfix;
+  background-color: $background-gray;
 
   h2 {
     margin: .25em 0;

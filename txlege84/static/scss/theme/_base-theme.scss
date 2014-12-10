@@ -1,5 +1,14 @@
 /* Base Theme for HTML elements */
 
+.container,
+.main-container {
+  @extend %container;
+}
+
+.main {
+  @extend %content-block;
+}
+
 body {
   font-family: $base-sans-serif;
   -moz-osx-font-smoothing: grayscale;
@@ -44,6 +53,7 @@ hr {
 button,
 .button {
   color: $bodytext-black;
+  background-color: #ccc;
   display: inline-block;
   font-family: $base-sans-serif;
   letter-spacing: .03rem;
@@ -80,12 +90,18 @@ dd {
   line-height: 1.4;
 }
 
-
-.container,
-.main-container {
-  @extend %container;
+section {
+  @include span-columns(12);
+  @include clearfix();
 }
 
-.main {
-  @extend %content-block;
+nav {
+  @include clearfix;
+  margin-bottom: 2em;
+
+}
+
+ul {
+  list-style: none;
+  padding: 0;
 }
