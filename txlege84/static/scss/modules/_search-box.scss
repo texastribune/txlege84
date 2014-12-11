@@ -1,36 +1,5 @@
 .search-box {
-  @extend %content-block;
   @include span-columns(12);
-
-  header {
-    display: inline-block;
-  }
-
-  button {
-    margin-bottom: .5em;
-    // @include span-columns(12);
-
-    // @include media($medium) {
-    //   @include span-columns(2);
-    //   @include omega();
-    // }
-
-    // @include media($large) {
-    //   @include span-columns(2);
-    //   @include omega();
-    // }
-  }
-
-  // .search-form-wrap {
-  //   @include span-columns(12);
-  //   @include media($medium) {
-  //     @include span-columns(10);
-  //   }
-
-  //   @include media($large) {
-  //     @include span-columns(10);
-  //   }
-  // }
 
   h3 {
     display: inline-block;
@@ -39,53 +8,51 @@
 
   i.fa-search {
     display: inline-block;
-    font-size: 2em;
+    font-size: 1.2em;
     margin-right: .5em;
   }
 
   input[type="text"] {
     display: inline-block;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+    outline: none;
     color: $text-black;
     padding: .5em 0;
     width: 100%;
     transition: width .4s ease;
     cursor: pointer;
     margin-bottom: 1em;
+
+    @include media($medium) {
+      width: 60%;
+    }
+
+    @include media($large) {
+      width: 40%;
+    }
+  }
+
+  input[type="text"]:hover {
+    border-bottom: 1px solid #BBB;
+    width: 100%;
+    z-index: 1;
+    border-bottom: 1px solid #BBB;
+    cursor: text;
+  }
+
+  input[type="text"]:focus {
+    border-bottom: 1px solid #BBB;
+    width: 100%;
+    z-index: 1;
+    border-bottom: 1px solid #BBB;
+    cursor: text;
   }
 
   form {
     display: inline-block;
-    width: 60%;
-    // @include span-columns(4 of 6);
-    // @include media($medium) {
-    //   @include span-columns(6 of 6);
-    // }
+    width: 100%;
   }
 
 }
-
-.search-form {
-  i {
-    font-size: 1.2em;
-  }
-  h3 {
-    line-height: 1.4em;
-
-    span {
-      color: $text-gray;
-    }
-  }
-}
-
-// .search-form {
-//   @include media($medium) {
-//     @include span-columns(6);
-//     @include omega(2n);
-//   }
-
-//   @include media($large) {
-//     @include span-columns(6);
-//     @include omega(2n);
-//   }
-// }
 
