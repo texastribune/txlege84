@@ -13,16 +13,18 @@
     <div class="bill-authors">
       <div>
         <h5>Primary Author</h5>
-        {% if object.sponsorships.all.0.role = 'author' %}
-        <p>Rep. <a href="">{{ object.sponsorships.all.0.legislator }}</a></p>
-        {% endif %}
+        {% for n in object.sponsorships.all %}
+          {% if n.role = 'author' %}
+            <p>Rep. <a href="{% url 'legislator-detail' n.legislator.slug %}">{{ object.sponsorships.all.0.legislator }}</a></p>
+          {% endif %}
+        {% endfor %}
       </div>
       <div>
       <h5>Coauthors</h5>
       <ul>
         {% for o in object.sponsorships.all %}
           {% if o.role = 'coauthor' %}
-          <li>Rep. <a href="">{{ o }}</a></li>
+          <li>Rep. <a href="{% url 'legislator-detail' o.legislator.slug %}">{{ o }}</a></li>
           {% endif %}
         {% endfor %}
       </ul>
@@ -30,8 +32,10 @@
       <div>
         <h5>Sponsor</h5>
         <ul>
-        {% for o in object.sponsorships.all %}
-          <li>Rep. <a href="">{{ o.legislator }}</a></li>
+        {% for p in object.sponsorships.all %}
+          {% if p.role = 'sponsor' %}
+            <li>Rep. <a href="{% url 'legislator-detail' p.legislator.slug %}">{{ p.legislator }}</a></li>
+          {% endif %}
         {% endfor %}
         </ul>
       </div>
