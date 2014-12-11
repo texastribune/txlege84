@@ -51,7 +51,6 @@ class Legislator(models.Model):
     district_address = models.TextField(null=True, blank=True)
     district_phone = models.CharField(max_length=12, null=True, blank=True)
 
-
     openstates_id = models.CharField(max_length=9, unique=True)
 
     def __unicode__(self):
