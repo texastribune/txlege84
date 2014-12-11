@@ -9,9 +9,12 @@
       <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/Campbell-Donna768updated_1_jpg_131x197_crop_q100.jpg">
       <h2>{% if object.chamber != 'Texas House' %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }}, {{ object.party.short_name }}-{{ object.district }}</h2>
       <p>District {{ object.district }}</p>
-      <p>Capitol office: 3E.8</p>
-      <p>Phone Number: 512-463-0125</p>
-      <p><a href="">More Info</a></p>
+      <p>Capitol address: {{ object.capitol_address }}</p>
+      <p>Phone Number: <a href="tel:{{ object.capitol_phone }}">{{ object.capitol_phone }}</a></p>
+      <br />
+      <p>District Office: {{ object.district_address }}</p>
+      <p>District Phone: <a href="tel:{{ object.district_phone }}">{{ object.district_phone }}</a></p>
+      <!-- <p><a href="">More Info</a></p> -->
     </div>
 
     <div class="bill-table">
