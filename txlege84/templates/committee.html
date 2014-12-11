@@ -10,12 +10,12 @@
     <div class="committee-chair">
       <h5>Chair</h5>
       <!-- <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"> -->
-        <p><a href="">{{ object.chair }}</a></p>
+        <p><a href="{% url 'legislator-detail' object.chair.slug %}">{{ object.chair }}</a></p>
     </div>
     <div class="committee-vice-chair">
       <h5>Vice Chair</h5>
       <!-- <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/bob-deuell_3_jpg_131x197_crop_q100.jpg"> -->
-      <p><a href="">{{ object.vice_chair }}</a></p>
+      <p><a href="{% url 'legislator-detail' object.vice_chair.slug %}">{{ object.vice_chair }}</a></p>
     </div>
     <div class="committee-members">
       <h5>Members</h5>
