@@ -15,7 +15,7 @@
         <h5>Primary Author</h5>
         {% for n in object.sponsorships.all %}
           {% if n.role = 'author' %}
-            <p>Rep. <a href="{% url 'legislator-detail' n.legislator.slug %}">{{ object.sponsorships.all.0.legislator }}</a></p>
+            <p>Rep. <a href="{% url 'legislator-detail' n.legislator.slug %}">{{ n.legislator }}</a></p>
           {% endif %}
         {% endfor %}
       </div>
