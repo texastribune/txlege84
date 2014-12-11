@@ -13,10 +13,25 @@
       <p>Phone Number: 512-463-0125</p>
       <p><a href="">More Info</a></p>
     </div>
-    <h3>Committees</h4>
-    {% for o in object.committee_set.all %}
-      <p><a href="">{{ o }}</a></p>
-    {% endfor %}
+
+    <div class="bill-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Role</th>
+            <th>Committee</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for o in object.memberships.all %}
+          <tr>
+            <td data-title="Role">{{ o.role }}</td>
+            <td data-title="Committee"><a href="{% url 'committee-detail' chamber=o.committee.chamber.slug slug=o.committee.slug %}">{{ o.committee }}</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
     {% include "components/bill-filter.html" %}
 
     <div class="bill-table">
