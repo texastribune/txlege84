@@ -14,24 +14,24 @@
 @import 'theme/prose';
 
 @import 'components/_ads';
-@import 'components/_grid';
-@import 'components/_tables';
 @import 'components/_bill-filter';
 @import 'components/_bill-table';
+@import 'components/_grid';
+@import 'components/_tables';
 
-@import 'modules/_masthead';
-@import 'modules/_project-header';
+@import 'modules/_bill-search-box';
+@import 'modules/_featured-content';
 @import 'modules/_footer';
 @import 'modules/_livestream';
-@import 'modules/_search-box';
+@import 'modules/_masthead';
 @import 'modules/_primer';
-@import 'modules/_top-issues';
-@import 'modules/_featured-content';
-@import 'modules/_topic-lists';
+@import 'modules/_project-header';
 @import 'modules/_quick-links';
+@import 'modules/_top-issues';
+@import 'modules/_topic-lists';
 
-@import 'pages/_landing';
-@import 'pages/_topic-list-landing';
 @import 'pages/_bill';
-@import 'pages/_legislator';
 @import 'pages/_committee';
+@import 'pages/_landing';
+@import 'pages/_legislator';
+@import 'pages/_topic-list-landing';

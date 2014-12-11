@@ -1,5 +1,10 @@
 .livestream {
+  header {
+    @extend %content-block;
+  }
+
   @include clearfix;
+
   background-color: $background-gray;
 
   h2 {
