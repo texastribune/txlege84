@@ -61,6 +61,41 @@ class Command(BaseCommand):
                 else:
                     profile_url = None
 
+                if 'offices' in data:
+                    for entry in data['offices']:
+                        if entry['type'] == 'capitol':
+                            capitol_office = entry
+                            break
+                    else:
+                        capitol_office = None
+
+                    for entry in data['offices']:
+                        if entry['type'] == 'district':
+                            district_office = entry
+                            break
+                    else:
+                        district_office = None
+
+                    if capitol_office:
+                        capitol_address = capitol_office['address']
+                        capitol_phone = capitol_office['phone']
+                        if capitol_phone:
+                            capitol_phone = capitol_phone.replace('(', '')
+                            capitol_phone = capitol_phone.replace(') ', '-')
+                    else:
+                        capitol_address = None
+                        capitol_phone = None
+
+                    if district_office:
+                        district_address = district_office['address']
+                        district_phone = district_office['phone']
+                        if district_phone:
+                            district_phone = district_phone.replace('(', '')
+                            district_phone = district_phone.replace(') ', '-')
+                    else:
+                        district_address = None
+                        district_phone = None
+
                 Legislator.objects.get_or_create(
                     first_name=data['first_name'],
                     middle_name=data['middle_name'],
@@ -70,5 +105,9 @@ class Command(BaseCommand):
                     district=district,
                     profile_url=profile_url,
                     active=data['active'],
+                    capitol_address=capitol_address,
+                    capitol_phone=capitol_phone,
+                    district_address=district_address,
+                    district_phone=district_phone,
                     openstates_id=data['leg_id'],
                 )
