@@ -7,7 +7,8 @@
   <div class="legislator">
     <div class="legislator-info">
       <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/Campbell-Donna768updated_1_jpg_131x197_crop_q100.jpg">
-      <h2>{% if object.chamber != 'Texas House' %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }}, {{ object.party.short_name }}-{{ object.district }}</h2>
+      <h2>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }}, {{ object.party.short_name }}-{{ object.district }}</h2>
+      {{ object.chamber }}
       <p>District {{ object.district }}</p>
       <p>Capitol address: {{ object.capitol_address }}</p>
       <p>Phone Number: <a href="tel:{{ object.capitol_phone }}">{{ object.capitol_phone }}</a></p>
