@@ -1,35 +1,39 @@
 @import 'bourbon/dist/bourbon';
 @import 'neat/app/assets/stylesheets/neat';
 
+// == Helpers, Variables, Mixins ==
 @import 'helpers/normalize';
-
+@import 'helpers/grid';
 @import 'helpers/typography';
 @import 'helpers/colors';
 @import 'helpers/mixins';
-@import 'helpers/grid';
 @import 'helpers/placeholders';
 
-
+// == Themes ==
 @import 'theme/global';
 @import 'theme/prose';
 @import 'theme/tables';
 
+// == Sitewide Components ==
+@import 'components/ads';
+@import 'components/footer';
+@import 'components/masthead';
 
-@import 'components/_ads';
-@import 'components/_bill-table';
+// == Bill Modules ==
+@import 'components/bills/bill-table';
+@import 'components/bills/search-box';
 
+// == Landing Modules ==
+@import 'components/landing-modules/featured-content';
+@import 'components/landing-modules/livestream';
+@import 'components/landing-modules/quick-links';
+@import 'components/landing-modules/project-header';
 
-@import 'modules/_bill-search-box';
-@import 'modules/_featured-content';
-@import 'modules/_footer';
-@import 'modules/_livestream';
-@import 'modules/_masthead';
-@import 'modules/_primer';
-@import 'modules/_project-header';
-@import 'modules/_quick-links';
-@import 'modules/_top-issues';
-@import 'modules/_topic-lists';
+// == Topic Modules ==
+@import 'components/topics/top-issues';
+@import 'components/topics/topic-menu';
 
+// == Specific Page Styles ==
 @import 'pages/_bill';
 @import 'pages/_committee';
 @import 'pages/_landing';

@@ -1,8 +1,0 @@
-.primer {
-  @extend %content-block;
-  @include span-columns(4);
-  @include omega();
-
-  border: 1px dashed $masthead-black;
-
-}
