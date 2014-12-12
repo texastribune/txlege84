@@ -1,3 +1,10 @@
+// Default Breakpoints
+$medium: new-breakpoint(min-width 600px max-width 1080px);
+$large: new-breakpoint(min-width 1081px);
+$default-768: new-breakpoint(min-width 768px);
+$default-480: new-breakpoint(max-width 480px);
+
+
 // Basic Grid Mixins
 
 @mixin div-grid($col-width, $number-div) {

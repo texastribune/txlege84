@@ -2,10 +2,13 @@
 @import 'neat/app/assets/stylesheets/neat';
 
 @import 'helpers/normalize';
-@import 'helpers/variables';
+
+@import 'helpers/typography';
 @import 'helpers/colors';
 @import 'helpers/mixins';
+@import 'helpers/grid';
 @import 'helpers/placeholders';
+
 
 @import 'theme/global';
 @import 'theme/prose';
@@ -14,7 +17,7 @@
 
 @import 'components/_ads';
 @import 'components/_bill-table';
-@import 'components/_grid';
+
 
 @import 'modules/_bill-search-box';
 @import 'modules/_featured-content';
