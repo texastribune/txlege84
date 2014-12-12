@@ -7,12 +7,12 @@ from django.contrib import admin
 urlpatterns = patterns(
     '',
     url(r'^$', TemplateView.as_view(template_name='landing.html')),
-    url(r'^topic-list-landing/$', TemplateView.as_view(template_name='topic-list-landing.html')),
-    url(r'^topic-list/$', TemplateView.as_view(template_name='topic-list.html')),
-    url(r'^bill/$', TemplateView.as_view(template_name='bill.html')),
-    url(r'^legislator/$', TemplateView.as_view(template_name='legislator.html')),
-    url(r'^committee/$', TemplateView.as_view(template_name='committee.html')),
-    url(r'^issue/$', TemplateView.as_view(template_name='issue.html')),
+    url(r'^topic-list-landing/$', TemplateView.as_view(template_name='pages/topic-list-landing.html')),
+    url(r'^topic-list/$', TemplateView.as_view(template_name='pages/topic-list.html')),
+    url(r'^bill/$', TemplateView.as_view(template_name='pages/bill.html')),
+    url(r'^legislator/$', TemplateView.as_view(template_name='pages/legislator.html')),
+    url(r'^committee/$', TemplateView.as_view(template_name='pages/committee.html')),
+    url(r'^issue/$', TemplateView.as_view(template_name='pages/issue.html')),
 
     # Examples:
     # url(r'^$', 'txlege84.views.home', name='home'),
