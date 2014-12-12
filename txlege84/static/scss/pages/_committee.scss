@@ -25,18 +25,7 @@
 
 .committee-members {
   @include span-columns(12);
+  @include li-grid(12, 2, 2);
   margin-bottom: 1em;
-  li {
-    @include span-columns(12);
 
-    @include media($medium) {
-      @include span-columns(6);
-      @include omega(2n);
-    }
-
-    @include media($large) {
-      @include span-columns(4);
-      @include omega(3n);
-    }
-  }
 }

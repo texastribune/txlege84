@@ -18,40 +18,17 @@
 }
 
 .top-issues {
+  @include li-grid(12, 2, 2);
   @include clearfix;
   background-color: $background-gray;
 
-  li {
-    @include span-columns(12);
 
-    @include media($medium) {
-      @include span-columns(6);
-      @include omega(2n);
-    }
-
-    @include media($large) {
-      @include span-columns(6);
-      @include omega(2n);
-    }
-  }
 }
 
 .topic-list-nav {
 
   nav {
-    li {
-      @include span-columns(12);
-
-      @include media($medium) {
-        @include span-columns(4);
-        @include omega(3n);
-      }
-
-      @include media($large) {
-        @include span-columns(4);
-        @include omega(3n);
-      }
-    }
+    @include li-grid(12, 3, 3);
   }
 
   span.see-all {

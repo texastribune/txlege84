@@ -23,3 +23,19 @@ $default-480: new-breakpoint(max-width 480px);
     }
   }
 }
+
+@mixin li-grid($col-width, $med-li, $lg-li) {
+  li {
+    @include span-columns(12);
+
+    @include media($medium) {
+      @include span-columns($col-width / $med-li of $col-width);
+      @include omega($med-li+n);
+    }
+
+    @include media($large) {
+      @include span-columns($col-width / $lg-li of $col-width);
+      @include omega($lg-li+n);
+    }
+  }
+}
