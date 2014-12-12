@@ -5,21 +5,12 @@ $font-default: $helvetica !default;
 $font-prose: $georgia !default;
 $base-sans-serif: $helvetica !default;
 $base-serif: $georgia !default;
+
 // breakpoints
 $medium: new-breakpoint(min-width 600px max-width 1080px);
 $large: new-breakpoint(min-width 1081px);
 $default-768: new-breakpoint(min-width 768px);
 $default-480: new-breakpoint(max-width 480px);
-
-// placeholders
-%container {
-  @include outer-container();
-}
-
-%content-block {
-  padding-left: em(20);
-  padding-right: em(20);
-}
 
 // Lead-Banner Settings
 $banner-height: 225px;
