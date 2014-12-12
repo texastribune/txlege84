@@ -58,13 +58,14 @@
           {% endif %}
       </div>
     </div>
+
     <div class="bill-stages">
       <h5>Bill Stages</h5>
-      {% if "Filed" in object.actions.text %}
-      <div class="bill-stage done">
-      {% else %}
-      <div class="bill-stage">
-      {% endif %}
+      {% for m in object.actions.all %}
+        {% if 'Filed' in m.text %}
+        <div class="bill-stage done">
+        {% endif %}
+      {% endfor %}
         <div class="bill-stage-name">Filed</div>
         <div class="date-stage-complete">{{ object.actions.first.date }}</div>
       </div>
