@@ -63,7 +63,6 @@
   }
 
   ul {
-    @extend %content-block;
     font-family: $base-sans-serif;
     font-size: .875em;
     font-weight: 600;
