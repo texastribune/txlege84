@@ -1,23 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section class="project-header">
+<section class="project-header side-bar">
   <header>
     <h1>On the Lege</h1>
   </header>
-</section>
-
-{% include "modules/top-issues.html" %}
-{% include "modules/bill-search-box.html" %}
-{% include "modules/livestream.html" %}
-
-{% include "modules/topic-list-nav.html" %}
-
-<section class="side-bar">
-
+  {% include "modules/bill-search-box.html" %}
   {% include "modules/quick-links.html" %}
+
 </section>
 
-{% include "components/featured-primer.html" %}
+<section class="body-main">
+
+  {% include "modules/top-issues.html" %}
+  {% include "modules/livestream.html" %}
+
+  {% include "modules/topic-list-nav.html" %}
+  {% include "components/featured-primer.html" %}
+</section>
+
+
 
 {% endblock %}

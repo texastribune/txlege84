@@ -1,4 +1,5 @@
 .side-bar {
+  height: 100%;
   @include span-columns(12);
 
   @include media($medium) {
@@ -9,4 +10,19 @@
     @include span-columns(4);
   }
 
+}
+
+
+.body-main {
+  @include span-columns(12);
+
+  @include media($medium) {
+    @include span-columns(8);
+    @include omega();
+  }
+
+  @include media($large) {
+    @include span-columns(8);
+    @include omega();
+  }
 }
