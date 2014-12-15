@@ -60,5 +60,32 @@
     width: 100%;
   }
 
+  .look-up-bills {
+    @include span-columns(12);
+
+    @include media($medium) {
+      @include span-columns(8);
+    }
+
+    @include media($large) {
+      @include span-columns(8);
+    }
+  }
+
+  .look-up-lawmaker {
+    border: 1px solid;
+    @extend %content-block;
+    @include span-columns(12);
+
+    @include media($medium) {
+      @include span-columns(4);
+      @include omega();
+    }
+
+    @include media($large) {
+      @include span-columns(4);
+      @include omega();
+    }
+  }
 }
 
