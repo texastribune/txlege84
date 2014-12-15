@@ -5,10 +5,11 @@
   h3 {
     display: inline-block;
     margin: 1em 0;
+  }
 
-    span {
-      color: $text-gray;
-    }
+  .sub {
+    color: $text-gray;
+    margin: 0 0 .5em 0;
   }
 
   i.fa-search {
@@ -30,11 +31,11 @@
     margin-bottom: 1em;
 
     @include media($medium) {
-      width: 60%;
+      width: 100%;
     }
 
     @include media($large) {
-      width: 40%;
+      width: 100%;
     }
   }
 

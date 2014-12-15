@@ -1,9 +1,30 @@
+.project-header {
+  h1 {
+    margin: 1em 0;
+  }
+
+
+  @include media($medium) {
+    h1 {
+      margin: 3em 0;
+    }
+  }
+
+  @include media($large) {
+    h1 {
+      margin: 4em 0;
+    }
+  }
+
+}
+
+
 .side-bar {
-  height: 100%;
+  @include clearfix;
   @include span-columns(12);
 
   @include media($medium) {
-    @include span-columns(4);
+    @include span-columns(5);
   }
 
   @include media($large) {
@@ -17,7 +38,7 @@
   @include span-columns(12);
 
   @include media($medium) {
-    @include span-columns(8);
+    @include span-columns(7);
     @include omega();
   }
 
