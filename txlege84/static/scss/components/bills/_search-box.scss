@@ -12,6 +12,10 @@
     margin: 0 0 .5em 0;
   }
 
+  button {
+    width: 100%;
+  }
+
   i.fa-search {
     display: inline-block;
     font-size: 1.2em;
@@ -55,37 +59,14 @@
     cursor: text;
   }
 
-  form {
+  form,
+  select {
     display: inline-block;
     width: 100%;
   }
 
-  .look-up-bills {
-    @include span-columns(12);
-
-    @include media($medium) {
-      @include span-columns(8);
-    }
-
-    @include media($large) {
-      @include span-columns(8);
-    }
+  .collapse {
+    @include collapse;
   }
 
-  .look-up-lawmaker {
-    border: 1px solid;
-    @extend %content-block;
-    @include span-columns(12);
-
-    @include media($medium) {
-      @include span-columns(4);
-      @include omega();
-    }
-
-    @include media($large) {
-      @include span-columns(4);
-      @include omega();
-    }
-  }
 }
-

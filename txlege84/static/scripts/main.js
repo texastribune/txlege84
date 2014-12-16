@@ -1,18 +1,14 @@
 $(function () {
   'use strict';
 
-  var navcontent = $('.browse-topics');
-  var appbarElement = $('.nav-bar');
-  var menuBtn = $('.menu');
-  var icon = $('.menu-icon');
+  var sidebarButton = $('.sidebar-header');
+  var sidebarContent = $('.sidebar-content');
 
   function toggleMenu() {
-    appbarElement.toggleClass('open');
-    navcontent.toggleClass('open');
-    icon.toggleClass('x');
+    sidebarContent.toggleClass('collapse');
   }
 
-  $(menuBtn).click(function() {
+  $(sidebarButton).click(function() {
     toggleMenu();
   });
 
@@ -26,5 +22,6 @@ $(document).ready(function() {
       slidesToShow: 1,
       slidesToScroll: 1
   });
+
 });
 
