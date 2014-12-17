@@ -6,6 +6,7 @@
   }
 
   button {
+    margin-bottom: 1em;
     width: 100%;
   }
 
@@ -25,7 +26,6 @@
     width: 100%;
     transition: width .4s ease;
     cursor: pointer;
-    margin-bottom: 1em;
 
     @include media($medium) {
       width: 100%;
@@ -55,6 +55,7 @@
   form,
   select {
     display: inline-block;
+    margin-bottom: 1em;
     width: 100%;
   }
 
