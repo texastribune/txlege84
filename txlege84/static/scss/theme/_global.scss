@@ -1,14 +1,5 @@
 /* Base Theme for HTML elements */
 
-.container,
-.main-container {
-  @extend %container;
-}
-
-.main {
-  @extend %content-block;
-}
-
 body {
   font-family: $base-sans-serif;
   -moz-osx-font-smoothing: grayscale;
@@ -25,7 +16,7 @@ h6,
 p {
   color: $text-black;
   font-family: $helvetica;
-  margin: 0;
+  margin: .25em 0;
   text-align: left;
 }
 

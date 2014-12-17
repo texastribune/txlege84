@@ -14,6 +14,7 @@ $default-480: new-breakpoint(max-width 480px);
 }
 
 .side-bar {
+  @extend %content-block;
   @include clearfix;
   @include span-columns(12);
 
@@ -28,6 +29,7 @@ $default-480: new-breakpoint(max-width 480px);
 }
 
 .body-main {
+  @extend %content-block;
   @include span-columns(12);
 
   @include media($medium) {
