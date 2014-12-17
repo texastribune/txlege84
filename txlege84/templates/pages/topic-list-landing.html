@@ -1,53 +1,62 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<section class="project-header">
+  <div class="side-bar">
+    <header>
+      <h1>On the Lege</h1>
+    </header>
+  </div>
 
-<div class="main">
-  {% include "modules/topic-page-header.html" %}
+  <div class="body-main">
+    {% include "modules/topic-page-header.html" %}
+  </div>
+</section>
 
-    <div class="issue-list-block">
-      <div class="issue-list-header">
-        <h3 class="headline">Health Care</h3>
-        <img class="headshot" src="../static/images/headshots/Edgar_jpg_131x197_crop_q100.jpg">
-        <img class="headshot" src="../static/images/headshots/Ura-Alexa_jpg_131x197_crop_q100.jpg">
-        <p class="curated">Curated by Edgar Walters and Alexa Ura</p>
-      </div>
+{% include "components/side-bar.html" %}
 
-      <div class="issue-list-landing">
-        <ul>
-          <li>A move to consolidate the state's 5 health agencies</li>
-          <li>Texas' solution to Medicaid expansion</li>
-          <li>More regulations for abortion providers</li>
-          <li>A move to consolidate the state's 5 health agencies</li>
-          <li>Texas' solution to Medicaid expansion</li>
-          <li>More regulations for abortion providers</li>
-        </ul>
-      </div>
+<section class="body-main">
+  <div class="issue-list-block">
+    <header class="issue-list-header">
+      <h3 class="headline">Health Care</h3>
+      <img class="headshot" src="../static/images/headshots/Edgar_jpg_131x197_crop_q100.jpg">
+      <img class="headshot" src="../static/images/headshots/Ura-Alexa_jpg_131x197_crop_q100.jpg">
+      <p class="curated">Curated by Edgar Walters and Alexa Ura</p>
+    </header>
+
+    <div class="issue-list-landing">
+      <ul>
+        <li>A move to consolidate the state's 5 health agencies</li>
+        <li>Texas' solution to Medicaid expansion</li>
+        <li>More regulations for abortion providers</li>
+        <li>A move to consolidate the state's 5 health agencies</li>
+        <li>Texas' solution to Medicaid expansion</li>
+        <li>More regulations for abortion providers</li>
+      </ul>
     </div>
+  </div>
 
-    <div class="issue-list-block">
-      <div class="issue-list-header">
-        <h3 class="headline">Public Education</h3>
-        <img class="headshot" src="../static/images/headshots/Edgar_jpg_131x197_crop_q100.jpg">
-        <img class="headshot" src="../static/images/headshots/Ura-Alexa_jpg_131x197_crop_q100.jpg">
-        <p class="curated">Curated by Edgar Walters and Alexa Ura</p>
-      </div>
+  <div class="issue-list-block">
+    <header class="issue-list-header">
+      <h3 class="headline">Public Education</h3>
+      <img class="headshot" src="../static/images/headshots/Edgar_jpg_131x197_crop_q100.jpg">
+      <img class="headshot" src="../static/images/headshots/Ura-Alexa_jpg_131x197_crop_q100.jpg">
+      <p class="curated">Curated by Edgar Walters and Alexa Ura</p>
+    </header>
 
-      <div class="issue-list-landing">
-        <ul>
-          <li>A move to consolidate the state's 5 health agencies</li>
-          <li>Texas' solution to Medicaid expansion</li>
-          <li>More regulations for abortion providers</li>
-          <li>A move to consolidate the state's 5 health agencies</li>
-          <li>Texas' solution to Medicaid expansion</li>
-          <li>More regulations for abortion providers</li>
-          <li>Texas' solution to Medicaid expansion</li>
-          <li>More regulations for abortion providers</li>
-        </ul>
-      </div>
+    <div class="issue-list-landing">
+      <ul>
+        <li>A move to consolidate the state's 5 health agencies</li>
+        <li>Texas' solution to Medicaid expansion</li>
+        <li>More regulations for abortion providers</li>
+        <li>A move to consolidate the state's 5 health agencies</li>
+        <li>Texas' solution to Medicaid expansion</li>
+        <li>More regulations for abortion providers</li>
+        <li>Texas' solution to Medicaid expansion</li>
+        <li>More regulations for abortion providers</li>
+      </ul>
     </div>
-
-  </section>
-</div>
+  </div>
+</section>
 
 {% endblock %}
