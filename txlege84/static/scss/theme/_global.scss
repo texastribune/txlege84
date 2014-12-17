@@ -32,7 +32,17 @@ h1 {
 h2 {
   font-size: 1.4em;
   font-weight: 700;
+  margin-top: 1.3em;
+  padding-bottom: .2em;
 }
+
+.top-issues,
+.topic-list-nav {
+  h2 {
+    border-bottom: 1px solid $masthead-black;
+  }
+}
+
 
 // Sidebar Header
 h3 {
@@ -114,7 +124,7 @@ li {
   font-size: 1em;
   font-weight: 500;
   line-height: 1.6em;
-  margin: 1em auto;
+  margin: .75em auto;
   text-align: left;
 }
 

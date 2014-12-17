@@ -1,0 +1,28 @@
+.hotlist-nav {
+  nav {
+    @include li-grid(12, 3, 3);
+  }
+
+  span.see-all {
+    float: right;
+    font-style: italic;
+  }
+
+  .subscription {
+    border: 1px solid $tribune-yellow;
+    background-color: $white;
+    padding: 0 1em;
+
+    p {
+      font-size: .9em;
+    }
+  }
+}
+
+.hotlist-graphic {
+  border: 1px solid;
+  float: left;
+  height: 1.5em;
+  margin: 0 .75em 0 0;
+  width: 1.5em;
+}
