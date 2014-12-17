@@ -1,8 +1,4 @@
 .livestream {
-  header {
-    @extend %content-block;
-  }
-
   @include clearfix;
 
   background-color: $background-gray;
@@ -16,6 +12,10 @@
 
     span {
       font-style: italic;
+    }
+
+    img {
+      width: 100%;
     }
   }
 

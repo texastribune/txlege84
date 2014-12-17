@@ -23,7 +23,53 @@ h4,
 h5,
 h6,
 p {
+  color: $text-black;
+  font-family: $helvetica;
   margin: 0;
+  text-align: left;
+}
+
+// Project title
+h1 {
+  color: $tribune-black;
+  font-size: 4.5em;
+  font-weight: 800;
+  line-height: 1em;
+}
+
+// Section Header
+h2 {
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+// Sidebar Header
+h3 {
+  font-size: 1.25em;
+  font-weight: 700;
+}
+
+// Header Tagline
+h4 {
+  color: $tagline-black;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1.2em;
+}
+
+h5 {
+  font-size: 0.8em;
+  font-family: arial;
+  font-size: 0.8em;
+  font-weight: 700;
+  line-height: 1.2em;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: $helvetica;
+  font-size: 1em;
+  line-height: 1.2em;
 }
 
 a {
@@ -71,28 +117,14 @@ ul {
   padding: 0;
 }
 
-dl {
-  margin: 0 0 1em;
-  padding: 0;
-}
-
-dt {
-  font-weight: 600;
-}
-
-dd {
-  font-weight: 300;
-  margin: 0;
-}
-
-dt,
-dd {
-  line-height: 1.4;
-}
-
-section {
-  @include span-columns(12);
-  @include clearfix();
+li {
+  color: $li-black;
+  font-family: $helvetica;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1.6em;
+  margin: 1em auto;
+  text-align: left;
 }
 
 nav {
@@ -101,7 +133,9 @@ nav {
 
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+section {
+  @include span-columns(12);
+  @include clearfix();
 }
+
+
