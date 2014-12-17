@@ -1,67 +1,80 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<section class="project-header">
+  <div class="side-bar">
+    <header>
+      <h1>On the Lege</h1>
+    </header>
+  </div>
 
-<div class="main">
-  {% include "modules/topic-page-header.html" %}
-
-  <section>
-    <h1 class="headline">Health Care</h1>
+  <div class="body-main">
+    <header>
+      <h5>Legislative Hot List</h5>
+      <h2>Health Care</h2>
+    </header>
     <img class="headshot" src="../static/images/headshots/Edgar_jpg_131x197_crop_q100.jpg">
     <img class="headshot" src="../static/images/headshots/Ura-Alexa_jpg_131x197_crop_q100.jpg">
     <p class="curated">Curated by Edgar Walters and Alexa Ura</p>
-    <div class="issue-embed-block prose">
-      <div class="issue-header">
-        <h3>A move to consolidate the state's 5 health agencies</h3>
-        <div class="share-topic">
-          <h4>Share this:</h4>
-          <i class="fa fa-facebook"></i>
-          <i class="fa fa-twitter"></i>
-        </div>
-      </div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut quam vehicula, elementum sem viverra, rutrum enim. Aenean aliquet faucibus gravida. Mauris bibendum diam nunc, quis congue augue ultrices eget. Sed pretium quis diam et bibendum. Etiam tincidunt malesuada lorem, non lacinia quam pretium vitae. Sed fringilla dapibus lacus, ut semper orci imperdiet quis. Curabitur eget facilisis mi, mattis congue metus.</p>
-      <p>Curabitur cursus et turpis et fermentum. Integer viverra dictum sapien, vitae mollis mauris ultrices at. Phasellus et ullamcorper lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean luctus pretium arcu non dapibus. Nunc porttitor eu est eu congue. Fusce vulputate, metus in facilisis finibus, arcu arcu lobortis enim, quis vulputate urna nunc in risus. Nulla facilisis ante id ex lacinia commodo. Aliquam erat volutpat. Nulla facilisi. Quisque sed vestibulum turpis. Cras molestie tortor elit, eu rutrum justo tincidunt in. Ut eleifend sagittis tincidunt. Praesent ornare pharetra erat, ac placerat lectus luctus ut.</p>
-      <div class="issue-legislation">
-        <h5>Related Legislation</h5>
-        <ul>
-          <li>SB 52 - Authored by Sen. Lola Little (R-Southside)</li>
-          <li>HB 219 - Authored by Rep. Peanut Gallery (R-Southside)</li>
-        </ul>
-      </div>
-      <div class="story-stream">
-        <h5>Related Content</h5>
-        <div class="slick-slide">
-          <h4><a href="">Senate Health Committee Considers Merging Agencies</a></h4>
-        </div>
-      </div>
-    </div>
-    <div class="issue-embed-block prose">
-      <div class="issue-header">
-        <h3>A move to consolidate the state's 5 health agencies</h3>
-        <div class="share-topic">
-          <h4>Share this:</h4>
-          <i class="fa fa-facebook"></i>
-          <i class="fa fa-twitter"></i>
-        </div>
-      </div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut quam vehicula, elementum sem viverra, rutrum enim. Aenean aliquet faucibus gravida. Mauris bibendum diam nunc, quis congue augue ultrices eget. Sed pretium quis diam et bibendum. Etiam tincidunt malesuada lorem, non lacinia quam pretium vitae. Sed fringilla dapibus lacus, ut semper orci imperdiet quis. Curabitur eget facilisis mi, mattis congue metus.</p>
-      <p>Curabitur cursus et turpis et fermentum. Integer viverra dictum sapien, vitae mollis mauris ultrices at. Phasellus et ullamcorper lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean luctus pretium arcu non dapibus. Nunc porttitor eu est eu congue. Fusce vulputate, metus in facilisis finibus, arcu arcu lobortis enim, quis vulputate urna nunc in risus. Nulla facilisis ante id ex lacinia commodo. Aliquam erat volutpat. Nulla facilisi. Quisque sed vestibulum turpis. Cras molestie tortor elit, eu rutrum justo tincidunt in. Ut eleifend sagittis tincidunt. Praesent ornare pharetra erat, ac placerat lectus luctus ut.</p>
-      <div class="issue-legislation">
-        <h5>Related Legislation</h5>
-        <ul>
-          <li>SB 52 - Authored by Sen. Lola Little (R-Southside)</li>
-          <li>HB 219 - Authored by Rep. Peanut Gallery (R-Southside)</li>
-        </ul>
-      </div>
-      <div class="story-stream">
-        <h5>Related Content</h5>
-        <div class="slick-slide">
-          <h4><a href="">Senate Health Committee Considers Merging Agencies</a></h4>
-        </div>
-      </div>
-    </div>
+  </div>
+</section>
 
-  </section>
-</div>
+{% include "components/side-bar.html" %}
+
+<section class="body-main">
+  {% include "modules/topic-page-header.html" %}
+
+  <div class="issue-embed-block prose">
+    <div class="issue-header">
+      <h3>A move to consolidate the state's 5 health agencies</h3>
+      <div class="share-topic">
+        <h4>Share this:</h4>
+        <i class="fa fa-facebook"></i>
+        <i class="fa fa-twitter"></i>
+      </div>
+    </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut quam vehicula, elementum sem viverra, rutrum enim. Aenean aliquet faucibus gravida. Mauris bibendum diam nunc, quis congue augue ultrices eget. Sed pretium quis diam et bibendum. Etiam tincidunt malesuada lorem, non lacinia quam pretium vitae. Sed fringilla dapibus lacus, ut semper orci imperdiet quis. Curabitur eget facilisis mi, mattis congue metus.</p>
+    <p>Curabitur cursus et turpis et fermentum. Integer viverra dictum sapien, vitae mollis mauris ultrices at. Phasellus et ullamcorper lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean luctus pretium arcu non dapibus. Nunc porttitor eu est eu congue. Fusce vulputate, metus in facilisis finibus, arcu arcu lobortis enim, quis vulputate urna nunc in risus. Nulla facilisis ante id ex lacinia commodo. Aliquam erat volutpat. Nulla facilisi. Quisque sed vestibulum turpis. Cras molestie tortor elit, eu rutrum justo tincidunt in. Ut eleifend sagittis tincidunt. Praesent ornare pharetra erat, ac placerat lectus luctus ut.</p>
+    <div class="issue-legislation">
+      <h5>Related Legislation</h5>
+      <ul>
+        <li>SB 52 - Authored by Sen. Lola Little (R-Southside)</li>
+        <li>HB 219 - Authored by Rep. Peanut Gallery (R-Southside)</li>
+      </ul>
+    </div>
+    <div class="story-stream">
+      <h5>Related Content</h5>
+      <div class="slick-slide">
+        <h4><a href="">Senate Health Committee Considers Merging Agencies</a></h4>
+      </div>
+    </div>
+  </div>
+  <div class="issue-embed-block prose">
+    <div class="issue-header">
+      <h3>A move to consolidate the state's 5 health agencies</h3>
+      <div class="share-topic">
+        <h4>Share this:</h4>
+        <i class="fa fa-facebook"></i>
+        <i class="fa fa-twitter"></i>
+      </div>
+    </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut quam vehicula, elementum sem viverra, rutrum enim. Aenean aliquet faucibus gravida. Mauris bibendum diam nunc, quis congue augue ultrices eget. Sed pretium quis diam et bibendum. Etiam tincidunt malesuada lorem, non lacinia quam pretium vitae. Sed fringilla dapibus lacus, ut semper orci imperdiet quis. Curabitur eget facilisis mi, mattis congue metus.</p>
+    <p>Curabitur cursus et turpis et fermentum. Integer viverra dictum sapien, vitae mollis mauris ultrices at. Phasellus et ullamcorper lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean luctus pretium arcu non dapibus. Nunc porttitor eu est eu congue. Fusce vulputate, metus in facilisis finibus, arcu arcu lobortis enim, quis vulputate urna nunc in risus. Nulla facilisis ante id ex lacinia commodo. Aliquam erat volutpat. Nulla facilisi. Quisque sed vestibulum turpis. Cras molestie tortor elit, eu rutrum justo tincidunt in. Ut eleifend sagittis tincidunt. Praesent ornare pharetra erat, ac placerat lectus luctus ut.</p>
+    <div class="issue-legislation">
+      <h5>Related Legislation</h5>
+      <ul>
+        <li>SB 52 - Authored by Sen. Lola Little (R-Southside)</li>
+        <li>HB 219 - Authored by Rep. Peanut Gallery (R-Southside)</li>
+      </ul>
+    </div>
+    <div class="story-stream">
+      <h5>Related Content</h5>
+      <div class="slick-slide">
+        <h4><a href="">Senate Health Committee Considers Merging Agencies</a></h4>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 {% endblock %}

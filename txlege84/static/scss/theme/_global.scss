@@ -32,14 +32,14 @@ h1 {
 h2 {
   font-size: 1.4em;
   font-weight: 700;
-  margin-top: 1.3em;
   padding-bottom: .2em;
 }
 
 .top-issues,
-.topic-list-nav {
+.hotlist-nav {
   h2 {
     border-bottom: 1px solid $masthead-black;
+    margin-top: 1.3em;
   }
 }
 
@@ -130,7 +130,7 @@ li {
 
 nav {
   @include clearfix;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 
 }
 
