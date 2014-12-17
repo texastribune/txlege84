@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% include "modules/nav-bar.html" %}
-<div class="main">
-  {% include "modules/bill-search-box.html" %}
-  <div class="legislator">
+<section class="project-header">
+  <div class="side-bar">
+    <header>
+      <h1>On the Lege</h1>
+    </header>
+  </div>
+
+  <div class="body-main">
     <div class="legislator-info">
       <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/Campbell-Donna768updated_1_jpg_131x197_crop_q100.jpg">
       <h2>Sen. Donna Campbell, R-New Braunfels</h2>
@@ -13,7 +17,13 @@
       <p>Phone Number: 512-463-0125</p>
       <p><a href="">More Info</a></p>
     </div>
-    <div class="bill-table">
+  </div>
+</section>
+
+{% include "components/side-bar.html" %}
+
+<section class="body-main">
+<div class="bill-table">
       <table>
         <thead>
           <tr>
@@ -36,9 +46,57 @@
             <td data-title="Caption">Relating to the continuation and functions of the Texas Lottery Commission; providing penalties; imposing fees.</td>
             <td data-title="Version">In Committee</td>
           </tr>
+          <tr>
+            <td data-title="Bill Number">SB 38</td>
+            <td data-title="Category">Taxation</td>
+            <td data-title="Caption">Relating to the continuation and functions of the Texas Lottery Commission; providing penalties; imposing fees.</td>
+            <td data-title="Version">Introduced</td>
+          </tr>
+          <tr>
+            <td data-title="Bill Number">SB 41</td>
+            <td data-title="Category">Taxation</td>
+            <td data-title="Caption">Relating to the continuation and functions of the Texas Lottery Commission; providing penalties; imposing fees.</td>
+            <td data-title="Version">In Committee</td>
+          </tr>
+          <tr>
+            <td data-title="Bill Number">SB 38</td>
+            <td data-title="Category">Taxation</td>
+            <td data-title="Caption">Relating to the continuation and functions of the Texas Lottery Commission; providing penalties; imposing fees.</td>
+            <td data-title="Version">Introduced</td>
+          </tr>
+          <tr>
+            <td data-title="Bill Number">SB 41</td>
+            <td data-title="Category">Taxation</td>
+            <td data-title="Caption">Relating to the continuation and functions of the Texas Lottery Commission; providing penalties; imposing fees.</td>
+            <td data-title="Version">In Committee</td>
+          </tr>
+          <tr>
+            <td data-title="Bill Number">SB 38</td>
+            <td data-title="Category">Taxation</td>
+            <td data-title="Caption">Relating to the continuation and functions of the Texas Lottery Commission; providing penalties; imposing fees.</td>
+            <td data-title="Version">Introduced</td>
+          </tr>
+          <tr>
+            <td data-title="Bill Number">SB 41</td>
+            <td data-title="Category">Taxation</td>
+            <td data-title="Caption">Relating to the continuation and functions of the Texas Lottery Commission; providing penalties; imposing fees.</td>
+            <td data-title="Version">In Committee</td>
+          </tr>
+          <tr>
+            <td data-title="Bill Number">SB 38</td>
+            <td data-title="Category">Taxation</td>
+            <td data-title="Caption">Relating to the continuation and functions of the Texas Lottery Commission; providing penalties; imposing fees.</td>
+            <td data-title="Version">Introduced</td>
+          </tr>
+          <tr>
+            <td data-title="Bill Number">SB 41</td>
+            <td data-title="Category">Taxation</td>
+            <td data-title="Caption">Relating to the continuation and functions of the Texas Lottery Commission; providing penalties; imposing fees.</td>
+            <td data-title="Version">In Committee</td>
+          </tr>
         </tbody>
       </table>
     </div>
-  </div>
-</div>
+</section>
+
 {% endblock %}
