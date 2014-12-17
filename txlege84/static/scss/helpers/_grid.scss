@@ -4,6 +4,43 @@ $large: new-breakpoint(min-width 1081px);
 $default-768: new-breakpoint(min-width 768px);
 $default-480: new-breakpoint(max-width 480px);
 
+.container,
+.main-container {
+  @extend %container;
+}
+
+.main {
+  @extend %content-block;
+}
+
+.side-bar {
+  @include clearfix;
+  @include span-columns(12);
+
+  @include media($medium) {
+    @include span-columns(4);
+  }
+
+  @include media($large) {
+    @include span-columns(4);
+  }
+
+}
+
+.body-main {
+  @include span-columns(12);
+
+  @include media($medium) {
+    @include span-columns(8);
+    @include omega();
+  }
+
+  @include media($large) {
+    @include span-columns(8);
+    @include omega();
+  }
+}
+
 
 // Basic Grid Mixins
 
