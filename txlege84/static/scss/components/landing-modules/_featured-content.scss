@@ -3,44 +3,17 @@
 
   .feature-box {
     @include span-columns(12);
-    @include media($medium) {
-      @include span-columns(8);
+
+    p {
+      margin-bottom: 1em;
     }
 
-    @include media($large) {
-      @include span-columns(8);
-    }
-
-    h2,
-    h3 {
-      margin: .5em 0;
-    }
-
-    h4 {
-      margin-top: 2em;
-    }
   }
 
   .more-videos {
-    @include span-columns(12);
-    @include media($medium) {
-      @include span-columns(4);
-      @include omega();
-    }
-
-    @include media($large) {
-      @include span-columns(4);
-      @include omega();
-    }
-
-    h4 {
-      margin-top: 0;
-    }
+    @include div-grid(12, 2);
 
     div {
-      // @include span-columns(4 of 8);
-      // @include omega(n);
-      // @include pad(.25em);
       margin-bottom: 2em;
     }
   }
