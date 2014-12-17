@@ -11,10 +11,10 @@
   @include span-columns(12);
   border: 1px solid;
 
-  @include media($large) {
-    @include span-columns(4);
-    @include omega();
-  }
+  // @include media($large) {
+  //   @include span-columns(4);
+  //   @include omega();
+  // }
 
   .art {
     display: none;

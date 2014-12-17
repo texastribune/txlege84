@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% include "modules/nav-bar.html" %}
-<div class="main">
-  {% include "modules/bill-search-box.html" %}
-  <div class="bill">
-    <h1>House Bill 4</h1>
+<section class="project-header">
+  <div class="side-bar">
+    <header>
+      <h1>On the Lege</h1>
+    </header>
+  </div>
+
+  <div class="body-main">
+    <div class="bill">
+    <h2>House Bill 4</h2>
     <p>Relating to the continuation and functions of the Texas Lottery Commission; providing penalties; imposing fees.</p>
     <p><a href="">Bill Text</a>, <a href="">Amendments</a></p>
     <h5>Last Action</h5>
@@ -34,43 +39,48 @@
         <p>Not assigned</p>
       </div>
     </div>
-    <div class="bill-stages">
-      <h5>Bill Stages</h5>
-      <div class="bill-stage done">
-        <div class="bill-stage-name">Filed</div>
-        <div class="date-stage-complete">Nov. 12, 1014</div>
-      </div>
-      <div class="bill-stage">
-        <div class="bill-stage-name">Out of House Committee</div>
-        <div class="date-stage-complete"></div>
-      </div>
-      <div class="bill-stage">
-        <div class="bill-stage-name">Approved by House</div>
-        <div class="date-stage-complete"></div>
-      </div>
-      <div class="bill-stage">
-        <div class="bill-stage-name">Out of Senate Committee</div>
-        <div class="date-stage-complete"></div>
-      </div>
-      <div class="bill-stage">
-        <div class="bill-stage-name">Approved by Senate</div>
-        <div class="date-stage-complete"></div>
-      </div>
-      <div class="bill-stage">
-        <div class="bill-stage-name">Governor Action</div>
-        <div class="date-stage-complete"></div>
-      </div>
-      <div class="bill-stage">
-        <div class="bill-stage-name">Bill Becomes Law</div>
-        <div class="date-stage-complete"></div>
-      </div>
+  </div>
+</section>
+
+{% include "components/side-bar.html" %}
+
+<section class="body-main">
+  <div class="bill-stages">
+    <h5>Bill Stages</h5>
+    <div class="bill-stage done">
+      <div class="bill-stage-name">Filed</div>
+      <div class="date-stage-complete">Nov. 12, 1014</div>
     </div>
-    <div class="bill-actions">
-      <h5>Actions</h5>
-      <p>House - Referred to Higher Education &mdash; <em>Feb. 4, 2015</em></p>
-      <p>House - Read first time &mdash; <em>Feb. 4, 2015</em></p>
-      <p>House - Filed &mdash; <em>Nov. 12, 1014</em></p>
+    <div class="bill-stage">
+      <div class="bill-stage-name">Out of House Committee</div>
+      <div class="date-stage-complete"></div>
     </div>
+    <div class="bill-stage">
+      <div class="bill-stage-name">Approved by House</div>
+      <div class="date-stage-complete"></div>
+    </div>
+    <div class="bill-stage">
+      <div class="bill-stage-name">Out of Senate Committee</div>
+      <div class="date-stage-complete"></div>
+    </div>
+    <div class="bill-stage">
+      <div class="bill-stage-name">Approved by Senate</div>
+      <div class="date-stage-complete"></div>
+    </div>
+    <div class="bill-stage">
+      <div class="bill-stage-name">Governor Action</div>
+      <div class="date-stage-complete"></div>
+    </div>
+    <div class="bill-stage">
+      <div class="bill-stage-name">Bill Becomes Law</div>
+      <div class="date-stage-complete"></div>
+    </div>
+  </div>
+  <div class="bill-actions">
+    <h5>Actions</h5>
+    <p>House - Referred to Higher Education &mdash; <em>Feb. 4, 2015</em></p>
+    <p>House - Read first time &mdash; <em>Feb. 4, 2015</em></p>
+    <p>House - Filed &mdash; <em>Nov. 12, 1014</em></p>
   </div>
   <div class="related-issue">
     <div class="feature-box">
@@ -104,6 +114,7 @@
       </div>
     </div>
   </div>
-</div>
+</section>
+
 
 {% endblock %}
