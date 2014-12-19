@@ -5,4 +5,4 @@ from legislators.models import Legislator
 
 class LegislatorDetail(DetailView):
     model = Legislator
-    template_name = 'legislator.html'
+    template_name = 'pages/legislator.html'

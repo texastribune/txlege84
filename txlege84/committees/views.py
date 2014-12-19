@@ -7,7 +7,7 @@ from committees.models import Committee
 
 class CommitteeDetail(DetailView):
     model = Committee
-    template_name = 'committee.html'
+    template_name = 'pages/committee.html'
 
     def get_object(self, queryset=None):
         if queryset is None:
