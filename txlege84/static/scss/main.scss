@@ -1,28 +1,42 @@
 @import 'bourbon/dist/bourbon';
 @import 'neat/app/assets/stylesheets/neat';
 
-@import '_normalize';
-@import '_utils';
-@import '_global';
+// == Helpers, Variables, Mixins ==
+@import 'helpers/normalize';
+@import 'helpers/grid';
+@import 'helpers/typography';
+@import 'helpers/colors';
+@import 'helpers/mixins';
+@import 'helpers/placeholders';
 
-@import 'components/_grid';
-@import 'components/_tables';
-@import 'components/_bill-filter';
-@import 'components/_bill-table';
+// == Themes ==
+@import 'theme/global';
+@import 'theme/prose';
+@import 'theme/tables';
 
-@import 'modules/_masthead';
-@import 'modules/_footer';
-@import 'modules/_nav-bar.scss';
-@import 'modules/_livestream';
-@import 'modules/_search-box';
-@import 'modules/_primer';
-@import 'modules/_top-issues';
-@import 'modules/_featured-content';
-@import 'modules/_topic-lists';
-@import 'modules/_quick-links';
+// == Sitewide Components ==
+@import 'components/ads';
+@import 'components/footer';
+@import 'components/masthead';
+@import 'components/side-bar';
+
+// == Bill Modules ==
+@import 'components/bills/bill-table';
 
 
-@import 'pages/_topic-list-landing';
+// == Landing Modules ==
+@import 'components/landing-modules/featured-content';
+@import 'components/landing-modules/livestream';
+@import 'components/landing-modules/project-header';
+@import 'components/landing-modules//top-issues';
+@import 'components/landing-modules/hotlist-nav';
+
+// == Topic Page Modules ==
+@import 'components/topics/topic-page';
+
+// == Specific Page Styles ==
 @import 'pages/_bill';
-@import 'pages/_legislator';
 @import 'pages/_committee';
+@import 'pages/_landing';
+@import 'pages/_legislator';
+@import 'pages/_topic-list-landing';

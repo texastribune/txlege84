@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.views.generic import DetailView
 
-# Create your views here.
+from legislators.models import Legislator
+
+
+class LegislatorDetail(DetailView):
+    model = Legislator
+    template_name = 'pages/legislator.html'

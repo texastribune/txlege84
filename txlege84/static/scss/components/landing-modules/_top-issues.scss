@@ -1,0 +1,6 @@
+.top-issues {
+  @include li-grid(12, 2, 2);
+  @include clearfix;
+}
+
+

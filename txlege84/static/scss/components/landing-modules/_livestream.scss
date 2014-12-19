@@ -1,0 +1,24 @@
+.livestream {
+  @include clearfix;
+  background-color: $background-gray;
+  padding: 1em 0;
+
+  h2 {
+    margin: .25em 0;
+  }
+
+  .watch {
+    @include div-grid(12, 2);
+
+    span {
+      font-style: italic;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+}
+
+

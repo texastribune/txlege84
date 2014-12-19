@@ -1,0 +1,21 @@
+.featured-content {
+  @include span-columns(12);
+
+  .feature-box {
+    @include span-columns(12);
+
+    p {
+      margin-bottom: 1em;
+    }
+
+  }
+
+  .more-videos {
+    @include div-grid(12, 2);
+
+    div {
+      margin-bottom: 2em;
+    }
+  }
+
+}

@@ -1,41 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<section class="project-header">
+  <div class="side-bar">
+    <header>
+      <h1>On the Lege</h1>
+    </header>
+  </div>
 
-{% include "modules/nav-bar.html" %}
+  <div class="body-main">
+    {% include "components/landing-modules/top-issues.html" %}
+  </div>
+</section>
 
+{% include "components/side-bar.html" %}
 
-<div class="main">
-
-  {% include "modules/top-issues.html" %}
-  {% include "modules/livestream.html" %}
-  {% include "modules/bill-search-box.html" %}
-
-  <section class="featured-content">
-    {% include "components/featured-issue.html" %}
-    {% include "components/featured-primer.html" %}
-
-
-    <div class="feature-ad-box" style="height: 150px;">
-      AD SPACE?
-    </div>
-  </section>
-
-
-  <section class="topic-lists">
-    <h2>Legislative Hot Lists</h2>
-    <h4>Your guide to what's really going on at the 84th Texas Legislature.</h4>
-    {% include "components/topic-list-widget.html" %}
-    {% include "components/topic-list-widget.html" %}
-    {% include "components/topic-list-widget.html" %}
-    {% include "components/topic-list-widget.html" %}
-    {% include "components/topic-list-widget.html" %}
-    {% include "components/topic-list-widget.html" %}
-  </section>
-
-</div>
-
-
-
-
+<section class="body-main">
+  {% include "components/landing-modules/livestream.html" %}
+  {% include "components/landing-modules/hotlist-nav.html" %}
+  {% include "components/landing-modules/featured-texplainer.html" %}
+</section>
 {% endblock %}

@@ -1,10 +1,21 @@
 from django.db import models
+from django.utils.text import slugify
 
 from bills.models import Bill
 
 
 class Topic(models.Model):
     name = models.CharField(max_length=20, unique=True)
+    slug = models.SlugField(null=True, blank=True)
+
+    def __unicode__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.name)
+
+        super(Topic, self).save(*args, **kwargs)
 
 
 class Issue(models.Model):

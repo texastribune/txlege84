@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.views.generic import DetailView
 
-# Create your views here.
+from bills.models import Bill
+
+
+class BillDetail(DetailView):
+    model = Bill
+    template_name = 'pages/bill.html'

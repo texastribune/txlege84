@@ -1,0 +1,70 @@
+.side-bar {
+
+  &.resources {
+    background-color: $background-gray;
+  }
+
+
+  h3 {
+    display: inline-block;
+  }
+
+  button {
+    margin-bottom: 1em;
+    width: 100%;
+  }
+
+  i.fa-search {
+    display: inline-block;
+    font-size: 1.2em;
+    margin-right: .5em;
+  }
+
+  input[type="text"] {
+    display: inline-block;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+    outline: none;
+    color: $text-black;
+    padding: .5em 0;
+    width: 100%;
+    transition: width .4s ease;
+    cursor: pointer;
+
+    @include media($medium) {
+      width: 100%;
+    }
+
+    @include media($large) {
+      width: 100%;
+    }
+  }
+
+  input[type="text"]:hover {
+    border-bottom: 1px solid #BBB;
+    width: 100%;
+    z-index: 1;
+    border-bottom: 1px solid #BBB;
+    cursor: text;
+  }
+
+  input[type="text"]:focus {
+    border-bottom: 1px solid #BBB;
+    width: 100%;
+    z-index: 1;
+    border-bottom: 1px solid #BBB;
+    cursor: text;
+  }
+
+  form,
+  select {
+    display: inline-block;
+    margin-bottom: 1em;
+    width: 100%;
+  }
+
+  .collapse {
+    @include collapse;
+  }
+
+}
