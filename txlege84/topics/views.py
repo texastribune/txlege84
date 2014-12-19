@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.views.generic import DetailView
 
-# Create your views here.
+from topics.models import Topic
+
+
+class TopicDetail(DetailView):
+    model = Topic
+    template_name = 'topic-list.html'

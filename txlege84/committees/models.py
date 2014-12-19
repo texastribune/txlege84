@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 from legislators.models import Chamber, Legislator
 
@@ -8,9 +9,28 @@ class Committee(models.Model):
     chamber = models.ForeignKey(Chamber, related_name='committees')
     openstates_id = models.CharField(max_length=9, unique=True)
     members = models.ManyToManyField(Legislator, through='Membership')
+    slug = models.SlugField(null=True, blank=True)
 
     def __unicode__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.name)
+
+        super(Committee, self).save(*args, **kwargs)
+
+    @property
+    def chair(self):
+        return self.memberships.get(role='Chair').legislator
+
+    @property
+    def vice_chair(self):
+        return self.memberships.get(role='Vice Chair').legislator
+
+    @property
+    def member_list(self):
+        return self.memberships.filter(role='Member')
 
 
 class Membership(models.Model):

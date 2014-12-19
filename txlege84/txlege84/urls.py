@@ -4,15 +4,20 @@ from django.views.generic import TemplateView
 
 from django.contrib import admin
 
+from bills.views import BillDetail
+from committees.views import CommitteeDetail
+from legislators.views import LegislatorDetail
+from topics.views import TopicDetail
+
 urlpatterns = patterns(
     '',
     url(r'^$', TemplateView.as_view(template_name='landing.html')),
-    url(r'^topic-list-landing/$', TemplateView.as_view(template_name='pages/topic-list-landing.html')),
-    url(r'^topic-list/$', TemplateView.as_view(template_name='pages/topic-list.html')),
-    url(r'^bill/$', TemplateView.as_view(template_name='pages/bill.html')),
-    url(r'^legislator/$', TemplateView.as_view(template_name='pages/legislator.html')),
-    url(r'^committee/$', TemplateView.as_view(template_name='pages/committee.html')),
-    url(r'^issue/$', TemplateView.as_view(template_name='pages/issue.html')),
+    url(r'^topic-list-landing/$', TemplateView.as_view(template_name='pages/topic-list-landing')),
+    url(r'^84/topic-list/(?P<slug>[-\w]+)/$', TopicDetail.as_view(), name='pages/topic-list'),
+    url(r'^84/bills/(?P<slug>[-\w]+)/$', BillDetail.as_view(), name='pages/bill'),
+    url(r'^84/legislators/(?P<slug>[-\w]+)/$', LegislatorDetail.as_view(), name='pages/legislator'),
+    url(r'^84/committees/(?P<chamber>[-\w]+)/(?P<slug>[-\w]+)/$', CommitteeDetail.as_view(), name='pages/committee'),
+    url(r'^issue/$', TemplateView.as_view(template_name='pages/issue')),
 
     # Examples:
     # url(r'^$', 'txlege84.views.home', name='home'),

@@ -158,7 +158,7 @@ class Command(BaseCommand):
                 legislator=legislator,
                 bill=bill,
                 defaults={
-                    'role': member['type'].lower()
+                    'role': member['official_type'].lower()
                 },
             )
 
