@@ -1,5 +1,9 @@
 .side-bar {
-  // @include span-columns(12);
+
+  &.resources {
+    background-color: $background-gray;
+  }
+
 
   h3 {
     display: inline-block;
