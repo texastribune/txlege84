@@ -22,6 +22,7 @@ class Issue(models.Model):
     name = models.CharField(max_length=200)
     topic = models.ForeignKey(Topic, related_name='issues')
     text = models.TextField()
+    slug = models.SlugField(null=True, blank=True)
 
     order = models.IntegerField()
     active = models.BooleanField(default=False)
@@ -30,6 +31,12 @@ class Issue(models.Model):
 
     class Meta:
         ordering = ('order',)
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.name)
+
+        super(Issue, self).save(*args, **kwargs)
 
 
 class Stream(models.Model):
