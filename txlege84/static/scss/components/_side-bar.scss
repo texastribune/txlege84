@@ -1,7 +1,7 @@
 .side-bar {
 
   &.resources {
-    background-color: $background-gray;
+    background-color: transparentize($light-blue, .7);
   }
 
 

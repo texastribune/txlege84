@@ -1,12 +1,6 @@
 {% extends 'base.html' %}
 
-{% block content %}
-<section class="project-header">
-  <div class="side-bar">
-    <header>
-      <h1>On the Lege</h1>
-    </header>
-  </div>
+{% block header %}
   <div class="committee">
     <h2>{{ object.name }}</h2>
     <h4>{{ object.chamber }}</h4>
@@ -25,7 +19,9 @@
       {% endif %}
     </div>
   </div>
-</section>
+{% endblock %}
+
+{% block content %}
 
 {% include "components/side-bar.html" %}
 

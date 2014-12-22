@@ -42,33 +42,60 @@
     {% include "includes/ads.html" %}
   </head>
   <body>
+    <div class="main-container">
+      <section class="side-bar">
+         <section class="main-header">
+          <div class="branding">
+            <header>
+              <a href="http://www.texastribune.org/">
+                <img class="trib-logo" alt="The Texas Tribune" src="{% static 'images/brand/tt-logo-white.png' %}">
+              </a>
+              <h1>On the Lege</h1>
+              <div class="title-underline"><span></span></div>
+            </header>
+          </div>
+          <div class="page-header desktop-hide">
+            {% block mobileheader %}{% endblock %}
+          </div>
+        </section>
 
-  <div class="main-container">
-  {% block content %}{% endblock %}
-  </div>
+        {% include "components/side-bar.html" %}
+      </section>
 
-  <footer class="footer-container">
-    <div class="container">
-      <div class="footer">
-        <nav class="first-nav">
-          <ul>
-            <li>&copy; 2014 <a href="http://www.texastribune.org/">The Texas Tribune</a></li>
-          </ul>
-        </nav>
-        <nav class="last-nav">
-          <ul>
-            <li><a href="http://www.texastribune.org/about/">About Us</a></li>
-            <li><a href="http://www.texastribune.org/contact/">Contact Us</a></li>
-            <li><a href="http://www.texastribune.org/support-us/donors-and-members/">Who Funds Us?</a></li>
-            <li><a href="http://www.texastribune.org/terms-of-service/">Terms of Service</a></li>
-            <li><a href="http://www.texastribune.org/ethics/">Code of Ethics</a></li>
-            <li><a href="http://www.texastribune.org/privacy/">Privacy Policy</a></li>
-            <li class="donor"><a href="https://www.texastribune.org/join/">Donate</a></li>
-          </ul>
-        </nav>
-      </div>
+
+
+      <section class="body-main">
+        <div class="mobile-hide">
+          {% block desktopheader %}{% endblock %}
+        </div>
+
+        {% block content %}{% endblock %}
+      </section>
+
     </div>
-  </footer>
+
+    <footer class="footer-container">
+      <div class="container">
+        <div class="footer">
+          <nav class="first-nav">
+            <ul>
+              <li>&copy; 2014 <a href="http://www.texastribune.org/">The Texas Tribune</a></li>
+            </ul>
+          </nav>
+          <nav class="last-nav">
+            <ul>
+              <li><a href="http://www.texastribune.org/about/">About Us</a></li>
+              <li><a href="http://www.texastribune.org/contact/">Contact Us</a></li>
+              <li><a href="http://www.texastribune.org/support-us/donors-and-members/">Who Funds Us?</a></li>
+              <li><a href="http://www.texastribune.org/terms-of-service/">Terms of Service</a></li>
+              <li><a href="http://www.texastribune.org/ethics/">Code of Ethics</a></li>
+              <li><a href="http://www.texastribune.org/privacy/">Privacy Policy</a></li>
+              <li class="donor"><a href="https://www.texastribune.org/join/">Donate</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </footer>
 
   <script src="{% static 'scripts/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'scripts/slick/slick.min.js' %}"></script>

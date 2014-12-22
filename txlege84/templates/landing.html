@@ -1,22 +1,13 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+
+{% block header %}
+{% include "components/landing-modules/top-issues.html" %}
+{% endblock %}
+
 {% block content %}
 
-<section class="main-header">
-  <div class="side-bar">
-    <header>
-      <a href="http://www.texastribune.org/">
-        <img class="trib-logo" alt="The Texas Tribune" src="{% static 'images/brand/tt-logo-white.png' %}">
-      </a>
-      <h1>On the Lege</h1>
-    </header>
-  </div>
-  <div class="body-main">
-    {% include "components/landing-modules/top-issues.html" %}
-  </div>
-</section>
 
-{% include "components/side-bar.html" %}
 
 <section class="body-main">
   {% include "components/landing-modules/livestream.html" %}

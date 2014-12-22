@@ -1,10 +1,19 @@
 /* Base Theme for HTML elements */
 
 body {
+  background-color: $light-blue;
   font-family: $base-sans-serif;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1;
   text-rendering: optimizelegibility;
+}
+
+.body-main {
+  background-color: $white;
+}
+
+.side-bar {
+  background-color: $white;
 }
 
 h1,
@@ -139,4 +148,26 @@ section {
   @include clearfix();
 }
 
+.desktop-hide {
+  display: block;
 
+  @include media($medium) {
+    display: none;
+  }
+
+  @include media($large) {
+    display: none;
+  }
+}
+
+.mobile-hide {
+  display: none;
+
+  @include media($medium) {
+    display: block;
+  }
+
+  @include media($large) {
+    display: block;
+  }
+}
