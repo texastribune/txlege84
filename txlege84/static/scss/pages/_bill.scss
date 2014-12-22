@@ -1,20 +1,7 @@
-.bill {
-  @include span-columns(12);
-
-  @include media($large) {
-    @include span-columns(8);
-  }
-}
-
 .related-issue {
   @extend %content-block;
   @include span-columns(12);
   border: 1px solid;
-
-  // @include media($large) {
-  //   @include span-columns(4);
-  //   @include omega();
-  // }
 
   .art {
     display: none;
@@ -52,6 +39,7 @@
 
 .bill-stage {
   border: 1px solid;
+  font-size: .8em;
   height: 6em;
   margin-bottom: 1em;
   padding: 1em;

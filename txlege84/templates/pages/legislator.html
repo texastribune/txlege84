@@ -1,31 +1,37 @@
 {% extends 'base.html' %}
 
+{% block mobileheader %}
+  <div class="legislator-info">
+    <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/Campbell-Donna768updated_1_jpg_131x197_crop_q100.jpg">
+    <h2>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }}, {{ object.party.short_name }}-{{ object.district }}</h2>
+    {{ object.chamber }}
+    <p>District {{ object.district }}</p>
+    <p>Capitol address: {{ object.capitol_address }}</p>
+    <p>Phone Number: <a href="tel:{{ object.capitol_phone }}">{{ object.capitol_phone }}</a></p>
+    <br />
+    <p>District Office: {{ object.district_address }}</p>
+    <p>District Phone: <a href="tel:{{ object.district_phone }}">{{ object.district_phone }}</a></p>
+  </div>
+{% endblock %}
+
+{% block desktopheader %}
+  <div class="legislator-info">
+    <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/Campbell-Donna768updated_1_jpg_131x197_crop_q100.jpg">
+    <h2>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }}, {{ object.party.short_name }}-{{ object.district }}</h2>
+    {{ object.chamber }}
+    <p>District {{ object.district }}</p>
+    <p>Capitol address: {{ object.capitol_address }}</p>
+    <p>Phone Number: <a href="tel:{{ object.capitol_phone }}">{{ object.capitol_phone }}</a></p>
+    <br />
+    <p>District Office: {{ object.district_address }}</p>
+    <p>District Phone: <a href="tel:{{ object.district_phone }}">{{ object.district_phone }}</a></p>
+  </div>
+{% endblock %}
+
 {% block content %}
-<section class="project-header">
-  <div class="side-bar">
-    <header>
-      <h1>On the Lege</h1>
-    </header>
-  </div>
 
-  <div class="body-main">
-    <div class="legislator-info">
-      <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/Campbell-Donna768updated_1_jpg_131x197_crop_q100.jpg">
-      <h2>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }}, {{ object.party.short_name }}-{{ object.district }}</h2>
-      {{ object.chamber }}
-      <p>District {{ object.district }}</p>
-      <p>Capitol address: {{ object.capitol_address }}</p>
-      <p>Phone Number: <a href="tel:{{ object.capitol_phone }}">{{ object.capitol_phone }}</a></p>
-      <br />
-      <p>District Office: {{ object.district_address }}</p>
-      <p>District Phone: <a href="tel:{{ object.district_phone }}">{{ object.district_phone }}</a></p>
-    </div>
-  </div>
-</section>
 
-{% include "components/side-bar.html" %}
 
-<section class="body-main">
   <div class="bill-table">
     <table>
       <thead>
@@ -62,6 +68,6 @@
       </tbody>
     </table>
   </div>
-</section>
+
 
 {% endblock %}

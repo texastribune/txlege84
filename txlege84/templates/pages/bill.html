@@ -1,25 +1,15 @@
 {% extends 'base.html' %}
 
 {% block mobileheader %}
-  <div class="bill">
-  <h2>{{ object.name }}</h2>
-  <p>{{ object.description }}</p>
-  <p><a href="http://www.legis.state.tx.us/BillLookup/History.aspx?LegSess=84R&Bill={{ object.slug }}" target="_blank">Bill Text</a>, <a href="http://www.capitol.state.tx.us/BillLookup/Amendments.aspx?LegSess=84R&Bill={{ object.slug }}" target="_blank">Amendments</a></p>
-  </div>
+  {% include "components/page-headers/bill-page-header.html" %}
 {% endblock %}
 
 {% block desktopheader %}
-  <div class="bill">
-  <h2>{{ object.name }}</h2>
-  <p>{{ object.description }}</p>
-  <p><a href="http://www.legis.state.tx.us/BillLookup/History.aspx?LegSess=84R&Bill={{ object.slug }}" target="_blank">Bill Text</a>, <a href="http://www.capitol.state.tx.us/BillLookup/Amendments.aspx?LegSess=84R&Bill={{ object.slug }}" target="_blank">Amendments</a></p>
-  </div>
+  {% include "components/page-headers/bill-page-header.html" %}
 {% endblock %}
 
 
 {% block content %}
-
-<section class="body-main">
   <div class="bill">
     <h5>Last Action</h5>
     <p>{{ object.actions.last.text }} <em> {{ object.actions.last.date }}</em></p>
@@ -156,15 +146,13 @@
         </tbody>
       </table>
     </div>
-  </div>
-  <div class="bill-actions">
-    <h5>Actions</h5>
-    <p>House - Referred to Higher Education &mdash; <em>Feb. 4, 2015</em></p>
-    <p>House - Read first time &mdash; <em>Feb. 4, 2015</em></p>
-    <p>House - Filed &mdash; <em>Nov. 12, 1014</em></p>
-  </div>
-  <div class="related-issue">
-    <div class="feature-box">
+    <div class="bill-actions">
+      <h5>Actions</h5>
+      <p>House - Referred to Higher Education &mdash; <em>Feb. 4, 2015</em></p>
+      <p>House - Read first time &mdash; <em>Feb. 4, 2015</em></p>
+      <p>House - Filed &mdash; <em>Nov. 12, 1014</em></p>
+    </div>
+    <div class="related-issue">
       <h5>Related Issue</h5>
       <h2>New taxes to support Texas Lotto</h2>
       <div class="art">
@@ -195,7 +183,6 @@
       </div>
     </div>
   </div>
-</section>
 
 
 {% endblock %}

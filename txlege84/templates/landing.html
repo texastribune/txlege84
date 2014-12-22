@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block header %}
-{% include "components/landing-modules/top-issues.html" %}
+{% block mobileheader %}
+  {% include "components/landing-modules/top-issues.html" %}
+{% endblock %}
+
+{% block desktopheader %}
+  {% include "components/landing-modules/top-issues.html" %}
 {% endblock %}
 
 {% block content %}
