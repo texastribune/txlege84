@@ -28,9 +28,17 @@ p {
 // Project title
 h1 {
   color: $tribune-black;
-  font-size: 4.5em;
+  font-size: 3.25em;
   font-weight: 800;
   line-height: 1em;
+
+  @include media($medium) {
+    font-size: 4.5em;
+  }
+
+  @include media($large) {
+    font-size: 4.5em;
+  }
 }
 
 // Section Header
