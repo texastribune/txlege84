@@ -23,7 +23,7 @@ class Issue(models.Model):
     topic = models.ForeignKey(Topic, related_name='issues')
     text = models.TextField()
     slug = models.SlugField(null=True, blank=True)
-    photo = models.URLField(null=True, blank=True)
+    image = models.URLField(null=True, blank=True)
 
     order = models.IntegerField()
     active = models.BooleanField(default=False)
