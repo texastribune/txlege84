@@ -1,9 +1,11 @@
-.side-bar {
+.main-header {
+  @extend %content-block;
+}
 
-  &.resources {
-    background-color: transparentize($light-blue, .7);
-  }
-
+.resources {
+  @extend %content-block;
+  background-color: transparentize($tagline-black, .9);
+  padding-top: 1em;
 
   h3 {
     display: inline-block;
@@ -68,3 +70,5 @@
   }
 
 }
+
+
