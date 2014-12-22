@@ -4,6 +4,13 @@ from django.utils.text import slugify
 from bills.models import Bill
 
 
+PUBLICATION_CHOICES = (
+    (u'D', u'Draft'),
+    (u'P', u'Published'),
+    (u'W', u'Withdrawn'),
+)
+
+
 class Topic(models.Model):
     name = models.CharField(max_length=20, unique=True)
     slug = models.SlugField(null=True, blank=True)
@@ -26,7 +33,8 @@ class Issue(models.Model):
     image = models.URLField(null=True, blank=True)
 
     order = models.IntegerField()
-    active = models.BooleanField(default=False)
+    status = models.CharField(
+        max_length=1, choices=PUBLICATION_CHOICES, default=u'D')
 
     related_bills = models.ManyToManyField(Bill, related_name='issues')
 
