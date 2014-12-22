@@ -16,10 +16,22 @@
 {% include "components/side-bar.html" %}
 
 <section class="body-main">
-  {% for s in object.bills.all %}
-    <p>{{ s }}</p>
-  {% endfor %}
-
+  <table>
+    <thead>
+      <tr>
+        <th>Bill</th>
+        <th>Caption</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for s in object.bills.all %}
+      <tr>
+        <td data-title="Bill">{{ s }}</td>
+        <td data-title="Caption">{{ s.description }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
 </section>
 
 {% endblock %}
