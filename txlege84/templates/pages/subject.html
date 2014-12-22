@@ -21,13 +21,15 @@
       <tr>
         <th>Bill</th>
         <th>Caption</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
     {% for s in object.bills.all %}
       <tr>
-        <td data-title="Bill">{{ s }}</td>
+        <td data-title="Bill"><a href="{% url 'bill-detail' s.slug %}">{{ s }}</a></td>
         <td data-title="Caption">{{ s.description }}</td>
+        <td data-title="Action"><!-- {% for a in s.actions.first.text %} {{ a }} {% endfor %} --></td>
       </tr>
     {% endfor %}
     </tbody>

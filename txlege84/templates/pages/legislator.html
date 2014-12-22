@@ -55,7 +55,7 @@
       {% for p in object.sponsorships.all %}
         <tr>
           <td data-title="Bill Number"><a href="{% url 'bill-detail' p.bill.slug %}">{{ p.bill.name }}</a></td>
-          <td data-title="Category">{% for s in p.bill.subjects.all %}{{ s.name }} {% endfor %}</td>
+          <td data-title="Category">{% for s in p.bill.subjects.all %} <a href="{% url 'subject-detail' s.slug %}">{{ s.name }}</a> {% endfor %}</td>
           <td data-title="Caption">{{ p.bill.description }}</td>
         </tr>
         {% endfor %}
