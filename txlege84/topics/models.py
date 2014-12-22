@@ -69,8 +69,6 @@ class Stream(models.Model):
 class StoryPointer(models.Model):
     headline = models.CharField(max_length=200)
     url = models.URLField()
-
     order = models.PositiveIntegerField(default=1)
-    active = models.BooleanField(default=False)
 
     stream = models.ForeignKey(Stream, related_name='stories')
