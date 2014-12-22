@@ -30,7 +30,7 @@ class Topic(models.Model):
 class Issue(models.Model):
     name = models.CharField(max_length=200)
     topic = models.ForeignKey(Topic, related_name='issues')
-    active_text = models.OneToOneField('IssueText')
+    active_text = models.OneToOneField('IssueText', null=True, blank=True)
     slug = models.SlugField(null=True, blank=True)
     image = models.URLField(null=True, blank=True)
 
