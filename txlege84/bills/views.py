@@ -1,8 +1,13 @@
 from django.views.generic import DetailView
 
-from bills.models import Bill
+from bills.models import Bill, Subject
 
 
 class BillDetail(DetailView):
     model = Bill
     template_name = 'pages/bill.html'
+
+
+class SubjectDetail(DetailView):
+    model = Subject
+    template_name = 'pages/subject.html'
