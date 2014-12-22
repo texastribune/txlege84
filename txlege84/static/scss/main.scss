@@ -17,6 +17,7 @@
 // == Sitewide Components ==
 @import 'components/ads';
 @import 'components/footer';
+@import 'components/main-header';
 @import 'components/side-bar';
 
 // == Bill Modules ==
@@ -26,7 +27,6 @@
 // == Landing Modules ==
 @import 'components/landing-modules/featured-content';
 @import 'components/landing-modules/livestream';
-@import 'components/landing-modules/project-header';
 @import 'components/landing-modules//top-issues';
 @import 'components/landing-modules/hotlist-nav';
 
