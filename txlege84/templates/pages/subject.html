@@ -14,4 +14,12 @@
   </div>
 </section>
 {% include "components/side-bar.html" %}
+
+<section class="body-main">
+  {% for s in object.bills.all %}
+    <p>{{ s }}</p>
+  {% endfor %}
+
+</section>
+
 {% endblock %}
