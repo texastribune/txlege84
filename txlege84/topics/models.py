@@ -34,7 +34,7 @@ class Issue(models.Model):
     slug = models.SlugField(null=True, blank=True)
     image = models.URLField(null=True, blank=True)
 
-    order = models.IntegerField()
+    order = models.PositiveIntegerField(default=1)
     status = models.CharField(
         max_length=1, choices=PUBLICATION_CHOICES, default=u'D')
     created_date = models.DateTimeField(auto_now_add=True)
