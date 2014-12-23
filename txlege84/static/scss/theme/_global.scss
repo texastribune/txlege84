@@ -41,21 +41,14 @@ h1 {
   }
 }
 
-// Section Header
+// Section or Page Header
 h2 {
+  border-bottom: 1px solid $masthead-black;
   font-size: 1.75em;
   font-weight: 700;
+  margin-top: 1.3em;
   padding-bottom: .2em;
 }
-
-.top-issues,
-.hotlist-nav {
-  h2 {
-    border-bottom: 1px solid $masthead-black;
-    margin-top: 1.3em;
-  }
-}
-
 
 // Sidebar Header
 h3 {
