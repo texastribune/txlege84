@@ -1,7 +1,9 @@
+
 from faker import Factory
 
 from django.core.management.base import BaseCommand
 
+from bills.models import Bill
 from topics.models import Issue, IssueText, StoryPointer, Stream, Topic
 
 FAKE = Factory.create()
@@ -17,7 +19,7 @@ class Command(BaseCommand):
         self.stdout.write(u'Loading fake issues...')
 
         for topic in Topic.objects.all():
-            for _ in xrange(FAKE.random_int(2, 10)):
+            for _ in xrange(FAKE.random_int(1, 10)):
                 self.create_issue(topic)
 
     def create_issue(self, topic):
@@ -41,6 +43,20 @@ class Command(BaseCommand):
 
         issue.active_text = issue_text
         issue.save()
+
+        for _ in xrange(FAKE.random_int(0, 3)):
+            random_bill = Bill.objects.filter(
+                bill_type='bill',
+                chamber__name='Texas House').order_by('?')[0]
+
+            issue.related_bills.add(random_bill)
+
+        for _ in xrange(FAKE.random_int(0, 3)):
+            random_bill = Bill.objects.filter(
+                bill_type='bill',
+                chamber__name='Texas Senate').order_by('?')[0]
+
+            issue.related_bills.add(random_bill)
 
         self.create_stream(issue)
 
