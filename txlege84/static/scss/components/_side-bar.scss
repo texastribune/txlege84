@@ -47,7 +47,7 @@
 
 .resources {
   @extend %content-block;
-  background-color: transparentize($tagline-black, .9);
+  background-color: transparentize($white, .5);
   padding-top: 1em;
 
   h3 {
