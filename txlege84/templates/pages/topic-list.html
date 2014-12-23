@@ -27,7 +27,7 @@
   {% for issue in object.issues.all %}
   <div class="issue-embed-block prose">
     <div class="issue-header">
-      <h3 id="{{ issue.slug }}">{{ issue.name }}</h3>
+      <h3 id="{{ issue.slug }}"><a href="{% url 'issue-detail' object.slug issue.slug %}">{{ issue.name }}</a></h3>
       <div class="share-topic">
         <h4>Share this:</h4>
         <i class="fa fa-facebook"></i>
@@ -39,7 +39,7 @@
       <h5>Related Legislation</h5>
       <ul>
       {% for bill in issue.related_bills.all %}
-      <li>{{ bill.name }}</li>
+      <li><a href="{% url 'bill-detail' bill.slug %}">{{ bill.name }}</a></li>
       {% endfor %}
       </ul>
     </div>
@@ -50,7 +50,7 @@
       </div> -->
       <ul>
       {% for story in issue.stream_of.stories.all %}
-        <li>{{ story.headline }}</li>
+        <li><a href="{{ story.url }}">{{ story.headline }}</a></li>
       {% endfor %}
       </ul>
     </div>
