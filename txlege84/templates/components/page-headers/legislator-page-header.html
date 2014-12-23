@@ -3,9 +3,9 @@
     <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/Campbell-Donna768updated_1_jpg_131x197_crop_q100.jpg">
   </div>
 
-  <header class="legislator-name">
+  <header class="legislator-details">
     <h2>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }}, {{ object.party.short_name }}</h2>
-    <p>{{ object.chamber }}, District {{ object.district }}</p>
+    <p class="district">{{ object.chamber }}, District {{ object.district }}</p>
 
    <div class="office-info">
       <header>

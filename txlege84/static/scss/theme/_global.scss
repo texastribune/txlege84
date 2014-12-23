@@ -54,6 +54,10 @@ h2 {
 h3 {
   font-size: 1.25em;
   font-weight: 700;
+
+  &.section-header {
+    margin-bottom: 1em;
+  }
 }
 
 // Header Tagline
@@ -121,6 +125,7 @@ button,
 
 ul {
   list-style: none;
+  margin-bottom: 2em;
   padding: 0;
 }
 
@@ -158,6 +163,7 @@ section {
 }
 
 .mobile-hide {
+  @include clearfix;
   display: none;
 
   @include media($medium) {

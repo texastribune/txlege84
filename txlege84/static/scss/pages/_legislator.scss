@@ -22,11 +22,14 @@
     }
   }
 
-  .legislator-name {
+  .legislator-details {
     @include span-columns(10);
     @include div-grid(10, 2);
     @include clearfix;
-    margin-bottom: 1.5em;
+
+    p.district {
+      margin-bottom: 1em;
+    }
   }
 
   .office-info {
