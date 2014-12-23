@@ -15,7 +15,7 @@
     </header>
     <img class="headshot" src="../static/images/headshots/Edgar_jpg_131x197_crop_q100.jpg">
     <img class="headshot" src="../static/images/headshots/Ura-Alexa_jpg_131x197_crop_q100.jpg">
-    <p class="curated">Curated by Edgar Walters and Alexa Ura</p>
+    <p class="curated">Curated by XXX and XXX</p>
   </div>
 </section>
 
@@ -24,30 +24,35 @@
 <section class="body-main">
   {% include "modules/topic-page-header.html" %}
 
-  {% for o in object.issues.all %}
+  {% for issue in object.issues.all %}
   <div class="issue-embed-block prose">
     <div class="issue-header">
-      <h3>{{ o.name }}</h3>
+      <h3 id="{{ issue.slug }}">{{ issue.name }}</h3>
       <div class="share-topic">
         <h4>Share this:</h4>
         <i class="fa fa-facebook"></i>
         <i class="fa fa-twitter"></i>
       </div>
     </div>
-    {{ o.text }}
+    {{ issue.active_text.text|safe }}
     <div class="issue-legislation">
       <h5>Related Legislation</h5>
       <ul>
-        {% for p in object.related_bills %}
-        <li> {{ p }} </li>
-        {% endfor %}
+      {% for bill in issue.related_bills.all %}
+      <li>{{ bill.name }}</li>
+      {% endfor %}
       </ul>
     </div>
     <div class="story-stream">
       <h5>Related Content</h5>
-      <div class="slick-slide">
+<!--       <div class="slick-slide">
         <h4><a href="">Senate Health Committee Considers Merging Agencies</a></h4>
-      </div>
+      </div> -->
+      <ul>
+      {% for story in issue.stream_of.stories.all %}
+        <li>{{ story.headline }}</li>
+      {% endfor %}
+      </ul>
     </div>
   </div>
   {% endfor %}
