@@ -1,13 +1,29 @@
 <div class="legislator-info">
-  <header>
+  <div class="headshot">
     <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/Campbell-Donna768updated_1_jpg_131x197_crop_q100.jpg">
-    <h2>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }}, {{ object.party.short_name }}-{{ object.district }}</h2>
-  </header>
+  </div>
 
-  <p>{{ object.chamber }}, District {{ object.district }}</p>
-  <p>Capitol address: {{ object.capitol_address }}</p>
-  <p>Phone Number: <a href="tel:{{ object.capitol_phone }}">{{ object.capitol_phone }}</a></p>
-  <br />
-  <p>District Office: {{ object.district_address }}</p>
-  <p>District Phone: <a href="tel:{{ object.district_phone }}">{{ object.district_phone }}</a></p>
+  <header class="legislator-name">
+    <h2>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }}, {{ object.party.short_name }}</h2>
+    <p>{{ object.chamber }}, District {{ object.district }}</p>
+
+   <div class="office-info">
+      <header>
+        <h5>Capitol Office:</h5>
+      </header>
+      <p>{{ object.capitol_address }}</p>
+      <p>Phone: <a href="tel:{{ object.capitol_phone }}">{{ object.capitol_phone }}</a></p>
+    </div>
+    <div class="office-info">
+      <header>
+        <h5>District Office:</h5>
+      </header>
+      <p>{{ object.district_address }}</p>
+      <p>Phone: <a href="tel:{{ object.district_phone }}">{{ object.district_phone }}</a></p>
+    </div>
+  </header>
 </div>
+
+
+
+

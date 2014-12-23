@@ -11,24 +11,22 @@
 {% block content %}
 
 
+<header>
+  <h3>Committee Assignments</h3>
+</header>
+<div class="committee-assignments">
+  <ul>
+    {% for o in object.memberships.all %}
+    <li>
+      {{ o.role }}, <a href="{% url 'committee-detail' chamber=o.committee.chamber.slug slug=o.committee.slug %}">{{ o.committee }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
 
-  <div class="bill-table">
-    <table>
-      <thead>
-        <tr>
-          <th>Role</th>
-          <th>Committee</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for o in object.memberships.all %}
-        <tr>
-          <td data-title="Role">{{ o.role }}</td>
-          <td data-title="Committee"><a href="{% url 'committee-detail' chamber=o.committee.chamber.slug slug=o.committee.slug %}">{{ o.committee }}</a></td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+<header>
+  <h3>Legislation Filed by {% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }}</h3>
+</header>
     <table>
       <thead>
         <tr>
