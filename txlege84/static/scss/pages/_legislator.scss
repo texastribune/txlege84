@@ -27,7 +27,7 @@
     @include div-grid(10, 2);
     @include clearfix;
 
-    p.district {
+    .subhead {
       margin-bottom: 1em;
     }
   }

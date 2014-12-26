@@ -5,7 +5,7 @@
 
   <header class="legislator-details">
     <h2>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }}, {{ object.party.short_name }}</h2>
-    <p class="district">{{ object.chamber }}, District {{ object.district }}</p>
+    <h4>{{ object.chamber }}, District {{ object.district }}</h4>
 
    <div class="office-info">
       <header>
