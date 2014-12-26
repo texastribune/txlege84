@@ -27,26 +27,27 @@
 <header>
   <h3 class="section-header">Legislation Filed by {% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }}</h3>
 </header>
-    <table>
-      <thead>
-        <tr>
-          <th>Bill Number</th>
-          <th>Caption</th>
-          <th>Date of Last Action</th>
-        </tr>
-      </thead>
-      <tbody>
-      {% for p in object.sponsorships.all %}
-        <tr>
-          <td data-title="Bill Number"><a href="{% url 'bill-detail' p.bill.slug %}">{{ p.bill.name }}</a></td>
-          <td data-title="Caption">{{ p.bill.description }}</td>
+<div class="bill-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Bill</th>
+        <th>Caption</th>
+        <th>Date of Last Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for p in object.sponsorships.all %}
+      <tr>
+        <td data-title="Bill"><a href="{% url 'bill-detail' p.bill.slug %}">{{ p.bill.name }}</a></td>
+        <td data-title="Caption">{{ p.bill.description }}</td>
 <!--           <td data-title="Category">{% for s in p.bill.subjects.all %}{{ s.name }} {% endfor %}</td> -->
-          <td data-title="Date of Last Action"></td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
+        <td data-title="Date of Last Action"></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 
 
 {% endblock %}
