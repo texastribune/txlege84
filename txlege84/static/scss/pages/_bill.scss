@@ -1,36 +1,18 @@
-.related-issue {
-  @extend %content-block;
-  @include span-columns(12);
-  border: 1px solid;
-
-  .art {
-    display: none;
-
-    img {
-      width: 100%;
-    }
-
-    @include media($large) {
-      display: block;
-    }
-  }
+.bill-section {
+  margin-bottom: 1em;
 }
+
+
 
 .bill-authors,
 .bill-committee-assignment {
-  margin-bottom: 2em;
+  @include clearfix;
+  @include div-grid(12, 2);
 
-  @include span-columns(12);
-
-  @include media($medium) {
-    @include div-grid(12, 3);
+  div {
+    margin-bottom: .5em;
   }
-  @include media($large) {
-    @include div-grid(12, 3);
-  }
-
 }
-
 
 .bill-stages,
 .bill-actions {
@@ -68,4 +50,22 @@
 .date-stage-complete {
   font-size: .8em;
   font-style: italic;
+}
+
+.related-issue {
+  @extend %content-block;
+  @include span-columns(12);
+  border: 1px solid;
+
+  .art {
+    display: none;
+
+    img {
+      width: 100%;
+    }
+
+    @include media($large) {
+      display: block;
+    }
+  }
 }
