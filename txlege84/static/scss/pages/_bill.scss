@@ -14,28 +14,44 @@
   }
 }
 
-.bill-stages,
+.stages {
+  @include span-columns(12);
+
+  @include media($medium) {
+    @include span-columns(4);
+  }
+
+  @include media($large) {
+    @include span-columns(4);
+  }
+
+}
+
 .bill-actions {
   @include span-columns(12);
+
+  @include media($medium) {
+    @include span-columns(8);
+    @include omega();
+  }
+
+  @include media($large) {
+    @include span-columns(8);
+    @include omega();
+  }
 }
 
 .bill-stage {
   border: 1px solid;
   font-size: .8em;
   height: 6em;
-  margin-bottom: 1em;
+  margin: 0 1em 1em 0;
   padding: 1em;
 
   @include media($medium) {
-    float: left;
     padding: .25em;
-    width: 14%;
   }
 
-  @include media($large) {
-    float: left;
-    width: 14%;
-  }
 
   &.done {
     background: green;

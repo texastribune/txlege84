@@ -78,13 +78,13 @@
       </div>
     </div>
 
-    <div class="bill-stages bill-section">
+    <div class="stages bill-section">
       <header>
         <h5>Bill Stages</h5>
       </header>
       {% for m in object.actions.all %}
       {% if 'Filed' in m.text %}
-      <div class="bill-stage done">
+      <div class="bill-stage">
       {% endif %}
       {% endfor %}
         <div class="bill-stage-name">Filed</div>
@@ -138,13 +138,13 @@
       <div class="bill-stage done">
       {% else %}
       </div>
-      <div class="bill-stage">
-      {% endif %}
+<!--       <div class="bill-stage">
         <div class="bill-stage-name">Bill Becomes Law</div>
         <div class="date-stage-complete"></div>
-      </div>
+      </div> -->
+      {% endif %}
     </div>
-    <div class="bill-table bill-section">
+    <div class="bill-table bill-section bill-actions">
       <h5>Actions</h5>
       <table>
         <thead>
