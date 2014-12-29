@@ -78,10 +78,21 @@ h5 {
   text-transform: uppercase;
 }
 
+header.with-subhead {
+  h2 {
+    margin: 0 0 1em;
+  }
+
+  h5 {
+    margin: 2em 0 1em;
+  }
+}
+
 p {
   font-family: $helvetica;
   font-size: 1em;
   line-height: 1.2em;
+  margin-bottom: 1em;
 }
 
 a {
