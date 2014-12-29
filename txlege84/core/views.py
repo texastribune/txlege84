@@ -3,16 +3,11 @@ from django.views.generic import ListView
 from topics.models import Topic
 
 
-class TopicList(ListView):
+class LandingView(ListView):
     model = Topic
     template_name = 'landing.html'
 
-
-# class TopicListDetail(ListView):
-#     model = Topic
-#     template_name = 'landing.html'
-
-#     def get_context_data(self, **kwargs):
-#         context = super(TopicListDetail, self).get_context_data(**kwargs)
-#         context['hotList'] = Topic.objects.all()
-#         return context
+    # def get_context_data(self, **kwargs):
+    #     context = super(TopicList, self).get_context_data(**kwargs)
+    #     context['issueList'] = Topic.objects.issue.all()
+    #     return context

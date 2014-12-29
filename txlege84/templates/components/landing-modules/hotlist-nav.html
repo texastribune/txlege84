@@ -5,13 +5,13 @@
   </header>
   <nav>
     <ul>
-      {% for t in topic_list %}
+      {% for t in object_list %}
       <li>
         <div class="hotlist-graphic"></div>
         <header>
-          <h5><a href=" {% url 'topic-detail' slug=t.slug %} ">{{ t.name }}</a></h5>
+          <h5><a href=" {% url 'topic-detail' t.slug %} ">{{ t.name }}</a></h5>
         </header>
-        <p class="issue"><a href="">More regulations on abortion providers</a></p>
+        <p class="issue"><a href=" {% url 'topic-detail' t.slug %}  ">{{ t.issues.first.name }}</a></p>
       </li>
       {% endfor %}
     </ul>
