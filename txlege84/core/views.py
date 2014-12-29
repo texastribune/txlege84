@@ -1,18 +1,18 @@
-from django.views.generic import TemplateView, ListView
+from django.views.generic import ListView
 
-from topics.models import Issue, Topic
-
-
-class LandingDetail(TemplateView):
-    model = Issue
-    template_name = 'landing.html'
+from topics.models import Topic
 
 
-class TopicListDetail(ListView):
+class TopicList(ListView):
     model = Topic
     template_name = 'landing.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(TopicListDetail, self).get_context_data(**kwargs)
-        context['hot-list'] = Topic.objects.all()
-        return context
+
+# class TopicListDetail(ListView):
+#     model = Topic
+#     template_name = 'landing.html'
+
+#     def get_context_data(self, **kwargs):
+#         context = super(TopicListDetail, self).get_context_data(**kwargs)
+#         context['hotList'] = Topic.objects.all()
+#         return context

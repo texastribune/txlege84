@@ -5,7 +5,16 @@
   </header>
   <nav>
     <ul>
+      {% for t in topic_list %}
       <li>
+        <div class="hotlist-graphic"></div>
+        <header>
+          <h5>{{ t.name }}</h5>
+        </header>
+        <p class="issue"><a href="">More regulations on abortion providers</a></p>
+      </li>
+      {% endfor %}
+      <!-- <li>
         <div class="hotlist-graphic"></div>
         <header>
           <h5>Health &amp; Human Services</h5>
@@ -87,7 +96,7 @@
           <h3>What are your top issues?</h3>
         </header>
         <p><a href="">Let us know</a> and we'll send updates on the issues important to you.</p>
-      </li>
+      </li> -->
     </ul>
   </nav>
 </section>

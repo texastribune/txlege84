@@ -5,14 +5,14 @@ from django.views.generic import TemplateView
 from django.contrib import admin
 
 from bills.views import BillDetail
-from core.views import LandingDetail
+from core.views import TopicList
 from committees.views import CommitteeDetail
 from legislators.views import LegislatorDetail
 from topics.views import IssueDetail, TopicDetail, TopicListDetail
 
 urlpatterns = patterns(
     '',
-    url(r'^$', LandingDetail.as_view(), name='landing-detail'),
+    url(r'^$', TopicList.as_view()),
     url(r'^84/hot-lists/$',
         TopicListDetail.as_view(), name='topic-list-detail'),
     url(r'^84/hot-lists/(?P<slug>[-\w]+)/$',
