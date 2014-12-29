@@ -1,28 +1,16 @@
 {% extends 'base.html' %}
 
+{% block mobileheader %}
+  {% include "components/page-headers/hot-list-header.html" %}
+{% endblock %}
+
+{% block desktopheader %}
+  {% include "components/page-headers/hot-list-header.html" %}
+{% endblock %}
+
 {% block content %}
-<section class="project-header">
-  <div class="side-bar">
-    <header>
-      <h1>On the Lege</h1>
-    </header>
-  </div>
-
-  <div class="body-main">
-    <header>
-      <h5>Legislative Hot List</h5>
-      <h2>{{ object.name }}</h2>
-    </header>
-    <img class="headshot" src="../static/images/headshots/Edgar_jpg_131x197_crop_q100.jpg">
-    <img class="headshot" src="../static/images/headshots/Ura-Alexa_jpg_131x197_crop_q100.jpg">
-    <p class="curated">Curated by Edgar Walters and Alexa Ura</p>
-  </div>
-</section>
-
-{% include "components/side-bar.html" %}
-
 <section class="body-main">
-  {% include "modules/hot-list-header.html" %}
+  {% include "components/page-headers/hot-list-header.html" %}
 
   {% for o in object.issues.all %}
   <div class="issue-embed-block prose">
