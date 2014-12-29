@@ -23,6 +23,6 @@ class IssueDetail(DetailView):
     template_name = 'pages/issue.html'
 
     def get_context_data(self, **kwargs):
-        context = super(TopicDetail, self).get_context_data(**kwargs)
+        context = super(IssueDetail, self).get_context_data(**kwargs)
         context['topic_list'] = Topic.objects.all()
         return context
