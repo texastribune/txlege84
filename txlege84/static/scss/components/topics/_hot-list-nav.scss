@@ -1,4 +1,4 @@
-.hotlist-nav {
+.hot-list-nav {
   nav {
     @include li-grid(12, 3, 3);
   }
@@ -23,7 +23,7 @@
   }
 }
 
-.hotlist-graphic {
+.hot-list-graphic {
   border: 1px solid;
   float: left;
   height: 1.5em;

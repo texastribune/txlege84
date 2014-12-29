@@ -26,10 +26,10 @@
 // == Landing Modules ==
 @import 'components/landing-modules/featured-content';
 @import 'components/landing-modules/livestream';
-@import 'components/landing-modules//top-issues';
-@import 'components/landing-modules/hotlist-nav';
+@import 'components/landing-modules/top-issues';
 
 // == Topic Page Modules ==
+@import 'components/topics/hot-list-nav';
 @import 'components/topics/topic-page';
 
 // == Specific Page Styles ==
