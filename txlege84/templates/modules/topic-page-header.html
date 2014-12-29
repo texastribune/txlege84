@@ -5,72 +5,14 @@
   </header>
   <nav>
     <ul>
+    {% for t in topic_list %}
       <li>
         <div class="hotlist-graphic"></div>
         <div class="hotlist-list-box">
-          <h5>Health &amp; Human Services</h5>
+          <h5><a href="{% url 'topic-detail' t.slug %}">{{ t.name }}</a></h5>
         </div>
       </li>
-      <li>
-        <div class="hotlist-graphic"></div>
-        <div class="hotlist-list-box">
-          <h5>Public Education</h5>
-        </div>
-      </li>
-      <li>
-        <div class="hotlist-graphic"></div>
-        <div class="hotlist-list-box">
-          <h5>Higher Education</h5>
-        </div>
-      </li>
-      <li>
-        <div class="hotlist-graphic"></div>
-        <div class="hotlist-list-box">
-          <h5>Ethics</h5>
-        </div>
-      </li>
-      <li>
-        <div class="hotlist-graphic"></div>
-        <div class="hotlist-list-box">
-          <h5>Energy &amp; Environment</h5>
-        </div>
-      </li>
-      <li>
-        <div class="hotlist-graphic"></div>
-        <div class="hotlist-list-box">
-          <h5>Transportation</h5>
-        </div>
-      </li>
-      <li>
-        <div class="hotlist-graphic"></div>
-        <div class="hotlist-list-box">
-          <h5>Immigration &amp; Border Security</h5>
-        </div>
-      </li>
-      <li>
-        <div class="hotlist-graphic"></div>
-        <div class="hotlist-list-box">
-          <h5>Business &amp; Technology</h5>
-        </div>
-      </li>
-      <li>
-        <div class="hotlist-graphic"></div>
-        <div class="hotlist-list-box">
-          <h5>Budget &amp; Taxes</h5>
-        </div>
-      </li>
-      <li>
-        <div class="hotlist-graphic"></div>
-        <div class="hotlist-list-box">
-          <h5>Criminal Justice</h5>
-        </div>
-      </li>
-      <li>
-        <div class="hotlist-graphic"></div>
-        <div class="hotlist-list-box">
-          <h5>Civil Liberties</h5>
-        </div>
-      </li>
+    {% endfor %}
     </ul>
   </nav>
   <div class="subscription">
