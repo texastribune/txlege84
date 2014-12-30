@@ -1,67 +1,50 @@
 {% extends 'base.html' %}
 
+{% block mobileheader %}
+  {% include "components/page-headers/legislator-page-header.html" %}
+{% endblock %}
+
+{% block desktopheader %}
+  {% include "components/page-headers/legislator-page-header.html" %}
+{% endblock %}
+
 {% block content %}
-<section class="project-header">
-  <div class="side-bar">
-    <header>
-      <h1>On the Lege</h1>
-    </header>
-  </div>
 
-  <div class="body-main">
-    <div class="legislator-info">
-      <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/Campbell-Donna768updated_1_jpg_131x197_crop_q100.jpg">
-      <h2>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }}, {{ object.party.short_name }}-{{ object.district }}</h2>
-      {{ object.chamber }}
-      <p>District {{ object.district }}</p>
-      <p>Capitol address: {{ object.capitol_address }}</p>
-      <p>Phone Number: <a href="tel:{{ object.capitol_phone }}">{{ object.capitol_phone }}</a></p>
-      <br />
-      <p>District Office: {{ object.district_address }}</p>
-      <p>District Phone: <a href="tel:{{ object.district_phone }}">{{ object.district_phone }}</a></p>
-    </div>
-  </div>
-</section>
+<header>
+  <h3 class="section-header">Committee assignments</h3>
+</header>
+<div class="committee-assignments">
+  <ul>
+    {% for membership in object.memberships.all %}
+    <li>
+      {{ membership.role }}, <a href="{% url 'committee-detail' membership.committee.chamber.slug membership.committee.slug %}">{{ membership.committee }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
 
-{% include "components/side-bar.html" %}
-
-<section class="body-main">
-  <div class="bill-table">
-    <table>
-      <thead>
-        <tr>
-          <th>Role</th>
-          <th>Committee</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for membership in object.memberships.all %}
-        <tr>
-          <td data-title="Role">{{ membership.role }}</td>
-          <td data-title="Committee"><a href="{% url 'committee-detail' membership.committee.chamber.slug membership.committee.slug %}">{{ membership.committee }}</a></td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-    <table>
-      <thead>
-        <tr>
-          <th>Bill Number</th>
-          <th>Category</th>
-          <th>Caption</th>
-        </tr>
-      </thead>
-      <tbody>
+<header>
+  <h3 class="section-header">Filed legislation</h3>
+</header>
+<div class="bill-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Bill</th>
+        <th>Caption</th>
+        <th>Date of last action</th>
+      </tr>
+    </thead>
+    <tbody>
       {% for sponsorship in object.sponsorships.all %}
-        <tr>
-          <td data-title="Bill Number"><a href="{% url 'bill-detail' sponsorship.bill.slug %}">{{ sponsorship.bill.name }}</a></td>
-          <td data-title="Category">{% for subject in sponsorship.bill.subjects.all %} <a href="{% url 'subject-detail' subject.slug %}">{{ subject.name }}</a> {% endfor %}</td>
-          <td data-title="Caption">{{ sponsorship.bill.description }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
-</section>
+      <tr>
+        <td data-title="Bill"><a href="{% url 'bill-detail' sponsorship.bill.slug %}">{{ sponsorship.bill.name }}</a></td>
+        <td data-title="Caption">{{ sponsorship.bill.description }}</td>
+        <td data-title="Date of last action">XX/XX/XXXX</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 
 {% endblock %}

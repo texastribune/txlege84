@@ -1,35 +1,14 @@
 {% extends 'base.html' %}
 
+{% block mobileheader %}
+  {% include "components/page-headers/committee-page-header.html" %}
+{% endblock %}
+
+{% block desktopheader %}
+  {% include "components/page-headers/committee-page-header.html" %}
+{% endblock %}
+
 {% block content %}
-<section class="project-header">
-  <div class="side-bar">
-    <header>
-      <h1>On the Lege</h1>
-    </header>
-  </div>
-  <div class="committee">
-    <h2>{{ object.name }}</h2>
-    <h4>{{ object.chamber }}</h4>
-    <div class="committee-chair">
-      <h5>Chair</h5>
-      <!-- <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"> -->
-      {% if object.chair.slug != "" %}
-        <p><a href="{% url 'legislator-detail' object.chair.slug %}">{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.chair }}</a></p>
-      {% endif %}
-    </div>
-    <div class="committee-vice-chair">
-      <h5>Vice Chair</h5>
-      <!-- <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/bob-deuell_3_jpg_131x197_crop_q100.jpg"> -->
-      {% if object.vice_chair.slug != "" %}
-        <p><a href="{% url 'legislator-detail' object.vice_chair.slug %}">{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.vice_chair }}</a></p>
-      {% endif %}
-    </div>
-  </div>
-</section>
-
-{% include "components/side-bar.html" %}
-
-<section class="body-main">
   <div class="committee">
     <div class="committee-members">
       <h5>Members</h5>
@@ -44,15 +23,14 @@
         <thead>
           <tr>
             <th>Bill</th>
-            <th>Categories</th>
             <th>Caption</th>
-            <th>Referred to committee on</th>
+            <th>Date Referred to Committee</th>
           </tr>
         </thead>
         <tbody>
         {% for o in object.actions.all %}
           <tr>
-            <td data-title="Bill Number"><a href="{% url 'bill-detail' o.bill.slug %}">{{ o.bill.name }}</a></td>
+            <td data-title="Bill"><a href="{% url 'bill-detail' o.bill.slug %}">{{ o.bill.name }}</a></td>
             <td data-title="Category">{% for p in o.bill.subjects.all %}{{ p }}<br />{% endfor %}</td>
             <td data-title="Caption">{{ o.bill.description }}</td>
             <td data-title="Referred to Committee on">{{ o.date|date:"SHORT_DATE_FORMAT" }}</td>
@@ -62,6 +40,5 @@
       </table>
     </div>
   </div>
-</section>
 
 {% endblock %}

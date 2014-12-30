@@ -9,12 +9,7 @@ $default-480: new-breakpoint(max-width 480px);
   @extend %container;
 }
 
-.main {
-  @extend %content-block;
-}
-
 .side-bar {
-  @extend %content-block;
   @include clearfix;
   @include span-columns(12);
 

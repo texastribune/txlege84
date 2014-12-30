@@ -1,17 +1,38 @@
-.legislator {
-  img {
-    float: left;
-    margin-right: 1em;
-  }
-}
-
 .legislator-info {
   @include span-columns(12);
   margin-bottom: 1em;
 
-  h4 {
-    margin-left: 1em;
+  h2 {
+    display: inline-block;
+    max-width: 65%;
+
+    @include media($medium) {
+      max-width: 70%;
+    }
+    @include media($large) {
+      max-width: 100%;
+    }
   }
+
+  .headshot {
+    @include span-columns(2);
+    margin-top: 2em;
+    img {
+      width: 100%;
+    }
+  }
+
+  .legislator-details {
+    @include span-columns(10);
+    @include div-grid(10, 2);
+    @include clearfix;
+
+  }
+
+  .office-info {
+    margin-bottom: 1em;
+  }
+
 }
 
 

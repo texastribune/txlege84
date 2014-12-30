@@ -1,9 +1,5 @@
 .topic-list-landing {
   @include span-columns(12);
-  h2 {
-    margin-top: 2em;
-  }
-
 }
 
 .issue-list-block {
@@ -36,10 +32,10 @@
     @include span-columns(8);
     @include omega();
 
-    li {
-      @include span-columns(4 of 8);
-      @include omega(2n);
-    }
+    // li {
+    //   @include span-columns(4 of 8);
+    //   @include omega(2n);
+    // }
 
   }
 
@@ -47,10 +43,10 @@
     @include span-columns(8);
     @include omega();
 
-    li {
-      @include span-columns(4 of 8);
-      @include omega(2n);
-    }
+    // li {
+    //   @include span-columns(4 of 8);
+    //   @include omega(2n);
+    // }
 
   }
 

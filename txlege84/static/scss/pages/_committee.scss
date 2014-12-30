@@ -1,31 +1,22 @@
-.committee-chair,
-.committee-vice-chair {
-  @include span-columns(12);
-  margin-bottom: 1em;
+.committee-chairs {
+  @include div-grid(12, 2);
+  @include clearfix;
+  margin-bottom: 2em;
 
-  @include media($medium) {
-    @include span-columns(6);
-  }
-
-  @include media($large) {
-    @include span-columns(6);
-  }
-
-}
-
-.committee-vice-chair {
-  @include media($medium) {
-    @include omega();
-  }
-
-  @include media($large) {
-    @include omega();
-  }
 }
 
 .committee-members {
   @include span-columns(12);
-  @include li-grid(12, 2, 3);
+  @include li-grid(12, 2, 4);
   margin-bottom: 1em;
+
+  img {
+    display: block;
+  }
+
+  li {
+    min-height: 150px;
+    margin-bottom: 2em;
+  }
 
 }

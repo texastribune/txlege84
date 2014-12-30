@@ -1,3 +1,30 @@
 .bill-table {
   @include span-columns(12);
+
+  thead {
+    margin-bottom: .5em;
+  }
+
+  th {
+    padding: 0 .25em .25em 0;
+    text-align: center;
+
+    &:first-child {
+      text-align: left;
+    }
+
+    &:last-child {
+      text-align: right;
+    }
+  }
+
+  td {
+    padding: .5em;
+    text-align: left;
+
+    &:first-child {
+      min-width: 5em;
+    }
+  }
+
 }

@@ -1,23 +1,16 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block mobileheader %}
+  {% include "components/landing-modules/top-issues.html" %}
+{% endblock %}
+
+{% block desktopheader %}
+  {% include "components/landing-modules/top-issues.html" %}
+{% endblock %}
 
 {% block content %}
-<section class="project-header">
-  <div class="side-bar">
-    <header>
-      <h1>On the Lege</h1>
-    </header>
-  </div>
-
-  <div class="body-main">
-    {% include "components/landing-modules/top-issues.html" %}
-  </div>
-</section>
-
-{% include "components/side-bar.html" %}
-
-<section class="body-main">
   {% include "components/landing-modules/livestream.html" %}
-  {% include "components/landing-modules/hotlist-nav.html" %}
+  {% include "components/page-headers/hot-list-landing-header.html" %}
   {% include "components/landing-modules/featured-texplainer.html" %}
-</section>
 {% endblock %}

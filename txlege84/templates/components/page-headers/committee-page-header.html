@@ -1,0 +1,21 @@
+<header>
+  <h2>{{ object.name }}</h2>
+  <h4>{{ object.chamber }}</h4>
+</header>
+<div class="committee-chairs">
+  <div>
+    <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg">
+    <h5>Chair</h5>
+    {% if object.chair.slug != "" %}
+      <p><a href="{% url 'legislator-detail' object.chair.slug %}">{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.chair }}</a></p>
+    {% endif %}
+  </div>
+  <div>
+    <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/bob-deuell_3_jpg_131x197_crop_q100.jpg">
+    <h5>Vice Chair</h5>
+    {% if object.vice_chair.slug != "" %}
+      <p><a href="{% url 'legislator-detail' object.vice_chair.slug %}">{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.vice_chair }}</a></p>
+    {% endif %}
+  </div>
+</div>
+

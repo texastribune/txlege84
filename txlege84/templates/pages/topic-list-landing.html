@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 
-{% block content %}
-<section class="project-header">
-  <div class="side-bar">
-    <header>
-      <h1>On the Lege</h1>
-    </header>
-  </div>
+{% block mobileheader %}
+  {% include "components/page-headers/hot-list-landing-header.html" %}
+{% endblock %}
+
+{% block desktopheader %}
+  {% include "components/page-headers/hot-list-landing-header.html" %}
+{% endblock %}
 
   <div class="body-main">
     {% include "modules/topic-page-header.html" with topic_list=topic_list %}
   </div>
 </section>
 
-{% include "components/side-bar.html" %}
+{% block content %}
 
 <section class="body-main">
   {% for topic in object_list %}

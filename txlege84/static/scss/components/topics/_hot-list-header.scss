@@ -1,6 +1,7 @@
-.hotlist-nav {
+.hot-list-nav {
   nav {
     @include li-grid(12, 3, 3);
+    margin-top: 1.5em;
   }
 
   span.see-all {
@@ -11,19 +12,32 @@
   .subscription {
     border: 1px solid $tribune-yellow;
     background-color: $white;
-    padding: 0 1em;
+    margin-bottom: .5em;
+    padding: .5em 1em;
 
     p {
       font-size: .9em;
     }
   }
 
+  ul {
+    margin: 1em 0;
+  }
+
   li {
     min-height: 2.25em;
+    margin-top: .25em;
+    margin-bottom: .25em;
   }
 }
 
-.hotlist-graphic {
+.hot-list-box {
+  h5 {
+    margin: 0;
+  }
+}
+
+.hot-list-graphic {
   border: 1px solid;
   float: left;
   height: 1.5em;

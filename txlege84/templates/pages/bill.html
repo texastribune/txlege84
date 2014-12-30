@@ -1,30 +1,28 @@
 {% extends 'base.html' %}
 
+{% block mobileheader %}
+  {% include "components/page-headers/bill-page-header.html" %}
+{% endblock %}
+
+{% block desktopheader %}
+  {% include "components/page-headers/bill-page-header.html" %}
+{% endblock %}
+
+
 {% block content %}
-
-<section class="project-header">
-  <div class="side-bar">
-    <header>
-      <h1>On the Lege</h1>
-    </header>
-  </div>
-
-  <div class="body-main">
-    <div class="bill">
-    <h2>{{ object.name }}</h2>
-    <p>{{ object.description }}</p>
-    <p><a href="http://www.legis.state.tx.us/BillLookup/History.aspx?LegSess=84R&Bill={{ object.slug }}" target="_blank">Bill Text</a>, <a href="http://www.capitol.state.tx.us/BillLookup/Amendments.aspx?LegSess=84R&Bill={{ object.slug }}" target="_blank">Amendments</a></p>
-    </div>
-  </div>
-</section>
-{% include "components/side-bar.html" %}
-<section class="body-main">
   <div class="bill">
-    <h5>Last Action</h5>
-    <p>{{ object.actions.last.text }} <em> {{ object.actions.last.date }}</em></p>
-    <div class="bill-authors">
+    <div class="bill-section">
+      <header>
+        <h5>Last Action</h5>
+      </header>
+      <p>{{ object.actions.last.text }} <em> {{ object.actions.last.date }}</em></p>
+    </div>
+
+    <div class="bill-authors bill-section">
       <div>
-        <h5>Primary Author</h5>
+        <header>
+          <h5>Primary Author</h5>
+        </header>
         {% for n in object.sponsorships.all %}
           {% if n.role = 'author' %}
             <p>Rep. <a href="{% url 'legislator-detail' n.legislator.slug %}">{{ n.legislator }}</a></p>
@@ -32,17 +30,21 @@
         {% endfor %}
       </div>
       <div>
-      <h5>Coauthors</h5>
-      <ul>
-        {% for o in object.sponsorships.all %}
-          {% if o.role = 'coauthor' %}
-          <li>Rep. <a href="{% url 'legislator-detail' o.legislator.slug %}">{{ o }}</a></li>
-          {% endif %}
-        {% endfor %}
-      </ul>
+        <header>
+          <h5>Coauthors</h5>
+        </header>
+        <ul>
+          {% for o in object.sponsorships.all %}
+            {% if o.role = 'coauthor' %}
+            <li>Rep. <a href="{% url 'legislator-detail' o.legislator.slug %}">{{ o }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
       </div>
       <div>
-        <h5>Sponsor</h5>
+        <header>
+          <h5>Sponsor</h5>
+        </header>
         <ul>
         {% for p in object.sponsorships.all %}
           {% if p.role = 'sponsor' %}
@@ -51,10 +53,13 @@
         {% endfor %}
         </ul>
       </div>
+      <div>&nbsp;</div>
     </div>
-    <div class="bill-committee-assignment">
+    <div class="bill-committee-assignment bill-section">
       <div>
-        <h5>House Committee</h5>
+        <header>
+          <h5>House Committee</h5>
+        </header>
         {% if object.house_committee != "" %}
           <p><a href="{% url 'committee-detail' chamber=object.chamber.slug slug=object.house_committee.slug %}">{{ object.house_committee }}</a></p>
         {% else %}
@@ -62,25 +67,54 @@
         {% endif %}
       </div>
       <div>
-        <h5>Senate Committee</h5>
-          {% if object.senate_committee != "" %}
-            <p><a href="{% url 'committee-detail' chamber=object.chamber.slug slug=object.senate_committee.slug %}">{{ object.senate_committee }}</a></p>
-          {% else %}
-            <p>Committee not yet assigned</p>
-          {% endif %}
+        <header>
+          <h5>Senate Committee</h5>
+        </header>
+        {% if object.senate_committee != "" %}
+          <p><a href="{% url 'committee-detail' chamber=object.chamber.slug slug=object.senate_committee.slug %}">{{ object.senate_committee }}</a></p>
+        {% else %}
+          <p>Committee not yet assigned</p>
+        {% endif %}
       </div>
     </div>
 
-    <div class="bill-stages">
-      <h5>Bill Stages</h5>
-        {% for m in object.actions.all %}
-        {% if 'Filed' in m.text %}
-        <div class="bill-stage done">
-        {% endif %}
-        {% endfor %}
-          <div class="bill-stage-name">Filed</div>
-          <div class="date-stage-complete">{{ object.actions.first.date }}</div>
-        </div>
+    <div class="related-issue">
+      <header class="with-subhead">
+        <h5>Related Issue</h5>
+        <h2>New taxes to support Texas Lotto</h2>
+      </header>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in arcu commodo, aliquet nunc nec, egestas risus. Nullam quis sapien placerat ex maximus ullamcorper et id justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc pellentesque a massa a hendrerit. Mauris quis pellentesque risus. Donec pellentesque dolor et tellus lacinia, in aliquet nulla convallis. Sed commodo, mi vel tincidunt aliquet, odio libero volutpat mi, et tempus massa quam at tellus. Ut posuere tempus faucibus.</p>
+      <p class="update">Updated: Jan. 21, 2015</p>
+      <header class="story-stream">
+        <h3>Story Stream</h3>
+      </header>
+      <nav>
+        <ul>
+          <li>
+            <header>
+              <h4>The Latest: <a href="">Senate Health Committee Considers Merging Agencies</a>, Jan. 21, 2015</h4>
+            </header>
+          </li>
+          <li>
+            <header>
+              <h4><a href="">Another Title Goes Here</a>, Jan. 3, 2015</h4>
+            </header>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="stages bill-section">
+      <header>
+        <h5>Bill Stages</h5>
+      </header>
+      {% for m in object.actions.all %}
+      {% if 'Filed' in m.text %}
+      <div class="bill-stage">
+      {% endif %}
+      {% endfor %}
+        <div class="bill-stage-name">Filed</div>
+        <div class="date-stage-complete">{{ object.actions.first.date }}</div>
+      </div>
       <div class="bill-stage">
         <div class="bill-stage-name">
           {% if object.chamber == 'Texas House' %}
@@ -129,13 +163,14 @@
       <div class="bill-stage done">
       {% else %}
       </div>
-      <div class="bill-stage">
-      {% endif %}
+<!--       <div class="bill-stage">
         <div class="bill-stage-name">Bill Becomes Law</div>
         <div class="date-stage-complete"></div>
-      </div>
+      </div> -->
+      {% endif %}
     </div>
-    <div class="bill-table">
+    <div class="bill-table bill-section bill-actions">
+      <h5>Actions</h5>
       <table>
         <thead>
           <tr>
@@ -156,45 +191,6 @@
       </table>
     </div>
   </div>
-  <div class="bill-actions">
-    <h5>Actions</h5>
-    <p>House - Referred to Higher Education &mdash; <em>Feb. 4, 2015</em></p>
-    <p>House - Read first time &mdash; <em>Feb. 4, 2015</em></p>
-    <p>House - Filed &mdash; <em>Nov. 12, 1014</em></p>
-  </div>
-  <div class="related-issue">
-    <div class="feature-box">
-      <h5>Related Issue</h5>
-      <h2>New taxes to support Texas Lotto</h2>
-      <div class="art">
-        <img src="http://placehold.it/1024x680">
-      </div>
-      <p><strong><em>The Gist:</em></strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in arcu commodo, aliquet nunc nec, egestas risus. Nullam quis sapien placerat ex maximus ullamcorper et id justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc pellentesque a massa a hendrerit. Mauris quis pellentesque risus. Donec pellentesque dolor et tellus lacinia, in aliquet nulla convallis. Sed commodo, mi vel tincidunt aliquet, odio libero volutpat mi, et tempus massa quam at tellus. Ut posuere tempus faucibus.</p>
-      <p><em>Updated: Jan. 21, 2015</em></p>
-      <div class="story-stream">
-        <p><strong><em>Story Stream</em></strong></p>
-        <div class="slick-slide">
-          <h4><em>The Latest:</em> <a href="">Senate Health Committee Considers Merging Agencies</a></h4>
-        </div>
-        <div class="slick-slide">
-          <h4><em>The Latest:</em> <a href="">Senate Health Committee Considers Merging Agencies</a></h4>
-        </div>
-        <div class="slick-slide">
-          <h4><em>The Latest:</em> <a href="">Senate Health Committee Considers Merging Agencies</a></h4>
-        </div>
-        <div class="slick-slide">
-          <h4><em>The Latest:</em> <a href="">Senate Health Committee Considers Merging Agencies</a></h4>
-        </div>
-        <div class="slick-slide">
-          <h4><em>The Latest:</em> <a href="">Senate Health Committee Considers Merging Agencies</a></h4>
-        </div>
-        <div class="slick-slide">
-          <h4><em>The Latest:</em> <a href="">Senate Health Committee Considers Merging Agencies</a></h4>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 {% endblock %}

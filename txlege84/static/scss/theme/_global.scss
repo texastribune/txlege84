@@ -1,10 +1,15 @@
 /* Base Theme for HTML elements */
 
 body {
+  background-color: $light-blue;
   font-family: $base-sans-serif;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1;
   text-rendering: optimizelegibility;
+}
+
+.body-main {
+  background-color: $white;
 }
 
 h1,
@@ -23,31 +28,36 @@ p {
 // Project title
 h1 {
   color: $tribune-black;
-  font-size: 4.5em;
+  font-size: 3.25em;
   font-weight: 800;
   line-height: 1em;
-}
 
-// Section Header
-h2 {
-  font-size: 1.75em;
-  font-weight: 700;
-  padding-bottom: .2em;
-}
+  @include media($medium) {
+    font-size: 4.5em;
+  }
 
-.top-issues,
-.hotlist-nav {
-  h2 {
-    border-bottom: 1px solid $masthead-black;
-    margin-top: 1.3em;
+  @include media($large) {
+    font-size: 4.5em;
   }
 }
 
+// Section or Page Header
+h2 {
+  border-bottom: 1px solid $masthead-black;
+  font-size: 1.75em;
+  font-weight: 700;
+  margin-top: 1.3em;
+  padding-bottom: .2em;
+}
 
 // Sidebar Header
 h3 {
   font-size: 1.25em;
   font-weight: 700;
+
+  &.section-header {
+    margin-bottom: 1em;
+  }
 }
 
 // Header Tagline
@@ -56,6 +66,7 @@ h4 {
   font-size: 1em;
   font-weight: 500;
   line-height: 1.2em;
+  margin-bottom: 1em;
 }
 
 h5 {
@@ -67,10 +78,21 @@ h5 {
   text-transform: uppercase;
 }
 
+header.with-subhead {
+  h2 {
+    margin: 0 0 1em;
+  }
+
+  h5 {
+    margin: 2em 0 1em;
+  }
+}
+
 p {
   font-family: $helvetica;
   font-size: 1em;
   line-height: 1.2em;
+  margin-bottom: 1em;
 }
 
 a {
@@ -114,7 +136,9 @@ button,
 }
 
 ul {
+  @include clearfix;
   list-style: none;
+  margin: 0;
   padding: 0;
 }
 
@@ -124,14 +148,12 @@ li {
   font-size: 1em;
   font-weight: 500;
   line-height: 1.6em;
-  margin: .75em auto;
+  margin: 0;
   text-align: left;
 }
 
 nav {
   @include clearfix;
-  margin-bottom: 1em;
-
 }
 
 section {
@@ -139,4 +161,27 @@ section {
   @include clearfix();
 }
 
+.desktop-hide {
+  display: block;
 
+  @include media($medium) {
+    display: none;
+  }
+
+  @include media($large) {
+    display: none;
+  }
+}
+
+.mobile-hide {
+  @include clearfix;
+  display: none;
+
+  @include media($medium) {
+    display: block;
+  }
+
+  @include media($large) {
+    display: block;
+  }
+}
