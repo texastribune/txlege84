@@ -12,7 +12,7 @@ from topics.views import IssueDetail, TopicDetail, TopicListDetail
 
 urlpatterns = patterns(
     '',
-    url(r'^$', LandingView.as_view()),
+    url(r'^$', LandingView.as_view(), name='landing-view'),
     url(r'^84/hot-lists/$',
         TopicListDetail.as_view(), name='topic-list-detail'),
     url(r'^84/hot-lists/(?P<slug>[-\w]+)/$',
