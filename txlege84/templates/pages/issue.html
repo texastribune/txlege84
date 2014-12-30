@@ -1,8 +1,5 @@
 {% extends 'base.html' %}
 
-{% block content %}
-
-<div class="main">
 {% block mobileheader %}
   {% include "components/page-headers/hot-list-landing-header.html" %}
 {% endblock %}
@@ -10,6 +7,10 @@
 {% block desktopheader %}
   {% include "components/page-headers/hot-list-landing-header.html" %}
 {% endblock %}
+
+{% block content %}
+
+<div class="main">
 
   <div class="issue-embed-block">
       <div class="issue-header">
