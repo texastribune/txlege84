@@ -3,7 +3,13 @@
 {% block content %}
 
 <div class="main">
-  {% include "modules/topic-page-header.html" %}
+{% block mobileheader %}
+  {% include "components/page-headers/hot-list-landing-header.html" %}
+{% endblock %}
+
+{% block desktopheader %}
+  {% include "components/page-headers/hot-list-landing-header.html" %}
+{% endblock %}
 
   <div class="issue-embed-block">
       <div class="issue-header">
