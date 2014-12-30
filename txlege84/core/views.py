@@ -1,5 +1,8 @@
-from django.views.generic import TemplateView
+from django.views.generic import ListView
+
+from topics.models import Topic
 
 
-class LandingDetail(TemplateView):
+class LandingView(ListView):
+    model = Topic
     template_name = 'landing.html'

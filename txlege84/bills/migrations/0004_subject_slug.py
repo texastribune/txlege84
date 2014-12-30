@@ -7,12 +7,12 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('topics', '0001_initial'),
+        ('bills', '0003_auto_20141205_1637'),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='topic',
+            model_name='subject',
             name='slug',
             field=models.SlugField(null=True, blank=True),
             preserve_default=True,

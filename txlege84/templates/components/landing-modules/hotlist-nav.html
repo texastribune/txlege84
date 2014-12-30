@@ -5,89 +5,15 @@
   </header>
   <nav>
     <ul>
+      {% for topic in topic_list %}
       <li>
         <div class="hotlist-graphic"></div>
         <header>
-          <h5>Health &amp; Human Services</h5>
+          <h5><a href=" {% url 'topic-detail' topic.slug %} ">{{ topic.name }}</a></h5>
         </header>
-        <p class="issue"><a href="">More regulations on abortion providers</a></p>
+        <p class="issue"><a href=" {% url 'topic-detail' topic.slug %}  ">{{ topic.issues.first.name }}</a></p>
       </li>
-      <li>
-        <div class="hotlist-graphic"></div>
-        <header>
-          <h5>Public Education</h5>
-        </header>
-        <p class="issue"><a href="">Lt. Gov. Dan Patrick's voucher plan</a></p>
-      </li>
-      <li>
-        <div class="hotlist-graphic"></div>
-        <header>
-          <h5>Higher Education</h5>
-        </header>
-        <p class="issue"><a href="">A proposal to remove in-state tuition for immigrants</a></p>
-      </li>
-      <li>
-        <div class="hotlist-graphic"></div>
-        <header>
-          <h5>Ethics</h5>
-        </header>
-        <p class="issue"><a href="">A ban on lobbyists, period.</a></p>
-      </li>
-      <li>
-        <div class="hotlist-graphic"></div>
-        <header>
-          <h5>Energy &amp; Environment</h5>
-        </header>
-        <p class="issue"><a href="">Lorem ipsum dolor sit amet, consectetur adipiscing.</a></p>
-      </li>
-      <li>
-        <div class="hotlist-graphic"></div>
-        <header>
-          <h5>Transportation</h5>
-        </header>
-        <p class="issue"><a href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum pulvinar urna. </a></p>
-      </li>
-      <li>
-        <div class="hotlist-graphic"></div>
-        <header>
-          <h5>Immigration &amp; Border Security</h5>
-        </header>
-        <p class="issue"><a href="">Lorem ipsum dolor sit amet, consectetur adipiscing.</a></p>
-      </li>
-      <li>
-        <div class="hotlist-graphic"></div>
-        <header>
-          <h5>Business &amp; Technology</h5>
-        </header>
-        <p class="issue"><a href="">Lorem ipsum dolor sit amet, consectetur adipiscing.</a></p>
-      </li>
-      <li>
-        <div class="hotlist-graphic"></div>
-        <header>
-          <h5>Budget &amp; Taxes</h5>
-        </header>
-        <p class="issue"><a href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum pulvinar urna. </a></p>
-      </li>
-      <li>
-        <div class="hotlist-graphic"></div>
-        <header>
-          <h5>Criminal Justice</h5>
-        </header>
-        <p class="issue"><a href="">Lorem ipsum dolor sit amet, consectetur adipiscing.</a></p>
-      </li>
-      <li>
-        <div class="hotlist-graphic"></div>
-        <header>
-          <h5>Civil Liberties</h5>
-        </header>
-        <p class="issue"><a href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum pulvinar urna. </a></p>
-      </li>
-      <li class="subscription">
-        <header>
-          <h3>What are your top issues?</h3>
-        </header>
-        <p><a href="">Let us know</a> and we'll send updates on the issues important to you.</p>
-      </li>
+      {% endfor %}
     </ul>
   </nav>
 </section>

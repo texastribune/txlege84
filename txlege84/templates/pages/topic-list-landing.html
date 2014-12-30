@@ -8,6 +8,11 @@
   {% include "components/page-headers/hot-list-landing-header.html" %}
 {% endblock %}
 
+  <div class="body-main">
+    {% include "modules/topic-page-header.html" with topic_list=topic_list %}
+  </div>
+</section>
+
 {% block content %}
 
 <section class="body-main">

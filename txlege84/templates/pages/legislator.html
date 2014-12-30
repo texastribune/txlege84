@@ -10,22 +10,21 @@
 
 {% block content %}
 
-
 <header>
-  <h3 class="section-header">Committee Assignments</h3>
+  <h3 class="section-header">Committee assignments</h3>
 </header>
 <div class="committee-assignments">
   <ul>
-    {% for o in object.memberships.all %}
+    {% for membership in object.memberships.all %}
     <li>
-      {{ o.role }}, <a href="{% url 'committee-detail' chamber=o.committee.chamber.slug slug=o.committee.slug %}">{{ o.committee }}</a>
+      {{ membership.role }}, <a href="{% url 'committee-detail' membership.committee.chamber.slug membership.committee.slug %}">{{ membership.committee }}</a>
     </li>
     {% endfor %}
   </ul>
 </div>
 
 <header>
-  <h3 class="section-header">Legislation Filed by {% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }}</h3>
+  <h3 class="section-header">Filed legislation</h3>
 </header>
 <div class="bill-table">
   <table>
@@ -33,21 +32,19 @@
       <tr>
         <th>Bill</th>
         <th>Caption</th>
-        <th>Date of Last Action</th>
+        <th>Date of last action</th>
       </tr>
     </thead>
     <tbody>
-    {% for p in object.sponsorships.all %}
+      {% for sponsorship in object.sponsorships.all %}
       <tr>
-        <td data-title="Bill"><a href="{% url 'bill-detail' p.bill.slug %}">{{ p.bill.name }}</a></td>
-        <td data-title="Caption">{{ p.bill.description }}</td>
-<!--           <td data-title="Category">{% for s in p.bill.subjects.all %}{{ s.name }} {% endfor %}</td> -->
-        <td data-title="Date of Last Action"></td>
+        <td data-title="Bill"><a href="{% url 'bill-detail' sponsorship.bill.slug %}">{{ sponsorship.bill.name }}</a></td>
+        <td data-title="Caption">{{ sponsorship.bill.description }}</td>
+        <td data-title="Date of last action">XX/XX/XXXX</td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
 </div>
-
 
 {% endblock %}
