@@ -4,15 +4,15 @@ from django.views.generic import TemplateView
 
 from django.contrib import admin
 
-from bills.views import BillDetail, SubjectDetail
-from core.views import LandingDetail
+from bills.views import BillDetail
+from core.views import LandingView
 from committees.views import CommitteeDetail
 from legislators.views import LegislatorDetail
 from topics.views import IssueDetail, TopicDetail, TopicListDetail
 
 urlpatterns = patterns(
     '',
-    url(r'^$', LandingDetail.as_view(), name='landing-detail'),
+    url(r'^$', LandingView.as_view(), name='landing-view'),
     url(r'^84/hot-lists/$',
         TopicListDetail.as_view(), name='topic-list-detail'),
     url(r'^84/hot-lists/(?P<slug>[-\w]+)/$',
