@@ -5,11 +5,11 @@
   </header>
   <nav>
     <ul>
-    {% for t in topic_list %}
+    {% for topic in topic_list %}
       <li>
         <div class="hotlist-graphic"></div>
         <div class="hotlist-list-box">
-          <h5><a href="{% url 'topic-detail' t.slug %}">{{ t.name }}</a></h5>
+          <h5><a href="{% url 'topic-detail' topic.slug %}">{{ topic.name }}</a></h5>
         </div>
       </li>
     {% endfor %}
