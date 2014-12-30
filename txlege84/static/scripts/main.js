@@ -1,37 +1,34 @@
-$(function () {
+(function() {
   'use strict';
 
-  var sidebarButtonA = $('.sidebar-header-bills');
-  var sidebarButtonB = $('.sidebar-header-resources');
-  var sidebarContentA = $('.sidebar-content-bills');
-  var sidebarContentB = $('.sidebar-content-resources');
+  var $sidebarButtonA = $('.sidebar-header-bills');
+  var $sidebarButtonB = $('.sidebar-header-resources');
+  var $sidebarContentA = $('.sidebar-content-bills');
+  var $sidebarContentB = $('.sidebar-content-resources');
 
   function toggleBillSearch() {
-    sidebarContentA.toggleClass('collapse');
+    $sidebarContentA.toggleClass('collapse');
   }
 
   function toggleResources() {
-    sidebarContentB.toggleClass('collapse');
+    $sidebarContentB.toggleClass('collapse');
   }
 
-  $(sidebarButtonA).click(function() {
+  $sidebarButtonA.click(function() {
     toggleBillSearch();
   });
 
-  $(sidebarButtonB).click(function() {
+  $sidebarButtonB.click(function() {
     toggleResources();
   });
 
-})();
+  var $storyStream = $('.story-stream');
 
-$(document).ready(function() {
-  $('.story-stream').slick({
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1
+  $storyStream.slick({
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
   });
-
-});
-
+})();
