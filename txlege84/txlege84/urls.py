@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 
 from django.contrib import admin
 
-from bills.views import BillDetail
+from bills.views import BillDetail, SubjectDetail
 from core.views import LandingView
 from committees.views import CommitteeDetail
 from legislators.views import LegislatorDetail
