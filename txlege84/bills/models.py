@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 from committees.models import Committee
 from legislators.models import Chamber, Legislator
@@ -6,9 +7,16 @@ from legislators.models import Chamber, Legislator
 
 class Subject(models.Model):
     name = models.CharField(max_length=50)
+    slug = models.SlugField(null=True, blank=True)
 
     def __unicode__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.name)
+
+        super(Subject, self).save(*args, **kwargs)
 
 
 class Bill(models.Model):

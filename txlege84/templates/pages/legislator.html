@@ -35,10 +35,10 @@
         </tr>
       </thead>
       <tbody>
-        {% for o in object.memberships.all %}
+        {% for membership in object.memberships.all %}
         <tr>
-          <td data-title="Role">{{ o.role }}</td>
-          <td data-title="Committee"><a href="{% url 'committee-detail' chamber=o.committee.chamber.slug slug=o.committee.slug %}">{{ o.committee }}</a></td>
+          <td data-title="Role">{{ membership.role }}</td>
+          <td data-title="Committee"><a href="{% url 'committee-detail' membership.committee.chamber.slug membership.committee.slug %}">{{ membership.committee }}</a></td>
         </tr>
         {% endfor %}
       </tbody>
@@ -52,11 +52,11 @@
         </tr>
       </thead>
       <tbody>
-      {% for p in object.sponsorships.all %}
+      {% for sponsorship in object.sponsorships.all %}
         <tr>
-          <td data-title="Bill Number"><a href="{% url 'bill-detail' p.bill.slug %}">{{ p.bill.name }}</a></td>
-          <td data-title="Category">{% for s in p.bill.subjects.all %}{{ s.name }} {% endfor %}</td>
-          <td data-title="Caption">{{ p.bill.description }}</td>
+          <td data-title="Bill Number"><a href="{% url 'bill-detail' sponsorship.bill.slug %}">{{ sponsorship.bill.name }}</a></td>
+          <td data-title="Category">{% for subject in sponsorship.bill.subjects.all %} <a href="{% url 'subject-detail' subject.slug %}">{{ subject.name }}</a> {% endfor %}</td>
+          <td data-title="Caption">{{ sponsorship.bill.description }}</td>
         </tr>
         {% endfor %}
       </tbody>
