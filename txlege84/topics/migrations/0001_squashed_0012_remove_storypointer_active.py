@@ -8,9 +8,6 @@ from django.conf import settings
 
 
 class Migration(migrations.Migration):
-
-    replaces = [(b'topics', '0001_initial'), (b'topics', '0002_topic_slug'), (b'topics', '0003_issue_slug'), (b'topics', '0004_issue_photo'), (b'topics', '0005_auto_20141222_1112'), (b'topics', '0006_auto_20141222_1425'), (b'topics', '0007_auto_20141222_1453'), (b'topics', '0008_topic_curators'), (b'topics', '0009_auto_20141222_1620'), (b'topics', '0010_auto_20141222_1646'), (b'topics', '0011_auto_20141222_1705'), (b'topics', '0012_remove_storypointer_active')]
-
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
         ('bills', '0001_initial'),
