@@ -27,9 +27,9 @@
     <tbody>
     {% for s in object.bills.all %}
       <tr>
-        <td data-title="Bill"><a href="{% url 'bill-detail' s.slug %}">{{ s }}</a></td>
+        <td data-title="Bill"><a href="{% url 'bill-detail' s.slug %}ik">{{ s }}</a></td>
         <td data-title="Caption">{{ s.description }}</td>
-        <td data-title="Action">{% for a in s.actions.first.text %} {{ a }} {% endfor %}</td>
+        <td data-title="Action">{{ s.actions.first.text }}</td>
       </tr>
     {% endfor %}
     </tbody>
