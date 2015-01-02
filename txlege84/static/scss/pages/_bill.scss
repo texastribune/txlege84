@@ -40,16 +40,25 @@
 }
 
 .bill-stage {
-  @include span-columns(3);
+  @include span-columns(12);
   border: 1px solid;
   font-size: .8em;
   height: 6em;
   margin: 0 1em 1em 0;
   padding: 1em;
 
+  @include media($large) {
+    @include span-columns(3);
+  }
+
   @include media($medium) {
     padding: .25em;
+    @include span-columns(12);
   }
+
+  // @include media($small) {
+  //   @include span-columns(12);
+  // }
 
 
   &.done {
