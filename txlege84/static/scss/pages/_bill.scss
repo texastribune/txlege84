@@ -25,16 +25,35 @@
 
 }
 
+.arrow-right{
+  display: none;
+
+  @include media($large) {
+    display: block;
+    @include span-columns(1);
+  }
+}
+
+.arrow-down{
+  display: block;
+  @include span-columns(12);
+  text-align: center;
+
+  @include media($large) {
+    display: none;
+  }
+}
+
 .bill-actions {
   @include span-columns(12);
 
   @include media($medium) {
-    @include span-columns(8);
+    @include span-columns(12);
     @include omega();
   }
 
   @include media($large) {
-    @include span-columns(8);
+    @include span-columns(12);
     @include omega();
   }
 }
@@ -48,7 +67,7 @@
   padding: 1em;
 
   @include media($large) {
-    @include span-columns(3);
+    @include span-columns(2);
   }
 
   @include media($medium) {
@@ -62,6 +81,7 @@
   }
 
   .arrow{
+    @include span-columns(1);
   }
 }
 
