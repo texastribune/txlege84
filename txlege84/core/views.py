@@ -10,5 +10,4 @@ class LandingView(ListView):
     def get_context_data(self, **kwargs):
         context = super(LandingView, self).get_context_data(**kwargs)
         context['top_issues'] = TopIssue.objects.all()[:4]
-        print context
         return context
