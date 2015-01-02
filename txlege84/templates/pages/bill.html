@@ -111,11 +111,7 @@
       <header>
         <h5>Bill Stages</h5>
       </header>
-      {% for m in object.actions.all %}
-      {% if 'Filed' in m.text %}
-      <div class="bill-stage">
-      {% endif %}
-      {% endfor %}
+      <div class="bill-stage{% if 'Filed' in object.actions.first.text %} done {% endif %} ">
         <div class="bill-stage-name">Filed</div>
         <div class="date-stage-complete">{{ object.actions.first.date }}</div>
       </div>

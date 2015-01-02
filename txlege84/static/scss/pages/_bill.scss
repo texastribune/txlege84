@@ -27,6 +27,8 @@
 
 .arrow-right{
   display: none;
+  text-align: center;
+  top: 50%;
 
   @include media($large) {
     display: block;
