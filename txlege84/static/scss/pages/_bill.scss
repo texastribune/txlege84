@@ -56,13 +56,12 @@
     @include span-columns(12);
   }
 
-  // @include media($small) {
-  //   @include span-columns(12);
-  // }
-
 
   &.done {
     background: green;
+  }
+
+  .arrow{
   }
 }
 
