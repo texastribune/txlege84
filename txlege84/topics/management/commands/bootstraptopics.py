@@ -14,15 +14,15 @@ class Command(BaseCommand):
 
         topics = [
             u'Budget & Taxes',
-            u'Business & Technology',
-            u'Civil Liberties',
             u'Criminal Justice',
-            u'Energy & Environment',
+            u'Energy',
+            u'Environment',
             u'Ethics',
             u'Health & Human Services',
             u'Higher Education',
             u'Immigration & Border Security',
             u'Public Education',
+            u'Social Justice',
             u'Transportation',
         ]
 
