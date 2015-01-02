@@ -4,18 +4,11 @@
   </header>
   <nav>
     <ul>
+      {% for top_issue in top_issues %}
       <li>
-        <h4><a href="">More regulations on abortion providers</a></h4>
+        <h4><a href="{% url 'issue-detail' top_issue.issue.topic.slug top_issue.issue.slug %}">{{ top_issue.issue.name }}</a></h4>
       </li>
-      <li>
-        <h4><a href="">Lt. Gov. Dan Patrick's voucher plan</a></h4>
-      </li>
-      <li>
-        <h4><a href="">A proposal to remove in-state tuition for immigrants</a></h4>
-      </li>
-      <li>
-        <h4><a href="">A ban on lobbyists, period.</a></h4>
-      </li>
+      {% endfor %}
     </ul>
   </nav>
 </section>

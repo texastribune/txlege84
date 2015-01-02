@@ -72,3 +72,14 @@ class StoryPointer(models.Model):
     order = models.PositiveIntegerField(default=1)
 
     stream = models.ForeignKey(Stream, related_name='stories')
+
+
+class TopIssue(models.Model):
+    issue = models.ForeignKey(Issue, related_name='top_issue')
+    order = models.PositiveIntegerField(default=1)
+
+    class Meta:
+        ordering = ('order',)
+
+    def __unicode__(self):
+        return u'{0} (Top Issue #{1})'.format(self.issue.name, self.order)

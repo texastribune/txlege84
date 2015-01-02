@@ -2,11 +2,11 @@
 {% load staticfiles %}
 
 {% block mobileheader %}
-  {% include "components/landing-modules/top-issues.html" %}
+  {% include "components/landing-modules/top-issues.html" with top_issues=top_issues %}
 {% endblock %}
 
 {% block desktopheader %}
-  {% include "components/landing-modules/top-issues.html" %}
+  {% include "components/landing-modules/top-issues.html" with top_issues=top_issues %}
 {% endblock %}
 
 {% block content %}

@@ -4,7 +4,8 @@ from faker import Factory
 from django.core.management.base import BaseCommand
 
 from bills.models import Bill
-from topics.models import Issue, IssueText, StoryPointer, Stream, Topic
+from topics.models import (Issue, IssueText,
+                           StoryPointer, Stream, Topic, TopIssue)
 
 FAKE = Factory.create()
 
@@ -21,6 +22,8 @@ class Command(BaseCommand):
         for topic in Topic.objects.all():
             for _ in xrange(FAKE.random_int(1, 10)):
                 self.create_issue(topic)
+
+        self.create_top_issues()
 
     def create_issue(self, topic):
         issue_name = FAKE.sentence(nb_words=8)[:-1]  # no period
@@ -71,3 +74,11 @@ class Command(BaseCommand):
                 url=FAKE.uri(),
                 order=n,
             )
+
+    def create_top_issues(self):
+        random_issues = Issue.objects.order_by('?')[:4]
+
+        for idx, issue in enumerate(random_issues):
+            topIssue, _ = TopIssue.objects.get_or_create(
+                issue=issue,
+                order=idx + 1)
