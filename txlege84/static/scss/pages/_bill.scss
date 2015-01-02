@@ -16,11 +16,11 @@
   @include span-columns(12);
 
   @include media($medium) {
-    @include span-columns(4);
+    @include span-columns(12);
   }
 
   @include media($large) {
-    @include span-columns(4);
+    @include span-columns(12);
   }
 
 }
@@ -40,6 +40,7 @@
 }
 
 .bill-stage {
+  @include span-columns(3);
   border: 1px solid;
   font-size: .8em;
   height: 6em;

@@ -115,16 +115,7 @@
         <div class="bill-stage-name">Filed</div>
         <div class="date-stage-complete">{{ object.actions.first.date }}</div>
       </div>
-      <div class="bill-stage">
-        <div class="bill-stage-name">
-          {% if object.chamber == 'Texas House' %}
-            Out of House Committee
-          {% else %}
-            Out of Senate Committee
-          {% endif %}
-        </div>
-        <div class="date-stage-complete"></div>
-      </div>
+
       <div class="bill-stage">
         <div class="bill-stage-name">
           {% if object.chamber == 'Texas House' %}
@@ -135,16 +126,7 @@
         </div>
         <div class="date-stage-complete"></div>
       </div>
-      <div class="bill-stage">
-        <div class="bill-stage-name">
-          {% if object.chamber == 'Texas House' %}
-            Out of Senate Committee
-          {% else %}
-            Out of House Committee
-          {% endif %}
-        </div>
-        <div class="date-stage-complete"></div>
-      </div>
+
       <div class="bill-stage">
         <div class="bill-stage-name">
         {% if object.chamber == 'Texas House' %}
