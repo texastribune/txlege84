@@ -14,7 +14,6 @@ class Command(BaseCommand):
 
         topics = [
             u'Budget & Taxes',
-            u'Business & Technology',
             u'Criminal Justice',
             u'Energy',
             u'Environment',
