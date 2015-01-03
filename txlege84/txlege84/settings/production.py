@@ -20,6 +20,13 @@ def get_env_setting(setting):
         raise ImproperlyConfigured(error_msg)
 
 
+#######################
+# DEBUG CONFIGURATION #
+#######################
+
+DEBUG = get_env_setting('DEBUG')
+
+
 ######################
 # HOST CONFIGURATION #
 ######################
