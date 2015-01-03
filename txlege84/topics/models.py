@@ -13,7 +13,7 @@ PUBLICATION_CHOICES = (
 
 
 class Topic(models.Model):
-    name = models.CharField(max_length=20, unique=True)
+    name = models.CharField(max_length=40, unique=True)
     curators = models.ManyToManyField(settings.AUTH_USER_MODEL)
     slug = models.SlugField(null=True, blank=True)
 
@@ -22,7 +22,7 @@ class Topic(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.slug = slugify(self.name)
+            self.slug = slugify(self.name)[:50]
 
         super(Topic, self).save(*args, **kwargs)
 
@@ -50,7 +50,7 @@ class Issue(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.slug = slugify(self.name)
+            self.slug = slugify(self.name)[:50]
 
         super(Issue, self).save(*args, **kwargs)
 
