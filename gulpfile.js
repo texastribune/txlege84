@@ -10,7 +10,7 @@ var reload = browserSync.reload;
 gulp.task('jshint', function() {
   var jshint = require('gulp-jshint');
 
-  return gulp.src('txlege84/static/scripts/**/*.js')
+  return gulp.src(['txlege84/static/scripts/**/*.js', '!txlege84/static/scripts/jquery/{,/**}', '!txlege84/static/scripts/slick/{,/**}'])
     .pipe(reload({stream: true, once: true}))
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
@@ -77,19 +77,19 @@ gulp.task('serve', ['styles'], function() {
   gulp.watch(['txlege84/static/scripts/**/*.js'], ['jshint']);
 });
 
-// gulp.task('serve:build', ['default'], function() {
-//   browserSync({
-//     notify: false,
-//     logPrefix: 'NEWSAPPS',
-//     open: true,
-//     proxy: 'localhost:8000'
-//   });
-// });
+gulp.task('serve:build', ['default'], function() {
+  browserSync({
+    notify: false,
+    logPrefix: 'NEWSAPPS',
+    open: true,
+    proxy: 'localhost:8000'
+  });
+});
 
-// gulp.task('default', ['clean'], function(cb) {
-//   var runSequence = require('run-sequence');
+gulp.task('default', ['clean'], function(cb) {
+  var runSequence = require('run-sequence');
 
-//   runSequence(['styles'], ['jshint', 'html', 'images', 'fonts'], cb);
-// });
+  runSequence(['styles'], ['jshint'], cb);
+});
 
-// gulp.task('build', ['default']);
+gulp.task('build', ['default']);
