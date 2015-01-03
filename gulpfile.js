@@ -36,6 +36,8 @@ gulp.task('styles', function() {
   var csso = require('gulp-csso');
   var sass = require('gulp-ruby-sass');
 
+  console.log('hi');
+
   return gulp.src('txlege84/static/scss/*.scss')
     .pipe(changed('styles', {
       extension: '.scss'
