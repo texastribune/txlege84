@@ -28,6 +28,9 @@ urlpatterns = patterns(
     url(r'^84/committees/(?P<chamber>[-\w]+)/(?P<slug>[-\w]+)/$',
         CommitteeDetail.as_view(), name='committee-detail'),
 
+    # search
+    (r'^search/', include('haystack.urls')),
+
     # Examples:
     # url(r'^$', 'txlege84.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
