@@ -49,6 +49,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # search
+    'haystack',
+
     # apps
     'bills',
     'core',
