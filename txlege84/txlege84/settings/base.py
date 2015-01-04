@@ -55,6 +55,9 @@ INSTALLED_APPS = (
     'committees',
     'legislators',
     'topics',
+
+    # helpers
+    'adminsortable',
 )
 
 
