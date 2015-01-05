@@ -10,8 +10,8 @@
 
 {% block content %}
 
-
 {% for issue in object.issues.all %}
+
 <div class="issue-box">
   <header>
     <h3 id="{{ issue.slug }}">
@@ -38,7 +38,7 @@
 
   <div class="related-content">
     <header>
-      <h5>Related Content</h5>
+      <h5>Story Timeline</h5>
     </header>
     <ul>
     {% for story in issue.stream_of.stories.all %}
@@ -47,8 +47,8 @@
     </ul>
   </div>
 </div>
-
 <hr class="yellow">
+
 {% endfor %}
 
 

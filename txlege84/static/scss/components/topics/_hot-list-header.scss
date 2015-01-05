@@ -1,16 +1,10 @@
 .hot-list-nav {
   nav {
     @include li-grid(12, 3, 3);
-    margin-top: 1.5em;
   }
 
   span.hot-list-name {
     color: $text-gray;
-  }
-
-  span.see-all {
-    float: right;
-    font-style: italic;
   }
 
   .subscription {

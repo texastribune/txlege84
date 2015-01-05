@@ -1,11 +1,12 @@
 .main-header {
+  background-color: $href-offwhite;
+
   h1 {
     margin: .5em 0;
   }
 
   .project-branding {
     @extend %content-block;
-    background-color: $light-blue;
   }
 
   .trib-logo {
@@ -46,8 +47,13 @@
 }
 
 .resources {
-  background-color: transparentize($white, .5);
-  padding: 1em 1.25em;
+  background-color: $light-blue;
+  margin-bottom: 1.5em;
+
+  .resource-bk {
+    background-color: transparentize($white, .7);
+    padding: 1em 1.25em;
+  }
 
   h3 {
     display: inline-block;

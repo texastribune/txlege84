@@ -15,25 +15,30 @@
 
 {% block content %}
 
-<section class="body-main">
-  {% for topic in object_list %}
-    <div class="issue-list-block">
-      <header class="issue-list-header">
-        <h3 class="headline"><a href="{% url 'topic-detail' topic.slug %}">{{ topic.name }}</a></h3>
-        <img class="headshot" src="../static/images/headshots/Edgar_jpg_131x197_crop_q100.jpg">
-        <img class="headshot" src="../static/images/headshots/Ura-Alexa_jpg_131x197_crop_q100.jpg">
-        <p class="curated">Curated by XXX and XXX</p>
-      </header>
+{% for topic in object_list %}
 
-      <div class="issue-list-landing">
-        <ul>
-        {% for issue in topic.issues.all %}
-          <li><a href="{% url 'issue-detail' topic.slug issue.slug %}">{{ issue.name }}</a></li>
-        {% endfor %}
-        </ul>
+  <div class="issue-list-block">
+    <header class="hot-list-nav">
+      <h2><span class="hot-list-name">{{ topic.name }}</span></h2>
+    </header>
+    <header class="curated-by">
+      <div class="headshot">
+        <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/Campbell-Donna768updated_1_jpg_131x197_crop_q100.jpg">
       </div>
+      <div class="headshot">
+        <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/Campbell-Donna768updated_1_jpg_131x197_crop_q100.jpg">
+      </div>
+      <h4 class="curated">Curated by XXX and XXX</h4>
+    </header>
+
+    <div class="issue-list-landing">
+      <ul>
+      {% for issue in topic.issues.all %}
+        <li><a href="{% url 'issue-detail' topic.slug issue.slug %}">{{ issue.name }}</a></li>
+      {% endfor %}
+      </ul>
     </div>
-  {% endfor %}
-</section>
+  </div>
+{% endfor %}
 
 {% endblock %}

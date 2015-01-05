@@ -4,7 +4,6 @@
 
 .issue-list-block {
   @include span-columns(12);
-  border-bottom: 1px solid $tribune-yellow;
   padding-bottom: 1em;
   margin-top: 1em;
 
