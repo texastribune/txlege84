@@ -1,11 +1,22 @@
 <section class="hot-list-nav">
   <header>
-    <h2>Legislative Hot Lists: {{ object.name }}</h2>
-    <h4>Your guide to what's really going on at the 84th Texas Legislature.</h4>
+    <h2>Hot Lists {% topic.name %}</h2>
+    <h4>The top issues of the 84th legislature, by topic</h4>
   </header>
-
-  <div class="subscription">
+  <nav>
+    <ul>
+      {% for topic in topic_list %}
+      <li>
+        <div class="hotlist-graphic"></div>
+        <div class="hotlist-list-box">
+          <h5><a href="{% url 'topic-detail' topic.slug %}">{{ topic.name }}</a></h5>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+<!--   <div class="subscription">
     <h5>What are your top issues?</h5>
     <p><a href="">Let us know</a> and we'll send updates on the issues important to you.</p>
-  </div>
+  </div> -->
 </section>

@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 
 {% block mobileheader %}
-  {% include "components/page-headers/hot-list-landing-header.html" %}
+  {% include "components/page-headers/hot-list-header.html" %}
 {% endblock %}
 
 {% block desktopheader %}
-  {% include "components/page-headers/hot-list-landing-header.html" %}
+  {% include "components/page-headers/hot-list-header.html" %}
 {% endblock %}
 
 {% block content %}
 <section class="body-main">
 
   {% for issue in object.issues.all %}
-  <div class="issue-embed-block prose">
-    <div class="issue-header">
+  <div>
+    <div>
       <h3 id="{{ issue.slug }}"><a href="{% url 'issue-detail' object.slug issue.slug %}">{{ issue.name }}</a></h3>
       <div class="share-topic">
         <h4>Share this:</h4>
@@ -22,7 +22,7 @@
       </div>
     </div>
     {{ issue.active_text.text|safe }}
-    <div class="issue-legislation">
+    <div>
       <h5>Related Legislation</h5>
       <ul>
       {% for bill in issue.related_bills.all %}
@@ -30,7 +30,7 @@
       {% endfor %}
       </ul>
     </div>
-    <div class="story-stream">
+    <div>
       <h5>Related Content</h5>
 <!--       <div class="slick-slide">
         <h4><a href="">Senate Health Committee Considers Merging Agencies</a></h4>
