@@ -7,6 +7,7 @@ from django.contrib import admin
 from bills.views import BillDetail, SubjectDetail
 from core.views import LandingView
 from committees.views import CommitteeDetail
+from explainers.views import ExplainerListDetail
 from legislators.views import LegislatorDetail
 from topics.views import IssueDetail, TopicDetail, TopicListDetail
 
@@ -27,6 +28,8 @@ urlpatterns = patterns(
         LegislatorDetail.as_view(), name='legislator-detail'),
     url(r'^84/committees/(?P<chamber>[-\w]+)/(?P<slug>[-\w]+)/$',
         CommitteeDetail.as_view(), name='committee-detail'),
+    url(r'^texplainers/$',
+        ExplainerListDetail.as_view(), name='explainer-list-detail'),
 
     # Examples:
     # url(r'^$', 'txlege84.views.home', name='home'),
