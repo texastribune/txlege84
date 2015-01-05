@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.views.generic import ListView
 
-# Create your views here.
+from explainers.models import Explainer
+
+
+class ExplainerListDetail(ListView):
+    model = Explainer
+    template_name = 'pages/explainer-landing.html'
