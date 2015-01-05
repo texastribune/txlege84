@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for explainer in object_list %}
+  {{ explainer.title }}<br>
+  {{ explainer.youtube_id }}<br>
+  {{ explainer.text }}<br>
+{% endfor %}
+
+{% endblock %}
