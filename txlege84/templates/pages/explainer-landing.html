@@ -3,9 +3,12 @@
 {% block content %}
 
 {% for explainer in object_list %}
-  {{ explainer.title }}<br>
-  {{ explainer.youtube_id }}<br>
-  {{ explainer.text }}<br>
+  <div>{{ explainer.title }}</div>
+  <div class="flexible-video">
+    <iframe width="560" height="315" src="//www.youtube.com/embed/{{ explainer.youtube_id }}" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <div>{{ explainer.text }}</div>
+  <hr>
 {% endfor %}
 
 {% endblock %}
