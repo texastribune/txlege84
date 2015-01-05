@@ -46,9 +46,8 @@
 }
 
 .resources {
-  @extend %content-block;
   background-color: transparentize($white, .5);
-  padding-top: 1em;
+  padding: 1em 1.25em;
 
   h3 {
     display: inline-block;
@@ -103,6 +102,10 @@
 
   .collapse {
     @include collapse;
+  }
+
+  li {
+    margin-bottom: .5em;
   }
 
 }
