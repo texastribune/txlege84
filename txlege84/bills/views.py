@@ -9,6 +9,6 @@ class BillDetail(AllSubjectsMixin, DetailView):
     template_name = 'pages/bill.html'
 
 
-class SubjectDetail(DetailView):
+class SubjectDetail(AllSubjectsMixin, DetailView):
     model = Subject
     template_name = 'pages/subject.html'
