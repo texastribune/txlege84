@@ -36,4 +36,6 @@
     slidesToShow: 1,
     slidesToScroll: 1
   });
+
+  $('.flexible-video').fitVids();
 })();
