@@ -17,10 +17,10 @@
       <header>
         <h4>Browse Bills by Category</h4>
       </header>
-      <select>
-        <option>One</option>
-        <option>Two</option>
-        <option>Three</option>
+      <select id="category-dropdown">
+      {% for category in object.subjects.all %}
+        <option value="{% url 'subject-detail' category.slug %}">{{ category.name }}</option>
+      {% endfor %}
       </select>
     </div>
 

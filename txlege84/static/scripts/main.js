@@ -5,6 +5,7 @@
   var $sidebarButtonB = $('.sidebar-header-resources');
   var $sidebarContentA = $('.sidebar-content-bills');
   var $sidebarContentB = $('.sidebar-content-resources');
+  var $categoryDropdown = $('#category-dropdown');
 
   function toggleBillSearch() {
     $sidebarContentA.toggleClass('collapse');
@@ -20,6 +21,10 @@
 
   $sidebarButtonB.click(function() {
     toggleResources();
+  });
+
+  $categoryDropdown.change(function() {
+    document.location.href = $(this).val();
   });
 
   var $storyStream = $('.story-stream');
