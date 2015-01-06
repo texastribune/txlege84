@@ -23,20 +23,20 @@
   }
 
   li {
-    min-height: 2.25em;
+    min-height: 6em;
   }
 }
 
 .hot-list-box {
   h5 {
     margin: 0;
+    padding-top: .5em;
   }
 }
 
 .hot-list-graphic {
-  border: 1px solid;
   float: left;
-  height: 1.5em;
-  margin: 0 .75em 0 0;
-  width: 1.5em;
+  height: 2em;
+  margin: 0 .5em 2em;
+  width: 2em;
 }
