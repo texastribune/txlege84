@@ -9,6 +9,10 @@
     @extend %content-block;
     margin-bottom: 2em;
 
+    h4 {
+      color: $white;
+    }
+
     @include media($medium) {
       margin-bottom: 3em;
     }
@@ -36,7 +40,7 @@
     background-color: $tribune-yellow;
     height: 1em;
     margin-bottom: 1em;
-    width: 50%;
+    width: 33%;
   }
 }
 
