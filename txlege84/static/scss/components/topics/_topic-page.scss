@@ -13,6 +13,47 @@ img.headshot {
   max-height: 100px;
 }
 
+.curated-by {
+  @include span-columns(12);
+
+  @include media($medium) {
+    @include span-columns(4);
+  }
+
+  @include media($large) {
+    @include span-columns(4);
+  }
+
+  .headshot {
+    display: inline-block;
+    margin: 0 1em .5em 0;
+
+    img {
+      height: 100px;
+    }
+  }
+
+}
+
+nav.full-hot-list {
+  margin-bottom: 1.5em;
+  @include span-columns(12);
+
+  @include media($medium) {
+    @include span-columns(8);
+    @include omega();
+  }
+
+  @include media($large) {
+    @include span-columns(8);
+    @include omega();
+  }
+
+  ul {
+    margin-top: 0;
+  }
+}
+
 .curated {
   font-style: italic;
   font-size: .8em;
@@ -22,49 +63,107 @@ img.headshot {
   font-size: .8em;
 }
 
-.issue-embed-block {
-  @extend %content-block;
-  border: 1px solid;
-  display: inline-block;
-  margin-top: 1em;
-}
+.issue-box {
+  @include clearfix;
+  margin-bottom: 1.5em;
 
-.issue-header {
-  h3 {
-    display: inline-block;
-    margin: 1em 0;
+  h3 a {
+    color: $text-black;
   }
-}
-
-.share-topic {
-  display: inline-block;
-  float: right;
 
   h4 {
     display: inline-block;
-    margin: 1em 0;
-  }
-
-}
-
-.issue-legislation {
-  h5 {
-    display: inline-block;
+    margin-bottom: 1.5em;
   }
 
   ul {
-    margin: 0;
+    margin-bottom: 1em;
   }
 
   li {
-    margin: 0 0 1em;
+    margin: 0 0 .25em;
+  }
 
-    @include media($medium) {
-      @include span-columns(6);
-    }
+  .related-legislation,
+  .related-content {
+    margin-top: 1em;
+  }
 
-    @include media($large) {
-      @include span-columns(6);
+  .related-legislation {
+    // border-right: 1px solid $line-gray;
+    // border-top: 1px solid $line-gray;
+    // margin: .5em 0 1em;
+    // padding: .5em 0;
+
+    @include span-columns(3);
+    // @include omega();
+
+    // @include media($medium) {
+    //   @include span-columns(3);
+    // }
+
+    // @include media($large) {
+    //   @include span-columns(3);
+    // }
+
+    ul {
+      list-style: disc;
+      padding-left: 1.5em;
     }
   }
+
+  .related-content {
+    @include span-columns(9);
+
+
+    border-left: 1px solid $line-gray;
+    padding-left: 1em;
+  }
+
 }
+// .issue-embed-block {
+//   @extend %content-block;
+//   border: 1px solid;
+//   display: inline-block;
+//   margin-top: 1em;
+// }
+
+// .issue-header {
+//   h3 {
+//     display: inline-block;
+//     margin: 1em 0;
+//   }
+// }
+
+// .share-topic {
+//   display: inline-block;
+//   float: right;
+
+//   h4 {
+//     display: inline-block;
+//     margin: 1em 0;
+//   }
+
+// }
+
+// .issue-legislation {
+//   h5 {
+//     display: inline-block;
+//   }
+
+//   ul {
+//     margin: 0;
+//   }
+
+//   li {
+//     margin: 0 0 1em;
+
+//     @include media($medium) {
+//       @include span-columns(6);
+//     }
+
+//     @include media($large) {
+//       @include span-columns(6);
+//     }
+//   }
+// }

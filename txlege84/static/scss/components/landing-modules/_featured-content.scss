@@ -1,13 +1,17 @@
-.featured-content {
+.texplainer-content {
   @include span-columns(12);
 
-  .feature-box {
+  .texplainer-content-box {
     @include span-columns(12);
 
     p {
       margin-bottom: 1em;
     }
 
+  }
+
+  iframe {
+    margin-bottom: 1em;
   }
 
   .more-videos {

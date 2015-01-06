@@ -1,6 +1,6 @@
 <section>
   <header class="hot-list-nav">
-    <h2><a href="">Hot Lists</a>: <span class="hot-list-name">{{ topic.name }}</span></h2>
+    <h2><a href="">Hot Lists</a>: <span class="hot-list-name">{{ object.topic }}</span></h2>
   </header>
   <header class="curated-by">
     <div class="headshot">
@@ -13,7 +13,7 @@
   </header>
   <nav class="full-hot-list">
     <ul>
-    {% for issue in object.issues.all %}
+    {% for issue in object.topic.issues.all %}
       <li><a href="{% url 'issue-detail' object.slug issue.slug %}">{{ issue.name }}</a></li>
     {% endfor %}
     </ul>

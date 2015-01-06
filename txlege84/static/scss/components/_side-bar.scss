@@ -1,11 +1,21 @@
 .main-header {
+  // background-color: $href-offwhite;
+
   h1 {
     margin: .5em 0;
   }
 
   .project-branding {
     @extend %content-block;
-    background-color: $light-blue;
+    margin-bottom: 2em;
+
+    @include media($medium) {
+      margin-bottom: 3em;
+    }
+
+    @include media($large) {
+      margin-bottom: 3em;
+    }
   }
 
   .trib-logo {
@@ -25,16 +35,8 @@
   .title-underline {
     background-color: $tribune-yellow;
     height: 1em;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     width: 50%;
-
-    @include media($medium) {
-      margin-bottom: 4em;
-    }
-
-    @include media($large) {
-      margin-bottom: 6em;
-    }
   }
 }
 
@@ -46,9 +48,13 @@
 }
 
 .resources {
-  @extend %content-block;
-  background-color: transparentize($white, .5);
-  padding-top: 1em;
+  // background-color: $light-blue;
+  margin-bottom: 1.5em;
+
+  .resource-bk {
+    background-color: transparentize($white, .4);
+    padding: 1em 1.25em;
+  }
 
   h3 {
     display: inline-block;
@@ -72,18 +78,10 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0);
     outline: none;
     color: $text-black;
-    padding: .5em 0;
+    padding: .5em .25em;
     width: 100%;
     transition: width .4s ease;
     cursor: pointer;
-
-    @include media($medium) {
-      width: 100%;
-    }
-
-    @include media($large) {
-      width: 100%;
-    }
   }
 
   input[type="text"]:hover {
@@ -111,6 +109,10 @@
 
   .collapse {
     @include collapse;
+  }
+
+  li {
+    margin-bottom: .5em;
   }
 
 }

@@ -4,25 +4,34 @@
   </div>
 
   <header class="legislator-details">
-    <h2>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }}, {{ object.party.short_name }}</h2>
-    <h4>{{ object.chamber }}, District {{ object.district }}</h4>
+    <h2>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }}, {{ object.party.short_name }}-TK</h2>
+    <h4>{% if object.chamber.name == "Texas Senate" %} Senate {% else %} House {% endif %} District {{ object.district }}</h4>
 
    <div class="office-info">
       <header>
         <h5>Capitol Office:</h5>
       </header>
-      <p>{{ object.capitol_address }}</p>
-      <p>Phone: <a href="tel:{{ object.capitol_phone }}">{{ object.capitol_phone }}</a></p>
+      <ul>
+        <li>Room: TK (<a href="">See on Capitol map</a>)</li>
+        <li>Phone: <a href="tel:{{ object.capitol_phone }}">{{ object.capitol_phone }}</a></li>
+      </ul>
     </div>
-    <div class="office-info">
+<!--     <div class="office-info">
       <header>
         <h5>District Office:</h5>
       </header>
-      <p>{{ object.district_address }}</p>
-      <p>Phone: <a href="tel:{{ object.district_phone }}">{{ object.district_phone }}</a></p>
-    </div>
+      <ul>
+        <li>{{ object.district_address }}</li>
+        <li>Phone: <a href="tel:{{ object.district_phone }}">{{ object.district_phone }}</a></li>
+      </ul>
+    </div> -->
   </header>
 </div>
+<div class="lawmaker-links">
+  <button>View in Directory</button>
+  <button>View in Ethics Explorer</button>
+</div>
+
 
 
 
