@@ -21,7 +21,7 @@
     <div class="bill-authors bill-section">
       <div>
         <header>
-          <h5>Primary Author</h5>
+          <h5>Author</h5>
         </header>
         {% for n in object.sponsorships.all %}
           {% if n.role = 'author' %}
@@ -29,6 +29,7 @@
           {% endif %}
         {% endfor %}
       </div>
+      {% if 'coauthor' in object.sponsorships.all.role %}
       <div>
         <header>
           <h5>Coauthors</h5>
@@ -41,6 +42,8 @@
           {% endfor %}
         </ul>
       </div>
+      {% endif %}
+      {% if 'sponsor' in object.sponsorships.all.role %}
       <div>
         <header>
           <h5>Sponsor</h5>
@@ -53,6 +56,7 @@
         {% endfor %}
         </ul>
       </div>
+      {% endif %}
       <div>&nbsp;</div>
     </div>
     <div class="bill-committee-assignment bill-section">
@@ -107,24 +111,12 @@
       <header>
         <h5>Bill Stages</h5>
       </header>
-      {% for m in object.actions.all %}
-      {% if 'Filed' in m.text %}
-      <div class="bill-stage">
-      {% endif %}
-      {% endfor %}
+      <div class="bill-stage{% if 'Filed' in object.actions.first.text %} done {% endif %} ">
         <div class="bill-stage-name">Filed</div>
         <div class="date-stage-complete">{{ object.actions.first.date }}</div>
       </div>
-      <div class="bill-stage">
-        <div class="bill-stage-name">
-          {% if object.chamber == 'Texas House' %}
-            Out of House Committee
-          {% else %}
-            Out of Senate Committee
-          {% endif %}
-        </div>
-        <div class="date-stage-complete"></div>
-      </div>
+      <i class="fa fa-angle-right arrow-right"></i>
+      <i class="fa fa-angle-down arrow-down"></i>
       <div class="bill-stage">
         <div class="bill-stage-name">
           {% if object.chamber == 'Texas House' %}
@@ -135,16 +127,8 @@
         </div>
         <div class="date-stage-complete"></div>
       </div>
-      <div class="bill-stage">
-        <div class="bill-stage-name">
-          {% if object.chamber == 'Texas House' %}
-            Out of Senate Committee
-          {% else %}
-            Out of House Committee
-          {% endif %}
-        </div>
-        <div class="date-stage-complete"></div>
-      </div>
+      <i class="fa fa-angle-right arrow-right"></i>
+      <i class="fa fa-angle-down arrow-down"></i>
       <div class="bill-stage">
         <div class="bill-stage-name">
         {% if object.chamber == 'Texas House' %}
@@ -155,6 +139,8 @@
         </div>
         <div class="date-stage-complete"></div>
       </div>
+      <i class="fa fa-angle-right arrow-right"></i>
+      <i class="fa fa-angle-down arrow-down"></i>
       <div class="bill-stage">
         <div class="bill-stage-name">Governor Action</div>
         <div class="date-stage-complete"></div>
