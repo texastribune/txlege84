@@ -7,7 +7,9 @@
     <ul>
       {% for topic in topic_list %}
       <li>
-        <div class="hotlist-graphic"></div>
+        <div class="hotlist-graphic">
+          <img src="txlege/static/images/icons/{{ topic.slug }}.svg">
+        </div>
         <div class="hotlist-list-box">
           <h5><a href="{% url 'topic-detail' topic.slug %}">{{ topic.name }}</a></h5>
           <p>{{ topic.issues.first | truncatewords:5 }}</p>
