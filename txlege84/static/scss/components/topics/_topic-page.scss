@@ -95,7 +95,7 @@ nav.full-hot-list {
     // margin: .5em 0 1em;
     // padding: .5em 0;
 
-    @include span-columns(3);
+    @include span-columns(4);
     // @include omega();
 
     // @include media($medium) {
@@ -113,7 +113,7 @@ nav.full-hot-list {
   }
 
   .related-content {
-    @include span-columns(9);
+    @include span-columns(8);
 
 
     border-left: 1px solid $line-gray;
