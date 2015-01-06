@@ -1,0 +1,21 @@
+<section>
+  <header class="hot-list-nav">
+    <h2><a href="">Hot Lists</a>: <span class="hot-list-name">{{ object.topic }}</span></h2>
+  </header>
+  <header class="curated-by">
+    <div class="headshot">
+      <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/Campbell-Donna768updated_1_jpg_131x197_crop_q100.jpg">
+    </div>
+    <div class="headshot">
+      <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/Campbell-Donna768updated_1_jpg_131x197_crop_q100.jpg">
+    </div>
+    <h4 class="curated">Curated by XXX and XXX</h4>
+  </header>
+  <nav class="full-hot-list">
+    <ul>
+    {% for issue in object.topic.issues.all %}
+      <li><a href="{% url 'issue-detail' object.slug issue.slug %}">{{ issue.name }}</a></li>
+    {% endfor %}
+    </ul>
+  </nav>
+</section>

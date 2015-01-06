@@ -31,7 +31,7 @@
       <h4 class="curated">Curated by XXX and XXX</h4>
     </header>
 
-    <div class="issue-list-landing">
+    <div class="issue-list">
       <ul>
       {% for issue in topic.issues.all %}
         <li><a href="{% url 'issue-detail' topic.slug issue.slug %}">{{ issue.name }}</a></li>

@@ -7,6 +7,15 @@
 
   .project-branding {
     @extend %content-block;
+    margin-bottom: 2em;
+
+    @include media($medium) {
+      margin-bottom: 3em;
+    }
+
+    @include media($large) {
+      margin-bottom: 3em;
+    }
   }
 
   .trib-logo {
@@ -26,16 +35,8 @@
   .title-underline {
     background-color: $tribune-yellow;
     height: 1em;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     width: 50%;
-
-    @include media($medium) {
-      margin-bottom: 4em;
-    }
-
-    @include media($large) {
-      margin-bottom: 6em;
-    }
   }
 }
 
