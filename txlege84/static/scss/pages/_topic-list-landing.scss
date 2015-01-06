@@ -24,7 +24,7 @@
 
 }
 
-.issue-list-landing {
+.issue-list {
   @include span-columns(12);
 
   @include media($medium) {
