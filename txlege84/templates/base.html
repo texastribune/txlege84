@@ -109,7 +109,11 @@
   </div>
 </footer>
 
+  <script>
+  window.billSnippetURL = '{% url "bill-detail" 0 %}'.replace('0/', '');
+
   <script src="{% static 'scripts/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'scripts/libs/typeahead.bundle.min.js' %}"></script>
   <script src="{% static 'scripts/libs/jquery.fitvids.js' %}"></script>
   <script src="{% static 'scripts/slick/slick.min.js' %}"></script>
   <script src="{% static 'scripts/main.js' %}"></script>
