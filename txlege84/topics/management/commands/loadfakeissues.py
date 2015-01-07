@@ -19,14 +19,71 @@ class Command(BaseCommand):
     def load_fake_issues(self):
         self.stdout.write(u'Loading fake issues...')
 
+        issue_loader = {
+            "Immigration & Border Security": [
+                "Banning \"sanctuary cities\"",
+                "Border security spending and operations",
+                "Mandating the use of E-Verify"
+            ],
+            "Budget & Taxes": [
+                "Providing property tax relief",
+                "Reducing the margins tax burden",
+                "Budget fallout from school finance lawsuit"
+            ],
+            "Law & Order": [
+                "Enhancing gun rights",
+                "Efforts to change Voter ID",
+                "Reducing penalties for marijuana possession",
+                "Changing the age of adulthood for criminal charges"
+            ],
+            "Energy": [
+                "Acting on the EPA's \"Clean Power Plan\"",
+                "Responding to volatile oil prices",
+                "Combatting local drilling ordinances"
+            ],
+            "Environment": [
+                "Reforming how groundwater is managed",
+                "Chipping away at environmental regulations",
+                "Addressing the effects of oil and gas drilling"
+            ],
+            "Ethics": [
+                "The fight over \"dark money\"",
+                "Former legislators as lobbyists"
+            ],
+            "Health & Human Services": [
+                "Consolidating Texas' health agencies",
+                "Medicaid expansion or its alternatives",
+                "Reforming end-of-life care"
+            ],
+            "Higher Education": [
+                "Tuition revenue bonds for campus construction",
+                "In-state tuition for undocumented students",
+                "Reining in rising tuition"
+            ],
+            "Public Education": [
+                "Improving educator quality",
+                "Reforming pre-K",
+                "School choice and vouchers"
+            ],
+            "Transportation": [
+                "Ensuring all gas tax revenue goes to the highway fund",
+                "Dedicating car sales taxes to the highway fund",
+                "Reviewing state policies on toll roads"
+            ],
+            "Social Issues": [
+                "Efforts to advance equal rights legislation",
+                "Further restrictions on abortion",
+                "Expanding gambling in Texas"]
+            }
+
         for topic in Topic.objects.all():
-            for _ in xrange(FAKE.random_int(1, 10)):
-                self.create_issue(topic)
+            for issue in issue_loader[topic.name]:
+                self.create_issue(topic, issue)
 
         self.create_top_issues()
 
-    def create_issue(self, topic):
-        issue_name = FAKE.sentence(nb_words=8)[:-1]  # no period
+    def create_issue(self, topic, issue):
+        issue_name = unicode(issue)
         issue_text = FAKE.paragraphs(nb=FAKE.random_int(2, 4))
         issue_text = ''.join(['<p>{}</p>'.format(p) for p in issue_text])
 
