@@ -121,4 +121,44 @@
 
 }
 
+.tt-dropdown-menu {
+    min-width: 160px;
+    width: 100%;
+    margin-top: 2px;
+    padding: 0;
+    background-color: #fff;
+    height: 320px;
+    overflow-y: auto;
+}
+.tt-dropdown-menu h2 {
+    font-size: 1.2em;
+    padding: .5em;
+    margin-bottom: 0;
+    background-color: #014948;
+    color: #fff;
+}
+.tt-suggestion {
+  display: block;
+  padding: 1.25em .83em .83em;
+  margin: 0;
+  border-bottom: 1px solid #e0e0e0;
+}
 
+.tt-suggestion.tt-cursor {
+  color: #fff;
+  background-color: $tribune-yellow;
+  cursor: pointer;
+}
+
+.tt-suggestion h5,
+.tt-suggestion p {
+    line-height: 1.5;
+    margin: 0 0 .5em;
+    font-size: 1em;
+}
+
+.twitter-typeahead,
+.twitter-typeahead .tt-query,
+.twitter-typeahead .tt-hint {
+    width: 100%;
+}
