@@ -90,21 +90,7 @@ nav.full-hot-list {
   }
 
   .related-legislation {
-    // border-right: 1px solid $line-gray;
-    // border-top: 1px solid $line-gray;
-    // margin: .5em 0 1em;
-    // padding: .5em 0;
-
     @include span-columns(4);
-    // @include omega();
-
-    // @include media($medium) {
-    //   @include span-columns(3);
-    // }
-
-    // @include media($large) {
-    //   @include span-columns(3);
-    // }
 
     ul {
       list-style: disc;
@@ -121,49 +107,4 @@ nav.full-hot-list {
   }
 
 }
-// .issue-embed-block {
-//   @extend %content-block;
-//   border: 1px solid;
-//   display: inline-block;
-//   margin-top: 1em;
-// }
 
-// .issue-header {
-//   h3 {
-//     display: inline-block;
-//     margin: 1em 0;
-//   }
-// }
-
-// .share-topic {
-//   display: inline-block;
-//   float: right;
-
-//   h4 {
-//     display: inline-block;
-//     margin: 1em 0;
-//   }
-
-// }
-
-// .issue-legislation {
-//   h5 {
-//     display: inline-block;
-//   }
-
-//   ul {
-//     margin: 0;
-//   }
-
-//   li {
-//     margin: 0 0 1em;
-
-//     @include media($medium) {
-//       @include span-columns(6);
-//     }
-
-//     @include media($large) {
-//       @include span-columns(6);
-//     }
-//   }
-// }

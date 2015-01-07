@@ -23,7 +23,7 @@
   }
 
   .trib-logo {
-    height: 1em;
+    height: 3em;
     margin: 1em 0;
 
     @include media($medium) {
@@ -31,6 +31,7 @@
     }
 
     @include media($large) {
+      height: 4em;
       margin: 3em 0;
     }
 

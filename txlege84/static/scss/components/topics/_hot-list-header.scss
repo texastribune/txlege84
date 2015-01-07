@@ -37,6 +37,13 @@
 .hot-list-graphic {
   float: left;
   height: 2em;
-  margin: 0 .5em 2em;
   width: 2em;
+
+  &.list {
+    margin: 0 .5em 2em;
+  }
+
+  &.header {
+    margin: -.25em .5em 0 0;
+  }
 }

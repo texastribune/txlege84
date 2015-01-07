@@ -1,5 +1,7 @@
+{% load staticfiles %}
 <section>
   <header class="hot-list-nav">
+    <img class="hot-list-graphic header" src="{% static 'images/icons/' %}{{ topic.slug }}.svg"></img>
     <h2><a href="">Hot Lists</a>: <span class="hot-list-name">{{ topic.name }}</span></h2>
   </header>
   <header class="curated-by">
