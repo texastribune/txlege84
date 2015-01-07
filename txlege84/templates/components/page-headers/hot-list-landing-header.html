@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <section class="hot-list-nav">
   <header>
     <h2>Hot Lists</h2>
@@ -8,9 +9,9 @@
       {% for topic in topic_list %}
       <li>
         <div class="hot-list-box">
-          <img class="hot-list-graphic" src="../static/images/icons/{{ topic.slug }}.svg"></img>
+          <img class="hot-list-graphic list" src="{% static 'images/icons/' %}{{ topic.slug }}.svg"></img>
           <h5><a href="{% url 'topic-detail' topic.slug %}">{{ topic.name }}</a></h5>
-          <p>{{ topic.issues.first | truncatewords:5 }}</p>
+          <p><a href="">{{ topic.issues.first | truncatewords:5 }}</a></p>
         </div>
       </li>
       {% endfor %}

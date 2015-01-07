@@ -61,7 +61,7 @@
   });
 
   $billSearch.on('typeahead:selected', function(e, datum) {
-    event.stopPropagation();
+    e.stopPropagation();
     window.location = window.billSnippetURL + datum.slug + '/';
   });
 })();
