@@ -163,7 +163,7 @@ nav {
 }
 
 section {
-  @include span-columns(12);
+  // @include span-columns(12);
   @include clearfix();
 }
 

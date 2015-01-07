@@ -15,10 +15,12 @@ $default-480: new-breakpoint(max-width 480px);
 
   @include media($medium) {
     @include span-columns(4);
+    @include omega();
   }
 
   @include media($large) {
     @include span-columns(4);
+    @include omega();
   }
 
 }
@@ -29,12 +31,10 @@ $default-480: new-breakpoint(max-width 480px);
 
   @include media($medium) {
     @include span-columns(8);
-    @include omega();
   }
 
   @include media($large) {
     @include span-columns(8);
-    @include omega();
   }
 }
 
