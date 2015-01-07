@@ -1,13 +1,17 @@
-.box-ad {
-  border: 1px solid;
-  height: 250px;
-  width: 300px;
+.ad-container {
+  margin: 1em auto;
 }
 
-.banner-ad {
-  border: 1px solid;
-  height: 95px;
-  margin: 1em auto;
-  width: 728px;
+.box-ad {
+  float: none;
 
+  @include media($prose-bp-medium) {
+    float: right;
+    margin-left: 1em;
+  }
+
+  @include media($prose-bp-large) {
+    float: right;
+    margin-left: 1em;
+  }
 }
