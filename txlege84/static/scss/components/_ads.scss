@@ -1,5 +1,12 @@
 .ad-container {
   display: block;
   margin: 0 auto;
+}
+
+.banner-ad {
   width: 65%;
+}
+
+.box-ad {
+  @extend %content-block;
 }
