@@ -10,7 +10,7 @@ var reload = browserSync.reload;
 gulp.task('jshint', function() {
   var jshint = require('gulp-jshint');
 
-  return gulp.src(['txlege84/static/scripts/**/*.js', '!txlege84/static/scripts/jquery/{,/**}', '!txlege84/static/scripts/slick/{,/**}'])
+  return gulp.src(['txlege84/static/scripts/**/*.js', '!txlege84/static/scripts/jquery/{,/**}', '!txlege84/static/scripts/slick/{,/**}', '!txlege84/static/scripts/libs/{,/**}'])
     .pipe(reload({stream: true, once: true}))
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
