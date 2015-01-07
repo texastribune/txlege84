@@ -89,7 +89,7 @@ gulp.task('serve:build', ['default'], function() {
 gulp.task('default', ['clean'], function(cb) {
   var runSequence = require('run-sequence');
 
-  runSequence(['styles'], ['jshint'], cb);
+  runSequence(['styles'], cb);
 });
 
 gulp.task('build', ['default']);

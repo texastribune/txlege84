@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <section class="resources">
   <div class="resource-bk">
   <header class="bill-search-header sidebar-header-bills">
@@ -34,6 +35,13 @@
       </form>
       <button>Find</button>
     </div>
+
+    <div>
+      <header>
+        <img class="open-states-logo" src="{% static 'images/brand/openstates_logo_200.png' %}"></img>
+        <h4>Bill data provided by <a href="http://openstates.org/">Open States</a>, a product of Sunlight Foundation. It is updated nightly.</h4>
+      </header>
+    </div>
   </div>
   <div class="sidebar-header-resources">
     <header>
@@ -49,5 +57,7 @@
       </ul>
     </div>
   </div>
+  {% include "includes/box_ad.html" %}
   </div>
+
 </section>

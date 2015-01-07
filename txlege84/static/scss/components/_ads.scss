@@ -1,13 +1,8 @@
-.box-ad {
-  border: 1px solid;
-  height: 250px;
-  width: 300px;
+.ad-container {
+  display: block;
+  margin: 0;
 }
 
 .banner-ad {
-  border: 1px solid;
-  height: 95px;
-  margin: 1em auto;
-  width: 728px;
-
+  background-color: $white;
 }
