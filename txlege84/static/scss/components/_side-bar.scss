@@ -1,20 +1,25 @@
-.side-bar {
-  background-color: transparentize($white, .4);
-}
-
 .main-header {
   // background-color: $href-offwhite;
 
   h1 {
-    margin: .5em 0;
+    margin: 1.75em 0 .5em;
+
+    a {
+      color: $tribune-black;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 
   .project-branding {
     @extend %content-block;
+    @include clearfix;
     margin-bottom: 2em;
 
-    h4 {
-      color: $white;
+    p {
+      color: $tribune-black;
     }
 
     @include media($medium) {
@@ -27,15 +32,14 @@
   }
 
   .trib-logo {
-    height: 3em;
     margin: 1em 0;
+    width: 55%;
 
     @include media($medium) {
       margin: 3em 0;
     }
 
     @include media($large) {
-      height: 4em;
       margin: 3em 0;
     }
 
@@ -43,22 +47,24 @@
 
   .title-underline {
     background-color: $tribune-yellow;
-    height: 1em;
+    height: .55em;
     margin-bottom: 1em;
-    width: 33%;
+    width: 55%;
   }
 }
 
 
 .page-header {
   @extend %content-block;
-  background-color: $white;
   @include clearfix;
+  background-color: $white;
+  padding-top: .5em;
+  padding-bottom: .5em;
+
 }
 
 .resources {
-  @extend %content-block;
-  margin-bottom: 1.5em;
+  // background-color: $light-blue;
 
   .resource-bk {
     background-color: transparentize($white, .4);
@@ -120,15 +126,17 @@
     @include collapse;
   }
 
+  ul {
+    list-style: none;
+  }
+
   li {
-    margin-bottom: .5em;
+    margin: 0 0 .5em;
   }
 
 }
 
 .open-states-logo {
-  float: left;
-  height: 2em;
   margin-right: .5em;
 }
 

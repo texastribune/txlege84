@@ -1,6 +1,6 @@
 <section>
   <header class="hot-list-nav">
-    <h2><a href="">Hot Lists</a>: <span class="hot-list-name">{{ object.topic }}</span></h2>
+    <h2><a href="">Hot Lists</a>: {{ object.topic }}</h2>
   </header>
   <header class="curated-by">
     <div class="headshot">
@@ -14,7 +14,7 @@
   <nav class="full-hot-list">
     <ul>
     {% for issue in object.topic.issues.all %}
-      <li><a href="{% url 'issue-detail' object.slug issue.slug %}">{{ issue.name }}</a></li>
+      <li><a href="{% url 'issue-detail' object.slug issue.slug %}">{{ issue.name | truncatewords:5 }}</a></li>
     {% endfor %}
     </ul>
   </nav>

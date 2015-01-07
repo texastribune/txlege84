@@ -87,23 +87,36 @@ nav.full-hot-list {
   .related-legislation,
   .related-content {
     margin-top: 1em;
-  }
-
-  .related-legislation {
-    @include span-columns(4);
 
     ul {
       list-style: disc;
-      padding-left: 1.5em;
+      padding-left: 1.1em;
+    }
+  }
+
+  .related-legislation {
+    @include span-columns(12);
+
+    @include media($medium) {
+      @include span-columns(4);
+    }
+
+    @include media($large) {
+      @include span-columns(4);
     }
   }
 
   .related-content {
-    @include span-columns(8);
+    @include span-columns(12);
 
+    @include media($medium) {
+      @include span-columns(8);
+    }
 
-    border-left: 1px solid $line-gray;
-    padding-left: 1em;
+    @include media($large) {
+      @include span-columns(8);
+    }
+
   }
 
 }

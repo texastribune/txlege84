@@ -1,10 +1,6 @@
 .hot-list-nav {
   nav {
-    @include li-grid(12, 3, 3);
-  }
-
-  span.hot-list-name {
-    color: $text-gray;
+    @include li-grid(12, 2, 3);
   }
 
   .subscription {
@@ -18,12 +14,21 @@
     }
   }
 
-  ul {
-    margin: 1em 0;
-  }
-
   li {
-    min-height: 6em;
+    min-height: 0;
+    margin: 0;
+
+    @include media($small) {
+      height: 6em;
+    }
+
+    @include media($medium) {
+      height: 6em;
+    }
+
+    @include media($large) {
+      height: 6em;
+    }
   }
 }
 
@@ -40,7 +45,7 @@
   width: 2em;
 
   &.list {
-    margin: 0 .5em 2em;
+    margin: 0 .5em 4em;
   }
 
   &.header {

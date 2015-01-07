@@ -7,7 +7,7 @@
     <ul>
       {% for top_issue in top_issues %}
       <li>
-        <h4><a href="{% url 'issue-detail' top_issue.issue.topic.slug top_issue.issue.slug %}">{{ top_issue.issue.name }}</a></h4>
+        <p><a href="{% url 'issue-detail' top_issue.issue.topic.slug top_issue.issue.slug %}">{{ top_issue.issue.name }}</a></p>
       </li>
       {% endfor %}
     </ul>
