@@ -138,6 +138,11 @@ TEMPLATE_DIRS = (
     os.path.join(SITE_DIR, 'templates'),
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
+)
+
 
 #############################
 # STATIC FILE CONFIGURATION #
@@ -184,3 +189,22 @@ DOWNLOAD_DIR = os.path.join(BASE_DIR, 'data')
 DOWNLOAD_PATH = os.path.join(DOWNLOAD_DIR, 'data-json.zip')
 
 BULK_BATCH_SIZE = 10000
+
+
+#######################
+# OAUTH CONFIGURATION #
+#######################
+
+INSTALLED_APPS += (
+    'social.apps.django_app.default',
+)
+
+SOCIAL_AUTH_TEXASTRIBUNE_KEY = os.environ['SOCIAL_AUTH_TEXASTRIBUNE_KEY']
+SOCIAL_AUTH_TEXASTRIBUNE_SECRET = os.environ['SOCIAL_AUTH_TEXASTRIBUNE_SECRET']
+
+AUTHENTICATION_BACKENDS = (
+    'txlege84.libs.trib_authn.backend.TribOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+LOGIN_REDIRECT_URL = 'landing-view'
