@@ -1,3 +1,7 @@
+.side-bar {
+  background-color: transparentize($white, .4);
+}
+
 .main-header {
   // background-color: $href-offwhite;
 
@@ -53,7 +57,7 @@
 }
 
 .resources {
-  // background-color: $light-blue;
+  @extend %content-block;
   margin-bottom: 1.5em;
 
   .resource-bk {
@@ -122,4 +126,9 @@
 
 }
 
+.open-states-logo {
+  float: left;
+  height: 2em;
+  margin-right: .5em;
+}
 

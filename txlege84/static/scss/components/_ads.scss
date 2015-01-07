@@ -1,12 +1,8 @@
 .ad-container {
   display: block;
-  margin: 0 auto;
+  margin: 0;
 }
 
-.banner-ad {
-  width: 65%;
-}
-
-.box-ad {
-  @extend %content-block;
-}
+// .banner-ad {
+//   width: 65%;
+// }
