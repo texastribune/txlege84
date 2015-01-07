@@ -1,3 +1,10 @@
+PROJECT := texastribune
+APP := txlege84
+
+IMAGE=${PROJECT}/${APP}
+docker/build:
+	docker build --tag=${IMAGE} .
+
 prep_for_development:
 	python txlege84/manage.py downloadopenstatesdata
 	python txlege84/manage.py bulkloadlegislators
