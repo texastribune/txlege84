@@ -42,17 +42,19 @@
     {% include "includes/ads.html" %}
   </head>
   <body>
+
     <div class="main-container">
+    {% include "includes/banner_ad.html" %}
       <section class="side-bar">
          <section class="main-header">
           <div class="project-branding">
             <header>
               <a href="http://www.texastribune.org/">
-                <img class="trib-logo" alt="The Texas Tribune" src="{% static 'images/brand/tt-logo-white.png' %}">
+                <img class="trib-logo" alt="The Texas Tribune" src="{% static 'images/brand/tt-logo-stack.svg' %}">
               </a>
-              <h1><a href="{% url 'landing-view' %}">On the Lege</a></h1>
+              <h1><a href="{% url 'landing-view' %}">84th Lege</a></h1>
               <div class="title-underline"><span></span></div>
-              <h4>Your go-to source for the 84th Texas Legislature</h4>
+              <p>Your go-to source for the 2015 Texas legislative session</p>
             </header>
           </div>
           <div class="page-header desktop-hide">
@@ -61,6 +63,7 @@
         </section>
 
         {% include "components/side-bar.html" with subject_list=subject_list %}
+
       </section>
 
       <section class="body-main">
@@ -71,6 +74,7 @@
         {% block content %}{% endblock %}
       </section>
 
+    {% include "includes/banner_ad2.html" %}
     </div>
 
 <footer class="footer">
@@ -109,7 +113,10 @@
   </div>
 </footer>
 
+  <script>window.billSnippetURL = '{% url "bill-detail" 0 %}'.replace('0/', '');</script>
+
   <script src="{% static 'scripts/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'scripts/libs/typeahead.bundle.min.js' %}"></script>
   <script src="{% static 'scripts/libs/jquery.fitvids.js' %}"></script>
   <script src="{% static 'scripts/slick/slick.min.js' %}"></script>
   <script src="{% static 'scripts/main.js' %}"></script>

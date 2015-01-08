@@ -1,13 +1,13 @@
 <section class="top-issues">
   <header class="top-issues-header">
-    <h2>Top Issues</h2>
-    <h4>What we're watching this week</h4>
+    <h2>What We're Watching</h2>
+    <h4>The top issues the Tribune is following right now</h4>
   </header>
   <nav>
     <ul>
       {% for top_issue in top_issues %}
       <li>
-        <h4><a href="{% url 'issue-detail' top_issue.issue.topic.slug top_issue.issue.slug %}">{{ top_issue.issue.name }}</a></h4>
+        <p><a href="{% url 'issue-detail' top_issue.issue.topic.slug top_issue.issue.slug %}">{{ top_issue.issue.name }}</a></p>
       </li>
       {% endfor %}
     </ul>

@@ -1,16 +1,27 @@
-.main-header {
-  // background-color: $href-offwhite;
+.side-bar {
+  background-color: transparentize($white, .3);
+}
 
+.main-header {
   h1 {
-    margin: .5em 0;
+    margin: 1.75em 0 .5em;
+
+    a {
+      color: $tribune-black;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 
   .project-branding {
     @extend %content-block;
+    @include clearfix;
     margin-bottom: 2em;
 
-    h4 {
-      color: $white;
+    p {
+      color: $tribune-black;
     }
 
     @include media($medium) {
@@ -23,8 +34,9 @@
   }
 
   .trib-logo {
-    height: 1em;
     margin: 1em 0;
+    width: 55%;
+    max-width: 11em;
 
     @include media($medium) {
       margin: 3em 0;
@@ -38,25 +50,28 @@
 
   .title-underline {
     background-color: $tribune-yellow;
-    height: 1em;
+    height: .55em;
     margin-bottom: 1em;
-    width: 33%;
+    width: 55%;
+    max-width: 11em;
   }
 }
 
 
 .page-header {
   @extend %content-block;
-  background-color: $white;
   @include clearfix;
+  background-color: $white;
+  padding-top: .5em;
+  padding-bottom: .5em;
+
 }
 
 .resources {
   // background-color: $light-blue;
-  margin-bottom: 1.5em;
 
   .resource-bk {
-    background-color: transparentize($white, .4);
+    // background-color: transparentize($white, .4);
     padding: 1em 1.25em;
   }
 
@@ -115,10 +130,58 @@
     @include collapse;
   }
 
+  ul {
+    list-style: none;
+  }
+
   li {
-    margin-bottom: .5em;
+    margin: 0 0 .5em;
   }
 
 }
 
+.open-states-logo {
+  margin-right: .5em;
+}
 
+.tt-dropdown-menu {
+    min-width: 160px;
+    width: 100%;
+    margin-top: 2px;
+    padding: 0;
+    background-color: #fff;
+    height: 320px;
+    overflow-y: auto;
+}
+.tt-dropdown-menu h2 {
+    font-size: 1.2em;
+    padding: .5em;
+    margin-bottom: 0;
+    background-color: #014948;
+    color: #fff;
+}
+.tt-suggestion {
+  display: block;
+  padding: 1.25em .83em .83em;
+  margin: 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tt-suggestion.tt-cursor {
+  color: #fff;
+  background-color: $tribune-yellow;
+  cursor: pointer;
+}
+
+.tt-suggestion h5,
+.tt-suggestion p {
+    line-height: 1.5;
+    margin: 0 0 .5em;
+    font-size: 1em;
+}
+
+.twitter-typeahead,
+.twitter-typeahead .tt-query,
+.twitter-typeahead .tt-hint {
+    width: 100%;
+}

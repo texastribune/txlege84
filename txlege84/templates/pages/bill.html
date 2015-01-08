@@ -13,7 +13,7 @@
   <div class="bill">
     <div class="bill-section">
       <header>
-        <h5>Last Action</h5>
+        <h3>Last Action</h3>
       </header>
       <p>{{ object.actions.last.text }} <em> {{ object.actions.last.date }}</em></p>
     </div>
@@ -21,18 +21,20 @@
     <div class="bill-authors bill-section">
       <div>
         <header>
-          <h5>Author</h5>
+          <h3>Author</h3>
         </header>
+        <ul>
         {% for n in object.sponsorships.all %}
           {% if n.role = 'author' %}
-            <p>Rep. <a href="{% url 'legislator-detail' n.legislator.slug %}">{{ n.legislator }}</a></p>
+            <li>Rep. <a href="{% url 'legislator-detail' n.legislator.slug %}">{{ n.legislator }}</a></li>
           {% endif %}
         {% endfor %}
+        </ul>
       </div>
       {% if 'coauthor' in object.sponsorships.all.role %}
       <div>
         <header>
-          <h5>Coauthors</h5>
+          <h3>Coauthors</h3>
         </header>
         <ul>
           {% for o in object.sponsorships.all %}
@@ -46,7 +48,7 @@
       {% if 'sponsor' in object.sponsorships.all.role %}
       <div>
         <header>
-          <h5>Sponsor</h5>
+          <h3>Sponsor</h3>
         </header>
         <ul>
         {% for p in object.sponsorships.all %}
@@ -62,7 +64,7 @@
     <div class="bill-committee-assignment bill-section">
       <div>
         <header>
-          <h5>House Committee</h5>
+          <h3>House Committee</h3>
         </header>
         {% if object.house_committee != "" %}
           <p><a href="{% url 'committee-detail' chamber=object.chamber.slug slug=object.house_committee.slug %}">{{ object.house_committee }}</a></p>
@@ -72,7 +74,7 @@
       </div>
       <div>
         <header>
-          <h5>Senate Committee</h5>
+          <h3>Senate Committee</h3>
         </header>
         {% if object.senate_committee != "" %}
           <p><a href="{% url 'committee-detail' chamber=object.chamber.slug slug=object.senate_committee.slug %}">{{ object.senate_committee }}</a></p>
@@ -83,13 +85,13 @@
     </div>
     <div class="bill-section">
       <header>
-        <h5>Related Issue</h5>
+        <h3>Related Issue</h3>
       </header>
       <p><a href="">New taxes to support Texas Lotto</a></p>
     </div>
     <div class="stages bill-section">
       <header>
-        <h5>Bill Stages</h5>
+        <h3>Bill Stages</h3>
       </header>
       <div class="bill-stage{% if 'Filed' in object.actions.first.text %} done {% endif %} ">
         <div class="bill-stage-name">Filed</div>
@@ -136,7 +138,7 @@
       {% endif %}
     </div>
     <div class="bill-table bill-section bill-actions">
-      <h5>Actions</h5>
+      <h3>Actions</h3>
       <table>
         <thead>
           <tr>
