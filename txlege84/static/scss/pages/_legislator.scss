@@ -2,37 +2,43 @@
   @include span-columns(12);
   margin-bottom: 1em;
 
-  h2 {
-    display: inline-block;
-    max-width: 65%;
-
-    @include media($medium) {
-      max-width: 70%;
-    }
-    @include media($large) {
-      max-width: 100%;
-    }
-  }
-
   .headshot {
     @include span-columns(2);
-    margin-top: 2em;
+    margin-top: 1.5em;
     img {
       width: 100%;
     }
   }
 
-  .legislator-details {
+  h2 {
     @include span-columns(10);
-    @include div-grid(10, 2);
+    @include omega();
+  }
+
+  .legislator-details {
     @include clearfix;
 
   }
 
   .office-info {
     margin-bottom: 1em;
+
+    @include span-columns(10);
+    @include omega();
+    @include clearfix;
+
   }
 
 }
 
+.lawmaker-links {
+  margin-bottom: 1em;
+
+  button {
+    margin-bottom: .5em;
+  }
+}
+.committee-assignments {
+  margin-bottom: 1.5em;
+}
 

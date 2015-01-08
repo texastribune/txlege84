@@ -1,5 +1,6 @@
 from django.views.generic import DetailView, ListView
 
+from bills.mixins import AllSubjectsMixin
 from topics.models import Issue, Topic
 
 
@@ -10,16 +11,16 @@ class AllTopicsMixin(object):
         return context
 
 
-class TopicListDetail(ListView):
+class TopicListDetail(AllSubjectsMixin, ListView):
     model = Topic
     template_name = 'pages/topic-list-landing.html'
 
 
-class TopicDetail(AllTopicsMixin, DetailView):
+class TopicDetail(AllSubjectsMixin, AllTopicsMixin, DetailView):
     model = Topic
     template_name = 'pages/topic-list.html'
 
 
-class IssueDetail(AllTopicsMixin, DetailView):
+class IssueDetail(AllSubjectsMixin, AllTopicsMixin, DetailView):
     model = Issue
     template_name = 'pages/issue.html'

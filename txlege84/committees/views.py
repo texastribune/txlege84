@@ -2,10 +2,11 @@ from django.http import Http404
 from django.utils.translation import ugettext as _
 from django.views.generic import DetailView
 
+from bills.mixins import AllSubjectsMixin
 from committees.models import Committee
 
 
-class CommitteeDetail(DetailView):
+class CommitteeDetail(AllSubjectsMixin, DetailView):
     model = Committee
     template_name = 'pages/committee.html'
 

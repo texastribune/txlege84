@@ -13,6 +13,56 @@ img.headshot {
   max-height: 100px;
 }
 
+.curated-by {
+  @include span-columns(12);
+
+  @include media($small) {
+    @include span-columns(4);
+  }
+
+  @include media($medium) {
+    @include span-columns(4);
+  }
+
+  @include media($large) {
+    @include span-columns(4);
+  }
+
+  .headshot {
+    display: inline-block;
+    margin: 0 1em .5em 0;
+
+    img {
+      height: 100px;
+    }
+  }
+
+}
+
+nav.full-hot-list {
+  margin-bottom: 1.5em;
+  @include span-columns(12);
+
+  @include media($small) {
+    @include span-columns(8);
+    @include omega();
+  }
+
+  @include media($medium) {
+    @include span-columns(8);
+    @include omega();
+  }
+
+  @include media($large) {
+    @include span-columns(8);
+    @include omega();
+  }
+
+  ul {
+    margin-top: 0;
+  }
+}
+
 .curated {
   font-style: italic;
   font-size: .8em;
@@ -22,49 +72,97 @@ img.headshot {
   font-size: .8em;
 }
 
-.issue-embed-block {
+.issue-box {
+  @include clearfix;
+  background-color: $background-gray;
+  margin-bottom: 1.5em;
+
+  .share-box {
+    @include span-columns(12);
+    color: $tribune-black;
+    background-color: $tribune-yellow;
+
+    h5 {
+      font-weight: 400;
+      letter-spacing: .1em;
+      text-align: center;
+
+      i {
+        font-size: 1.5em;
+        padding: .25em 0;
+        margin: 0 .5em;
+      }
+    }
+  }
+}
+
+.issue {
   @extend %content-block;
-  border: 1px solid;
-  display: inline-block;
-  margin-top: 1em;
-}
+  @include clearfix;
 
-.issue-header {
   h3 {
-    display: inline-block;
-    margin: 1em 0;
-  }
-}
+    padding: 1.5em 0 .25em;
 
-.share-topic {
-  display: inline-block;
-  float: right;
-
-  h4 {
-    display: inline-block;
-    margin: 1em 0;
-  }
-
-}
-
-.issue-legislation {
-  h5 {
-    display: inline-block;
+    a {
+    color: $text-black;
+    }
   }
 
   ul {
-    margin: 0;
+    margin-bottom: 1em;
   }
 
   li {
-    margin: 0 0 1em;
+    margin: 0 0 .25em;
+  }
+
+  .related-legislation,
+  .related-content {
+    @include clearfix;
+    margin-top: 0;
+
+    h5 {
+      padding-top: 1em;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 1.1em;
+    }
+  }
+
+  .related-legislation {
+    @include span-columns(12);
+
+    @include media($small) {
+      @include span-columns(4);
+    }
 
     @include media($medium) {
-      @include span-columns(6);
+      @include span-columns(4);
     }
 
     @include media($large) {
-      @include span-columns(6);
+      @include span-columns(4);
     }
   }
+
+  .related-content {
+    @include span-columns(12);
+
+    @include media($small) {
+      @include span-columns(8);
+    }
+
+    @include media($medium) {
+      @include span-columns(8);
+    }
+
+    @include media($large) {
+      @include span-columns(8);
+    }
+
+  }
+
 }
+

@@ -13,7 +13,7 @@
   <div class="bill">
     <div class="bill-section">
       <header>
-        <h5>Last Action</h5>
+        <h3>Last Action</h3>
       </header>
       <p>{{ object.actions.last.text }} <em> {{ object.actions.last.date }}</em></p>
     </div>
@@ -21,17 +21,20 @@
     <div class="bill-authors bill-section">
       <div>
         <header>
-          <h5>Primary Author</h5>
+          <h3>Author</h3>
         </header>
+        <ul>
         {% for n in object.sponsorships.all %}
           {% if n.role = 'author' %}
-            <p>Rep. <a href="{% url 'legislator-detail' n.legislator.slug %}">{{ n.legislator }}</a></p>
+            <li>Rep. <a href="{% url 'legislator-detail' n.legislator.slug %}">{{ n.legislator }}</a></li>
           {% endif %}
         {% endfor %}
+        </ul>
       </div>
+      {% if 'coauthor' in object.sponsorships.all.role %}
       <div>
         <header>
-          <h5>Coauthors</h5>
+          <h3>Coauthors</h3>
         </header>
         <ul>
           {% for o in object.sponsorships.all %}
@@ -41,9 +44,11 @@
           {% endfor %}
         </ul>
       </div>
+      {% endif %}
+      {% if 'sponsor' in object.sponsorships.all.role %}
       <div>
         <header>
-          <h5>Sponsor</h5>
+          <h3>Sponsor</h3>
         </header>
         <ul>
         {% for p in object.sponsorships.all %}
@@ -53,12 +58,13 @@
         {% endfor %}
         </ul>
       </div>
+      {% endif %}
       <div>&nbsp;</div>
     </div>
     <div class="bill-committee-assignment bill-section">
       <div>
         <header>
-          <h5>House Committee</h5>
+          <h3>House Committee</h3>
         </header>
         {% if object.house_committee != "" %}
           <p><a href="{% url 'committee-detail' chamber=object.chamber.slug slug=object.house_committee.slug %}">{{ object.house_committee }}</a></p>
@@ -68,7 +74,7 @@
       </div>
       <div>
         <header>
-          <h5>Senate Committee</h5>
+          <h3>Senate Committee</h3>
         </header>
         {% if object.senate_committee != "" %}
           <p><a href="{% url 'committee-detail' chamber=object.chamber.slug slug=object.senate_committee.slug %}">{{ object.senate_committee }}</a></p>
@@ -77,54 +83,22 @@
         {% endif %}
       </div>
     </div>
-
-    <div class="related-issue">
-      <header class="with-subhead">
-        <h5>Related Issue</h5>
-        <h2>New taxes to support Texas Lotto</h2>
+    <div class="bill-section">
+      <header>
+        <h3>Related Issue</h3>
       </header>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in arcu commodo, aliquet nunc nec, egestas risus. Nullam quis sapien placerat ex maximus ullamcorper et id justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc pellentesque a massa a hendrerit. Mauris quis pellentesque risus. Donec pellentesque dolor et tellus lacinia, in aliquet nulla convallis. Sed commodo, mi vel tincidunt aliquet, odio libero volutpat mi, et tempus massa quam at tellus. Ut posuere tempus faucibus.</p>
-      <p class="update">Updated: Jan. 21, 2015</p>
-      <header class="story-stream">
-        <h3>Story Stream</h3>
-      </header>
-      <nav>
-        <ul>
-          <li>
-            <header>
-              <h4>The Latest: <a href="">Senate Health Committee Considers Merging Agencies</a>, Jan. 21, 2015</h4>
-            </header>
-          </li>
-          <li>
-            <header>
-              <h4><a href="">Another Title Goes Here</a>, Jan. 3, 2015</h4>
-            </header>
-          </li>
-        </ul>
-      </nav>
+      <p><a href="">New taxes to support Texas Lotto</a></p>
     </div>
     <div class="stages bill-section">
       <header>
-        <h5>Bill Stages</h5>
+        <h3>Bill Stages</h3>
       </header>
-      {% for m in object.actions.all %}
-      {% if 'Filed' in m.text %}
-      <div class="bill-stage">
-      {% endif %}
-      {% endfor %}
+      <div class="bill-stage{% if 'Filed' in object.actions.first.text %} done {% endif %} ">
         <div class="bill-stage-name">Filed</div>
         <div class="date-stage-complete">{{ object.actions.first.date }}</div>
       </div>
-      <div class="bill-stage">
-        <div class="bill-stage-name">
-          {% if object.chamber == 'Texas House' %}
-            Out of House Committee
-          {% else %}
-            Out of Senate Committee
-          {% endif %}
-        </div>
-        <div class="date-stage-complete"></div>
-      </div>
+      <i class="fa fa-angle-right arrow-right"></i>
+      <i class="fa fa-angle-down arrow-down"></i>
       <div class="bill-stage">
         <div class="bill-stage-name">
           {% if object.chamber == 'Texas House' %}
@@ -135,16 +109,8 @@
         </div>
         <div class="date-stage-complete"></div>
       </div>
-      <div class="bill-stage">
-        <div class="bill-stage-name">
-          {% if object.chamber == 'Texas House' %}
-            Out of Senate Committee
-          {% else %}
-            Out of House Committee
-          {% endif %}
-        </div>
-        <div class="date-stage-complete"></div>
-      </div>
+      <i class="fa fa-angle-right arrow-right"></i>
+      <i class="fa fa-angle-down arrow-down"></i>
       <div class="bill-stage">
         <div class="bill-stage-name">
         {% if object.chamber == 'Texas House' %}
@@ -155,6 +121,8 @@
         </div>
         <div class="date-stage-complete"></div>
       </div>
+      <i class="fa fa-angle-right arrow-right"></i>
+      <i class="fa fa-angle-down arrow-down"></i>
       <div class="bill-stage">
         <div class="bill-stage-name">Governor Action</div>
         <div class="date-stage-complete"></div>
@@ -170,7 +138,7 @@
       {% endif %}
     </div>
     <div class="bill-table bill-section bill-actions">
-      <h5>Actions</h5>
+      <h3>Actions</h3>
       <table>
         <thead>
           <tr>

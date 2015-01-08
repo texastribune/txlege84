@@ -1,12 +1,6 @@
 .hot-list-nav {
   nav {
-    @include li-grid(12, 3, 3);
-    margin-top: 1.5em;
-  }
-
-  span.see-all {
-    float: right;
-    font-style: italic;
+    @include li-grid(12, 2, 3);
   }
 
   .subscription {
@@ -20,27 +14,41 @@
     }
   }
 
-  ul {
-    margin: 1em 0;
-  }
-
   li {
-    min-height: 2.25em;
-    margin-top: .25em;
-    margin-bottom: .25em;
+    min-height: 0;
+    margin: 0;
+
+    @include media($small) {
+      height: 6em;
+    }
+
+    @include media($medium) {
+      height: 6em;
+    }
+
+    @include media($large) {
+      height: 6em;
+    }
   }
 }
 
 .hot-list-box {
   h5 {
     margin: 0;
+    padding-top: .5em;
   }
 }
 
 .hot-list-graphic {
-  border: 1px solid;
   float: left;
-  height: 1.5em;
-  margin: 0 .75em 0 0;
-  width: 1.5em;
+  height: 2em;
+  width: 2em;
+
+  &.list {
+    margin: 0 .5em 4em;
+  }
+
+  &.header {
+    margin: -.25em .5em 0 0;
+  }
 }

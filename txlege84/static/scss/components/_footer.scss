@@ -13,7 +13,6 @@ $bp-footer: $default-768;
   background-color: $masthead-black;
   color: $white;
   font-size: .75em;
-  margin-top: 1em;
 
   @include media($bp-footer) {
     line-height: 1.1em;

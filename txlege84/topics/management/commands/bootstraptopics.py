@@ -22,7 +22,7 @@ class Command(BaseCommand):
             u'Immigration & Border Security',
             u'Law & Order',
             u'Public Education',
-            u'Social Justice',
+            u'Social Issues',
             u'Transportation',
         ]
 

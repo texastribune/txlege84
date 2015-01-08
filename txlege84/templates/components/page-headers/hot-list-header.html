@@ -1,11 +1,23 @@
-<section class="hot-list-nav">
-  <header>
-    <h2>Legislative Hot Lists: {{ object.name }}</h2>
-    <h4>Your guide to what's really going on at the 84th Texas Legislature.</h4>
+{% load staticfiles %}
+<section>
+  <header class="hot-list-nav">
+    <img class="hot-list-graphic header" src="{% static 'images/icons/' %}{{ topic.slug }}.svg"></img>
+    <h2><a href="">Hot Lists</a>: {{ topic.name }}</h2>
   </header>
-
-  <div class="subscription">
-    <h5>What are your top issues?</h5>
-    <p><a href="">Let us know</a> and we'll send updates on the issues important to you.</p>
-  </div>
+  <header class="curated-by">
+    <div class="headshot">
+      <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/Campbell-Donna768updated_1_jpg_131x197_crop_q100.jpg">
+    </div>
+    <div class="headshot">
+      <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/Campbell-Donna768updated_1_jpg_131x197_crop_q100.jpg">
+    </div>
+    <h4 class="curated">Curated by XXX and XXX</h4>
+  </header>
+  <nav class="full-hot-list">
+    <ul>
+    {% for issue in object.issues.all %}
+      <li><a href="{% url 'issue-detail' object.slug issue.slug %}">{{ issue.name | truncatewords:5 }}</a></li>
+    {% endfor %}
+    </ul>
+  </nav>
 </section>

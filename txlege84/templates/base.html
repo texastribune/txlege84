@@ -11,16 +11,16 @@
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="{% static 'images/touch/chrome-touch-icon-192x192.png' %}">
+    <link rel="icon" sizes="192x192" href="">
 
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
-    <link rel="apple-touch-icon" href="{% static 'images/touch/apple-touch-icon.png' %}">
+    <link rel="apple-touch-icon" href="">
 
     <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="{% static 'images/touch/ms-touch-icon-144x144-precomposed.png' %}">
+    <meta name="msapplication-TileImage" content="">
     <meta name="msapplication-TileColor" content="#FFCC20">
 
     <!-- Facebook Open Graph -->
@@ -28,7 +28,7 @@
     <meta property="og:title" content="{% block facebook_title %}{% endblock %}Session App | The Texas Tribune">
     <meta property="og:description" content="">
     <meta property="og:url" content="">
-    <meta property="og:image" content="{% static 'images/facebook-share.jpg' %}">
+    <meta property="og:image" content="">
     <meta property="og:type" content="website">
 
     <!-- Vendor styles -->
@@ -42,16 +42,19 @@
     {% include "includes/ads.html" %}
   </head>
   <body>
+
     <div class="main-container">
+    {% include "includes/banner_ad.html" %}
       <section class="side-bar">
          <section class="main-header">
           <div class="project-branding">
             <header>
               <a href="http://www.texastribune.org/">
-                <img class="trib-logo" alt="The Texas Tribune" src="{% static 'images/brand/tt-logo-white.png' %}">
+                <img class="trib-logo" alt="The Texas Tribune" src="{% static 'images/brand/tt-logo-stack.svg' %}">
               </a>
-              <h1><a href="{% url 'landing-view' %}">On the Lege</a></h1>
+              <h1><a href="{% url 'landing-view' %}">84th Lege</a></h1>
               <div class="title-underline"><span></span></div>
+              <p>Your go-to source for the 2015 Texas legislative session</p>
             </header>
           </div>
           <div class="page-header desktop-hide">
@@ -59,7 +62,8 @@
           </div>
         </section>
 
-        {% include "components/side-bar.html" %}
+        {% include "components/side-bar.html" with subject_list=subject_list %}
+
       </section>
 
       <section class="body-main">
@@ -70,6 +74,7 @@
         {% block content %}{% endblock %}
       </section>
 
+    {% include "includes/banner_ad2.html" %}
     </div>
 
 <footer class="footer">
@@ -108,7 +113,11 @@
   </div>
 </footer>
 
+  <script>window.billSnippetURL = '{% url "bill-detail" 0 %}'.replace('0/', '');</script>
+
   <script src="{% static 'scripts/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'scripts/libs/typeahead.bundle.min.js' %}"></script>
+  <script src="{% static 'scripts/libs/jquery.fitvids.js' %}"></script>
   <script src="{% static 'scripts/slick/slick.min.js' %}"></script>
   <script src="{% static 'scripts/main.js' %}"></script>
 

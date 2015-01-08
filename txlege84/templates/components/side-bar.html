@@ -1,38 +1,46 @@
+{% load staticfiles %}
 <section class="resources">
+  <div class="resource-bk">
   <header class="bill-search-header sidebar-header-bills">
-    <h3><i class="fa fa-search"></i> Look Up Bills</h3>
+    <h3><i class="fa fa-search"></i> Find Bills</h3>
   </header>
   <div class="sidebar-content-bills collapse">
     <div>
       <header>
-        <h4>Find Bills by Number, Lawmaker or Category</h4>
+        <h4>Search bills by number</h4>
       </header>
       <form>
-        <input id="bill-search" type="text" placeholder="Ex. &mdash; SB 1, Straus or Education">
+        <input id="bill-search" type="text" placeholder="Ex. &mdash; SB 1, Straus or education">
       </form>
       <button>Find</button>
     </div>
 
     <div>
       <header>
-        <h4>Browse Bills by Category</h4>
+        <h4>Browse bills by category</h4>
       </header>
-      <select>
-        <option>One</option>
-        <option>Two</option>
-        <option>Three</option>
+      <select id="category-dropdown">
+      {% for category in subject_list %}
+        <option value="{% url 'subject-detail' category.slug %}">{{ category.name }}</option>
+      {% endfor %}
       </select>
     </div>
 
     <div>
       <header>
-        <h4>Who Represents Me?</h4>
+        <h4>Browse bills filed by your lawmaker</h4>
       </header>
-      <p>See legislation filed by the people who represent you.</p>
       <form>
         <input id="bill-search" type="text" placeholder="Enter your address">
       </form>
       <button>Find</button>
+    </div>
+
+    <div>
+      <header>
+        <img class="open-states-logo" src="{% static 'images/brand/openstates_logo_200.png' %}"></img>
+        <h4>Bill data provided by <a href="http://openstates.org/">Open States</a>, a product of Sunlight Foundation. It is updated nightly.</h4>
+      </header>
     </div>
   </div>
   <div class="sidebar-header-resources">
@@ -41,13 +49,15 @@
     </header>
     <div class="sidebar-content-resources collapse">
       <ul>
-        <li><a href="">Ethics Explorer</a> &mdash; A guide to the financial interests of elected officials</a></li>
+        <li><a href="">Ethics Explorer</a> &mdash; A guide to the financial interests of elected officials</li>
         <li><a href="">Elected Officials Directory</a></li>
         <li>Seating Charts: <a href="">House</a> | <a href="">Senate</a></li>
         <li><a href="">Capitol Map</a></li>
         <li><a href="">Upcoming Committee Hearings</a></li>
       </ul>
     </div>
+  </div>
+  {% include "includes/box_ad.html" %}
   </div>
 
 </section>

@@ -1,5 +1,6 @@
 // Default Breakpoints
-$medium: new-breakpoint(min-width 600px max-width 1080px);
+$small: new-breakpoint(min-width 460px max-width 810px);
+$medium: new-breakpoint(min-width 811px max-width 1080px);
 $large: new-breakpoint(min-width 1081px);
 $default-768: new-breakpoint(min-width 768px);
 $default-480: new-breakpoint(max-width 480px);
@@ -13,8 +14,14 @@ $default-480: new-breakpoint(max-width 480px);
   @include clearfix;
   @include span-columns(12);
 
+  // @include media($small) {
+  //   @include span-columns(5);
+  //   @include omega();
+  // }
+
   @include media($medium) {
-    @include span-columns(4);
+    @include span-columns(5);
+    @include omega();
   }
 
   @include media($large) {
@@ -27,9 +34,13 @@ $default-480: new-breakpoint(max-width 480px);
   @extend %content-block;
   @include span-columns(12);
 
+  // @include media($small) {
+  //   @include span-columns(7);
+  //   @include omega();
+  // }
+
   @include media($medium) {
-    @include span-columns(8);
-    @include omega();
+    @include span-columns(7);
   }
 
   @include media($large) {
@@ -42,6 +53,13 @@ $default-480: new-breakpoint(max-width 480px);
 // Basic Grid Mixins
 
 @mixin div-grid($col-width, $number-div) {
+
+  @include media($small) {
+    div {
+      @include span-columns($col-width / $number-div of $col-width);
+      @include omega($number-div+n);
+    }
+  }
 
   @include media($medium) {
     div {
@@ -61,6 +79,11 @@ $default-480: new-breakpoint(max-width 480px);
 @mixin li-grid($col-width, $med-li, $lg-li) {
   li {
     @include span-columns(12);
+
+    @include media($small) {
+      @include span-columns($col-width / $med-li of $col-width);
+      @include omega($med-li+n);
+    }
 
     @include media($medium) {
       @include span-columns($col-width / $med-li of $col-width);

@@ -1,11 +1,24 @@
 /* Base Theme for HTML elements */
 
 body {
-  background-color: $light-blue;
+  // background-color: $light-blue;
   font-family: $base-sans-serif;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1;
   text-rendering: optimizelegibility;
+  background: url(https://s3.amazonaws.com/static.texastribune.org/media/test/on-the-lege-capitol-bg-test003-mobile.gif) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  @include media($medium) {
+    background: url(https://s3.amazonaws.com/static.texastribune.org/media/test/on-the-lege-capitol-bg-test002b.gif) no-repeat center center fixed;
+  }
+
+  @include media($large) {
+    background: url(https://s3.amazonaws.com/static.texastribune.org/media/test/on-the-lege-capitol-bg-test002b.gif) no-repeat center center fixed;
+  }
 }
 
 .body-main {
@@ -28,43 +41,44 @@ p {
 // Project title
 h1 {
   color: $tribune-black;
-  font-size: 3.25em;
-  font-weight: 800;
+  font-size: 2.25em;
+  font-weight: 600;
   line-height: 1em;
 
   @include media($medium) {
-    font-size: 4.5em;
+    font-size: 3em;
   }
 
   @include media($large) {
-    font-size: 4.5em;
+    font-size: 3.25em;
   }
 }
 
 // Section or Page Header
 h2 {
-  border-bottom: 1px solid $masthead-black;
-  font-size: 1.75em;
+  border-bottom: 1px solid $line-gray;
+  font-size: 1.3em;
   font-weight: 700;
-  margin-top: 1.3em;
-  padding-bottom: .2em;
+  margin-top: 1.5em;
+  padding-bottom: .3em;
 }
 
 // Sidebar Header
 h3 {
-  font-size: 1.25em;
+  font-size: 1.1em;
   font-weight: 700;
 
   &.section-header {
-    margin-bottom: 1em;
+    margin-bottom: .5em;
   }
 }
 
 // Header Tagline
 h4 {
   color: $tagline-black;
-  font-size: 1em;
-  font-weight: 500;
+  font-size: .95em;
+  font-style: italic;
+  font-weight: 400;
   line-height: 1.2em;
   margin-bottom: 1em;
 }
@@ -74,12 +88,24 @@ h5 {
   font-family: arial;
   font-size: 0.8em;
   font-weight: 700;
-  line-height: 1.2em;
+  line-height: 1.5em;
   text-transform: uppercase;
+
+  a {
+    color: $bodytext-black;
+    border-bottom: 1px solid $href-teal;
+    text-decoration: none;
+
+    &:hover {
+      color: $href-teal;
+      border-bottom: none;
+      text-decoration: none;
+    }
+  }
 }
 
 header.with-subhead {
-  h2 {
+  h3 {
     margin: 0 0 1em;
   }
 
@@ -137,7 +163,7 @@ button,
 
 ul {
   @include clearfix;
-  list-style: none;
+  list-style: disc;
   margin: 0;
   padding: 0;
 }
@@ -145,11 +171,12 @@ ul {
 li {
   color: $li-black;
   font-family: $helvetica;
-  font-size: 1em;
-  font-weight: 500;
+  // font-size: 1em;
+  // font-weight: 300;
   line-height: 1.6em;
-  margin: 0;
+  margin: 0 1em;
   text-align: left;
+
 }
 
 nav {
@@ -157,7 +184,7 @@ nav {
 }
 
 section {
-  @include span-columns(12);
+  // @include span-columns(12);
   @include clearfix();
 }
 
@@ -179,9 +206,11 @@ section {
 
   @include media($medium) {
     display: block;
+    // margin-top: 2.5em;
   }
 
   @include media($large) {
     display: block;
+    // margin-top: 2.5em;
   }
 }

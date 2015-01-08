@@ -6,3 +6,4 @@ prep_for_development:
 	python txlege84/manage.py updatebills --bulk
 	python txlege84/manage.py bootstraptopics
 	python txlege84/manage.py loadfakeissues
+	python txlege84/manage.py loadfakeexplainers
