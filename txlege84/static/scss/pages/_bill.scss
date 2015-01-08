@@ -68,42 +68,82 @@
 .bill-stage {
   @include span-columns(12);
 
+  &.complete {
+
+    .scroll {
+      opacity: 1;
+    }
+
+    .fa-arrow-right {
+      display: none;
+    }
+
+    .fa-arrow-down {
+      display: inline-block;
+    }
+
+    .fa-stack-1x {
+      color: $green;
+      display: block;
+      left: .13em;
+      top: .2em;
+    }
+  }
+
   @include media($small) {
     @include span-columns(3);
-    // @include omega();
 
     p {
       min-height: 2.25em;
     }
 
-    .fa-arrow-down {
-      display: none;
+    &.complete {
+
+      .fa-arrow-right {
+        display: inline-block;
+      }
+
+      .fa-arrow-down {
+        display: none;
+      }
     }
   }
 
   @include media($medium) {
     @include span-columns(3);
-    // @include omega();
 
     p {
       min-height: 2.25em;
     }
 
-    .fa-arrow-down {
-      display: none;
+    &.complete {
+
+      .fa-arrow-right {
+        display: inline-block;
+      }
+
+      .fa-arrow-down {
+        display: none;
+      }
     }
   }
 
   @include media($large) {
     @include span-columns(3);
-    // @include omega();
 
     p {
       min-height: 2.25em;
     }
 
-    .fa-arrow-down {
-      display: none;
+    &.complete {
+
+      .fa-arrow-right {
+        display: inline-block;
+      }
+
+      .fa-arrow-down {
+        display: none;
+      }
     }
   }
 
@@ -123,7 +163,7 @@
   }
 
   .fa-arrow-down {
-    display: none;
+    margin-left: 1em;
   }
 
   .fa-stack {
@@ -140,27 +180,7 @@
     display: none;
   }
 
-  &.complete {
 
-    .scroll {
-      opacity: 1;
-    }
-
-    .fa-arrow-right {
-      display: inline-block;
-    }
-
-    .fa-arrow-down {
-      display: inline-block;
-    }
-
-    .fa-stack-1x {
-      color: $green;
-      display: block;
-      left: .13em;
-      top: .2em;
-    }
-  }
 
 }
 
