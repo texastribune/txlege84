@@ -14,6 +14,8 @@ RUN apt-get -yq install nodejs npm nodejs-legacy ruby git
 RUN npm install -g bower
 RUN gem install --no-ri --no-rdoc sass
 
+RUN git config --global url."https://".insteadOf git://
+
 ADD bower.json /app/
 RUN bower --allow-root install
 
