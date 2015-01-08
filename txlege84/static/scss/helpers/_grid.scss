@@ -1,6 +1,6 @@
 // Default Breakpoints
-$small: new-breakpoint(min-width 460px max-width 699px);
-$medium: new-breakpoint(min-width 700px max-width 1080px);
+$small: new-breakpoint(min-width 460px max-width 810px);
+$medium: new-breakpoint(min-width 811px max-width 1080px);
 $large: new-breakpoint(min-width 1081px);
 $default-768: new-breakpoint(min-width 768px);
 $default-480: new-breakpoint(max-width 480px);

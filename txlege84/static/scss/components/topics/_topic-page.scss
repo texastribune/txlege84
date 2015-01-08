@@ -16,6 +16,10 @@ img.headshot {
 .curated-by {
   @include span-columns(12);
 
+  @include media($small) {
+    @include span-columns(4);
+  }
+
   @include media($medium) {
     @include span-columns(4);
   }
@@ -38,6 +42,11 @@ img.headshot {
 nav.full-hot-list {
   margin-bottom: 1.5em;
   @include span-columns(12);
+
+  @include media($small) {
+    @include span-columns(8);
+    @include omega();
+  }
 
   @include media($medium) {
     @include span-columns(8);
@@ -125,6 +134,10 @@ nav.full-hot-list {
   .related-legislation {
     @include span-columns(12);
 
+    @include media($small) {
+      @include span-columns(4);
+    }
+
     @include media($medium) {
       @include span-columns(4);
     }
@@ -136,6 +149,10 @@ nav.full-hot-list {
 
   .related-content {
     @include span-columns(12);
+
+    @include media($small) {
+      @include span-columns(8);
+    }
 
     @include media($medium) {
       @include span-columns(8);

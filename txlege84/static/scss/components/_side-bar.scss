@@ -1,6 +1,8 @@
-.main-header {
-  // background-color: $href-offwhite;
+.side-bar {
+  background-color: transparentize($white, .3);
+}
 
+.main-header {
   h1 {
     margin: 1.75em 0 .5em;
 
@@ -67,7 +69,7 @@
   // background-color: $light-blue;
 
   .resource-bk {
-    background-color: transparentize($white, .4);
+    // background-color: transparentize($white, .4);
     padding: 1em 1.25em;
   }
 
