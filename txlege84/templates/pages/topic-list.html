@@ -17,16 +17,12 @@
     <h3 id="{{ issue.slug }}">
       <a href="{% url 'issue-detail' object.slug issue.slug %}">{{ issue.name }}</a>
     </h3>
-<!--     <h4><i class="fa fa-bell"></i> <a href="">Alert me</a> when this issue is updated.</h4> -->
-    <h4>Tell your friends:
-      <a href=""><i class="fa fa-facebook"></i></a> |
-      <a href=""><i class="fa fa-twitter"></i></a>
-    </h4>
+    <h4>Updated: {{ issue.modified_date|date:"N j, Y" }}</h4>
   </header>
   {{ issue.active_text.text|safe }}
   <div class="related-legislation">
     <header>
-      <h5>Related Legislation</h5>
+      <h5>Relevant Legislation</h5>
     </header>
     <ul>
     {% for bill in issue.related_bills.all %}
