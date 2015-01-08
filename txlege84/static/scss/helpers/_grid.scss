@@ -1,6 +1,6 @@
 // Default Breakpoints
-$small: new-breakpoint(min-width 460px max-width 699px);
-$medium: new-breakpoint(min-width 700px max-width 1080px);
+$small: new-breakpoint(min-width 460px max-width 799px);
+$medium: new-breakpoint(min-width 800px max-width 1080px);
 $large: new-breakpoint(min-width 1081px);
 $default-768: new-breakpoint(min-width 768px);
 $default-480: new-breakpoint(max-width 480px);
@@ -13,6 +13,11 @@ $default-480: new-breakpoint(max-width 480px);
 .side-bar {
   @include clearfix;
   @include span-columns(12);
+
+  // @include media($small) {
+  //   @include span-columns(5);
+  //   @include omega();
+  // }
 
   @include media($medium) {
     @include span-columns(5);
@@ -28,6 +33,11 @@ $default-480: new-breakpoint(max-width 480px);
 .body-main {
   @extend %content-block;
   @include span-columns(12);
+
+  // @include media($small) {
+  //   @include span-columns(7);
+  //   @include omega();
+  // }
 
   @include media($medium) {
     @include span-columns(7);
