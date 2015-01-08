@@ -69,7 +69,10 @@
 
 .resources {
   // background-color: $light-blue;
-
+  .arrow-a,
+  .arrow-b {
+    display: inline-block;
+  }
   .resource-bk {
     // background-color: transparentize($white, .4);
     padding: 1em 1.25em;
@@ -89,6 +92,13 @@
     display: inline-block;
     font-size: 1.2em;
     margin-right: .5em;
+  }
+
+  i.fa-angle-right,
+  i.fa-angle-down {
+    display: inline-block;
+    font-size: 1.3em;
+    margin-left: 1em;
   }
 
   input[type="text"] {
