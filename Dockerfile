@@ -26,8 +26,7 @@ ADD gulpfile.js /app/
 RUN gulp build:deploy
 
 ENV DJANGO_SETTINGS_MODULE txlege84.settings.production
-ENV SECRET_KEY=quux
-ADD . /app/
+ENV SECRET_KEY quux
 RUN python txlege84/manage.py validate
 RUN python txlege84/manage.py collectstatic --noinput
 ADD txlege84/txlege84/wsgi.py /app/
