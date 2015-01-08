@@ -4,7 +4,7 @@
   "devDependencies": {
     "bourbon": "~4.0.2",
     "neat": "~1.7.0",
-    "newsapps-styles": "texastribune/newsapps-styles#base_theme"
+    "newsapps-styles": "texastribune/newsapps-styles#0.5"
   },
   "resolutions": {
     "neat": "~1.7.0"
