@@ -23,13 +23,11 @@
         <header>
           <h3>Author</h3>
         </header>
-        <ul>
         {% for n in object.sponsorships.all %}
           {% if n.role = 'author' %}
-            <li>Rep. <a href="{% url 'legislator-detail' n.legislator.slug %}">{{ n.legislator }}</a></li>
+            <p>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{% url 'legislator-detail' n.legislator.slug %}">{{ n.legislator }}</a></p>
           {% endif %}
         {% endfor %}
-        </ul>
       </div>
       {% if 'coauthor' in object.sponsorships.all.role %}
       <div>
@@ -39,7 +37,7 @@
         <ul>
           {% for o in object.sponsorships.all %}
             {% if o.role = 'coauthor' %}
-            <li>Rep. <a href="{% url 'legislator-detail' o.legislator.slug %}">{{ o }}</a></li>
+            <li>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{% url 'legislator-detail' o.legislator.slug %}">{{ o }}</a></li>
             {% endif %}
           {% endfor %}
         </ul>
@@ -50,13 +48,11 @@
         <header>
           <h3>Sponsor</h3>
         </header>
-        <ul>
         {% for p in object.sponsorships.all %}
           {% if p.role = 'sponsor' %}
-            <li>Rep. <a href="{% url 'legislator-detail' p.legislator.slug %}">{{ p.legislator }}</a></li>
+            <p>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{% url 'legislator-detail' p.legislator.slug %}">{{ p.legislator }}</a></p>
           {% endif %}
         {% endfor %}
-        </ul>
       </div>
       {% endif %}
       <div>&nbsp;</div>
