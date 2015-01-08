@@ -68,6 +68,29 @@
   @include span-columns(12);
   margin-bottom: 1em;
 
+  .fa-arrow-right {
+    display: none;
+    margin-left: 1em;
+  }
+
+  .fa-arrow-down {
+    display: inline-block;
+    margin: .5em .5em 0;
+  }
+
+  .fa-arrow-right,
+  .fa-arrow-down {
+    color: $line-gray;
+  }
+
+  .date-stage-complete {
+    display: inline-block;
+
+    &.gov-action {
+      margin-left: 4em;
+    }
+  }
+
   &.complete {
 
     .scroll {
@@ -76,10 +99,12 @@
 
     .fa-arrow-right {
       display: none;
+      color: $tribune-black;
     }
 
     .fa-arrow-down {
       display: inline-block;
+      color: $tribune-black;
     }
 
     .fa-stack-1x {
@@ -95,6 +120,22 @@
 
     p {
       min-height: 2.25em;
+    }
+
+    .date-stage-complete {
+      display: block;
+
+      &.gov-action {
+        margin-left: 0;
+      }
+    }
+
+    .fa-arrow-right {
+      display: inline-block;
+    }
+
+    .fa-arrow-down {
+      display: none;
     }
 
     &.complete {
@@ -116,6 +157,22 @@
       min-height: 2.25em;
     }
 
+    .date-stage-complete {
+      display: block;
+
+      &.gov-action {
+        margin-left: 0;
+      }
+    }
+
+    .fa-arrow-right {
+      display: inline-block;
+    }
+
+    .fa-arrow-down {
+      display: none;
+    }
+
     &.complete {
 
       .fa-arrow-right {
@@ -133,6 +190,22 @@
 
     p {
       min-height: 2.25em;
+    }
+
+    .date-stage-complete {
+      display: block;
+
+      &.gov-action {
+        margin-left: 0;
+      }
+    }
+
+    .fa-arrow-right {
+      display: inline-block;
+    }
+
+    .fa-arrow-down {
+      display: none;
     }
 
     &.complete {
@@ -153,17 +226,8 @@
 
   .scroll {
     height: 2em;
-    opacity: .4;
+    opacity: .3;
     width: 2em;
-  }
-
-  .fa-arrow-right {
-    display: none;
-    margin-left: 1em;
-  }
-
-  .fa-arrow-down {
-    margin-left: 1em;
   }
 
   .fa-stack {

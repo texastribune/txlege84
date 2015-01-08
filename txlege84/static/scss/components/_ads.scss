@@ -1,8 +1,21 @@
 .ad-container {
+  @extend %content-block;
   display: block;
   margin: 0;
 }
 
 .banner-ad {
-  margin: 1em auto;
+  width: 100%;
+
+  &.top {
+    margin: 0 auto 1em;
+  }
+
+  &.bottom {
+    margin: 1em auto;
+  }
+
+  @include media($large) {
+    width: 65%;
+  }
 }

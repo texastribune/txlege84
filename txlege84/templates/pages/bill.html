@@ -95,11 +95,11 @@
           <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
           <i class="fa fa-check-circle fa-stack-1x"></i>
         </span>
-        <i class="fa fa-arrow-down"></i>
         <i class="fa fa-arrow-right"></i>
+        <i class="fa fa-arrow-down"></i>
         <p class="date-stage-complete">{{ object.actions.first.date }}</p>
       </div>
-      <div class="bill-stage">
+      <div class="bill-stage complete">
         <p>
           {% if object.chamber == 'Texas House' %}
             Approved by House
@@ -111,6 +111,8 @@
           <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
           <i class="fa fa-check-circle fa-stack-1x"></i>
         </span>
+        <i class="fa fa-arrow-right"></i>
+        <i class="fa fa-arrow-down"></i>
         <p class="date-stage-complete">{{ object.actions.first.date }}</p>
       </div>
       <div class="bill-stage">
@@ -125,6 +127,8 @@
           <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
           <i class="fa fa-check-circle fa-stack-1x"></i>
         </span>
+        <i class="fa fa-arrow-right"></i>
+        <i class="fa fa-arrow-down"></i>
         <p class="date-stage-complete">{{ object.actions.first.date }}</p>
       </div>
       <div class="bill-stage">
@@ -137,7 +141,7 @@
           <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
           <i class="fa fa-check-circle fa-stack-1x"></i>
         </span>
-        <p class="date-stage-complete">{{ object.actions.first.date }}</p>
+        <p class="date-stage-complete gov-action">{{ object.actions.first.date }}</p>
       </div>
 
     </div>
