@@ -14,6 +14,11 @@ $default-480: new-breakpoint(max-width 480px);
   @include clearfix;
   @include span-columns(12);
 
+  // @include media($small) {
+  //   @include span-columns(5);
+  //   @include omega();
+  // }
+
   @include media($medium) {
     @include span-columns(5);
     @include omega();
@@ -28,6 +33,11 @@ $default-480: new-breakpoint(max-width 480px);
 .body-main {
   @extend %content-block;
   @include span-columns(12);
+
+  // @include media($small) {
+  //   @include span-columns(7);
+  //   @include omega();
+  // }
 
   @include media($medium) {
     @include span-columns(7);
