@@ -29,12 +29,11 @@ class Bill(models.Model):
     bill_type = models.CharField(max_length=21)
     slug = models.SlugField(null=True, blank=True)
 
-    # consider these a bit longer
-    # first_action_date = models.DateField(null=True, blank=True)
-    # last_action_date = models.DateField(null=True, blank=True)
-    # passed_senate = models.DateField(null=True, blank=True)
-    # passed_house = models.DateField(null=True, blank=True)
-    # became_law = models.DateField(null=True, blank=True)
+    first_action_date = models.DateField(null=True, blank=True)
+    last_action_date = models.DateField(null=True, blank=True)
+    passed_senate = models.DateField(null=True, blank=True)
+    passed_house = models.DateField(null=True, blank=True)
+    became_law = models.DateField(null=True, blank=True)
 
     def __unicode__(self):
         return self.name
