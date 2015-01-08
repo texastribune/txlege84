@@ -8,7 +8,7 @@
   {% include "components/page-headers/bill-page-header.html" %}
 {% endblock %}
 
-
+{% load staticfiles %}
 {% block content %}
   <div class="bill">
     <div class="bill-section">
@@ -93,49 +93,40 @@
       <header>
         <h3>Bill Stages</h3>
       </header>
-      <div class="bill-stage{% if 'Filed' in object.actions.first.text %} done {% endif %} ">
-        <div class="bill-stage-name">Filed</div>
-        <div class="date-stage-complete">{{ object.actions.first.date }}</div>
-      </div>
-      <i class="fa fa-angle-right arrow-right"></i>
-      <i class="fa fa-angle-down arrow-down"></i>
       <div class="bill-stage">
-        <div class="bill-stage-name">
+        <p>Filed</p>
+        <span class="fa-stack">
+            <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
+            <i class="fa fa-check-circle fa-stack-1x"></i>
+          </span>
+          <p class="date-stage-complete">{{ object.actions.first.date }}</p>
+      </div>
+      <div class="bill-stage">
+        <p>
           {% if object.chamber == 'Texas House' %}
             Approved by House
           {% else %}
             Approved by Senate
           {% endif %}
-        </div>
-        <div class="date-stage-complete"></div>
+        </p>
       </div>
-      <i class="fa fa-angle-right arrow-right"></i>
-      <i class="fa fa-angle-down arrow-down"></i>
       <div class="bill-stage">
-        <div class="bill-stage-name">
-        {% if object.chamber == 'Texas House' %}
-          Approved by Senate
-        {% else %}
-          Approved by House
+        <p>
+          {% if object.chamber == 'Texas House' %}
+            Approved by Senate
+          {% else %}
+            Approved by House
+          {% endif %}
+        </p>
+      </div>
+      <div class="bill-stage">
+        <p>Governor Action</p>
+        {% if 'Effective' in object.actions.text %}
+          <p>Effective</p>
+          {% else %}
         {% endif %}
-        </div>
-        <div class="date-stage-complete"></div>
       </div>
-      <i class="fa fa-angle-right arrow-right"></i>
-      <i class="fa fa-angle-down arrow-down"></i>
-      <div class="bill-stage">
-        <div class="bill-stage-name">Governor Action</div>
-        <div class="date-stage-complete"></div>
-      </div>
-      {% if 'Effective' in object.actions.text %}
-      <div class="bill-stage done">
-      {% else %}
-      </div>
-<!--       <div class="bill-stage">
-        <div class="bill-stage-name">Bill Becomes Law</div>
-        <div class="date-stage-complete"></div>
-      </div> -->
-      {% endif %}
+
     </div>
     <div class="bill-table bill-section bill-actions">
       <h3>Actions</h3>
