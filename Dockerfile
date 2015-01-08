@@ -21,7 +21,7 @@ RUN npm install -g gulp
 ADD package.json /app/
 RUN npm install
 
-ADD txlege84/static /app/
+ADD . /app/
 ADD gulpfile.js /app/
 RUN gulp build:deploy
 
