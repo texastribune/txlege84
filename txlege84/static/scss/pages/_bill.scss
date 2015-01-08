@@ -1,4 +1,6 @@
 .bill-section {
+  @include fill-parent;
+
   margin-bottom: 1em;
   ul {
     list-style: none;
@@ -68,17 +70,36 @@
 
   @include media($medium) {
     @include span-columns(3);
-    @include omega(4n);
+    @include omega();
   }
 
   @include media($large) {
     @include span-columns(3);
-    @include omega(4n);
+    @include omega();
+  }
+
+  // width: 100%;
+  // @include media($medium) {
+  //   display: inline-block;
+  //   width: 23%;
+  // }
+
+  // @include media($large) {
+  //   display: inline-block;
+  //   width: 23%;
+  // }
+
+  p {
+    min-height: 2.5em;
   }
 
   .scroll {
     height: 2em;
     width: 2em;
+  }
+
+  .fa-arrow-right {
+    margin-left: 1em;
   }
 
   .fa-stack {

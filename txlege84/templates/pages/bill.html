@@ -96,10 +96,11 @@
       <div class="bill-stage">
         <p>Filed</p>
         <span class="fa-stack">
-            <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
-            <i class="fa fa-check-circle fa-stack-1x"></i>
-          </span>
-          <p class="date-stage-complete">{{ object.actions.first.date }}</p>
+          <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
+          <i class="fa fa-check-circle fa-stack-1x"></i>
+        </span>
+        <i class="fa fa-arrow-right"></i>
+        <p class="date-stage-complete">{{ object.actions.first.date }}</p>
       </div>
       <div class="bill-stage">
         <p>
@@ -109,6 +110,11 @@
             Approved by Senate
           {% endif %}
         </p>
+        <span class="fa-stack">
+          <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
+          <i class="fa fa-check-circle fa-stack-1x"></i>
+        </span>
+        <p class="date-stage-complete">{{ object.actions.first.date }}</p>
       </div>
       <div class="bill-stage">
         <p>
@@ -118,6 +124,11 @@
             Approved by House
           {% endif %}
         </p>
+        <span class="fa-stack">
+          <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
+          <i class="fa fa-check-circle fa-stack-1x"></i>
+        </span>
+        <p class="date-stage-complete">{{ object.actions.first.date }}</p>
       </div>
       <div class="bill-stage">
         <p>Governor Action</p>
@@ -125,6 +136,11 @@
           <p>Effective</p>
           {% else %}
         {% endif %}
+        <span class="fa-stack">
+          <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
+          <i class="fa fa-check-circle fa-stack-1x"></i>
+        </span>
+        <p class="date-stage-complete">{{ object.actions.first.date }}</p>
       </div>
 
     </div>
