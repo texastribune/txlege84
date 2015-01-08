@@ -5,3 +5,4 @@ dj-database-url==0.3.0
 requests==2.4.3
 sunlight==1.2.6
 whitenoise==1.0.3
+project_runpy==0.3.0
