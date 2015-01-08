@@ -68,13 +68,29 @@
 }
 
 .resources {
-  // background-color: $light-blue;
+
   .arrow-a,
   .arrow-b {
     display: inline-block;
+
+    @include media($medium) {
+      display: none;
+    }
+
+    @include media($large) {
+      display: none;
+    }
+
+    &.collapse {
+      display: none;
+
+      @include media($small) {
+        display: none;
+      }
+    }
   }
+
   .resource-bk {
-    // background-color: transparentize($white, .4);
     padding: 1em 1.25em;
   }
 
