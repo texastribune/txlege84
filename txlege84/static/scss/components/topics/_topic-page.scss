@@ -16,6 +16,10 @@ img.headshot {
 .curated-by {
   @include span-columns(12);
 
+  @include media($small) {
+    @include span-columns(4);
+  }
+
   @include media($medium) {
     @include span-columns(4);
   }
@@ -38,6 +42,11 @@ img.headshot {
 nav.full-hot-list {
   margin-bottom: 1.5em;
   @include span-columns(12);
+
+  @include media($small) {
+    @include span-columns(8);
+    @include omega();
+  }
 
   @include media($medium) {
     @include span-columns(8);
@@ -65,15 +74,38 @@ nav.full-hot-list {
 
 .issue-box {
   @include clearfix;
+  background-color: $background-gray;
   margin-bottom: 1.5em;
 
-  h3 a {
-    color: $text-black;
-  }
+  .share-box {
+    @include span-columns(12);
+    color: $tribune-black;
+    background-color: $tribune-yellow;
 
-  h4 {
-    display: inline-block;
-    margin-bottom: 1.5em;
+    h5 {
+      font-weight: 400;
+      letter-spacing: .1em;
+      text-align: center;
+
+      i {
+        font-size: 1.5em;
+        padding: .25em 0;
+        margin: 0 .5em;
+      }
+    }
+  }
+}
+
+.issue {
+  @extend %content-block;
+  @include clearfix;
+
+  h3 {
+    padding: 1.5em 0 .25em;
+
+    a {
+    color: $text-black;
+    }
   }
 
   ul {
@@ -86,7 +118,12 @@ nav.full-hot-list {
 
   .related-legislation,
   .related-content {
-    margin-top: 1em;
+    @include clearfix;
+    margin-top: 0;
+
+    h5 {
+      padding-top: 1em;
+    }
 
     ul {
       list-style: disc;
@@ -96,6 +133,10 @@ nav.full-hot-list {
 
   .related-legislation {
     @include span-columns(12);
+
+    @include media($small) {
+      @include span-columns(4);
+    }
 
     @include media($medium) {
       @include span-columns(4);
@@ -108,6 +149,10 @@ nav.full-hot-list {
 
   .related-content {
     @include span-columns(12);
+
+    @include media($small) {
+      @include span-columns(8);
+    }
 
     @include media($medium) {
       @include span-columns(8);
