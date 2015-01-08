@@ -13,37 +13,43 @@
 {% for issue in object.issues.all %}
 
 <div class="issue-box">
-  <header>
-    <h3 id="{{ issue.slug }}">
-      <a href="{% url 'issue-detail' object.slug issue.slug %}">{{ issue.name }}</a>
-    </h3>
-    <h4>Updated: {{ issue.modified_date|date:"N j, Y" }}</h4>
-  </header>
-  {{ issue.active_text.text|safe }}
-  <div class="related-legislation">
+  <div class="issue">
     <header>
-      <h5>Relevant Legislation</h5>
+      <h3 id="{{ issue.slug }}">
+        <a href="{% url 'issue-detail' object.slug issue.slug %}">{{ issue.name }}</a>
+      </h3>
+      <h4>Updated: {{ issue.modified_date|date:"N j, Y" }}</h4>
     </header>
-    <ul>
-    {% for bill in issue.related_bills.all %}
-    <li><a href="{% url 'bill-detail' bill.slug %}">{{ bill.name }}</a></li>
-    {% endfor %}
-    </ul>
+    {{ issue.active_text.text|safe }}
+    <div class="related-legislation">
+      <header>
+        <h5>Relevant Legislation</h5>
+      </header>
+      <ul>
+      {% for bill in issue.related_bills.all %}
+      <li><a href="{% url 'bill-detail' bill.slug %}">{{ bill.name }}</a></li>
+      {% endfor %}
+      </ul>
+    </div>
+    <div class="related-content">
+      <header>
+        <h5>Story Timeline</h5>
+      </header>
+      <ul>
+      {% for story in issue.stream_of.stories.all %}
+        <li><a href="{{ story.url }}">{{ story.headline }}</a></li>
+      {% endfor %}
+      </ul>
+    </div>
   </div>
-
-
-  <div class="related-content">
-    <header>
-      <h5>Story Timeline</h5>
-    </header>
-    <ul>
-    {% for story in issue.stream_of.stories.all %}
-      <li><a href="{{ story.url }}">{{ story.headline }}</a></li>
-    {% endfor %}
-    </ul>
+  <div class="share-box">
+    <h5>Share this issue:
+      <i class="fa fa-envelope"></i>
+      <i class="fa fa-twitter"></i>
+      <i class="fa fa-facebook"></i>
+    </h5>
   </div>
 </div>
-<hr />
 
 {% endfor %}
 
