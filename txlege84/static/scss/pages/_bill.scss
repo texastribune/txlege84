@@ -67,6 +67,7 @@
 
 .bill-stage {
   @include span-columns(12);
+  margin-bottom: 1.5em;
 
   &.complete {
 
