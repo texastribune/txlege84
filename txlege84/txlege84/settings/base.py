@@ -4,6 +4,25 @@
 
 import os
 
+from django.core.exceptions import ImproperlyConfigured
+
+###########
+# HELPERS #
+###########
+
+
+def get_env_setting(setting, default=None):
+    """ Get the environment setting or return exception """
+    try:
+        return os.environ[setting]
+    except KeyError:
+        if default is not None:
+            return default
+        else:
+            error_msg = ('The {} env variable was not found '
+                         'and no default was set!').format(setting)
+            raise ImproperlyConfigured(error_msg)
+
 
 ######################
 # PATH CONFIGURATION #
@@ -199,12 +218,18 @@ INSTALLED_APPS += (
     'social.apps.django_app.default',
 )
 
-SOCIAL_AUTH_TEXASTRIBUNE_KEY = os.environ['SOCIAL_AUTH_TEXASTRIBUNE_KEY']
-SOCIAL_AUTH_TEXASTRIBUNE_SECRET = os.environ['SOCIAL_AUTH_TEXASTRIBUNE_SECRET']
+SOCIAL_AUTH_TEXASTRIBUNE_KEY = get_env_setting(
+    'SOCIAL_AUTH_TEXASTRIBUNE_KEY', '')
+SOCIAL_AUTH_TEXASTRIBUNE_SECRET = get_env_setting(
+    'SOCIAL_AUTH_TEXASTRIBUNE_SECRET', '')
 
 AUTHENTICATION_BACKENDS = (
     'txlege84.libs.trib_authn.backend.TribOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
+
+SOCIAL_AUTH_TEXASTRIBUNE_AUTH_EXTRA_ARGUMENTS = {
+    'approval_prompt': 'auto',
+}
 
 LOGIN_REDIRECT_URL = 'landing-view'
