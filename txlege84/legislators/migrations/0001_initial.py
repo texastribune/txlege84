@@ -15,6 +15,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=12)),
+                ('slug', models.SlugField()),
             ],
             options={
             },
@@ -30,6 +31,11 @@ class Migration(migrations.Migration):
                 ('district', models.IntegerField(null=True, blank=True)),
                 ('profile_url', models.URLField(null=True, blank=True)),
                 ('active', models.BooleanField(default=False)),
+                ('slug', models.SlugField()),
+                ('capitol_address', models.TextField(null=True, blank=True)),
+                ('capitol_phone', models.CharField(max_length=12, null=True, blank=True)),
+                ('district_address', models.TextField(null=True, blank=True)),
+                ('district_phone', models.CharField(max_length=12, null=True, blank=True)),
                 ('openstates_id', models.CharField(unique=True, max_length=9)),
                 ('chamber', models.ForeignKey(related_name='legislators', blank=True, to='legislators.Chamber', null=True)),
             ],

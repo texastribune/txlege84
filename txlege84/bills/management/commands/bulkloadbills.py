@@ -120,6 +120,17 @@ class Command(BaseCommand):
     def load_bill(self, data):
         self.stdout.write(u'Loading {}...'.format(data['bill_id']))
 
+        first_action_date = (data['action_dates']['first'].split(' ')[0]
+                             if data['action_dates']['first'] else None)
+        last_action_date = (data['action_dates']['last'].split(' ')[0]
+                            if data['action_dates']['last'] else None)
+        passed_house = (data['action_dates']['passed_lower'].split(' ')[0]
+                        if data['action_dates']['passed_lower'] else None)
+        passed_senate = (data['action_dates']['passed_upper'].split(' ')[0]
+                         if data['action_dates']['passed_upper'] else None)
+        became_law = (data['action_dates']['signed'].split(' ')[0]
+                      if data['action_dates']['signed'] else None)
+
         # Creates the bill
         bill, created = Bill.objects.update_or_create(
             name=data['bill_id'],
@@ -129,6 +140,11 @@ class Command(BaseCommand):
                 'bill_type': data['type'][0].lower(),
                 'chamber': (self.senate_chamber if data['chamber'] == 'upper'
                             else self.house_chamber),
+                'first_action_date': first_action_date,
+                'last_action_date': last_action_date,
+                'passed_house': passed_house,
+                'passed_senate': passed_senate,
+                'became_law': became_law,
             }
         )
 
