@@ -17,6 +17,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=60)),
                 ('openstates_id', models.CharField(unique=True, max_length=9)),
+                ('slug', models.SlugField(null=True, blank=True)),
                 ('chamber', models.ForeignKey(related_name='committees', to='legislators.Chamber')),
             ],
             options={

@@ -22,6 +22,7 @@ class Migration(migrations.Migration):
                 ('acting_chamber', models.ForeignKey(related_name='actions', to='legislators.Chamber')),
             ],
             options={
+                'ordering': ['date', 'pk'],
             },
             bases=(models.Model,),
         ),
@@ -33,6 +34,12 @@ class Migration(migrations.Migration):
                 ('description', models.TextField()),
                 ('openstates_id', models.CharField(unique=True, max_length=11)),
                 ('bill_type', models.CharField(max_length=21)),
+                ('slug', models.SlugField()),
+                ('first_action_date', models.DateField(null=True, blank=True)),
+                ('last_action_date', models.DateField(null=True, blank=True)),
+                ('passed_senate', models.DateField(null=True, blank=True)),
+                ('passed_house', models.DateField(null=True, blank=True)),
+                ('became_law', models.DateField(null=True, blank=True)),
                 ('chamber', models.ForeignKey(related_name='bills', to='legislators.Chamber')),
             ],
             options={
@@ -56,6 +63,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=50)),
+                ('slug', models.SlugField()),
             ],
             options={
             },

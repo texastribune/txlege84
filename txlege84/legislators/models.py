@@ -20,7 +20,7 @@ class Party(models.Model):
 
 class Chamber(models.Model):
     name = models.CharField(max_length=12)
-    slug = models.SlugField(null=True, blank=True)
+    slug = models.SlugField()
 
     def __unicode__(self):
         return self.name
@@ -43,7 +43,7 @@ class Legislator(models.Model):
     district = models.IntegerField(null=True, blank=True)
     profile_url = models.URLField(null=True, blank=True)
     active = models.BooleanField(default=False)
-    slug = models.SlugField(null=True, blank=True)
+    slug = models.SlugField()
 
     capitol_address = models.TextField(null=True, blank=True)
     capitol_phone = models.CharField(max_length=12, null=True, blank=True)

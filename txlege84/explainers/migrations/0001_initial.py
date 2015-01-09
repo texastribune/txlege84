@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
             name='Explainer',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('title', models.CharField(max_length=200)),
+                ('name', models.CharField(max_length=200)),
                 ('youtube_id', models.CharField(max_length=11)),
                 ('text', models.TextField()),
                 ('order', models.PositiveIntegerField(default=0)),

@@ -15,7 +15,7 @@ PUBLICATION_CHOICES = (
 class Topic(models.Model):
     name = models.CharField(max_length=20, unique=True)
     curators = models.ManyToManyField(settings.AUTH_USER_MODEL)
-    slug = models.SlugField(null=True, blank=True)
+    slug = models.SlugField()
 
     def __unicode__(self):
         return self.name
@@ -31,20 +31,30 @@ class Topic(models.Model):
         return reverse('topic-detail', args=(self.slug,))
 
 
+class IssueText(models.Model):
+    issue = models.ForeignKey('Issue', related_name='texts')
+    text = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True)
+    modified_date = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ('created_date',)
+
+
 class Issue(models.Model):
     name = models.CharField(max_length=200)
     topic = models.ForeignKey(Topic, related_name='issues')
-    active_text = models.OneToOneField('IssueText', null=True, blank=True)
-    slug = models.SlugField(null=True, blank=True)
+    slug = models.SlugField()
     image = models.URLField(null=True, blank=True)
-
+    active_text = models.ForeignKey(IssueText, related_name='issues')
     order = models.PositiveIntegerField(default=0)
     status = models.CharField(
         max_length=1, choices=PUBLICATION_CHOICES, default=u'D')
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
 
-    related_bills = models.ManyToManyField(Bill, related_name='issues')
+    related_bills = models.ManyToManyField(
+        Bill, related_name='issues', null=True, blank=True)
 
     class Meta:
         ordering = ('order',)
@@ -68,34 +78,12 @@ class Issue(models.Model):
             self._meta.app_label, self._meta.module_name), args=(self.id,))
 
 
-class IssueText(models.Model):
-    associated_issue = models.ForeignKey(Issue, related_name='texts')
-    text = models.TextField()
-    created_date = models.DateTimeField(auto_now_add=True)
-    modified_date = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        ordering = ('created_date',)
-
-
-class Stream(models.Model):
-    issue = models.OneToOneField(Issue, related_name='stream_of')
-
-    def __unicode__(self):
-        return 'Story stream for {}'.format(self.issue.name)
-
-    def get_admin_url(self):
-        from django.core.urlresolvers import reverse
-        return reverse('admin:{0}_{1}_change'.format(
-            self._meta.app_label, self._meta.module_name), args=(self.id,))
-
-
 class StoryPointer(models.Model):
     headline = models.CharField(max_length=200)
     url = models.URLField()
-    order = models.PositiveIntegerField(default=1)
-
-    stream = models.ForeignKey(Stream, related_name='stories')
+    pub_date = models.DateField()
+    order = models.PositiveIntegerField(default=0)
+    issue = models.ForeignKey(Issue, related_name='stories')
 
     class Meta:
         ordering = ('order',)

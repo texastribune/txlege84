@@ -7,9 +7,10 @@ from django.utils.safestring import mark_safe
 from adminsortable.admin import SortableAdminMixin, SortableInlineAdminMixin
 
 from topics.models import (
-    Issue, IssueText, StoryPointer, Stream, Topic, TopIssue)
+    Issue, IssueText, StoryPointer, Topic, TopIssue)
 
 
+@admin.register(IssueText)
 class IssueTextAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {
@@ -23,8 +24,16 @@ class IssueTextAdmin(admin.ModelAdmin):
         js = ('ckeditor/ckeditor.js', )
 
 
+class StoryPointerInline(SortableInlineAdminMixin, admin.TabularInline):
+    model = StoryPointer
+
+    extra = 0
+
+
 class IssueTextInline(admin.TabularInline):
     model = IssueText
+
+    fields = ('text', 'issue',)
 
     formfield_overrides = {
         models.TextField: {
@@ -33,6 +42,8 @@ class IssueTextInline(admin.TabularInline):
             })
         }
     }
+
+    readonly_fields = ('issue',)
 
     class Media:
         js = ('ckeditor/ckeditor.js', )
@@ -48,19 +59,18 @@ class IssueAdmin(admin.ModelAdmin):
 
     fieldsets = (
         ('Meta', {
-            'fields': ('name', 'slug', 'topic', 'status',)
+            'fields': ('name', 'slug', 'topic', 'status', 'active_text',)
         }),
         ('Bills', {
             'fields': ('related_bills',)
         }),
-        ('Story Stream', {
-            'fields': ('story_stream',)
-        })
     )
+
+    raw_id_fields = ('active_text',)
 
     filter_horizontal = ('related_bills',)
 
-    inlines = (IssueTextInline,)
+    inlines = (StoryPointerInline,)
 
     list_display = ('name', 'topic', 'status', 'modified_date',)
 
@@ -72,16 +82,9 @@ class IssueAdmin(admin.ModelAdmin):
         'status': admin.HORIZONTAL,
     }
 
-    readonly_fields = ('story_stream',)
-
     save_on_top = True
 
     search_fields = ('name',)
-
-    def story_stream(self, model):
-        return mark_safe(
-            '<a href="{}" target="_blank">Edit story stream</a>'.format(
-                model.stream_of.get_admin_url()))
 
 
 class IssueInline(SortableInlineAdminMixin, admin.TabularInline):
@@ -116,7 +119,6 @@ class TopicAdmin(admin.ModelAdmin):
             'fields': ('name', 'slug',)
         }),
         ('Curators', {
-            'classes': ('collapse',),
             'fields': ('curators',)
         })
     )
@@ -147,10 +149,3 @@ class StoryPointerInline(SortableInlineAdminMixin, admin.TabularInline):
     fields = ('headline', 'url', 'order',)
 
     extra = 0
-
-
-@admin.register(Stream)
-class StreamAdmin(admin.ModelAdmin):
-    inlines = (StoryPointerInline,)
-
-    readonly_fields = ('issue',)
