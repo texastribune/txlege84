@@ -22,10 +22,9 @@ docker/prod: docker/build
 		--publish=80:8000 \
 		--env-file=env ${IMAGE}
 
-docker/util:
+docker/util: docker/build
 	cd util; make; cd ..
 	docker run --env-file=env \
-		--name=${APP}-util \
 		-it --rm ${APP}-util bash
 
 ### for development only from here on:
