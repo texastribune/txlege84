@@ -1,9 +1,6 @@
 PROJECT := texastribune
 APP := txlege84
-
 IMAGE=${PROJECT}/${APP}
-docker/build:
-	docker build --tag=${IMAGE} .
 
 prep_for_development:
 	python txlege84/manage.py downloadopenstatesdata
@@ -15,10 +12,12 @@ prep_for_development:
 	python txlege84/manage.py loadfakeissues
 	python txlege84/manage.py loadfakeexplainers
 
-PROJECT := texastribune
-APP := txlege84
-
-IMAGE=${PROJECT}/${APP}
+docker/prod: docker/build
+	docker stop ${APP} && docker rm ${APP}
+	docker run --name=${APP} \
+		--detach=true \
+		--publish=80:8000 \
+		--env-file=env ${IMAGE}
 
 docker/build:
 	docker build --tag=${IMAGE} .
