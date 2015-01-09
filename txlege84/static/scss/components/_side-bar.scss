@@ -68,16 +68,44 @@
 }
 
 .resources {
-  // background-color: $light-blue;
+
+  .sidebar-header-resources header,
+  .sidebar-header-bills {
+    border-bottom: 1px solid $line-gray;
+    margin-bottom: .8em;
+  }
+
+
+  .arrow-a,
+  .arrow-b {
+    // display: inline-block;
+    float: right;
+    margin-right: 2em;
+
+    @include media($medium) {
+      display: none;
+    }
+
+    @include media($large) {
+      display: none;
+    }
+
+    &.collapse {
+      display: none;
+
+      @include media($small) {
+        display: none;
+      }
+    }
+  }
 
   .resource-bk {
-    // background-color: transparentize($white, .4);
     padding: 1em 1.25em;
   }
 
   h3 {
     display: inline-block;
-    margin-bottom: 1em;
+    margin-bottom: .8em;
   }
 
   button {
@@ -89,6 +117,12 @@
     display: inline-block;
     font-size: 1.2em;
     margin-right: .5em;
+  }
+
+  i.fa-angle-right,
+  i.fa-angle-down {
+    // display: inline-block;
+    font-size: 1.4em;
   }
 
   input[type="text"] {

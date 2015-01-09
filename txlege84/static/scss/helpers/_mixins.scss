@@ -25,6 +25,10 @@
 @mixin collapse {
   display: none;
 
+  @include media($small) {
+    display: none;
+  }
+
   @include media($medium) {
     display: block;
   }
