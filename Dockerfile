@@ -31,4 +31,4 @@ ENV DJANGO_SETTINGS_MODULE txlege84.settings.production
 ENV SECRET_KEY quux
 RUN python txlege84/manage.py validate
 RUN python txlege84/manage.py collectstatic --noinput
-ADD txlege84/txlege84/wsgi.py /app/
+ADD gunicorn.supervisor.conf /etc/supervisor/conf.d/
