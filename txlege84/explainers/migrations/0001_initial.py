@@ -18,6 +18,7 @@ class Migration(migrations.Migration):
                 ('youtube_id', models.CharField(max_length=11)),
                 ('text', models.TextField()),
                 ('order', models.PositiveIntegerField(default=0)),
+                ('slug', models.SlugField()),
                 ('created_date', models.DateTimeField(auto_now_add=True)),
                 ('modified_date', models.DateTimeField(auto_now=True)),
             ],

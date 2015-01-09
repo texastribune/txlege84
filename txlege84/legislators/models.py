@@ -27,7 +27,7 @@ class Chamber(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.slug = slugify(self.name)
+            self.slug = slugify(self.name)[:50]
 
         super(Chamber, self).save(*args, **kwargs)
 
@@ -58,7 +58,7 @@ class Legislator(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.slug = slugify(self.full_name)
+            self.slug = slugify(self.full_name)[:50]
 
         super(Legislator, self).save(*args, **kwargs)
 

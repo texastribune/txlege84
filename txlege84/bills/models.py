@@ -14,7 +14,7 @@ class Subject(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.slug = slugify(self.name)
+            self.slug = slugify(self.name)[:50]
 
         super(Subject, self).save(*args, **kwargs)
 

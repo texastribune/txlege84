@@ -22,7 +22,7 @@ class Topic(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.slug = slugify(self.name)
+            self.slug = slugify(self.name)[:50]
 
         super(Topic, self).save(*args, **kwargs)
 
@@ -64,7 +64,7 @@ class Issue(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.slug = slugify(self.name)
+            self.slug = slugify(self.name)[:50]
 
         super(Issue, self).save(*args, **kwargs)
 
