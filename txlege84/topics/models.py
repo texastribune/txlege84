@@ -31,6 +31,9 @@ class Topic(models.Model):
         from django.core.urlresolvers import reverse
         return reverse('topic-detail', args=(self.slug,))
 
+    class Meta:
+        verbose_name = u'hot list'
+
 
 class IssueText(models.Model):
     issue = models.ForeignKey(
