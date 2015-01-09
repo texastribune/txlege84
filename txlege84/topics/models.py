@@ -40,7 +40,7 @@ class IssueText(models.Model):
     modified_date = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ('created_date',)
+        ordering = ('-created_date',)
 
     def __unicode__(self):
         return u'Text for {}'.format(self.issue)
