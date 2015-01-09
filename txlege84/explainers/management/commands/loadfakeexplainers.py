@@ -17,19 +17,19 @@ class Command(BaseCommand):
         self.stdout.write(u'Loading fake explainers...')
 
         fakes = [{
-            'title': 'What Really Happens During the 5 Months of Session',
+            'title': u'What Really Happens During the 5 Months of Session',
             'youtube_id': 'UJlA6_Ij4Pw',
             'text': FAKE.paragraph(),
             }, {
-            'title': 'What is a Point of Order?',
+            'title': u'What is a Point of Order?',
             'youtube_id': 'UJlA6_Ij4Pw',
             'text': FAKE.paragraph(),
             }, {
-            'title': 'What Does the Lieutenant Governor do?',
+            'title': u'What Does the Lieutenant Governor do?',
             'youtube_id': 'UJlA6_Ij4Pw',
             'text': FAKE.paragraph(),
             }, {
-            'title': 'What is a Second Reading?',
+            'title': u'What is a Second Reading?',
             'youtube_id': 'UJlA6_Ij4Pw',
             'text': FAKE.paragraph(),
             },
@@ -40,7 +40,7 @@ class Command(BaseCommand):
 
     def create_explainer(self, data, order):
         explainer, _ = Explainer.objects.get_or_create(
-            title=data['title'],
+            name=data['title'],
             youtube_id=data['youtube_id'],
             text=data['text'],
             order=order,

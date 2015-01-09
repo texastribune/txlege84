@@ -5,7 +5,7 @@ from django.core.management.base import BaseCommand
 
 from bills.models import Bill
 from topics.models import (Issue, IssueText,
-                           StoryPointer, Stream, Topic, TopIssue)
+                           StoryPointer, Topic, TopIssue)
 
 FAKE = Factory.create()
 
@@ -89,20 +89,20 @@ class Command(BaseCommand):
 
         num_of_issues = topic.issues.count()
 
+        issue_text, _ = IssueText.objects.get_or_create(
+            text=issue_text,
+        )
+
         issue, _ = Issue.objects.get_or_create(
             name=issue_name,
             topic=topic,
             order=num_of_issues + 1,
             status='P',
+            active_text=issue_text
         )
 
-        issue_text, _ = IssueText.objects.get_or_create(
-            associated_issue=issue,
-            text=issue_text,
-        )
-
-        issue.active_text = issue_text
-        issue.save()
+        issue_text.issue = issue
+        issue_text.save()
 
         for _ in xrange(FAKE.random_int(0, 3)):
             random_bill = Bill.objects.filter(
@@ -121,15 +121,13 @@ class Command(BaseCommand):
         self.create_stream(issue)
 
     def create_stream(self, issue):
-        stream, _ = Stream.objects.get_or_create(
-            issue=issue)
-
         for n in xrange(FAKE.random_int(0, 10)):
             pointer, _ = StoryPointer.objects.get_or_create(
                 headline=FAKE.sentence(nb_words=8)[:-1],
-                stream=stream,
+                issue=issue,
                 url=FAKE.uri(),
                 order=n,
+                pub_date=FAKE.date(),
             )
 
     def create_top_issues(self):

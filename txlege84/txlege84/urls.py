@@ -30,11 +30,14 @@ urlpatterns = patterns(
         CommitteeDetail.as_view(), name='committee-detail'),
     url(r'^texplainers/$',
         ExplainerListDetail.as_view(), name='explainer-list-detail'),
+    url(r'^legestream/$',
+        TemplateView.as_view(template_name='pages/legestream.html')),
 
     # Examples:
     # url(r'^$', 'txlege84.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    url(r'', include('social.apps.django_app.urls', namespace='social')),
     url(r'^admin/', include(admin.site.urls)),
 
     # FOR DEVELOPMENT:
