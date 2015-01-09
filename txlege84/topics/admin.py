@@ -21,7 +21,7 @@ class IssueTextAdmin(admin.ModelAdmin):
     }
 
     class Media:
-        js = ('ckeditor/ckeditor.js', )
+        js = ('ckeditor/ckeditor.js',)
 
 
 class StoryPointerInline(SortableInlineAdminMixin, admin.TabularInline):
@@ -46,7 +46,7 @@ class IssueTextInline(admin.TabularInline):
     readonly_fields = ('issue',)
 
     class Media:
-        js = ('ckeditor/ckeditor.js', )
+        js = ('ckeditor/ckeditor.js',)
 
     extra = 0
 
