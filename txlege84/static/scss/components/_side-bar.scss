@@ -1,5 +1,5 @@
 .side-bar {
-  background-color: transparentize($white, .3);
+  // background-color: transparentize($white, .3);
 }
 
 .main-header {
@@ -100,6 +100,7 @@
   }
 
   .resource-bk {
+    background-color: transparentize($white, .4);
     padding: 1em 1.25em;
   }
 

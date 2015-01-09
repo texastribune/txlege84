@@ -4,7 +4,22 @@
 }
 
 .banner-ad {
-  margin: 1em auto;
+  @extend %content-block;
+  width: 100%;
+
+  div {
+    border: 1px solid $line-gray;
+  }
+
+  &.top {
+    margin: 0 auto 1em;
+  }
+
+  &.bottom {
+    margin: 1em auto;
+  }
+
+
 }
 
 .box-ad {
