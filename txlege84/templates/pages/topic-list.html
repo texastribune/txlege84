@@ -36,7 +36,7 @@
         <h5>Story Timeline</h5>
       </header>
       <ul>
-      {% for story in issue.stream_of.stories.all %}
+      {% for story in issue.stories.all %}
         <li><a href="{{ story.url }}">{{ story.headline }}</a></li>
       {% endfor %}
       </ul>

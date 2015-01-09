@@ -1,6 +1,7 @@
 Django>=1.7
 
 clint==0.4.1
+django-admin-sortable2==0.3.2
 dj-database-url==0.3.0
 python-social-auth==0.2.1
 requests==2.4.3
