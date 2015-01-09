@@ -7,14 +7,14 @@ from legislators.models import Chamber, Legislator
 
 class Subject(models.Model):
     name = models.CharField(max_length=50)
-    slug = models.SlugField(null=True, blank=True)
+    slug = models.SlugField()
 
     def __unicode__(self):
         return self.name
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.slug = slugify(self.name)
+            self.slug = slugify(self.name)[:50]
 
         super(Subject, self).save(*args, **kwargs)
 
@@ -27,7 +27,7 @@ class Bill(models.Model):
     subjects = models.ManyToManyField(Subject, related_name='bills')
     openstates_id = models.CharField(max_length=11, unique=True)
     bill_type = models.CharField(max_length=21)
-    slug = models.SlugField(null=True, blank=True)
+    slug = models.SlugField()
 
     first_action_date = models.DateField(null=True, blank=True)
     last_action_date = models.DateField(null=True, blank=True)

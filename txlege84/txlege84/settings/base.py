@@ -75,6 +75,9 @@ INSTALLED_APPS = (
     'explainers',
     'legislators',
     'topics',
+
+    # helpers
+    'adminsortable',
 )
 
 
