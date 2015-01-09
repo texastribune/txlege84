@@ -69,9 +69,18 @@
 
 .resources {
 
+  .sidebar-header-resources header,
+  .sidebar-header-bills {
+    border-bottom: 1px solid $line-gray;
+    margin-bottom: .8em;
+  }
+
+
   .arrow-a,
   .arrow-b {
-    display: inline-block;
+    // display: inline-block;
+    float: right;
+    margin-right: 2em;
 
     @include media($medium) {
       display: none;
@@ -96,7 +105,7 @@
 
   h3 {
     display: inline-block;
-    margin-bottom: 1em;
+    margin-bottom: .8em;
   }
 
   button {
@@ -112,9 +121,8 @@
 
   i.fa-angle-right,
   i.fa-angle-down {
-    display: inline-block;
-    font-size: 1.3em;
-    margin-left: 1em;
+    // display: inline-block;
+    font-size: 1.4em;
   }
 
   input[type="text"] {
