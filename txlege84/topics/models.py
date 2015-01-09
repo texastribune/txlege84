@@ -42,6 +42,9 @@ class IssueText(models.Model):
     class Meta:
         ordering = ('created_date',)
 
+    def __unicode__(self):
+        return u'Text for {}'.format(self.issue)
+
 
 class Issue(models.Model):
     name = models.CharField(max_length=200)
