@@ -12,6 +12,9 @@ prep_for_development:
 	python txlege84/manage.py loadfakeissues
 	python txlege84/manage.py loadfakeexplainers
 
+docker/build:
+	docker build --tag=${IMAGE} .
+
 docker/prod: docker/build
 	docker stop ${APP} && docker rm ${APP}
 	docker run --name=${APP} \
@@ -19,8 +22,13 @@ docker/prod: docker/build
 		--publish=80:8000 \
 		--env-file=env ${IMAGE}
 
-docker/build:
-	docker build --tag=${IMAGE} .
+docker/util:
+	cd util; make; cd ..
+	docker run --env-file=env \
+		--name=${APP}-util \
+		-it --rm ${APP}-util bash
+
+### for development only from here on:
 
 docker/db:
 	docker start ${APP}-dev-db || docker run --detach \

@@ -3,7 +3,7 @@ MAINTAINER tech@texastribune.org
 
 #
 # Build via:
-#   docker build -t texastribune-util .
+#   docker build -t txlege84-util .
 
 RUN pip install postdoc
 RUN apt-get update
