@@ -13,8 +13,9 @@ PUBLICATION_CHOICES = (
 
 
 class Topic(models.Model):
-    name = models.CharField(max_length=20, unique=True)
-    curators = models.ManyToManyField(settings.AUTH_USER_MODEL)
+    name = models.CharField(max_length=40, unique=True)
+    curators = models.ManyToManyField(
+        settings.AUTH_USER_MODEL, null=True, blank=True)
     slug = models.SlugField()
 
     def __unicode__(self):
@@ -32,7 +33,8 @@ class Topic(models.Model):
 
 
 class IssueText(models.Model):
-    issue = models.ForeignKey('Issue', related_name='texts')
+    issue = models.ForeignKey(
+        'Issue', null=True, blank=True, related_name='texts')
     text = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
