@@ -20,6 +20,8 @@ class IssueTextAdmin(admin.ModelAdmin):
         }
     }
 
+    list_display = ('issue', 'created_date', 'modified_date',)
+
     class Media:
         js = ('ckeditor/ckeditor.js',)
 
