@@ -4,8 +4,19 @@ $bp-footer: $default-768;
 
 // Grid
 .footer-container {
-  @extend %container;
   @include div-grid(12, 4);
+}
+
+.footer-background {
+  position: relative;
+
+  div {
+    background-color: $masthead-black;
+    position: absolute;
+    bottom: 0;
+    height: 20em;
+    width: 100%;
+  }
 }
 
 // Styles
@@ -19,15 +30,24 @@ $bp-footer: $default-768;
   }
 
   .logo {
-    margin-top: 1em;
+    margin-top: 2em;
     width: 120px;
   }
 
   .footer-container {
-    margin: auto;
     text-align: center;
 
+    p {
+      color: $white;
+      text-align: center;
+
+      @include media($bp-footer) {
+        text-align: left;
+      }
+    }
+
     div {
+      @extend %content-block;
       @include media($bp-footer) {
         text-align: left;
       }
@@ -35,8 +55,12 @@ $bp-footer: $default-768;
 
     ul {
       list-style: none;
-      margin-top: 2em;
+      margin: 2em;
       padding: 0;
+
+      @include media($bp-footer) {
+        margin: 2em 0 0;
+      }
     }
 
     li {
@@ -86,16 +110,20 @@ $bp-footer: $default-768;
     background: $teal;
     color: $white;
     font-family: Helvetica;
-    padding: .25em 0;
+    padding: .25em 0 2em;
 
     ul {
       font-size: 1.65em;
       letter-spacing: .03em;
       line-height: .9em;
-      margin: 1.5em 1.5em .75em;
+      padding-bottom: 2em;
+      margin-top: 1em;
     }
 
     li {
+      color: $white;
+      margin: 0 0 .5em;
+
       &:last-child {
         background-color: $tribune-yellow;
         border-radius: 3px;
