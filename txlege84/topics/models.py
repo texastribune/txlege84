@@ -48,7 +48,8 @@ class Issue(models.Model):
     topic = models.ForeignKey(Topic, related_name='issues')
     slug = models.SlugField()
     image = models.URLField(null=True, blank=True)
-    active_text = models.ForeignKey(IssueText, related_name='issues')
+    active_text = models.ForeignKey(
+        IssueText, related_name='issues', null=True, blank=True)
     order = models.PositiveIntegerField(default=0)
     status = models.CharField(
         max_length=1, choices=PUBLICATION_CHOICES, default=u'D')
