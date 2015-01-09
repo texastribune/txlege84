@@ -17,9 +17,6 @@
 
   &.bottom {
     margin: 1em auto;
-    @include media($large) {
-      width: 65%;
-    }
   }
 
 
