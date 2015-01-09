@@ -1,6 +1,8 @@
-.main-header {
-  // background-color: $href-offwhite;
+.side-bar {
+  background-color: transparentize($white, .3);
+}
 
+.main-header {
   h1 {
     margin: 1.75em 0 .5em;
 
@@ -34,6 +36,7 @@
   .trib-logo {
     margin: 1em 0;
     width: 55%;
+    max-width: 11em;
 
     @include media($medium) {
       margin: 3em 0;
@@ -50,6 +53,7 @@
     height: .55em;
     margin-bottom: 1em;
     width: 55%;
+    max-width: 11em;
   }
 }
 
@@ -67,7 +71,7 @@
   // background-color: $light-blue;
 
   .resource-bk {
-    background-color: transparentize($white, .4);
+    // background-color: transparentize($white, .4);
     padding: 1em 1.25em;
   }
 

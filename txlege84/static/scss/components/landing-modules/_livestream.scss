@@ -1,15 +1,27 @@
+$ls-small: new-breakpoint(min-width 695px max-width 799px);
+
 .livestream {
   @include clearfix;
 
   .watch {
-    @include div-grid(12, 2);
 
-    span {
-      font-style: italic;
+    @include media($ls-small) {
+      div {
+        @include span-columns(6);
+        @include omega(2n);
+      }
     }
 
-    img {
-      width: 100%;
+    @include media($large) {
+      div {
+        @include span-columns(6);
+        @include omega(2n);
+      }
+    }
+
+    iframe {
+      height: 230px;
+      width: 320px;
     }
   }
 

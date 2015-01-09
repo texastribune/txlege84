@@ -10,6 +10,7 @@
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="">
 
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -17,6 +18,10 @@
     <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
 
     <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <link rel="apple-touch-icon" href="">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="">
     <meta name="msapplication-TileColor" content="#FFCC20">
 
     <!-- Facebook Open Graph -->
@@ -24,6 +29,7 @@
     <meta property="og:title" content="{% block facebook_title %}{% endblock %}Session App | The Texas Tribune">
     <meta property="og:description" content="">
     <meta property="og:url" content="">
+    <meta property="og:image" content="">
     <meta property="og:type" content="website">
 
     <!-- Vendor styles -->
@@ -46,9 +52,9 @@
             <header>
               <a href="http://www.texastribune.org/">
               </a>
-              <h1><a href="{% url 'landing-view' %}">On the Lege</a></h1>
+              <h1><a href="{% url 'landing-view' %}">84th Lege</a></h1>
               <div class="title-underline"><span></span></div>
-              <p>Your go-to source for the 84th Texas legislative session</p>
+              <p>Your go-to source for the 2015 Texas legislative session</p>
             </header>
           </div>
           <div class="page-header desktop-hide">
@@ -68,8 +74,9 @@
         {% block content %}{% endblock %}
       </section>
 
+    {% include "includes/banner_ad2.html" %}
     </div>
-{% include "includes/banner_ad.html" %}
+
 <footer class="footer">
   <div class="footer-container">
     <div>
