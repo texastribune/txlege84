@@ -31,6 +31,9 @@ class Topic(models.Model):
         from django.core.urlresolvers import reverse
         return reverse('topic-detail', args=(self.slug,))
 
+    class Meta:
+        verbose_name = u'hot list'
+
 
 class IssueText(models.Model):
     issue = models.ForeignKey(
@@ -40,7 +43,10 @@ class IssueText(models.Model):
     modified_date = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ('created_date',)
+        ordering = ('-created_date',)
+
+    def __unicode__(self):
+        return u'Text for {}'.format(self.issue)
 
 
 class Issue(models.Model):
@@ -48,7 +54,8 @@ class Issue(models.Model):
     topic = models.ForeignKey(Topic, related_name='issues')
     slug = models.SlugField()
     image = models.URLField(null=True, blank=True)
-    active_text = models.ForeignKey(IssueText, related_name='issues')
+    active_text = models.ForeignKey(
+        IssueText, related_name='issues', null=True, blank=True)
     order = models.PositiveIntegerField(default=0)
     status = models.CharField(
         max_length=1, choices=PUBLICATION_CHOICES, default=u'D')

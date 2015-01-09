@@ -8,7 +8,7 @@
   {% include "components/page-headers/bill-page-header.html" %}
 {% endblock %}
 
-
+{% load staticfiles %}
 {% block content %}
   <div class="bill">
     <div class="bill-section">
@@ -23,13 +23,11 @@
         <header>
           <h3>Author</h3>
         </header>
-        <ul>
         {% for n in object.sponsorships.all %}
           {% if n.role = 'author' %}
-            <li>Rep. <a href="{% url 'legislator-detail' n.legislator.slug %}">{{ n.legislator }}</a></li>
+            <p>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{% url 'legislator-detail' n.legislator.slug %}">{{ n.legislator }}</a></p>
           {% endif %}
         {% endfor %}
-        </ul>
       </div>
       {% if 'coauthor' in object.sponsorships.all.role %}
       <div>
@@ -39,7 +37,7 @@
         <ul>
           {% for o in object.sponsorships.all %}
             {% if o.role = 'coauthor' %}
-            <li>Rep. <a href="{% url 'legislator-detail' o.legislator.slug %}">{{ o }}</a></li>
+            <li>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{% url 'legislator-detail' o.legislator.slug %}">{{ o }}</a></li>
             {% endif %}
           {% endfor %}
         </ul>
@@ -50,13 +48,11 @@
         <header>
           <h3>Sponsor</h3>
         </header>
-        <ul>
         {% for p in object.sponsorships.all %}
           {% if p.role = 'sponsor' %}
-            <li>Rep. <a href="{% url 'legislator-detail' p.legislator.slug %}">{{ p.legislator }}</a></li>
+            <p>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{% url 'legislator-detail' p.legislator.slug %}">{{ p.legislator }}</a></p>
           {% endif %}
         {% endfor %}
-        </ul>
       </div>
       {% endif %}
       <div>&nbsp;</div>
@@ -89,54 +85,72 @@
       </header>
       <p><a href="">New taxes to support Texas Lotto</a></p>
     </div>
+
     <div class="stages bill-section">
       <header>
         <h3>Bill Stages</h3>
       </header>
-      <div class="bill-stage{% if 'Filed' in object.actions.first.text %} done {% endif %} ">
+      <div class="bill-stage {% if object.first_action_date != None %} complete {% endif %} ">
         <div class="bill-stage-name">Filed</div>
+        <span class="fa-stack">
+          <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
+          <i class="fa fa-check-circle fa-stack-1x"></i>
+        </span>
+        <i class="fa fa-arrow-right"></i>
+        <i class="fa fa-arrow-down"></i>
         <div class="date-stage-complete">{{ object.actions.first.date }}</div>
       </div>
-      <i class="fa fa-angle-right arrow-right"></i>
-      <i class="fa fa-angle-down arrow-down"></i>
-      <div class="bill-stage">
+
+      {% if object.chamber == 'Texas House' %}
+      <div class="bill-stage {% if object.passed_house != None %} complete {% endif %}">
         <div class="bill-stage-name">
-          {% if object.chamber == 'Texas House' %}
-            Approved by House
-          {% else %}
-            Approved by Senate
-          {% endif %}
-        </div>
-        <div class="date-stage-complete"></div>
-      </div>
-      <i class="fa fa-angle-right arrow-right"></i>
-      <i class="fa fa-angle-down arrow-down"></i>
-      <div class="bill-stage">
-        <div class="bill-stage-name">
-        {% if object.chamber == 'Texas House' %}
-          Approved by Senate
-        {% else %}
           Approved by House
-        {% endif %}
         </div>
-        <div class="date-stage-complete"></div>
+        <div class="date-stage-complete">{{ object.passed_house }}</div>
       </div>
-      <i class="fa fa-angle-right arrow-right"></i>
-      <i class="fa fa-angle-down arrow-down"></i>
-      <div class="bill-stage">
-        <div class="bill-stage-name">Governor Action</div>
-        <div class="date-stage-complete"></div>
-      </div>
-      {% if 'Effective' in object.actions.text %}
-      <div class="bill-stage done">
       {% else %}
+      <div class="bill-stage {% if object.passed_senate != None %} complete {% endif %}">
+        <div class="bill-stage-name">
+          Approved by Senate
+        </div>
+        <span class="fa-stack">
+          <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
+          <i class="fa fa-check-circle fa-stack-1x"></i>
+        </span>
+        <i class="fa fa-arrow-right"></i>
+        <i class="fa fa-arrow-down"></i>
+        <div class="date-stage-complete">{{ object.passed_senate }}</div>
       </div>
-<!--       <div class="bill-stage">
-        <div class="bill-stage-name">Bill Becomes Law</div>
-        <div class="date-stage-complete"></div>
-      </div> -->
       {% endif %}
+
+      {% if object.chamber == 'Texas Senate' %}
+      <div class="bill-stage {% if object.passed_house != None %} complete {% endif %}">
+        <div class="bill-stage-name">
+          Approved by House
+        </div>
+        <div class="date-stage-complete">{{ object.passed_house }}</div>
+      </div>
+      {% else %}
+      <div class="bill-stage {% if object.passed_house != None %} complete {% endif %}">
+        <div class="bill-stage-name">
+          Approved by House
+        </div>
+        <span class="fa-stack">
+          <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
+          <i class="fa fa-check-circle fa-stack-1x"></i>
+        </span>
+        <i class="fa fa-arrow-right"></i>
+        <i class="fa fa-arrow-down"></i>
+        <div class="date-stage-complete">{{ object.passed_house }}</div>
+      </div>
+      {% endif %}
+
+      <div class="bill-stage{% if object.became_law != None %} complete {% endif %}">
+        <div class="bill-stage-name">Became law</div>
+        <div class="date-stage-complete">{{ object.became_law }}</div>
+      </div>
     </div>
+
     <div class="bill-table bill-section bill-actions">
       <h3>Actions</h3>
       <table>

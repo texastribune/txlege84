@@ -6,22 +6,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1;
   text-rendering: optimizelegibility;
-  background: url(https://s3.amazonaws.com/static.texastribune.org/media/test/on-the-lege-capitol-bg-test003-mobile.gif) no-repeat center center fixed;
+  background: url(https://s3.amazonaws.com/static.texastribune.org/media/test/on-the-lege-capitol-bg-test-B.gif) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 
   @include media($medium) {
-    background: url(https://s3.amazonaws.com/static.texastribune.org/media/test/on-the-lege-capitol-bg-test002b.gif) no-repeat center center fixed;
+    background: url(https://s3.amazonaws.com/static.texastribune.org/media/test/on-the-lege-capitol-bg-test-B.gif) no-repeat center center fixed;
+    background-size: cover;
   }
 
   @include media($large) {
-    background: url(https://s3.amazonaws.com/static.texastribune.org/media/test/on-the-lege-capitol-bg-test002b.gif) no-repeat center center fixed;
+    background: url(https://s3.amazonaws.com/static.texastribune.org/media/test/on-the-lege-capitol-bg-test-B.gif) no-repeat center center fixed;
+    background-size: cover;
   }
 }
 
 .body-main {
+  @include clearfix;
   background-color: $white;
 }
 
@@ -191,6 +194,10 @@ section {
 .desktop-hide {
   display: block;
 
+  @include media($small) {
+    display: block;
+  }
+
   @include media($medium) {
     display: none;
   }
@@ -204,13 +211,15 @@ section {
   @include clearfix;
   display: none;
 
+  @include media($small) {
+    display: none;
+  }
+
   @include media($medium) {
     display: block;
-    // margin-top: 2.5em;
   }
 
   @include media($large) {
     display: block;
-    // margin-top: 2.5em;
   }
 }
