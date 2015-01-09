@@ -5,13 +5,14 @@
     <h2><a href="">Hot Lists</a>: {{ topic.name }}</h2>
   </header>
   <header class="curated-by">
-    <div class="headshot">
-      <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/Campbell-Donna768updated_1_jpg_131x197_crop_q100.jpg">
-    </div>
-    <div class="headshot">
-      <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/Campbell-Donna768updated_1_jpg_131x197_crop_q100.jpg">
-    </div>
-    <h4 class="curated">Curated by XXX and XXX</h4>
+      {% with curators=topic.curators.all %}
+      {% for curator in curators %}
+      <div class="headshot">
+        <img src="{{ curator.staff.profile_photo }}">
+      </div>
+      {% endfor %}
+      <h4 class="curated">Curated by {% if curator|length > 2 %}{% for curator in curators %}{% if not forloop.first and not forloop.last %}, {% endif %}{% if forloop.last %} and {% endif %}{{ curator.first_name }} {{ curator.last_name }}{% endfor %}{% else %}{% for curator in curators %}{{ curator.first_name }} {{ curator.last_name }}{% if not forloop.last %}and {% endif %}{% endfor %}{% endif %}</h4>
+      {% endwith %}
   </header>
   <nav class="full-hot-list">
     <ul>
