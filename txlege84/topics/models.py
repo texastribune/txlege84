@@ -75,7 +75,7 @@ class IssueText(models.Model):
     modified_date = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ('modified_date',)
+        ordering = ('created_date',)
 
 
 class Stream(models.Model):
