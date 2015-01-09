@@ -191,6 +191,10 @@ section {
 .desktop-hide {
   display: block;
 
+  @include media($small) {
+    display: block;
+  }
+
   @include media($medium) {
     display: none;
   }
@@ -204,13 +208,15 @@ section {
   @include clearfix;
   display: none;
 
+  @include media($small) {
+    display: none;
+  }
+
   @include media($medium) {
     display: block;
-    // margin-top: 2.5em;
   }
 
   @include media($large) {
     display: block;
-    // margin-top: 2.5em;
   }
 }

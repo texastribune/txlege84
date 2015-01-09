@@ -8,13 +8,17 @@
   var $sidebarContentA = $('.sidebar-content-bills');
   var $sidebarContentB = $('.sidebar-content-resources');
   var $categoryDropdown = $('#category-dropdown');
+  var $arrowIconA = $('.arrow-a');
+  var $arrowIconB = $('.arrow-b');
 
   function toggleBillSearch() {
     $sidebarContentA.toggleClass('collapse');
+    $arrowIconA.toggleClass('collapse');
   }
 
   function toggleResources() {
     $sidebarContentB.toggleClass('collapse');
+    $arrowIconB.toggleClass('collapse');
   }
 
   $sidebarButtonA.click(function() {
