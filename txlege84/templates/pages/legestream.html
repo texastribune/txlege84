@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+  <section class="livestream">
+    <div class="legestream-page">
+      <header>
+        <h2>LegeStream</h2>
+        <h4>See the House and Senate in action, courtesy of the Texas Legislature</h4>
+      </header>
+      <div class="watch">
+        <div class="chamber">
+          <h5>House</h5>
+          <p>Convenes at 11 a.m. on 1/13/15 (<a href="">Watch</a>)</p>
+          <iframe scrolling="no" style="border:0" id="GranicusFlashPlayerFrame" src="http://tlchouse.granicus.com/mediaplayer.php?camera_id=3&embed=1&player_width=320&player_height=195&auto_start=0"></iframe>
+        </div>
+        <div class="chamber">
+          <h5>Senate</h5>
+          <p>Convenes at 11 a.m. on 1/13/15 (<a href="">Watch</a>)</p>
+          <iframe scrolling="no" style="border:0" id="GranicusFlashPlayerFrame" src="http://tlcsenate.granicus.com/mediaplayer.php?camera_id=3&embed=1&player_width=320&player_height=195&auto_start=0"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+

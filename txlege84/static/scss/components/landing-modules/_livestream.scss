@@ -27,4 +27,25 @@ $ls-small: new-breakpoint(min-width 695px max-width 799px);
 
 }
 
+.legestream-page{
+  .watch{
+    @include media($ls-small) {
+      div {
+        @include span-columns(12);
+      }
+    }
+
+    @include media($large) {
+      div {
+        @include span-columns(12);
+      }
+    }
+
+    iframe {
+      height: 230px;
+      width: 320px;
+    }
+  }
+}
+
 
