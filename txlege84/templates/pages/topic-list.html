@@ -16,7 +16,7 @@
   <div class="issue">
     <header>
       <h3 id="{{ issue.slug }}">
-        <a href="{% url 'issue-detail' object.slug issue.slug %}">{{ issue.name }}</a>
+        <a href="{{ issue.get_absolute_url }}">{{ issue.name }}</a>
       </h3>
       <h4>Updated: {{ issue.modified_date|date:"N j, Y" }}</h4>
     </header>

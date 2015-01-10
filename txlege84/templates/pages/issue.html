@@ -13,7 +13,7 @@
   <div class="issue-box">
     <header>
       <h3 id="{{ issue.slug }}">
-        <a href="{% url 'issue-detail' object.slug issue.slug %}">{{ issue.name }}</a>
+        <a href="{{ issue.get_absolute_url }}">{{ issue.name }}</a>
       </h3>
 <!--       <h4><i class="fa fa-bell"></i> <a href="">Alert me</a> when this issue is updated.</h4> -->
       <h4>Tell your friends:
