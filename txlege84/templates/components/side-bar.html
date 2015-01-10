@@ -20,7 +20,7 @@
         </header>
         <select id="category-dropdown">
         {% for category in subject_list %}
-          <option value="{% url 'subject-detail' category.slug %}">{{ category.name }}</option>
+          <option value="{{ category.get_absolute_url }}">{{ category.name }}</option>
         {% endfor %}
         </select>
       </div>

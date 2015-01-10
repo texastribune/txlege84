@@ -9,9 +9,9 @@
       <li>
         <div class="hotlist-graphic"></div>
         <header>
-          <h5><a href=" {% url 'topic-detail' topic.slug %} ">{{ topic.name }}</a></h5>
+          <h5><a href="{{ topic.get_absolute_url }}">{{ topic.name }}</a></h5>
         </header>
-        <p class="issue"><a href=" {% url 'topic-detail' topic.slug %}  ">{{ topic.issues.first.name }}</a></p>
+        <p class="issue"><a href="{{ topic.get_absolute_url }}">{{ topic.issues.first.name }}</a></p>
       </li>
       {% endfor %}
     </ul>

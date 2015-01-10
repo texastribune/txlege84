@@ -17,7 +17,7 @@
   <nav class="full-hot-list">
     <ul>
     {% for issue in object.issues.all %}
-      <li><a href="{{ issue.get_absolute_url }}">{{ issue.name | truncatewords:5 }}</a></li>
+      <li><a href="{{ issue.get_absolute_url }}">{{ issue.name }}</a></li>
     {% endfor %}
     </ul>
   </nav>

@@ -28,7 +28,7 @@
       </header>
       <ul>
       {% for bill in issue.related_bills.all %}
-      <li><a href="{% url 'bill-detail' bill.slug %}">{{ bill.name }}</a></li>
+      <li><a href="{{ bill.get_absolute_url }}">{{ bill.name }}</a></li>
       {% endfor %}
       </ul>
     </div>
