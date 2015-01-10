@@ -151,6 +151,10 @@
 
       <div class="bill-stage{% if object.became_law != None %} complete {% endif %}">
         <div class="bill-stage-name">Became law</div>
+        <span class="fa-stack">
+          <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
+          <i class="fa fa-check-circle fa-stack-1x"></i>
+        </span>
         <div class="date-stage-complete">{{ object.became_law }}</div>
       </div>
     </div>
