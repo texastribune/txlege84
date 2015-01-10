@@ -10,8 +10,8 @@
       <li>
         <div class="hot-list-box">
           <img class="hot-list-graphic list" src="{% static 'images/icons/' %}{{ topic.slug }}.svg"></img>
-          <h5><a href="{% url 'topic-detail' topic.slug %}">{{ topic.name }}</a></h5>
-          <p><a href="">{{ topic.issues.first | truncatewords:5 }}</a></p>
+          <h5><a href="{{ topic.get_absolute_url }}">{{ topic.name }}</a></h5>
+          <p><a href="">{{ topic.issues.first }}</a></p>
         </div>
       </li>
       {% endfor %}

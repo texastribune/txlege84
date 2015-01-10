@@ -17,7 +17,7 @@
   <ul>
     {% for membership in object.memberships.all %}
     <li>
-      {{ membership.role }}, <a href="{% url 'committee-detail' membership.committee.chamber.slug membership.committee.slug %}">{{ membership.committee }}</a>
+      {{ membership.role }}, <a href="{{ membership.committee.get_absolute_url }}">{{ membership.committee }}</a>
     </li>
     {% endfor %}
   </ul>
@@ -38,7 +38,7 @@
     <tbody>
       {% for sponsorship in object.sponsorships.all %}
       <tr>
-        <td data-title="Bill"><a href="{% url 'bill-detail' sponsorship.bill.slug %}">{{ sponsorship.bill.name }}</a></td>
+        <td data-title="Bill"><a href="{{ sponsorship.bill.get_absolute_url }}">{{ sponsorship.bill.name }}</a></td>
         <td data-title="Caption">{{ sponsorship.bill.description }}</td>
         <td data-title="Date of last action">XX/XX/XXXX</td>
       </tr>

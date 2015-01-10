@@ -14,7 +14,7 @@
       <h5>Members</h5>
       <ul>
       {% for o in object.member_list %}
-        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="{% url 'legislator-detail' o.legislator.slug %}">{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ o.legislator }}</a></li>
+        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="{{ o.legislator.get_absolute_url }}">{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ o.legislator }}</a></li>
       {% endfor %}
       </ul>
     </div>
@@ -30,7 +30,7 @@
         <tbody>
         {% for o in object.actions.all %}
           <tr>
-            <td data-title="Bill"><a href="{% url 'bill-detail' o.bill.slug %}">{{ o.bill.name }}</a></td>
+            <td data-title="Bill"><a href="{{ o.bill.get_absolute_url }}">{{ o.bill.name }}</a></td>
             <td data-title="Category">{% for p in o.bill.subjects.all %}{{ p }}<br />{% endfor %}</td>
             <td data-title="Caption">{{ o.bill.description }}</td>
             <td data-title="Referred to Committee on">{{ o.date|date:"SHORT_DATE_FORMAT" }}</td>
