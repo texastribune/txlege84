@@ -11,10 +11,7 @@
 {% block content %}
 
 {% for issue in object.issues.all %}
-
-{% include "components/issue-box.html" %}
-
+  {% include "components/issue-box.html" %}
 {% endfor %}
-
 
 {% endblock %}
