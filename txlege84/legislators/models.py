@@ -77,3 +77,7 @@ class Legislator(models.Model):
                 self.last_name, self.first_name, self.middle_name)
 
         return u'{0}, {1}'.format(self.last_name, self.first_name)
+
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+        return reverse('legislator-detail', args=(self.slug,))
