@@ -18,6 +18,10 @@ class Subject(models.Model):
 
         super(Subject, self).save(*args, **kwargs)
 
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+        return reverse('category-detail', args=(self.slug,))
+
 
 class Bill(models.Model):
     name = models.CharField(max_length=10)
@@ -55,6 +59,10 @@ class Bill(models.Model):
         return self.actions.reverse().exclude(
             related_committee__isnull=True).filter(
             acting_chamber__name='Texas Senate')[0].related_committee
+
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+        return reverse('bill-detail', args=(self.slug,))
 
 
 class Action(models.Model):
