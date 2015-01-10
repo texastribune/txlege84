@@ -31,9 +31,13 @@
   <div class="share-box">
     <h5>Share this issue:
 
-    <a href="mailto:?subject=The%20Texas%20Tribune%20on%20the%2084th%20Lege:%20{{ issue.name|urlencode:"" }}&body=I%20read%20about%20an%20issue%20that%20you%20might%20be%20interested%20in%20at%20The%20Texas%20Tribune:%20{{ issue.name|urlencode:"" }}%20%0D%0Dhttp%3A%2F%2Ftxlege.texastribune.org%2F{% url 'issue-detail' object.slug issue.slug %}"><i class="fa fa-envelope"></i></a>
+    <a href="mailto:?subject=The%20Texas%20Tribune%20on%20the%2084th%20Lege:%20{{ issue.name|urlencode:"" }}&body=I%20read%20about%20an%20issue%20that%20you%20might%20be%20interested%20in%20at%20The%20Texas%20Tribune:%20{{ issue.name|urlencode:"" }}%20%0D%0Dhttp%3A%2F%2Ftxlege.texastribune.org%2F{% url 'issue-detail' object.slug issue.slug %}">
+      <i class="fa fa-envelope"></i>
+    </a>
 
+    <a href="https://twitter.com/intent/tweet?text={{ issue.name|urlencode:"" }}%20http%3A%2F%2Ftxlege.texastribune.org%2F{% url 'issue-detail' object.slug issue.slug %}&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
       <i class="fa fa-twitter"></i>
+    </a>
       <i class="fa fa-facebook"></i>
     </h5>
   </div>
