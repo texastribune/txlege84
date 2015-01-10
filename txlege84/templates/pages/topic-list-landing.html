@@ -35,7 +35,7 @@
     <div class="issue-list">
       <ul>
       {% for issue in topic.issues.all %}
-        <li><a href="{% url 'issue-detail' topic.slug issue.slug %}">{{ issue.name }}</a></li>
+        <li><a href="{{ issue.get_absolute_url }}">{{ issue.name }}</a></li>
       {% endfor %}
       </ul>
     </div>
