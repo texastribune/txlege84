@@ -32,6 +32,11 @@ class Committee(models.Model):
     def member_list(self):
         return self.memberships.filter(role='Member')
 
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+        return reverse('committee-detail', args=(
+            self.chamber.slug, self.slug,))
+
 
 class Membership(models.Model):
     legislator = models.ForeignKey(Legislator, related_name='memberships')
