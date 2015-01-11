@@ -15,13 +15,17 @@
 {% block content %}
 
 <section>
+
  {% for explainer in object_list %}
-    <div>{{ explainer.title }}</div>
+  <div class="texplainer-content-box">
+    <h3 class="headline">{{ explainer.title }}</h3>
     <div class="flexible-video">
       <iframe width="560" height="315" src="//www.youtube.com/embed/{{ explainer.youtube_id }}" frameborder="0" allowfullscreen></iframe>
     </div>
-    <div>{{ explainer.text }}</div>
-    <hr>
+    <p>{{ explainer.text }}</p>
+  </div>
+
+  <hr>
   {% endfor %}
 </section>
 
