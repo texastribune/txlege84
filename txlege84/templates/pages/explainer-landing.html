@@ -4,16 +4,26 @@
   {% include "includes/og/og_basic.html" %}
 {% endblock %}
 
+{% block mobileheader %}
+  {% include "components/page-headers/texplainer_header.html" %}
+{% endblock %}
+
+{% block desktopheader %}
+  {% include "components/page-headers/texplainer_header.html" %}
+{% endblock %}
+
 {% block content %}
 
-<div>ADFSDFSDF</div>
-{% for explainer in object_list %}
-  <div>{{ explainer.title }}</div>
-  <div class="flexible-video">
-    <iframe width="560" height="315" src="//www.youtube.com/embed/{{ explainer.youtube_id }}" frameborder="0" allowfullscreen></iframe>
-  </div>
-  <div>{{ explainer.text }}</div>
-  <hr>
-{% endfor %}
+<section>
+ {% for explainer in object_list %}
+    <div>{{ explainer.title }}</div>
+    <div class="flexible-video">
+      <iframe width="560" height="315" src="//www.youtube.com/embed/{{ explainer.youtube_id }}" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div>{{ explainer.text }}</div>
+    <hr>
+  {% endfor %}
+</section>
+
 
 {% endblock %}
