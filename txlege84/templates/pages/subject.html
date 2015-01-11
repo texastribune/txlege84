@@ -4,11 +4,15 @@
   {% include "includes/og/og_basic.html" %}
 {% endblock %}
 
-{% block content %}
+{% block mobileheader %}
+  {% include "components/page-headers/subject-page-header.html" %}
+{% endblock %}
 
-  <div>
-    <h2>{{ object.name }}</h2>
-  </div>
+{% block desktopheader %}
+  {% include "components/page-headers/subject-page-header.html" %}
+{% endblock %}
+
+{% block content %}
 
 <section>
   <table>
