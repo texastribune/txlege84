@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 
+{% block og_data %}
+  {% include "includes/og/og_basic.html" %}
+{% endblock %}
+
+{% block og_data %}
+  {% include "includes/og/og_issue.html" %}
+{% endblock %}
+
 {% block mobileheader %}
   {% include "components/page-headers/hot-list-issue-header.html" %}
 {% endblock %}
@@ -10,40 +18,6 @@
 
 {% block content %}
 
-  <div class="issue-box">
-    <header>
-      <h3 id="{{ issue.slug }}">
-        <a href="{{ issue.get_absolute_url }}">{{ issue.name }}</a>
-      </h3>
-<!--       <h4><i class="fa fa-bell"></i> <a href="">Alert me</a> when this issue is updated.</h4> -->
-      <h4>Tell your friends:
-        <a href=""><i class="fa fa-facebook"></i></a> |
-        <a href=""><i class="fa fa-twitter"></i></a>
-      </h4>
-    </header>
-    {{ issue.active_text.text|safe }}
-    <div class="related-legislation">
-      <header>
-        <h5>Related Legislation</h5>
-      </header>
-      <ul>
-      {% for bill in issue.related_bills.all %}
-      <li><a href="{{ bill.get_absolute_url }}">{{ bill.name }}</a></li>
-      {% endfor %}
-      </ul>
-    </div>
-
-
-    <div class="related-content">
-      <header>
-        <h5>Story Timeline</h5>
-      </header>
-      <ul>
-      {% for story in issue.stories.all %}
-        <li><a href="{{ story.url }}">{{ story.headline }}</a></li>
-      {% endfor %}
-      </ul>
-    </div>
-  </div>
+{% include "components/issue-box.html" %}
 
 {% endblock %}
