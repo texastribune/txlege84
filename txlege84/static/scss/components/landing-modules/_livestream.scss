@@ -4,48 +4,69 @@ $ls-small: new-breakpoint(min-width 695px max-width 799px);
   @include clearfix;
 
   .watch {
-
     @include media($ls-small) {
-      div {
+      .chamber {
         @include span-columns(6);
         @include omega(2n);
       }
     }
 
     @include media($large) {
-      div {
+      .chamber {
         @include span-columns(6);
         @include omega(2n);
       }
-    }
-
-    iframe {
-      height: 230px;
-      width: 320px;
     }
   }
 
 }
 
-.legestream-page{
-  .watch{
+.legestream-page {
+  .watch {
     @include media($ls-small) {
-      div {
+      .chamber {
         @include span-columns(12);
       }
     }
 
     @include media($large) {
-      div {
+      .chamber {
         @include span-columns(12);
       }
-    }
-
-    iframe {
-      height: 230px;
-      width: 320px;
     }
   }
 }
 
+.stream-placeholder {
+  background-color: $tribune-black;
+  color: $white;
+  cursor: pointer;
+  height: 0;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  position: relative;
+  transform-style: preserve-3d;
 
+  &:hover {
+    color: $tribune-yellow;
+  }
+
+  &.stream-activated {
+    background-color: transparent;
+  }
+
+  iframe {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.stream-prompt {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
