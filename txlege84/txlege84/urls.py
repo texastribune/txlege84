@@ -31,7 +31,7 @@ urlpatterns = patterns(
     url(r'^texplainers/$',
         ExplainerListDetail.as_view(), name='explainer-list-detail'),
     url(r'^legestream/$',
-        TemplateView.as_view(template_name='pages/legestream.html')),
+        TemplateView.as_view(template_name='pages/legestream.html'), name='legestream'),
 
     # Examples:
     # url(r'^$', 'txlege84.views.home', name='home'),
