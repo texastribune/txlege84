@@ -64,6 +64,17 @@ h2 {
   font-weight: 700;
   margin-top: 1.5em;
   padding-bottom: .3em;
+
+  a {
+    color: $bodytext-black;
+    text-decoration: none;
+
+    &:hover {
+      color: $href-teal;
+      border-bottom: none;
+      text-decoration: none;
+    }
+  }
 }
 
 // Sidebar Header
