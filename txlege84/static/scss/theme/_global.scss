@@ -139,8 +139,24 @@ a {
   color: $href-teal;
   text-decoration: none;
 
+  li {
+    h5 span {
+      color: $bodytext-black;
+      border-bottom: 1px solid $href-teal;
+      text-decoration: none;
+    }
+  }
+
   &:hover {
     text-decoration: underline;
+
+    li {
+      h5 span {
+        color: $href-teal;
+        border-bottom: none;
+        text-decoration: none;
+      }
+    }
   }
 }
 
