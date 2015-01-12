@@ -16,7 +16,7 @@
   <nav class="full-hot-list">
     <ul>
     {% for issue in object.topic.issues.all %}
-      <li><a href="{{ topic.get_absolute_url }}/#{{ issue.slug }}">{{ issue.name }}</a></li>
+      <li><a href="{{ topic.get_absolute_url }}#{{ issue.slug }}">{{ issue.name }}</a></li>
     {% endfor %}
     </ul>
   </nav>
