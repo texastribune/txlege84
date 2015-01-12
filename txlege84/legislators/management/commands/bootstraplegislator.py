@@ -112,30 +112,23 @@ class Command(BaseCommand):
                 tribune_slug = None
                 tribune_photo = None
 
-            legislator, created = Legislator.objects.get_or_create(
-                first_name=data['first_name'],
-                middle_name=data['middle_name'],
-                last_name=data['last_name'],
-                party=party,
-                chamber=chamber,
-                district=district,
-                profile_url=profile_url,
-                active=data['active'],
-                capitol_address=capitol_address,
-                capitol_phone=capitol_phone,
-                district_address=district_address,
-                district_phone=district_phone,
+            legislator, created = Legislator.objects.update_or_create(
                 openstates_id=data['leg_id'],
-                tribune_city=tribune_city,
-                tribune_slug=tribune_slug,
-                tribune_photo=tribune_photo,
+                defaults={
+                    'first_name': data['first_name'],
+                    'middle_name': data['middle_name'],
+                    'last_name': data['last_name'],
+                    'party': party,
+                    'chamber': chamber,
+                    'district': district,
+                    'profile_url': profile_url,
+                    'active': data['active'],
+                    'capitol_address': capitol_address,
+                    'capitol_phone': capitol_phone,
+                    'district_address': district_address,
+                    'district_phone': district_phone,
+                    'tribune_city': tribune_city,
+                    'tribune_slug': tribune_slug,
+                    'tribune_photo': tribune_photo,
+                }
             )
-
-            name = data['full_name']
-
-            if created:
-                self.stdout.write(u'Successfully created `{}`.'.format(name))
-            else:
-                self.stderr.write(u'We tried to create `{}`, but we found it '
-                                  'in the database! You sure you '
-                                  'wanted to do this?'.format(name))
