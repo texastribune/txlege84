@@ -1,10 +1,10 @@
 <div class="legislator-info">
   <div class="headshot">
-    <img src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/Campbell-Donna768updated_1_jpg_131x197_crop_q100.jpg">
+    <img src="{{ object.tribune_photo }}">
   </div>
 
   <header class="legislator-details">
-    <h2>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }}, {{ object.party.short_name }}-TK</h2>
+    <h2>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }} ({{ object.party.short_name }}-{{ object.tribune_city }})</h2>
     <h4>{% if object.chamber.name == "Texas Senate" %} Senate {% else %} House {% endif %} District {{ object.district }}</h4>
 
    <div class="office-info">
@@ -16,20 +16,11 @@
         <li>Phone: <a href="tel:{{ object.capitol_phone }}">{{ object.capitol_phone }}</a></li>
       </ul>
     </div>
-<!--     <div class="office-info">
-      <header>
-        <h5>District Office:</h5>
-      </header>
-      <ul>
-        <li>{{ object.district_address }}</li>
-        <li>Phone: <a href="tel:{{ object.district_phone }}">{{ object.district_phone }}</a></li>
-      </ul>
-    </div> -->
   </header>
 </div>
 <div class="lawmaker-links">
-  <button>View in Directory</button>
-  <button>View in Ethics Explorer</button>
+  <a href="{{ object.tribune_directory_url }}"><button>View in Directory</button></a>
+  <a href="{{ object.tribune_ethics_url }}"><button>View in Ethics Explorer</button></a>
 </div>
 
 
