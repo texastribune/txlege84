@@ -1,4 +1,4 @@
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, TemplateView
 
 from bills.mixins import AllSubjectsMixin
 from bills.models import Bill, Subject
@@ -14,7 +14,5 @@ class SubjectDetail(AllSubjectsMixin, DetailView):
     template_name = 'pages/subject.html'
 
 
-class LegeStreamDetail(AllSubjectsMixin, ListView):
-    model = Bill
+class LegeStreamDetail(AllSubjectsMixin, TemplateView):
     template_name = 'pages/legestream.html'
-
