@@ -28,6 +28,7 @@ $max-width: 1081px;
 
   @include media($large) {
     @include span-columns(4);
+    @include omega();
   }
 
 }
@@ -47,7 +48,6 @@ $max-width: 1081px;
 
   @include media($large) {
     @include span-columns(8);
-    @include omega();
   }
 }
 

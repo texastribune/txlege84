@@ -1,10 +1,11 @@
 .side-bar {
-  // background-color: transparentize($white, .3);
+  background-color: transparentize($white, .4);
 }
 
 .main-header {
   h1 {
-    margin: 1.75em 0 .5em;
+    padding-top: .25em;
+    margin: 1.5em 0 .5em;
 
     a {
       color: $tribune-black;
@@ -15,17 +16,43 @@
     }
   }
 
+  header {
+    @include clearfix;
+  }
+
   .project-branding {
     @extend %content-block;
     @include clearfix;
-    margin-bottom: 2em;
+    margin-bottom: 3em;
 
     p {
       color: $tribune-black;
+      display: none;
+
+      @include media($medium) {
+        display: block;
+      }
+
+      @include media($large) {
+        display: block;
+      }
+    }
+
+    .share {
+      text-align: center;
+
+      @include media($medium) {
+        text-align: left;
+      }
+
+      @include media($large) {
+        text-align: left;
+      }
     }
 
     .fa {
       font-size: 1.25em;
+      text-align: center;
       margin-right: .5em;
     }
 
@@ -49,16 +76,23 @@
   }
 
   .trib-logo {
-    margin: 1em 0;
-    width: 55%;
+    float: left;
+    margin: 1em 5%;
     max-width: 11em;
+    width: 25%;
 
     @include media($medium) {
+      float: none;
       margin: 3em 0;
+      max-width: 11em;
+      width: 55%;
     }
 
     @include media($large) {
+      float: none;
       margin: 3em 0;
+      max-width: 11em;
+      width: 55%;
     }
 
   }
@@ -66,9 +100,18 @@
   .title-underline {
     background-color: $tribune-yellow;
     height: .55em;
-    margin-bottom: 1em;
+    margin: 0 0 1em 35%;
     width: 55%;
     max-width: 11em;
+
+    @include media($medium) {
+      margin: 0 0 1em 0;
+    }
+
+    @include media($large) {
+      margin: 0 0 1em 0;
+    }
+
   }
 }
 
@@ -115,7 +158,6 @@
   }
 
   .resource-bk {
-    background-color: transparentize($white, .4);
     padding: 1em 1.25em;
   }
 

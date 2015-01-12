@@ -5,20 +5,20 @@
 
 .banner-ad {
   @extend %content-block;
+  text-align: center;
   width: 100%;
 
   div {
     border: 1px solid $line-gray;
   }
 
-  &.top {
-    margin: 0 auto;
+  @include media($medium) {
+    text-align: left;
   }
 
-  &.bottom {
-    margin: 1em auto;
+  @include media($large) {
+    text-align: left;
   }
-
 
 }
 
