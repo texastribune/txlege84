@@ -1,25 +1,25 @@
 /* Base Theme for HTML elements */
 
 body {
-  // background-color: $light-blue;
+  background: url(../images/brand/84th-lege-bg-mobile.gif) no-repeat;
+  background-size: cover;
   font-family: $base-sans-serif;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1;
+  position: absolute;
   text-rendering: optimizelegibility;
-  background: url(../images/brand/84th-lege-bg-mobile.gif) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+
 
   @include media($medium) {
     background: url(../images/brand/on-the-lege-capitol-faded-bg002.jpg) no-repeat center center fixed;
     background-size: cover;
+    position: relative;
   }
 
   @include media($large) {
     background: url(../images/brand/on-the-lege-capitol-faded-bg002.jpg) no-repeat center center fixed;
     background-size: cover;
+    position: relative;
   }
 }
 

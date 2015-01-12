@@ -1,11 +1,8 @@
-.side-bar {
-  // background-color: transparentize($white, .4);
-}
-
 .main-header {
   h1 {
     padding-top: .25em;
     margin: 1.5em 0 .5em;
+    text-align: center;
 
     a {
       color: $tribune-black;
@@ -13,6 +10,14 @@
       &:hover {
         text-decoration: none;
       }
+    }
+
+    @include media($medium) {
+      text-align: left;
+    }
+
+    @include media($large) {
+      text-align: left;
     }
   }
 
@@ -51,9 +56,18 @@
     }
 
     .fa {
-      font-size: 1.25em;
+      font-size: 1.7em;
       text-align: center;
       margin-right: .5em;
+
+      @include media($medium) {
+        font-size: 1.25em;
+      }
+
+      @include media($large) {
+        font-size: 1.25em;
+      }
+
     }
 
     a .fa {
@@ -100,15 +114,18 @@
   .title-underline {
     background-color: $tribune-yellow;
     height: .55em;
+    display: none;
     margin: 0 0 1em 35%;
     width: 55%;
     max-width: 11em;
 
     @include media($medium) {
+      display: block;
       margin: 0 0 1em 0;
     }
 
     @include media($large) {
+      display: block;
       margin: 0 0 1em 0;
     }
 
