@@ -1,6 +1,7 @@
 <section>
   <header class="hot-list-nav">
-    <h2><a href="">Hot Lists</a>: {{ object.topic }}</h2>
+    <img class="hot-list-graphic header" src="{% static 'images/icons/' %}{{ topic.slug }}.svg"></img>
+    <h2><a href="{% url 'topic-list-detail' %}">Hot Lists</a>: {{ topic.name }}</h2>
   </header>
   <header class="curated-by">
     {% with curators=object.topic.curators.all %}
