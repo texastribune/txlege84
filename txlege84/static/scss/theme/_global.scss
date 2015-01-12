@@ -69,12 +69,28 @@ h2 {
     color: $bodytext-black;
     text-decoration: none;
 
+    i {
+      color: $href-teal;
+      float: right;
+      margin: 0 0 0 .5em;
+    }
+
     &:hover {
       color: $href-teal;
       border-bottom: none;
       text-decoration: none;
+
+
     }
   }
+
+  span.share {
+    float: right;
+    font-size: .6em;
+    margin-top: .7em;
+  }
+
+
 }
 
 // Sidebar Header

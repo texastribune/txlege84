@@ -24,6 +24,21 @@
       color: $tribune-black;
     }
 
+    .fa {
+      font-size: 1.25em;
+      margin-right: .5em;
+    }
+
+    a .fa {
+      color: $href-teal;
+      text-decoration: none;
+
+      &:hover {
+        // color: $white;
+        text-decoration: none;
+      }
+    }
+
     @include media($medium) {
       margin-bottom: 3em;
     }
