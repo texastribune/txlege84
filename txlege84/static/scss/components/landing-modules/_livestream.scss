@@ -42,21 +42,19 @@ $ls-small: new-breakpoint(min-width 695px max-width 799px);
   color: $white;
   cursor: pointer;
   height: 0;
-  padding-bottom: 56.25%; // Enforces the 16:9 ratio
-  padding-top: 30px; // The height of the controls in the Granicus viewer – a magic number, but it needs to stay!
+  padding-bottom: 56.25%;
+  padding-top: 30px;
   position: relative;
-  transform-style: preserve-3d; // Makes the centering with .stream-prompt not result in blurry text if it draws a half-pixel
+  transform-style: preserve-3d;
 
   &:hover {
     color: $tribune-yellow;
   }
 
-  // Don't show that weird black bar when someone insists on clicking on the video when it isn't live
   &.stream-activated {
     background-color: transparent;
   }
 
-  // The iframe is putting full faith into its container to show it the way + some JS help
   iframe {
     height: 100%;
     left: 0;
