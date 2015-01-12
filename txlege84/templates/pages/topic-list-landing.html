@@ -23,7 +23,7 @@
 
   <div class="issue-list-block">
     <header class="hot-list-nav">
-      <h2><span class="hot-list-name">{{ topic.name }}</span></h2>
+      <h2><a href="{{ topic.get_absolute_url }}"><span class="hot-list-name">{{ topic.name }}</span></a></h2>
     </header>
     <header class="curated-by">
       {% with curators=topic.curators.all %}
