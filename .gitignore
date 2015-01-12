@@ -21,6 +21,9 @@ bower_components
 # CSS things
 txlege84/static/css/*.css*
 
+# JS things
+txlege84/static/scripts/bundle.js*
+
 # SASS things
 .sass-cache/
 

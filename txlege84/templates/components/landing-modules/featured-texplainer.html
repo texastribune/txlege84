@@ -1,6 +1,6 @@
 <section class="texplainer-content">
   <header>
-    <h2>Texplainers</h2>
+    <h2><a href="{% url 'explainer-list-detail' %}">Texplainers</a></h2>
     <h4>Your guide to understanding how the Legislature works</h4>
   </header>
   <div class="texplainer-content-box">
@@ -8,7 +8,8 @@
     <h3 class="headline">What Really Happens During the 5 Months of Session?</h3>
     <p>The Tribune's Ross Ramsey explains what lawmakers are really doing over the arch of the state's five month session.</p>
   </div>
-  <div class="more-videos">
+  {% comment %}
+<!--   <div class="more-videos">
     <header>
       <h5>More Texplainer videos</h5>
     </header>
@@ -22,10 +23,12 @@
         <h4><a href="">Why does everyone keep talking about POOs in the House?</a></h4>
       </header>
     </div>
-<!--       <div>
+    <div>
       <header>
         <h4><a href="">This is embarassing, but how are bills passed?</a></h4>
       </header>
-    </div> -->
-  </div>
+    </div>
+      </div>
+  </div> -->
+  {% endcomment %}
 </section>

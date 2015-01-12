@@ -22,8 +22,8 @@ urlpatterns = patterns(
         IssueDetail.as_view(), name='issue-detail'),
     url(r'^84/bills/(?P<slug>[-\w]+)/$',
         BillDetail.as_view(), name='bill-detail'),
-    url(r'^84/subject/(?P<slug>[-\w]+)/$',
-        SubjectDetail.as_view(), name='subject-detail'),
+    url(r'^84/categories/(?P<slug>[-\w]+)/$',
+        SubjectDetail.as_view(), name='category-detail'),
     url(r'^84/legislators/(?P<slug>[-\w]+)/$',
         LegislatorDetail.as_view(), name='legislator-detail'),
     url(r'^84/committees/(?P<chamber>[-\w]+)/(?P<slug>[-\w]+)/$',
@@ -31,7 +31,7 @@ urlpatterns = patterns(
     url(r'^texplainers/$',
         ExplainerListDetail.as_view(), name='explainer-list-detail'),
     url(r'^legestream/$',
-        TemplateView.as_view(template_name='pages/legestream.html')),
+        TemplateView.as_view(template_name='pages/legestream.html'), name='legestream'),
 
     # Examples:
     # url(r'^$', 'txlege84.views.home', name='home'),

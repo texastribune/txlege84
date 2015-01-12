@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block og_data %}
+  {% include "includes/og/og_basic.html" %}
+{% endblock %}
+
 {% block mobileheader %}
   {% include "components/page-headers/bill-page-header.html" %}
 {% endblock %}
@@ -25,7 +29,7 @@
         </header>
         {% for n in object.sponsorships.all %}
           {% if n.role = 'author' %}
-            <p>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{% url 'legislator-detail' n.legislator.slug %}">{{ n.legislator }}</a></p>
+            <p>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{{ n.legislator.get_absolute_url }}">{{ n.legislator }}</a></p>
           {% endif %}
         {% endfor %}
       </div>
@@ -37,7 +41,7 @@
         <ul>
           {% for o in object.sponsorships.all %}
             {% if o.role = 'coauthor' %}
-            <li>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{% url 'legislator-detail' o.legislator.slug %}">{{ o }}</a></li>
+            <li>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{{ o.legislator.get_absolute_url }}">{{ o }}</a></li>
             {% endif %}
           {% endfor %}
         </ul>
@@ -50,7 +54,7 @@
         </header>
         {% for p in object.sponsorships.all %}
           {% if p.role = 'sponsor' %}
-            <p>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{% url 'legislator-detail' p.legislator.slug %}">{{ p.legislator }}</a></p>
+            <p>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{{ p.legislator.get_absolute_url }}">{{ p.legislator }}</a></p>
           {% endif %}
         {% endfor %}
       </div>
@@ -63,7 +67,7 @@
           <h3>House Committee</h3>
         </header>
         {% if object.house_committee != "" %}
-          <p><a href="{% url 'committee-detail' chamber=object.chamber.slug slug=object.house_committee.slug %}">{{ object.house_committee }}</a></p>
+          <p><a href="{{ object.house_committee.get_absolute_url }}">{{ object.house_committee }}</a></p>
         {% else %}
           <p>Committee not yet assigned</p>
         {% endif %}
@@ -73,7 +77,7 @@
           <h3>Senate Committee</h3>
         </header>
         {% if object.senate_committee != "" %}
-          <p><a href="{% url 'committee-detail' chamber=object.chamber.slug slug=object.senate_committee.slug %}">{{ object.senate_committee }}</a></p>
+          <p><a href="{{ object.senate_committee.get_absolute_url }}">{{ object.senate_committee }}</a></p>
         {% else %}
           <p>Committee not yet assigned</p>
         {% endif %}
@@ -147,6 +151,10 @@
 
       <div class="bill-stage{% if object.became_law != None %} complete {% endif %}">
         <div class="bill-stage-name">Became law</div>
+        <span class="fa-stack">
+          <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
+          <i class="fa fa-check-circle fa-stack-1x"></i>
+        </span>
         <div class="date-stage-complete">{{ object.became_law }}</div>
       </div>
     </div>

@@ -4,60 +4,71 @@ $ls-small: new-breakpoint(min-width 695px max-width 799px);
   @include clearfix;
 
   .watch {
-
     @include media($ls-small) {
-      div {
+      .chamber {
         @include span-columns(6);
         @include omega(2n);
       }
     }
 
     @include media($large) {
-      div {
+      .chamber {
         @include span-columns(6);
         @include omega(2n);
       }
-    }
-
-    iframe {
-      height: 230px;
-      width: 320px;
     }
   }
 
 }
 
-.legestream-page{
-  .watch{
+.legestream-page {
+  .watch {
     @include media($ls-small) {
-      div {
+      .chamber {
         @include span-columns(12);
       }
     }
 
     @include media($large) {
-      div {
+      .chamber {
         @include span-columns(12);
       }
-    }
-
-    // iframe {
-    //   height: 460px;
-    //   width: 100%;
-    // }
-  }
-  .video-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 30px; height: 0; overflow: hidden;
-    iframe, object, embed{
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
     }
   }
 }
 
+.stream-placeholder {
+  background-color: $tribune-black;
+  color: $white;
+  cursor: pointer;
+  height: 0;
+  padding-bottom: 56.25%; // Enforces the 16:9 ratio
+  padding-top: 30px; // The height of the controls in the Granicus viewer – a magic number, but it needs to stay!
+  position: relative;
+  transform-style: preserve-3d; // Makes the centering with .stream-prompt not result in blurry text if it draws a half-pixel
 
+  &:hover {
+    color: $tribune-yellow;
+  }
+
+  // Don't show that weird black bar when someone insists on clicking on the video when it isn't live
+  &.stream-activated {
+    background-color: transparent;
+  }
+
+  // The iframe is putting full faith into its container to show it the way + some JS help
+  iframe {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.stream-prompt {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
