@@ -13,12 +13,12 @@ body {
   background-size: cover;
 
   @include media($medium) {
-    background: url(../images/brand/84th-lege-bg-desktop-fade.gif) no-repeat center center fixed;
+    background: url(../images/brand/on-the-lege-capitol-faded-bg002.jpg) no-repeat center center fixed;
     background-size: cover;
   }
 
   @include media($large) {
-    background: url(../images/brand/84th-lege-bg-desktop-fade.gif) no-repeat center center fixed;
+    background: url(../images/brand/on-the-lege-capitol-faded-bg002.jpg) no-repeat center center fixed;
     background-size: cover;
   }
 }
