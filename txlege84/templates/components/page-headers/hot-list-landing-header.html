@@ -10,7 +10,7 @@
       <a href="{{ topic.get_absolute_url }}">
       <li>
         <div class="hot-list-box">
-          <img class="hot-list-graphic list" src="{% static 'images/icons/' %}{{ topic.slug }}.svg"></img>
+          <img class="hot-list-graphic list" src="{% static 'images/icons/' %}{{ topic.slug }}.svg">
           <h5><span>{{ topic.name }}</span></h5>
           <p>{{ topic.issues.first }}</p>
         </div>
