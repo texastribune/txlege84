@@ -3,6 +3,12 @@ APP := txlege84
 IMAGE=${PROJECT}/${APP}
 FOO ?= 83
 
+new_prep_for_development:
+	python txlege84/manage.py bootstrapchamber
+	python txlege84/manage.py bootstrapparty
+	python txlege84/manage.py bootstrapsubject
+	python txlege84/manage.py bootstraplegislator
+
 prep_for_development:
 	python txlege84/manage.py downloadopenstatesdata
 	python txlege84/manage.py bulkloadlegislators

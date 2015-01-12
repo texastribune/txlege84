@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+{% block og_data %}
+  {% include "includes/og/og_landing.html" %}
+{% endblock %}
+
 {% block mobileheader %}
   {% include "components/landing-modules/top-issues.html" with top_issues=top_issues %}
 {% endblock %}
