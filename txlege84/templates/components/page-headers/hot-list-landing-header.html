@@ -7,13 +7,15 @@
   <nav>
     <ul>
       {% for topic in topic_list %}
+      <a href="{{ topic.get_absolute_url }}">
       <li>
         <div class="hot-list-box">
           <img class="hot-list-graphic list" src="{% static 'images/icons/' %}{{ topic.slug }}.svg"></img>
-          <h5><a href="{{ topic.get_absolute_url }}">{{ topic.name }}</a></h5>
-          <p><a href="">{{ topic.issues.first }}</a></p>
+          <h5><span>{{ topic.name }}</span></h5>
+          <p>{{ topic.issues.first }}</p>
         </div>
       </li>
+      </a>
       {% endfor %}
     </ul>
   </nav>
