@@ -19,6 +19,7 @@
           <h4>Browse bills by category</h4>
         </header>
         <select id="category-dropdown">
+        <option value="">---</option>
         {% for category in subject_list %}
           <option value="{{ category.get_absolute_url }}">{{ category.name }}</option>
         {% endfor %}
