@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, TemplateView
 
 from bills.mixins import AllSubjectsMixin
 from bills.models import Bill, Subject
@@ -20,3 +20,7 @@ class BillSearchJson(ListView):
 
     def render_to_response(self, context, **kwargs):
         return JsonResponse(list(context['object_list']), safe=False)
+
+
+class LegeStreamDetail(AllSubjectsMixin, TemplateView):
+    template_name = 'pages/legestream.html'

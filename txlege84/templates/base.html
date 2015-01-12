@@ -28,13 +28,14 @@
 
     <!-- Vendor styles -->
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'scripts/slick/slick.css' %}">
-
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
     {% block extra_head %}{% endblock %}
 
     {% include "includes/ads.html" %}
+
+    <script>window.billSnippetURL = '{% url "bill-detail" 0 %}'.replace('0/', '');</script>
+    <script>{% include "loaders/loadjs.js" %}loadJS('{% static "scripts/bundle.js" %}');</script>
   </head>
   <body>
 
@@ -111,17 +112,6 @@
     </div>
     </div>
   </footer>
-
-
-
-
-  <script>window.billSnippetURL = '{% url "bill-detail" 0 %}'.replace('0/', '');</script>
-
-  <script src="{% static 'scripts/jquery/jquery.min.js' %}"></script>
-  <script src="{% static 'scripts/libs/typeahead.bundle.min.js' %}"></script>
-  <script src="{% static 'scripts/libs/jquery.fitvids.js' %}"></script>
-  <script src="{% static 'scripts/slick/slick.min.js' %}"></script>
-  <script src="{% static 'scripts/main.js' %}"></script>
 
   {% block extra_script %}{% endblock %}
 
