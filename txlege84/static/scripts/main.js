@@ -38,7 +38,10 @@
   var searchBills = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name', 'slug'),
     queryTokenizer: Bloodhound.tokenizers.whitespace,
-    local: [],
+    prefetch: {
+      url: '/search/bills/',
+      ttl: 3600000 // One hour
+    }
   });
 
   searchBills.initialize();

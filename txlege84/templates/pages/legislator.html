@@ -44,7 +44,7 @@
       <tr>
         <td data-title="Bill"><a href="{{ sponsorship.bill.get_absolute_url }}">{{ sponsorship.bill.name }}</a></td>
         <td data-title="Caption">{{ sponsorship.bill.description }}</td>
-        <td data-title="Date of last action">XX/XX/XXXX</td>
+        <td data-title="Date of last action">{{ sponsorship.bill.last_action_date|date:"SHORT_DATE_FORMAT" }}</td>
       </tr>
       {% endfor %}
     </tbody>
