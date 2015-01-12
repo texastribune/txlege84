@@ -7,12 +7,13 @@
     <ul>
       {% for top_issue in top_issues %}
       <li>
-        <p><a href="{{ top_issue.issue.get_absolute_url }}">{{ top_issue.issue.name }}</a></p>
+        <p><a href="{{ top_issue.issue.topic.get_absolute_url }}/#{{ top_issue.issue.slug }}">{{ top_issue.issue.name }}</a></p>
       </li>
       {% endfor %}
     </ul>
   </nav>
 </section>
+
 
 
 
