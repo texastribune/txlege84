@@ -141,9 +141,13 @@ a {
 
   li {
     h5 span {
-      color: $bodytext-black;
-      border-bottom: 1px solid $href-teal;
+      color: $href-teal;
       text-decoration: none;
+    }
+
+    .fa {
+      font-size: 1em;
+      margin-right: .5em;
     }
   }
 
@@ -153,8 +157,7 @@ a {
     li {
       h5 span {
         color: $href-teal;
-        border-bottom: none;
-        text-decoration: none;
+        text-decoration: underline;
       }
     }
   }
