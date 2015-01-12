@@ -6,19 +6,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1;
   text-rendering: optimizelegibility;
-  background: url(../images/brand/84th-lege-bg-mobile001.gif) no-repeat center center fixed;
+  background: url(../images/brand/84th-lege-bg-mobile.gif) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 
   @include media($medium) {
-    background: url(../images/brand/on-the-lege-capitol-bg-test-B.gif) no-repeat center center fixed;
+    background: url(../images/brand/84th-lege-bg-desktop-fade.gif) no-repeat center center fixed;
     background-size: cover;
   }
 
   @include media($large) {
-    background: url(../images/brand/on-the-lege-capitol-bg-test-B.gif) no-repeat center center fixed;
+    background: url(../images/brand/84th-lege-bg-desktop-fade.gif) no-repeat center center fixed;
     background-size: cover;
   }
 }
