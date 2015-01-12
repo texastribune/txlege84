@@ -1,7 +1,8 @@
+{% load staticfiles %}
 <section>
   <header class="hot-list-nav">
-    <img class="hot-list-graphic header" src="{% static 'images/icons/' %}{{ topic.slug }}.svg"></img>
-    <h2><a href="{% url 'topic-list-detail' %}">Hot Lists</a>: {{ topic.name }}</h2>
+    <img class="hot-list-graphic header" src="{% static 'images/icons/' %}{{ issue.topic.slug }}.svg"></img>
+    <h2><a href="{% url 'topic-list-detail' %}">Hot Lists</a>: {{ issue.topic.name }}</h2>
   </header>
   <header class="curated-by">
     {% with curators=object.topic.curators.all %}
