@@ -270,3 +270,16 @@ section {
     display: block;
   }
 }
+
+.content-divider {
+  padding: .5em;
+
+  @include media($medium) {
+    display: none;
+  }
+
+  @include media($large) {
+    display: none;
+  }
+
+}
