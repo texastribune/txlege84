@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block og_data %}
+  {% include "includes/og/og_hotlist_landing.html" %}
+{% endblock %}
+
 {% block mobileheader %}
   {% include "components/page-headers/hot-list-landing-header.html" %}
 {% endblock %}
@@ -35,7 +39,7 @@
     <div class="issue-list">
       <ul>
       {% for issue in topic.issues.all %}
-        <li><a href="{% url 'issue-detail' topic.slug issue.slug %}">{{ issue.name }}</a></li>
+        <li><a href="{{ issue.get_absolute_url }}">{{ issue.name }}</a></li>
       {% endfor %}
       </ul>
     </div>

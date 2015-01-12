@@ -2,7 +2,7 @@
 <section>
   <header class="hot-list-nav">
     <img class="hot-list-graphic header" src="{% static 'images/icons/' %}{{ topic.slug }}.svg"></img>
-    <h2><a href="">Hot Lists</a>: {{ topic.name }}</h2>
+    <h2><a href="{% url 'topic-list-detail' %}">Hot Lists</a>: {{ topic.name }}</h2>
   </header>
   <header class="curated-by">
       {% with curators=topic.curators.all %}
@@ -17,7 +17,7 @@
   <nav class="full-hot-list">
     <ul>
     {% for issue in object.issues.all %}
-      <li><a href="{% url 'issue-detail' object.slug issue.slug %}">{{ issue.name | truncatewords:5 }}</a></li>
+      <li><a href="{{ issue.get_absolute_url }}">{{ issue.name }}</a></li>
     {% endfor %}
     </ul>
   </nav>

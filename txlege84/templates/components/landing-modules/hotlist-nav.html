@@ -1,6 +1,6 @@
 <section class="hotlist-nav">
   <header>
-    <h2>Hot Lists <span class="see-all"></h2>
+    <h2><a href="{% url 'topic-list-detail' %}">Hot Lists</a> <span class="see-all"></h2>
     <h4>The top issues of the 84th legislature, by topic</h4>
   </header>
   <nav>
@@ -9,9 +9,9 @@
       <li>
         <div class="hotlist-graphic"></div>
         <header>
-          <h5><a href=" {% url 'topic-detail' topic.slug %} ">{{ topic.name }}</a></h5>
+          <h5><a href="{{ topic.get_absolute_url }}">{{ topic.name }}</a></h5>
         </header>
-        <p class="issue"><a href=" {% url 'topic-detail' topic.slug %}  ">{{ topic.issues.first.name }}</a></p>
+        <p class="issue"><a href="{{ topic.get_absolute_url }}">{{ topic.issues.first.name }}</a></p>
       </li>
       {% endfor %}
     </ul>

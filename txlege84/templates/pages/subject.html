@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block og_data %}
+  {% include "includes/og/og_basic.html" %}
+{% endblock %}
 
-  <div>
-    <h2>{{ object.name }}</h2>
-  </div>
+{% block mobileheader %}
+  {% include "components/page-headers/subject-page-header.html" %}
+{% endblock %}
+
+{% block desktopheader %}
+  {% include "components/page-headers/subject-page-header.html" %}
+{% endblock %}
+
+{% block content %}
 
 <section>
   <table>
@@ -18,7 +26,7 @@
     <tbody>
     {% for bill in object.bills.all %}
       <tr>
-        <td data-title="Bill"><a href="{% url 'bill-detail' bill.slug %}">{{ bill.name }}</a></td>
+        <td data-title="Bill"><a href="{{ bill.get_absolute_url }}">{{ bill.name }}</a></td>
         <td data-title="Caption">{{ bill.description }}</td>
         <td data-title="Action">{{ bill.actions.first.text }}</td>
       </tr>
