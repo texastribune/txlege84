@@ -38,7 +38,9 @@
         <select id="legislator-dropdown">
         <option value="">---</option>
         {% for legislator in legislator_list|dictsort:"last_first_full_name" %}
-          <option value="{{ legislator.get_absolute_url }}">{{ legislator.full_name }}</option>
+
+          <option value="{{ legislator.get_absolute_url }}">{% if legislator.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ legislator.full_name }}</option>
+
         {% endfor %}
         </select>
       </div>
