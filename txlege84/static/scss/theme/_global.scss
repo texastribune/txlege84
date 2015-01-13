@@ -91,6 +91,12 @@ h2 {
       font-size: 1em;
       margin: 0 0 0 1em;
     }
+
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 
 
@@ -180,6 +186,7 @@ a {
       }
     }
   }
+
 }
 
 hr {
