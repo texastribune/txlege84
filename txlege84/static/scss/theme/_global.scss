@@ -1,25 +1,25 @@
 /* Base Theme for HTML elements */
 
 body {
-  // background-color: $light-blue;
+  background: url(../images/brand/84th-lege-bg-mobile.gif) no-repeat;
+  background-size: cover;
   font-family: $base-sans-serif;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1;
+  position: absolute;
   text-rendering: optimizelegibility;
-  background: url(../images/brand/84th-lege-bg-mobile001.gif) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+
 
   @include media($medium) {
-    background: url(../images/brand/on-the-lege-capitol-bg-test-B.gif) no-repeat center center fixed;
+    background: url(../images/brand/on-the-lege-capitol-faded-bg002.jpg) no-repeat center center fixed;
     background-size: cover;
+    position: relative;
   }
 
   @include media($large) {
-    background: url(../images/brand/on-the-lege-capitol-bg-test-B.gif) no-repeat center center fixed;
+    background: url(../images/brand/on-the-lege-capitol-faded-bg002.jpg) no-repeat center center fixed;
     background-size: cover;
+    position: relative;
   }
 }
 
@@ -69,12 +69,28 @@ h2 {
     color: $bodytext-black;
     text-decoration: none;
 
+    i {
+      color: $href-teal;
+      float: right;
+      margin: 0 0 0 .5em;
+    }
+
     &:hover {
       color: $href-teal;
       border-bottom: none;
       text-decoration: none;
+
+
     }
   }
+
+  span.share {
+    float: right;
+    font-size: .6em;
+    margin-top: .7em;
+  }
+
+
 }
 
 // Sidebar Header
@@ -141,9 +157,13 @@ a {
 
   li {
     h5 span {
-      color: $bodytext-black;
-      border-bottom: 1px solid $href-teal;
+      color: $href-teal;
       text-decoration: none;
+    }
+
+    .fa {
+      font-size: 1em;
+      margin-right: .5em;
     }
   }
 
@@ -153,8 +173,7 @@ a {
     li {
       h5 span {
         color: $href-teal;
-        border-bottom: none;
-        text-decoration: none;
+        text-decoration: underline;
       }
     }
   }
@@ -250,4 +269,17 @@ section {
   @include media($large) {
     display: block;
   }
+}
+
+.content-divider {
+  padding: .5em;
+
+  @include media($medium) {
+    display: none;
+  }
+
+  @include media($large) {
+    display: none;
+  }
+
 }

@@ -1,7 +1,16 @@
 {% load staticfiles %}
 <section class="hot-list-nav">
   <header>
-    <h2><a href="{% url 'topic-list-detail' %}">Hot Lists</a></h2>
+    <h2><a href="{% url 'topic-list-detail' %}">Hot Lists</a>
+      <span class="share">Share:
+      <a href="https://twitter.com/intent/tweet?text=" title="share on Twitter" class="social-share" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+        <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=http%3A%2F%2Ftxlege.texastribune.org&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
+          <i class="fa fa-facebook"></i>
+        </a>
+      </span>
+      </h2>
     <h4>The top issues of the 84th Legislature, by topic</h4>
   </header>
   <nav>
