@@ -4,6 +4,7 @@ from django.utils.text import slugify
 
 from bills.models import Bill
 
+from txlege84.managers import PublishedQuerySet
 
 PUBLICATION_CHOICES = (
     (u'D', u'Draft'),
@@ -64,6 +65,8 @@ class Issue(models.Model):
 
     related_bills = models.ManyToManyField(
         Bill, related_name='issues', null=True, blank=True)
+
+    objects = PublishedQuerySet.as_manager()
 
     class Meta:
         ordering = ('order',)
