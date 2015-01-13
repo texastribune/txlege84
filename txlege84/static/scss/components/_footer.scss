@@ -61,7 +61,7 @@ $bp-footer: new-breakpoint(min-width 720px);
     ul {
       list-style: none;
       margin: 2em;
-      padding: 0 4em;
+      padding: 0 1.25em;
 
       @include media($medium) {
         margin: 2em 0 0;
@@ -89,7 +89,7 @@ $bp-footer: new-breakpoint(min-width 720px);
 
   .logo-container {
     @extend %content-block;
-    padding: 0 7em;
+    padding: 0 4.25em;
 
     @include media($medium) {
       padding: 0 2em;
@@ -140,7 +140,7 @@ $bp-footer: new-breakpoint(min-width 720px);
     background: $teal;
     color: $white;
     font-family: Helvetica;
-    padding: .25em 3em 2em;
+    padding: .25em 0 2em;
 
     ul {
       font-size: 1.75em;
