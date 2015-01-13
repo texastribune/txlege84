@@ -7,7 +7,7 @@
       <h4>Updated: {{ issue.modified_date|date:"N j, Y" }}</h4>
     </header>
     {{ issue.active_text.text|safe }}
-    {% if issue.related_bills.all != "" %}
+    {% if issue.related_bills.first != null %}
     <div class="related-legislation">
       <header>
         <h5>Relevant Legislation</h5>
@@ -20,7 +20,7 @@
     </div>
     {% endif %}
 
-    {% if issue.stories.all != "" %}
+    {% if issue.stories.first != null %}
     <div class="related-content">
       <header>
         <h5>Story Timeline</h5>

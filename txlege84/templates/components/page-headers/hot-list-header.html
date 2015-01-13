@@ -4,7 +4,7 @@
     <img class="hot-list-graphic header" src="{% static 'images/icons/' %}{{ topic.slug }}.svg"></img>
     <h2><a href="{% url 'topic-list-detail' %}">Hot Lists</a>: {{ topic.name }}
       <span class="share">
-        <a href="https://twitter.com/intent/tweet?text=Check%20out%20%40TexasTribune%E2%80%99s%20list%20of%20the%20top%{{ topic.name|urlencode:"" }}%20issues%20for%20the%2084th%20%23txlege" title="share on Twitter" class="social-share" target="_blank">
+        <a href="https://twitter.com/intent/tweet?text=Check%20out%20%40TexasTribune%E2%80%99s%20list%20of%20the%20top%20{{ topic.name|lower|urlencode:""}}%20issues%20for%20the%2084th%20%23txlege%20http%3A%2F%2Ftxlege.texastribune.org{{ topic.get_absolute_url|urlencode:"" }}" title="share on Twitter" class="social-share" target="_blank">
           <i class="fa fa-twitter"></i>
         </a>
         <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=http%3A%2F%2Ftxlege.texastribune.org{{ topic.get_absolute_url|urlencode:"" }}&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
