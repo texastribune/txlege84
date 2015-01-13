@@ -10,7 +10,7 @@
       <iframe width="560" height="315" src="//www.youtube.com/embed/{{ first_explainer.youtube_id }}" frameborder="0" allowfullscreen></iframe>
     </div>
     <h3 class="headline">{{ first_explainer.name }}</h3>
-    <p>{{ first_explainer.text }}</p>
+    <p>{{ first_explainer.text|safe }}</p>
   </div>
   {% endwith %}
   {% if explainer_list|length > 1 %}
