@@ -22,7 +22,7 @@
     <div class="flexible-video">
       <iframe width="560" height="315" src="//www.youtube.com/embed/{{ explainer.youtube_id }}" frameborder="0" allowfullscreen></iframe>
     </div>
-    <p>{{ explainer.text }}</p>
+    <p>{{ explainer.text|safe }}</p>
   </div>
 
   <hr>
