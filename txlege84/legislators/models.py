@@ -48,6 +48,7 @@ class Legislator(models.Model):
     tribune_slug = models.SlugField(null=True, blank=True)
     tribune_photo = models.URLField(null=True, blank=True)
     tribune_city = models.CharField(max_length=40, null=True, blank=True)
+    tribune_room = models.CharField(max_length=20, null=True, blank=True)
 
     capitol_address = models.TextField(null=True, blank=True)
     capitol_phone = models.CharField(max_length=12, null=True, blank=True)
