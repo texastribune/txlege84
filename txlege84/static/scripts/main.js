@@ -55,7 +55,7 @@
     autoselect: true,
     hint: false,
     highlight: false,
-    minLength: 2
+    minLength: 3
   }, {
     name: 'bills',
     displayKey: 'name',
