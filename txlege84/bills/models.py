@@ -39,6 +39,9 @@ class Bill(models.Model):
     passed_house = models.DateField(null=True, blank=True)
     became_law = models.DateField(null=True, blank=True)
 
+    class Meta:
+        ordering = ('name',)
+
     def __unicode__(self):
         return self.name
 
