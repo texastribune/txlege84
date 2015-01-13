@@ -23,7 +23,7 @@ docker/build:
 
 docker/prod: docker/build
 	git pull
-	docker stop ${APP} && docker rm ${APP}
+	-docker stop ${APP} && docker rm ${APP}
 	docker run --name=${APP} \
 		--detach=true \
 		--publish=80:8000 \
