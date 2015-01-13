@@ -84,10 +84,14 @@
       </div>
     </div>
     <div class="bill-section">
+    {% if object.issues.all != "" %}
       <header>
         <h3>Related Issue</h3>
       </header>
-      <p><a href="">New taxes to support Texas Lotto</a></p>
+      {% for issue in object.issues.all %}
+        <p><a href="{{ issue.get_absolute_url }}">{{ issue.name }}</a></p>
+      {% endfor %}
+    {% endif %}
     </div>
 
     <div class="stages bill-section">

@@ -7,6 +7,7 @@
       <h4>Updated: {{ issue.modified_date|date:"N j, Y" }}</h4>
     </header>
     {{ issue.active_text.text|safe }}
+    {% if issue.related_bills.all != "" %}
     <div class="related-legislation">
       <header>
         <h5>Relevant Legislation</h5>
@@ -17,6 +18,9 @@
       {% endfor %}
       </ul>
     </div>
+    {% endif %}
+
+    {% if issue.stories.all != "" %}
     <div class="related-content">
       <header>
         <h5>Story Timeline</h5>
@@ -28,6 +32,7 @@
       </ul>
     </div>
   </div>
+  {% endif %}
   <div class="share-box">
     <h5>Share this issue:
 
