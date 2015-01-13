@@ -16,7 +16,7 @@
           <h4>Search bills by number</h4>
         </header>
         <form>
-          <input id="bill-search" type="text" placeholder="Ex. &mdash; SB 1, Straus or education">
+          <input id="bill-search" type="text" placeholder="E.g. HB 200, SR 124">
         </form>
         <button>Find</button>
       </div>
@@ -25,6 +25,7 @@
           <h4>Browse bills by category</h4>
         </header>
         <select id="category-dropdown">
+        <option value="">---</option>
         {% for category in subject_list %}
           <option value="{{ category.get_absolute_url }}">{{ category.name }}</option>
         {% endfor %}
