@@ -1,14 +1,14 @@
-.side-bar {
-  background-color: transparentize($white, .4);
+// .side-bar {
+//   background-color: transparentize($white, .4);
 
-  @include media($medium) {
-    background-color: none;
-  }
+//   @include media($medium) {
+//     background-color: none;
+//   }
 
-  @include media($large) {
-    background-color: none;
-  }
-}
+//   @include media($large) {
+//     background-color: none;
+//   }
+// }
 
 .main-header {
   h1 {
