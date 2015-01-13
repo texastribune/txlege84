@@ -136,6 +136,7 @@
 .page-header {
   @extend %content-block;
   @include clearfix;
+  background-color: $white;
   padding-top: .5em;
   padding-bottom: .5em;
 
