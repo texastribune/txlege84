@@ -43,10 +43,14 @@
   var searchBills = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name', 'slug'),
     queryTokenizer: Bloodhound.tokenizers.whitespace,
+    limit: 10,
+    sorter: function(a, b) {
+      return (+a.name.match(/\d+/)[0]) - (+b.name.match(/\d+/)[0]);
+    },
     prefetch: {
-      url: '/search/bills/',
-      ttl: 3600000 // One hour
-    }
+      url: '/search/bills/'
+    },
+    ttl: 3600000 // One hour
   });
 
   searchBills.initialize();
@@ -55,7 +59,7 @@
     autoselect: true,
     hint: false,
     highlight: false,
-    minLength: 2
+    minLength: 3
   }, {
     name: 'bills',
     displayKey: 'name',
