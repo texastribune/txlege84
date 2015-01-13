@@ -2,7 +2,6 @@
   h1 {
     padding-top: .25em;
     margin: .25em 0 .4em;
-    text-align: center;
 
     a {
       color: $tribune-black;
@@ -10,14 +9,6 @@
       &:hover {
         text-decoration: none;
       }
-    }
-
-    @include media($medium) {
-      text-align: left;
-    }
-
-    @include media($large) {
-      text-align: left;
     }
   }
 
@@ -40,18 +31,6 @@
 
       @include media($large) {
         display: block;
-      }
-    }
-
-    .share {
-      text-align: center;
-
-      @include media($medium) {
-        text-align: left;
-      }
-
-      @include media($large) {
-        text-align: left;
       }
     }
 
@@ -90,10 +69,9 @@
   }
 
   .trib-logo {
-    float: left;
-    margin: 1em 5%;
+    margin: 1em 0;
     max-width: 11em;
-    width: 25%;
+    width: 40%;
 
     @include media($medium) {
       float: none;
@@ -114,19 +92,16 @@
   .title-underline {
     background-color: $tribune-yellow;
     height: .55em;
-    display: none;
-    margin: 0 0 1em 35%;
-    width: 55%;
+    margin: 0 0 1em 0;
+    width: 40%;
     max-width: 11em;
 
     @include media($medium) {
-      display: block;
-      margin: 0 0 1em 0;
+      width: 55%;
     }
 
     @include media($large) {
-      display: block;
-      margin: 0 0 1em 0;
+      width: 55%;
     }
 
   }
@@ -175,7 +150,16 @@
   }
 
   .resource-bk {
+    background-color: $white;
     padding: 1em 1.25em;
+
+    @include media($medium) {
+      background-color: transparentize($white, 1);
+    }
+
+    @include media($large) {
+      background-color: transparentize($white, 1);
+    }
   }
 
   h3 {

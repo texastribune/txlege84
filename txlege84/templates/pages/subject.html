@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block og_data %}
-  {% include "includes/og/og_basic.html" %}
+  {% include "includes/og/og_subject.html" %}
 {% endblock %}
 
 {% block mobileheader %}
@@ -15,6 +15,7 @@
 {% block content %}
 
 <section>
+{% if object.bills.first != null %}
   <table class="bill-table">
     <thead>
       <tr>
@@ -33,6 +34,9 @@
     {% endfor %}
     </tbody>
   </table>
+{% else %}
+<p>No bills have been filed under this category yet.</p>
+{% endif %}
 </section>
 
 {% endblock %}
