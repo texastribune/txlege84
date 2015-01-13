@@ -33,6 +33,9 @@ docker/util: docker/build
 	docker run --env-file=env \
 		-it --rm ${APP}-util bash
 
+docker/debug: docker/build
+	docker run --rm -it --volumes-from=${APP} --entrypoint=/bin/bash --workdir=/app/logs ${IMAGE}
+
 ### for development only from here on:
 
 docker/db:
