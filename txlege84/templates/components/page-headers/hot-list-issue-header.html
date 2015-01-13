@@ -13,7 +13,7 @@
       </span>
     </h2>
   </header>
-  {% with curators=topic.curators.all %}
+  {% with curators=issue.topic.curators.all %}
   {% if curators %}
   <header class="curated-by">
     {% for curator in curators %}
@@ -28,7 +28,7 @@
   <nav class="full-hot-list">
     <ul>
     {% for issue in object.topic.issues.all.published %}
-      <li><a href="{{ topic.get_absolute_url }}#{{ issue.slug }}">{{ issue.name }}</a></li>
+      <li><a href="{{ issue.topic.get_absolute_url }}#{{ issue.slug }}">{{ issue.name }}</a></li>
     {% endfor %}
     </ul>
   </nav>

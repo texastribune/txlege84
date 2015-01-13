@@ -3,3 +3,4 @@
 
 -r base.txt
 raven==5.1.1
+psycopg2==2.5.4

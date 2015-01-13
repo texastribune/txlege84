@@ -78,7 +78,7 @@
     },
     'senate-stream': {
       subdomain: 'tlcsenate',
-      cameraId: '3'
+      cameraId: '8'
     }
   };
 
