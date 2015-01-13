@@ -4,6 +4,7 @@ $ls-small: new-breakpoint(min-width 695px max-width 799px);
   @include clearfix;
 
   .watch {
+
     @include media($ls-small) {
       .chamber {
         @include span-columns(6);
@@ -18,9 +19,10 @@ $ls-small: new-breakpoint(min-width 695px max-width 799px);
       }
     }
 
-    .chamber:last-child {
-      margin-top: 1.5em;
-    }
+  }
+
+  .stream-placeholder {
+    margin-bottom: 1em;
   }
 
 }
