@@ -71,6 +71,7 @@
   .trib-logo {
     margin: 1em 0;
     max-width: 11em;
+    width: 40%;
 
     @include media($medium) {
       float: none;
@@ -91,19 +92,16 @@
   .title-underline {
     background-color: $tribune-yellow;
     height: .55em;
-    display: none;
-    margin: 0 0 1em 35%;
-    width: 55%;
+    margin: 0 0 1em 0;
+    width: 40%;
     max-width: 11em;
 
     @include media($medium) {
-      display: block;
-      margin: 0 0 1em 0;
+      width: 55%;
     }
 
     @include media($large) {
-      display: block;
-      margin: 0 0 1em 0;
+      width: 55%;
     }
 
   }
