@@ -89,7 +89,7 @@
         <h3>Related Issue</h3>
       </header>
       {% for issue in object.issues.all %}
-        <p><a href="issue.get_absolute_url">{{ issue.name }}</a></p>
+        <p><a href="{{ issue.get_absolute_url }}">{{ issue.name }}</a></p>
       {% endfor %}
     {% endif %}
     </div>
