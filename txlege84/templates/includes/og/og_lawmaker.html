@@ -1,6 +1,6 @@
   <meta property="og:site_name" content="The Texas Tribune">
     <meta property="og:title" content="84th Lege | The Texas Tribune">
-    <meta property="og:description" content="{{ object.name }}: {{ object.description }}">
+    <meta property="og:description" content="{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }} ({{ object.party.short_name }}-{{ object.tribune_city }})">
     <meta property="og:url" content="http://txlege.texastribune.org{{ object.get_absolute_url }}">
-    <meta property="og:image" content="http://s3.amazonaws.com/static.texastribune.org/media/images/2014/04/25/Capitolbuilding1.jpg">
+    <meta property="og:image" content="{{ object.tribune_photo }}">
     <meta property="og:type" content="website">
