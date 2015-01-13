@@ -21,6 +21,15 @@ prep_for_development:
 docker/build:
 	docker build --tag=${IMAGE} .
 
+docker/staging: docker/build
+	git pull
+	git checkout staging
+	-docker stop ${APP} && docker rm ${APP}
+	docker run --name=${APP} \
+		--detach=true \
+		--publish=80:8000 \
+		--env-file=env ${IMAGE}
+
 docker/prod: docker/build
 	docker stop ${APP} && docker rm ${APP}
 	docker run --name=${APP} \
