@@ -33,15 +33,20 @@
       </div>
       <div>
         <header>
-          <h4>Browse Legislators</h4>
+          <h4>Browse bills by legislator</h4>
         </header>
         <select id="legislator-dropdown">
-        <option value="">---</option>
-        {% for legislator in legislator_list|dictsort:"last_first_full_name" %}
-
-          <option value="{{ legislator.get_absolute_url }}">{% if legislator.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ legislator.full_name }}</option>
-
-        {% endfor %}
+          <option value="">---</option>
+          <optgroup label="Texas House">
+            {% for legislator in rep_list %}
+            <option value="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }}</option>
+            {% endfor %}
+          </optgroup>
+          <optgroup label="Texas Senate">
+            {% for legislator in sen_list %}
+            <option value="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }}</option>
+            {% endfor %}
+          </optgroup>
         </select>
       </div>
       <div>
