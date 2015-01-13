@@ -31,7 +31,9 @@ docker/staging: docker/build
 		--env-file=env ${IMAGE}
 
 docker/prod: docker/build
-	docker stop ${APP} && docker rm ${APP}
+	git pull
+	git checkout master
+	-docker stop ${APP} && docker rm ${APP}
 	docker run --name=${APP} \
 		--detach=true \
 		--publish=80:8000 \
