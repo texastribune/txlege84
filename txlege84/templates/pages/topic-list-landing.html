@@ -38,7 +38,7 @@
 
     <div class="issue-list">
       <ul>
-      {% for issue in topic.issues.all %}
+      {% for issue in topic.issues.all.published %}
         <li><a href="{{ issue.get_absolute_url }}">{{ issue.name }}</a></li>
       {% endfor %}
       </ul>

@@ -14,7 +14,7 @@
 
 {% block content %}
 
-{% for issue in object.issues.all %}
+{% for issue in object.issues.all.published %}
   {% include "components/issue-box.html" %}
 {% endfor %}
 

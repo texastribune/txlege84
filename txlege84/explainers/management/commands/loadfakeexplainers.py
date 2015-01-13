@@ -18,18 +18,22 @@ class Command(BaseCommand):
 
         fakes = [{
             'title': u'What Really Happens During the 5 Months of Session',
+            'status': u'P',
             'youtube_id': 'UJlA6_Ij4Pw',
             'text': FAKE.paragraph(),
             }, {
             'title': u'What is a Point of Order?',
+            'status': u'P',
             'youtube_id': 'UJlA6_Ij4Pw',
             'text': FAKE.paragraph(),
             }, {
             'title': u'What Does the Lieutenant Governor do?',
+            'status': u'D',
             'youtube_id': 'UJlA6_Ij4Pw',
             'text': FAKE.paragraph(),
             }, {
             'title': u'What is a Second Reading?',
+            'status': u'P',
             'youtube_id': 'UJlA6_Ij4Pw',
             'text': FAKE.paragraph(),
             },
@@ -43,5 +47,6 @@ class Command(BaseCommand):
             name=data['title'],
             youtube_id=data['youtube_id'],
             text=data['text'],
+            status=data['status'],
             order=order,
         )

@@ -18,6 +18,12 @@
     &:last-child {
       text-align: right;
     }
+
+    @include media($bp-table) {
+      &:last-child {
+        text-align: left;
+      }
+    }
   }
 
   td {
@@ -31,6 +37,13 @@
     &:last-child {
       text-align: right;
     }
+
+    @include media($bp-table) {
+      &:last-child {
+        text-align: left;
+      }
+    }
+
   }
 
 }
