@@ -4,5 +4,5 @@ from explainers.models import Explainer
 
 
 class ExplainerListDetail(ListView):
-    model = Explainer
+    queryset = Explainer.objects.all().published()
     template_name = 'pages/explainer-landing.html'

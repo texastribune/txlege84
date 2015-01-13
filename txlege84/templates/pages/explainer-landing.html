@@ -18,7 +18,7 @@
 
  {% for explainer in object_list %}
   <div class="texplainer-content-box">
-    <h3 class="headline">{{ explainer.title }}</h3>
+    <h3 class="headline">{{ explainer.name }}</h3>
     <div class="flexible-video">
       <iframe width="560" height="315" src="//www.youtube.com/embed/{{ explainer.youtube_id }}" frameborder="0" allowfullscreen></iframe>
     </div>
