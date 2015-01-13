@@ -12,7 +12,7 @@
         <h5>Capitol Office:</h5>
       </header>
       <ul>
-        <li>Room: TK (<a href="">See on Capitol map</a>)</li>
+        {% if object.tribune_room %}<li>Room: {{ object.tribune_room }} (<a href="https://www.texastribune.org/directory/offices/{{ object.tribune_room }}/">See on map</a>)</li>{% endif %}
         <li>Phone: <a href="tel:{{ object.capitol_phone }}">{{ object.capitol_phone }}</a></li>
       </ul>
     </div>
@@ -33,8 +33,3 @@
   <a href="{{ object.tribune_directory_url }}"><button>View in Directory</button></a>
   <a href="{{ object.tribune_ethics_url }}"><button>View in Ethics Explorer</button></a>
 </div>
-
-
-
-
-

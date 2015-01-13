@@ -107,10 +107,12 @@ class Command(BaseCommand):
                 tribune_city = match['city']
                 tribune_slug = match['slug']
                 tribune_photo = match['photo']
+                tribune_room = match['room'] if match['room'] else None
             else:
                 tribune_city = None
                 tribune_slug = None
                 tribune_photo = None
+                tribune_room = None
 
             legislator, created = Legislator.objects.update_or_create(
                 openstates_id=data['leg_id'],
@@ -130,5 +132,6 @@ class Command(BaseCommand):
                     'tribune_city': tribune_city,
                     'tribune_slug': tribune_slug,
                     'tribune_photo': tribune_photo,
+                    'tribune_room': tribune_room,
                 }
             )
