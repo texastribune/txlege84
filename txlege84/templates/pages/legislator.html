@@ -14,6 +14,7 @@
 
 {% block content %}
 
+{% if object.memberships.first != null %}
 <header>
   <h3 class="section-header">Committee assignments</h3>
 </header>
@@ -26,6 +27,7 @@
     {% endfor %}
   </ul>
 </div>
+{% endif %}
 
 <header>
   <h3 class="section-header">Filed legislation</h3>
