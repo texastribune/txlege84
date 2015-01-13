@@ -1,82 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    {% load staticfiles %}
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block extra_title %}{% endblock %}84th Lege | The Texas Tribune</title>
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/brand/favicon.ico' %}">
+<head>
+  {% load staticfiles %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block extra_title %}{% endblock %}84th Lege | The Texas Tribune</title>
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/brand/favicon.ico' %}">
 
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="">
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="">
 
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
-    <link rel="apple-touch-icon" href="">
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+  <link rel="apple-touch-icon" href="">
 
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="">
-    <meta name="msapplication-TileColor" content="#FFCC20">
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="">
+  <meta name="msapplication-TileColor" content="#FFCC20">
 
-    <!-- Facebook Open Graph -->
-    {% block og_data %}{% endblock %}
+  <!-- Facebook Open Graph -->
+  {% block og_data %}{% endblock %}
 
-    <!-- Vendor styles -->
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <!-- Vendor styles -->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
-    {% block extra_head %}{% endblock %}
+  {% block extra_head %}{% endblock %}
 
-    {% include "includes/ads.html" %}
+  {% include "includes/ads.html" %}
 
-    <script>window.billSnippetURL = '{% url "bill-detail" 0 %}'.replace('0/', '');</script>
-    <script>{% include "loaders/loadjs.js" %}loadJS('{% static "scripts/bundle.js" %}');</script>
-  </head>
-  <body>
+  <script>window.billSnippetURL = '{% url "bill-detail" 0 %}'.replace('0/', '');</script>
+  <script>{% include "loaders/loadjs.js" %}loadJS('{% static "scripts/bundle.js" %}');</script>
+</head>
+<body>
 
-    <div class="main-container">
+  <div class="main-container">
     {% include "includes/banner_ad.html" %}
-      <section class="side-bar">
-         <section class="main-header">
-          <div class="project-branding">
-            <header>
-              <a href="http://www.texastribune.org/">
-                <img class="trib-logo" alt="The Texas Tribune" src="{% static 'images/brand/tt-logo-stack.svg' %}">
+    <section class="side-bar">
+      <section class="main-header">
+        <div class="project-branding">
+          <header>
+            <a href="http://www.texastribune.org/">
+              <img class="trib-logo" alt="The Texas Tribune" src="{% static 'images/brand/tt-logo-stack.svg' %}">
+            </a>
+            <h1><a href="{% url 'landing-view' %}">84th Lege</a></h1>
+            <div class="title-underline"><span></span></div>
+            <p>Your go-to resource for the 2015 Texas legislative session</p>
+            <div class="share">
+              <a href="https://twitter.com/intent/tweet?text=Check%20out%20%40TexasTribune%E2%80%99s%2084th%20Lege%20page%20--%20your%20go-to%20resource%20for%20the%202015%20%23txlege%20http%3A%2F%2Ftxlege.texastribune.org%2F" title="share on Twitter" class="social-share" target="_blank">
+                <i class="fa fa-twitter"></i>
               </a>
-              <h1><a href="{% url 'landing-view' %}">84th Lege</a></h1>
-              <div class="title-underline"><span></span></div>
-              <p>Your go-to resource for the 2015 Texas legislative session</p>
-              <div class="share">
-                <a href="https://twitter.com/intent/tweet?text=Check%20out%20%40TexasTribune%E2%80%99s%2084th%20Lege%20page%20--%20your%20go-to%20resource%20for%20the%202015%20%23txlege%20http%3A%2F%2Ftxlege.texastribune.org%2F" title="share on Twitter" class="social-share" target="_blank">
-                  <i class="fa fa-twitter"></i>
-                </a>
-                <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=http%3A%2F%2Ftxlege.texastribune.org&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </div>
-            </header>
-          </div>
-          <div class="page-header desktop-hide">
-            {% block mobileheader %}{% endblock %}
-          </div>
-        </section>
-
-        {% include "components/side-bar.html" with subject_list=subject_list %}
-
-      </section>
-
-      <section class="body-main">
-        <div class="mobile-hide">
-          {% block desktopheader %}{% endblock %}
+              <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=http%3A%2F%2Ftxlege.texastribune.org&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
+                <i class="fa fa-facebook"></i>
+              </a>
+            </div>
+          </header>
         </div>
-        <div class="content-divider"></div>
-        {% block content %}{% endblock %}
+        <div class="page-header desktop-hide">
+          {% block mobileheader %}{% endblock %}
+        </div>
       </section>
+
+      {% include "components/side-bar.html" with subject_list=subject_list %}
+
+    </section>
+
+    <section class="body-main">
+      <div class="mobile-hide">
+        {% block desktopheader %}{% endblock %}
+      </div>
+      <div class="content-divider"></div>
+      {% block content %}{% endblock %}
+    </section>
 
     {% include "includes/banner_ad2.html" %}
   </div>
@@ -84,40 +84,40 @@
   <footer class="footer">
     <div class="main-container">
 
-    <div class="footer-container">
-      <div class="logo-container">
-        <a href="https://twitter.com/newsapps"><img class="logo" src="{% static 'images/brand/TT-logo-white-stack.png' %}" alt="Texas Tribune logo"></a>
-        <p>&#169; 2014 <a href="http://www.texastribune.org/">The Texas Tribune</a></p>
+      <div class="footer-container">
+        <div class="logo-container">
+          <a href="https://twitter.com/newsapps"><img class="logo" src="{% static 'images/brand/TT-logo-white-stack.png' %}" alt="Texas Tribune logo"></a>
+          <p>&#169; 2014 <a href="http://www.texastribune.org/">The Texas Tribune</a></p>
+        </div>
+        <div>
+          <ul>
+            <li><a href="http://www.facebook.com/texastribune"><i class="icon fa-facebook-square"></i>Facebook</a></li>
+            <li><a href="http://twitter.com/TexasTribune"><i class="icon fa-twitter-square"></i>Twitter</a></li>
+            <li><a href="http://www.youtube.com/user/thetexastribune"><i class="icon fa-youtube-play"></i>YouTube</a></li>
+            <li><a href="http://instagram.com/texas_tribune"><i class="icon fa-instagram"></i>Instagram</a></li>
+            <li><a href="http://www.linkedin.com/company/texas-tribune"><i class="icon fa-linkedin-square"></i>LinkedIn</a></li>
+          </ul>
+        </div>
+        <div class="internal-links">
+          <ul>
+            <li><a href="http://www.texastribune.org/about/">About Us</a></li>
+            <li><a href="http://www.texastribune.org/support-us/donors-and-members/">Who Funds Us?</a></li>
+            <li><a href="http://www.texastribune.org/terms-of-service/">Terms of Service</a></li>
+            <li><a href="http://www.texastribune.org/ethics/">Code of Ethics</a></li>
+            <li><a href="http://www.texastribune.org/privacy/">Privacy Policy</a></li>
+            <li><a href="http://www.texastribune.org/corrections/">Corrections</a></li>
+            <li><a href="https://www.texastribune.org/join/" class="donate-link">Donate</a></li>
+          </ul>
+        </div>
+        <div class="donate">
+          <ul>
+            <li>Nonpartisan.</li>
+            <li>Nonprofit.</li>
+            <li>Statewide.</li>
+            <a href="https://www.texastribune.org/join/"><li>Join Us</li></a>
+          </ul>
+        </div>
       </div>
-      <div>
-        <ul>
-          <li><a href="http://www.facebook.com/texastribune"><i class="icon fa-facebook-square"></i>Facebook</a></li>
-          <li><a href="http://twitter.com/TexasTribune"><i class="icon fa-twitter-square"></i>Twitter</a></li>
-          <li><a href="http://www.youtube.com/user/thetexastribune"><i class="icon fa-youtube-play"></i>YouTube</a></li>
-          <li><a href="http://instagram.com/texas_tribune"><i class="icon fa-instagram"></i>Instagram</a></li>
-          <li><a href="http://www.linkedin.com/company/texas-tribune"><i class="icon fa-linkedin-square"></i>LinkedIn</a></li>
-        </ul>
-      </div>
-      <div class="internal-links">
-        <ul>
-        <li><a href="http://www.texastribune.org/about/">About Us</a></li>
-        <li><a href="http://www.texastribune.org/support-us/donors-and-members/">Who Funds Us?</a></li>
-        <li><a href="http://www.texastribune.org/terms-of-service/">Terms of Service</a></li>
-        <li><a href="http://www.texastribune.org/ethics/">Code of Ethics</a></li>
-        <li><a href="http://www.texastribune.org/privacy/">Privacy Policy</a></li>
-        <li><a href="http://www.texastribune.org/corrections/">Corrections</a></li>
-        <li><a href="https://www.texastribune.org/join/" class="donate-link">Donate</a></li>
-      </ul>
-      </div>
-      <div class="donate">
-        <ul>
-          <li>Nonpartisan.</li>
-          <li>Nonprofit.</li>
-          <li>Statewide.</li>
-          <a href="https://www.texastribune.org/join/"><li>Join Us</li></a>
-        </ul>
-      </div>
-    </div>
     </div>
   </footer>
 
@@ -126,5 +126,5 @@
   <!-- Google Analytics -->
   {% include "includes/ga.html" %}
 
-  </body>
+</body>
 </html>

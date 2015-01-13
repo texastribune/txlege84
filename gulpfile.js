@@ -129,4 +129,4 @@ gulp.task('default', ['clean'], function(cb) {
 });
 
 gulp.task('build', ['default']);
-gulp.task('build:deploy', ['clean', 'styles']);
+gulp.task('build:deploy', ['clean', 'styles', 'scripts:build']);

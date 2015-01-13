@@ -1,3 +1,6 @@
+PROJECT := texastribune
+APP := txlege84
+IMAGE=${PROJECT}/${APP}
 FOO ?= 83
 
 new_prep_for_development:
@@ -14,3 +17,39 @@ prep_for_development:
 	python txlege84/manage.py bootstraptopics
 	python txlege84/manage.py loadfakeissues
 	python txlege84/manage.py loadfakeexplainers
+
+docker/build:
+	docker build --tag=${IMAGE} .
+
+docker/prod: docker/build
+	docker stop ${APP} && docker rm ${APP}
+	docker run --name=${APP} \
+		--detach=true \
+		--publish=80:8000 \
+		--env-file=env ${IMAGE}
+
+docker/util: docker/build
+	cd util; make; cd ..
+	docker run --env-file=env \
+		-it --rm ${APP}-util bash
+
+### for development only from here on:
+
+docker/db:
+	docker start ${APP}-dev-db || docker run --detach \
+		--publish=5432:5432 \
+		--name=${APP}-dev-db \
+		texastribune/postgres
+
+docker/clean:
+	-docker stop ${APP}-dev-db
+	-docker rm ${APP}-dev-db
+
+docker/run: docker/build docker/db
+	docker run --entrypoint=bash \
+		-it \
+		--rm \
+		--publish=8000:8000 \
+		--env-file=.env \
+		--link=${APP}-dev-db:db \
+		--name=${APP}-dev ${IMAGE}
