@@ -1,19 +1,7 @@
-// .side-bar {
-//   background-color: transparentize($white, .4);
-
-//   @include media($medium) {
-//     background-color: none;
-//   }
-
-//   @include media($large) {
-//     background-color: none;
-//   }
-// }
-
 .main-header {
   h1 {
     padding-top: .25em;
-    margin: 1.5em 0 .5em;
+    margin: 1.5em 0 .4em;
     text-align: center;
 
     a {
