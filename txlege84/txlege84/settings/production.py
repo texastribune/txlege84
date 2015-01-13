@@ -13,7 +13,10 @@ from .base import *
 
 # https://docs.djangoproject.com/en/1.7/ref/settings/#allowed-hosts
 # https://docs.djangoproject.com/en/1.5/releases/1.5/#allowed-hosts-required-in-production
-ALLOWED_HOSTS = []
+
+# if an ELB accesses this and it's configured to do HTTP health checks this will break.
+# Right now it's configured to use TCP checks.
+ALLOWED_HOSTS = ['.texastribune.org']
 
 
 ##########################
