@@ -31,7 +31,24 @@
         {% endfor %}
         </select>
       </div>
-
+      <div>
+        <header>
+          <h4>Browse bills by legislator</h4>
+        </header>
+        <select id="legislator-dropdown">
+          <option value="">---</option>
+          <optgroup label="Texas House">
+            {% for legislator in rep_list %}
+            <option value="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }}</option>
+            {% endfor %}
+          </optgroup>
+          <optgroup label="Texas Senate">
+            {% for legislator in sen_list %}
+            <option value="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }}</option>
+            {% endfor %}
+          </optgroup>
+        </select>
+      </div>
       <div>
         <header>
           <h4>Browse bills filed by your lawmaker</h4>

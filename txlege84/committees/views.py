@@ -3,10 +3,11 @@ from django.utils.translation import ugettext as _
 from django.views.generic import DetailView
 
 from bills.mixins import AllSubjectsMixin
+from legislators.mixins import AllLegislatorsMixin
 from committees.models import Committee
 
 
-class CommitteeDetail(AllSubjectsMixin, DetailView):
+class CommitteeDetail(AllSubjectsMixin, AllLegislatorsMixin, DetailView):
     model = Committee
     template_name = 'pages/committee.html'
 

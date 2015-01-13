@@ -8,6 +8,7 @@
   var $sidebarContentA = $('.sidebar-content-bills');
   var $sidebarContentB = $('.sidebar-content-resources');
   var $categoryDropdown = $('#category-dropdown');
+  var $legislatorDropdown = $('#legislator-dropdown');
   var $arrowIconA = $('.arrow-a');
   var $arrowIconB = $('.arrow-b');
 
@@ -30,6 +31,10 @@
   });
 
   $categoryDropdown.change(function() {
+    document.location.href = $(this).val();
+  });
+
+  $legislatorDropdown.change(function() {
     document.location.href = $(this).val();
   });
 

@@ -1,34 +1,32 @@
+{% if explainer_list %}
 <section class="texplainer-content">
   <header>
     <h2><a href="{% url 'explainer-list-detail' %}">Texplainers</a></h2>
     <h4>Your guide to understanding how the Legislature works</h4>
   </header>
+  {% with first_explainer=explainer_list.first %}
   <div class="texplainer-content-box">
-    <iframe width="100%" height="315" src="//www.youtube.com/embed/OhfZlznuaVE" frameborder="0" allowfullscreen></iframe>
-    <h3 class="headline">What Really Happens During the 5 Months of Session?</h3>
-    <p>The Tribune's Ross Ramsey explains what lawmakers are really doing over the arch of the state's five month session.</p>
+    <div class="flexible-video">
+      <iframe width="560" height="315" src="//www.youtube.com/embed/{{ first_explainer.youtube_id }}" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <h3 class="headline">{{ first_explainer.name }}</h3>
+    <p>{{ first_explainer.text }}</p>
   </div>
-  {% comment %}
-<!--   <div class="more-videos">
-    <header>
-      <h5>More Texplainer videos</h5>
-    </header>
-    <div>
+  {% endwith %}
+  {% if explainer_list|length > 1 %}
+    <div class="more-videos">
       <header>
-        <h4><a href="">What's the Lieutenant Governor Do?</a></h4>
+        <h5>More Texplainer videos</h5>
       </header>
-    </div>
-    <div>
-      <header>
-        <h4><a href="">Why does everyone keep talking about POOs in the House?</a></h4>
-      </header>
-    </div>
-    <div>
-      <header>
-        <h4><a href="">This is embarassing, but how are bills passed?</a></h4>
-      </header>
-    </div>
+      {% for explainer in explainer_list|slice:"1:" %}
+      <div>
+        <header>
+          <h4><a href="{% url 'explainer-list-detail' %}">{{ explainer.name }}</a></h4>
+        </header>
       </div>
-  </div> -->
-  {% endcomment %}
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
 </section>
+{% endif %}

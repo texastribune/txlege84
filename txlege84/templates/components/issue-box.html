@@ -7,6 +7,7 @@
       <h4>Updated: {{ issue.modified_date|date:"N j, Y" }}</h4>
     </header>
     {{ issue.active_text.text|safe }}
+    {% if issue.related_bills.all != "" %}
     <div class="related-legislation">
       <header>
         <h5>Relevant Legislation</h5>
@@ -17,6 +18,9 @@
       {% endfor %}
       </ul>
     </div>
+    {% endif %}
+
+    {% if issue.stories.all != "" %}
     <div class="related-content">
       <header>
         <h5>Story Timeline</h5>
@@ -28,6 +32,7 @@
       </ul>
     </div>
   </div>
+  {% endif %}
   <div class="share-box">
     <h5>Share this issue:
       <a href="mailto:?subject=The%20Texas%20Tribune%20on%20the%2084th%20Lege:%20{{ issue.name|urlencode:"" }}&body=I%20read%20about%20an%20issue%20that%20you%20might%20be%20interested%20in%20at%20The%20Texas%20Tribune:%20{{ issue.name|urlencode:"" }}%20%0D%0Dhttp%3A%2F%2Ftxlege.texastribune.org{{ issue.get_absolute_url }}">
