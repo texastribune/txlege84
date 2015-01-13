@@ -22,6 +22,7 @@ docker/build:
 	docker build --tag=${IMAGE} .
 
 docker/prod: docker/build
+	git pull
 	docker stop ${APP} && docker rm ${APP}
 	docker run --name=${APP} \
 		--detach=true \
