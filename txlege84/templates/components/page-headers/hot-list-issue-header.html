@@ -13,7 +13,7 @@
       </span>
     </h2>
   </header>
-  {% with curators=topic.curators.all %}
+  {% with curators=issue.topic.curators.all %}
   {% if curators %}
   <header class="curated-by">
     {% for curator in curators %}
