@@ -150,7 +150,16 @@
   }
 
   .resource-bk {
+    background-color: $white;
     padding: 1em 1.25em;
+
+    @include media($medium) {
+      background-color: transparentize($white, 1);
+    }
+
+    @include media($large) {
+      background-color: transparentize($white, 1);
+    }
   }
 
   h3 {
