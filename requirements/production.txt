@@ -2,3 +2,4 @@
 # production that isn't in development.
 
 -r base.txt
+raven==5.1.1

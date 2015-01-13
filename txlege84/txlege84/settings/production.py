@@ -56,3 +56,16 @@ SECRET_KEY = get_env_setting('SECRET_KEY')
 
 # http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+
+################
+# Sentry/Raven #
+################
+
+INSTALLED_APPS += (
+    'raven.contrib.django.raven_compat',
+)
+
+RAVEN_CONFIG = {
+    'dsn':  get_env_setting('SENTRY_DSN'),
+}
