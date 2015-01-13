@@ -5,18 +5,10 @@ $ls-small: new-breakpoint(min-width 695px max-width 799px);
 
   .watch {
 
-    .chamber:last-child {
-      margin-top: 1.5em;
-    }
-
     @include media($ls-small) {
       .chamber {
         @include span-columns(6);
         @include omega(2n);
-
-        .chamber:last-child {
-          margin-top: 0;
-        }
       }
     }
 
@@ -24,13 +16,13 @@ $ls-small: new-breakpoint(min-width 695px max-width 799px);
       .chamber {
         @include span-columns(6);
         @include omega(2n);
-
-        .chamber:last-child {
-          margin-top: 0;
-        }
       }
     }
 
+  }
+
+  .stream-placeholder {
+    margin-bottom: 1em;
   }
 
 }
