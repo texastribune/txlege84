@@ -1,10 +1,11 @@
 from django.views.generic import ListView
 
 from bills.mixins import AllSubjectsMixin
+from legislators.mixins import AllLegislatorsMixin
 from topics.models import Topic, TopIssue
 
 
-class LandingView(AllSubjectsMixin, ListView):
+class LandingView(AllSubjectsMixin, AllLegislatorsMixin, ListView):
     model = Topic
     template_name = 'landing.html'
 

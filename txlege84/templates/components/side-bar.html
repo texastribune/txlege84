@@ -31,7 +31,17 @@
         {% endfor %}
         </select>
       </div>
-
+      <div>
+        <header>
+          <h4>Browse Legislators</h4>
+        </header>
+        <select id="legislator-dropdown">
+        <option value="">---</option>
+        {% for legislator in legislator_list%}
+          <option value="{{ legislator.get_absolute_url }}">{{ legislator.full_name }}</option>
+        {% endfor %}
+        </select> 0
+      </div>
       <div>
         <header>
           <h4>Browse bills filed by your lawmaker</h4>
