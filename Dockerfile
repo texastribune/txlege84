@@ -29,6 +29,7 @@ RUN gulp build:deploy
 
 ENV DJANGO_SETTINGS_MODULE txlege84.settings.production
 ENV SECRET_KEY quux
+ENV SENTRY_DSN quux
 RUN python txlege84/manage.py validate
 RUN python txlege84/manage.py collectstatic --noinput
 ADD gunicorn.supervisor.conf /etc/supervisor/conf.d/
