@@ -79,7 +79,6 @@ h2 {
 
   span.share {
     min-width: 4em;
-
     @include media($medium) {
       float: right;
       font-size: 1em;
@@ -91,14 +90,7 @@ h2 {
       font-size: 1em;
       margin: 0 0 0 1em;
     }
-
-    a {
-      &:hover {
-        text-decoration: none;
-      }
-    }
   }
-
 
 }
 
@@ -292,4 +284,13 @@ section {
     display: none;
   }
 
+}
+
+.share {
+  font-size: 1em;
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
