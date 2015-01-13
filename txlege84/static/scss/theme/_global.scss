@@ -66,28 +66,30 @@ h2 {
   padding-bottom: .3em;
 
   a {
-    color: $bodytext-black;
     text-decoration: none;
 
     i {
       color: $href-teal;
-      float: right;
-      margin: 0 0 0 .5em;
+      // float: right;
+      margin: 0 .5em 0 0;
     }
 
-    &:hover {
-      color: $href-teal;
-      border-bottom: none;
-      text-decoration: none;
-
-
-    }
   }
 
   span.share {
-    float: right;
-    font-size: .6em;
-    margin-top: .7em;
+    min-width: 4em;
+
+    @include media($medium) {
+      float: right;
+      font-size: 1em;
+      margin: 0 0 0 1em;
+    }
+
+    @include media($large) {
+      float: right;
+      font-size: 1em;
+      margin: 0 0 0 1em;
+    }
   }
 
 
