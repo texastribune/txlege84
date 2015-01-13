@@ -3,7 +3,7 @@
   <header class="hot-list-nav">
     <img class="hot-list-graphic header" src="{% static 'images/icons/' %}{{ topic.slug }}.svg"></img>
     <h2><a href="{% url 'topic-list-detail' %}">Hot Lists</a>: {{ topic.name }}
-      <span class="share">Share:
+      <span class="share">
         <a href="https://twitter.com/intent/tweet?text=Check%20out%20%40TexasTribune%E2%80%99s%20list%20of%20the%20top%{{ topic.name|urlencode:"" }}%20issues%20for%20the%2084th%20%23txlege" title="share on Twitter" class="social-share" target="_blank">
           <i class="fa fa-twitter"></i>
         </a>
