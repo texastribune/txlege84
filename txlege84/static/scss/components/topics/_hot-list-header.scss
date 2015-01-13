@@ -19,15 +19,15 @@
     margin: 0;
 
     @include media($small) {
-      height: 6em;
+      height: 5em;
     }
 
     @include media($medium) {
-      height: 6em;
+      height: 7em;
     }
 
     @include media($large) {
-      height: 6em;
+      height: 7em;
     }
   }
 }
