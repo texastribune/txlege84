@@ -7,7 +7,7 @@
         <a href="https://twitter.com/intent/tweet?text=" title="share on Twitter" class="social-share" target="_blank">
           <i class="fa fa-twitter"></i>
         </a>
-        <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=http%3A%2F%2Ftxlege.texastribune.org&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
+        <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=http%3A%2F%2Ftxlege.texastribune.org{{ issue.get_absolute_url|urlencode:"" }}&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org{{ issue.get_absolute_url|urlencode:"" }}%2F" title="share on Facebook" class="social-share" target="_blank">
           <i class="fa fa-facebook"></i>
         </a>
       </span>
