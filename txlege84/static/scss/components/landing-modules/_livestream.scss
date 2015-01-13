@@ -17,6 +17,7 @@ $ls-small: new-breakpoint(min-width 695px max-width 799px);
         @include omega(2n);
       }
     }
+
   }
 
 }
@@ -33,6 +34,10 @@ $ls-small: new-breakpoint(min-width 695px max-width 799px);
       .chamber {
         @include span-columns(12);
       }
+    }
+
+    .chamber:last-child {
+      margin-top: 1.5em;
     }
   }
 }
