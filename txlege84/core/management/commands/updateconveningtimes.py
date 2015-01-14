@@ -23,7 +23,9 @@ class Command(BaseCommand):
 
         ConveneTime.objects.update_or_create(
             chamber=Chamber.objects.get(name='Texas {}'.format(chamber)),
-            time_string=time_string,
+            defaults={
+                'time_string': time_string,
+            }
         )
 
         self.stdout.write(u'Now set to: {}'.format(time_string))
