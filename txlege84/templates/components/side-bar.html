@@ -51,12 +51,16 @@
       </div>
       <div>
         <header>
-          <h4>Browse bills filed by your lawmaker</h4>
+          <h4>Find your lawmakers by ZIP Code</h4>
         </header>
-        <form>
-          <input id="bill-search" type="text" placeholder="Enter your address">
+        <form action="http://www.fyi.legis.state.tx.us/Address.aspx" method="GET" target="_blank">
+          <input type="hidden" name="Address1" value="">
+          <input type="hidden" name="City" value="">
+          <input type="hidden" name="DistrictType" value="ALL">
+          <input type="hidden" name="Submit1" value="Submit">
+          <input type="text" id="id_" name="ZipCode" placeholder="Enter your ZIP code" style="margin-bottom: 1em;">
+          <button type="submit">Find</button>
         </form>
-        <button>Find</button>
       </div>
 
       <div>
