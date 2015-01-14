@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from django.views.generic import DetailView, ListView, TemplateView
 
 from bills.mixins import AllSubjectsMixin
-from legislators.mixins import AllLegislatorsMixin
+from legislators.mixins import AllLegislatorsMixin, ChambersMixin
 from bills.models import Bill, Subject
 
 
@@ -23,5 +23,6 @@ class BillSearchJson(ListView):
         return JsonResponse(list(context['object_list']), safe=False)
 
 
-class LegeStreamDetail(AllSubjectsMixin, AllLegislatorsMixin, TemplateView):
+class LegeStreamDetail(AllSubjectsMixin, AllLegislatorsMixin,
+                       ChambersMixin, TemplateView):
     template_name = 'pages/legestream.html'
