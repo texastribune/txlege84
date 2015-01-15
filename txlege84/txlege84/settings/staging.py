@@ -1,6 +1,6 @@
-#######################
-# PRODUCTION SETTINGS #
-#######################
+####################
+# STAGING SETTINGS #
+####################
 
 import dj_database_url
 
@@ -30,7 +30,7 @@ LOGGING = {
 
 # https://docs.djangoproject.com/en/1.7/ref/settings/#allowed-hosts
 # https://docs.djangoproject.com/en/1.5/releases/1.5/#allowed-hosts-required-in-production
-ALLOWED_HOSTS = ['.texastribune.org']  #FIXME
+ALLOWED_HOSTS = ['.texastribune.org']
 
 
 ##########################
