@@ -1,7 +1,8 @@
 FROM texastribune/gunicorn
 MAINTAINER tech@texastribune.org
 
-RUN apt-get update
+RUN add-apt-repository -y ppa:chris-lea/node.js
+RUN apt-get update -qq
 
 ADD requirements /app/requirements/
 RUN pip install -r /app/requirements/base.txt
