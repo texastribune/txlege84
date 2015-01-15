@@ -18,11 +18,13 @@ prep_for_development:
 	python txlege84/manage.py loadfakeissues
 	python txlege84/manage.py loadfakeexplainers
 
+pull:
+	git pull
+
 docker/build:
 	docker build --tag=${IMAGE} .
 
-docker/prod: docker/build
-	git pull
+docker/prod: pull docker/build
 	-docker stop ${APP} && docker rm ${APP}
 	docker run --name=${APP} \
 		--detach=true \
