@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block og_data %}
-  {% include "includes/og/og_basic.html" %}
+  {% include "includes/og/og_lawmaker.html" %}
 {% endblock %}
 
 {% block mobileheader %}
@@ -33,6 +33,7 @@
   <h3 class="section-header">Filed legislation</h3>
 </header>
 <div class="bill-table">
+{% if object.sponsorships.first != null %}
   <table>
     <thead>
       <tr>
@@ -51,6 +52,9 @@
       {% endfor %}
     </tbody>
   </table>
+  {% else %}
+  <p>This legislator hasn't filed any bills yet.</p>
+  {% endif %}
 </div>
 
 {% endblock %}

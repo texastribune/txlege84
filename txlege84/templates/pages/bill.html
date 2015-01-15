@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block og_data %}
-  {% include "includes/og/og_basic.html" %}
+  {% include "includes/og/og_bill.html" %}
 {% endblock %}
 
 {% block mobileheader %}
@@ -101,12 +101,17 @@
         <i class="fa fa-arrow-down"></i>
         <div class="date-stage-complete">{{ object.actions.first.date }}</div>
       </div>
-
-      {% if object.chamber == 'Texas House' %}
+      {% if object.chamber.name == 'Texas House' %}
       <div class="bill-stage {% if object.passed_house != None %} complete {% endif %}">
         <div class="bill-stage-name">
           Approved by House
         </div>
+        <span class="fa-stack">
+          <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
+          <i class="fa fa-check-circle fa-stack-1x"></i>
+        </span>
+        <i class="fa fa-arrow-right"></i>
+        <i class="fa fa-arrow-down"></i>
         <div class="date-stage-complete">{{ object.passed_house }}</div>
       </div>
       {% else %}
@@ -124,11 +129,17 @@
       </div>
       {% endif %}
 
-      {% if object.chamber == 'Texas Senate' %}
+      {% if object.chamber.name == 'Texas House' %}
       <div class="bill-stage {% if object.passed_house != None %} complete {% endif %}">
         <div class="bill-stage-name">
-          Approved by House
+          Approved by Senate
         </div>
+        <span class="fa-stack">
+          <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
+          <i class="fa fa-check-circle fa-stack-1x"></i>
+        </span>
+        <i class="fa fa-arrow-right"></i>
+        <i class="fa fa-arrow-down"></i>
         <div class="date-stage-complete">{{ object.passed_house }}</div>
       </div>
       {% else %}

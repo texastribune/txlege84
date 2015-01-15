@@ -3,10 +3,10 @@
   <div class="resource-bk">
     <header class="bill-search-header sidebar-header-bills">
       <h3><i class="fa fa-search"></i> Find Bills</h3>
-      <div class="arrow-b">
+      <div class="arrow-a">
         <i class="fa fa-angle-right"></i>
       </div>
-      <div class="arrow-b collapse">
+      <div class="arrow-a collapse">
         <i class="fa fa-angle-down"></i>
       </div>
     </header>
@@ -51,18 +51,22 @@
       </div>
       <div>
         <header>
-          <h4>Browse bills filed by your lawmaker</h4>
+          <h4>Find your lawmakers by ZIP Code</h4>
         </header>
-        <form>
-          <input id="bill-search" type="text" placeholder="Enter your address">
+        <form action="http://www.fyi.legis.state.tx.us/Address.aspx" method="GET" target="_blank">
+          <input type="hidden" name="Address1" value="">
+          <input type="hidden" name="City" value="">
+          <input type="hidden" name="DistrictType" value="ALL">
+          <input type="hidden" name="Submit1" value="Submit">
+          <input type="text" id="id_" name="ZipCode" placeholder="Enter your ZIP code" style="margin-bottom: 1em;">
+          <button type="submit">Find</button>
         </form>
-        <button>Find</button>
       </div>
 
       <div>
         <header>
           <img class="open-states-logo" src="{% static 'images/brand/openstates_logo_200.png' %}">
-          <h4>Bill data is provided by <a href="http://openstates.org/">Open States</a>, a product of the Sunlight Foundation. It is updated nightly.</h4>
+          <h4>Bill data is provided by <a href="http://openstates.org/" target="_blank">Open States</a>, a product of the Sunlight Foundation. It is updated nightly.</h4>
         </header>
       </div>
     </div>
