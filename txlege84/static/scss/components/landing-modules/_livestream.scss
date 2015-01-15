@@ -44,6 +44,7 @@ $ls-small: new-breakpoint(min-width 695px max-width 799px);
   }
 
   .chamber {
+    @include clearfix;
     margin-bottom: 1em;
   }
 }
