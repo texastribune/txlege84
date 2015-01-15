@@ -28,9 +28,11 @@ ADD . /app/
 ADD gulpfile.js /app/
 RUN gulp build:deploy
 
+# Django configured to complain if these aren't set:
 ENV DJANGO_SETTINGS_MODULE txlege84.settings.production
 ENV SECRET_KEY quux
 ENV SENTRY_DSN quux
+
 RUN python txlege84/manage.py validate
 RUN python txlege84/manage.py collectstatic --verbosity=0 --noinput
 ADD gunicorn.supervisor.conf /etc/supervisor/conf.d/
