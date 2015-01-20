@@ -107,8 +107,8 @@
   // Rotating Ad
   var roofline = {
     interval: 15 * 1000,
-    desktopAds: $('#rotating_ad').children('.mobile-hide').find('.rotating-ad'),
-    mobileAds: $('#rotating_ad').children('.desktop-hide').find('.rotating-ad'),
+    desktopAds: $('.rotating-ad-container').children('.mobile-hide').find('.rotating-ad'),
+    mobileAds: $('.rotating-ad-container').children('.desktop-hide').find('.rotating-ad'),
     init: function(){
       if (roofline.desktopAds.length <= 1 && roofline.mobileAds.length <= 1) {
         return false;
