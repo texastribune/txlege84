@@ -258,7 +258,6 @@ section {
 .mobile-hide {
   @include clearfix;
   display: none;
-  margin-top: 2.5em;
 
   @include media($small) {
     display: none;
