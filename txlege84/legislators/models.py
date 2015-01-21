@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.text import slugify
 
+from txlege84.managers import ActiveQuerySet
+
 
 class Party(models.Model):
     name = models.CharField(max_length=20)
@@ -34,7 +36,7 @@ class Chamber(models.Model):
 
 class Legislator(models.Model):
     first_name = models.CharField(max_length=40)
-    middle_name = models.CharField(max_length=40)
+    middle_name = models.CharField(max_length=40, null=True, blank=True)
     last_name = models.CharField(max_length=40)
     party = models.ForeignKey(
         Party, related_name='legislators', null=True, blank=True)
@@ -57,6 +59,8 @@ class Legislator(models.Model):
     district_phone = models.CharField(max_length=12, null=True, blank=True)
 
     openstates_id = models.CharField(max_length=9, unique=True)
+
+    objects = ActiveQuerySet.as_manager()
 
     def __unicode__(self):
         return self.full_name

@@ -21,6 +21,10 @@ $ls-small: new-breakpoint(min-width 695px max-width 799px);
 
   }
 
+  .chamber p {
+    min-height: 2.4em;
+  }
+
   .stream-placeholder {
     margin-bottom: 1em;
   }
@@ -41,9 +45,11 @@ $ls-small: new-breakpoint(min-width 695px max-width 799px);
       }
     }
 
-    .chamber:last-child {
-      margin-top: 1.5em;
-    }
+  }
+
+  .chamber {
+    @include clearfix;
+    margin-bottom: 1em;
   }
 }
 
