@@ -1,13 +1,3 @@
-.topic-lists {
-  @extend %content-block;
-  @include span-columns(12);
-  @include div-grid(12, 3);
-
-  h2 {
-    margin: 1em 0;
-  }
-}
-
 img.headshot {
   margin-right: 1em;
   max-height: 100px;

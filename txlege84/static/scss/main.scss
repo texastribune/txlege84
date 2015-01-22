@@ -15,18 +15,18 @@
 @import 'theme/tables';
 
 // == Sitewide Components ==
-@import 'components/ads';
-@import 'components/footer';
-@import 'components/side-bar';
+@import 'components/modules/ads';
+@import 'components/modules/footer';
+@import 'components/modules/side-bar';
 
-// == Landing Modules ==
-@import 'components/landing-modules/featured-content';
-@import 'components/landing-modules/livestream';
-@import 'components/landing-modules/top-issues';
+// == Modules ==
+@import 'components/modules/texplainer';
+@import 'components/modules/livestream';
+@import 'components/modules/top-issues';
 
-// == Topic Page Modules ==
-@import 'components/topics/hot-list-header';
-@import 'components/topics/topic-page';
+// == Hot List Modules ==
+@import 'components/modules/hot-lists/hot-list-nav';
+@import 'components/modules/hot-lists/issue-box';
 
 // == Specific Page Styles ==
 @import 'pages/_bill';
