@@ -3,6 +3,10 @@ APP := txlege84
 IMAGE=${PROJECT}/${APP}
 FOO ?= 83
 
+# can override with an environment variable:
+DATABASE_URL?=postgresql://docker:docker@db:5432/docker
+S3_SOURCE?=s3://${APP}-postgres-exports/pg.dump
+
 new_prep_for_development:
 	python txlege84/manage.py bootstrapchamber
 	python txlege84/manage.py bootstrapparty
