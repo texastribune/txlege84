@@ -1,12 +1,13 @@
 $bp-table: new-breakpoint(max-width 450px);
 
+// General News Apps table styles
 table {
   font-size: 1em;
   margin-bottom: 2em;
   width: 100%;
 
   @include media($bp-table) {
-    border-top: 1px solid #ccc;
+    border-top: 1px solid $line-gray;
     display: block;
     font-size: .875em;
   }
@@ -25,7 +26,7 @@ tbody {
 }
 
 th {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid $line-gray;
   font-size: 1em;
   font-weight: 800;
   padding: 0 12px 8px;
@@ -86,4 +87,55 @@ tr {
   @include media($bp-table) {
     display: block;
   }
+}
+
+// Custom styles for Bill Tables
+.bill-table {
+  @include span-columns(12);
+
+  thead {
+    margin-bottom: .5em;
+  }
+
+  th {
+    font-size: .9em;
+    font-weight: 500;
+    padding: 0 .25em .25em 0;
+    text-align: center;
+
+    &:first-child {
+      text-align: left;
+    }
+
+    &:last-child {
+      text-align: right;
+    }
+
+    @include media($bp-table) {
+      &:last-child {
+        text-align: left;
+      }
+    }
+  }
+
+  td {
+    padding: .5em;
+    text-align: left;
+
+    &:first-child {
+      min-width: 5em;
+    }
+
+    &:last-child {
+      text-align: right;
+    }
+
+    @include media($bp-table) {
+      &:last-child {
+        text-align: left;
+      }
+    }
+
+  }
+
 }

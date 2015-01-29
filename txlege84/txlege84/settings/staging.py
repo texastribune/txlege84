@@ -9,16 +9,16 @@ from .base import *
 LOGGING = {
     'version': 1,
     'handlers': {
-        'console':{
-            'level':'DEBUG',
-            'class':'logging.StreamHandler',
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
         },
     },
     'loggers': {
         'django.request': {
-            'handlers':['console'],
+            'handlers': ['console'],
             'propagate': True,
-            'level':'DEBUG',
+            'level': 'DEBUG',
         }
     },
 }
@@ -30,6 +30,7 @@ LOGGING = {
 
 # https://docs.djangoproject.com/en/1.7/ref/settings/#allowed-hosts
 # https://docs.djangoproject.com/en/1.5/releases/1.5/#allowed-hosts-required-in-production
+
 ALLOWED_HOSTS = ['.texastribune.org']
 
 
