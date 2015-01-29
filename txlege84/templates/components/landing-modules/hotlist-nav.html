@@ -9,9 +9,9 @@
       {% for topic in topic_list %}
       <a href="{{ topic.get_absolute_url }}">
       <li>
-        <div class="hot-list-box">
+        <div>
           <img class="hot-list-graphic list" src="{% static 'images/icons/' %}{{ topic.slug }}.svg">
-          <h5><span>{{ topic.name }}</span></h5>
+          <h5>{{ topic.name }}</h5>
           <p>{{ topic.issues.first }}</p>
         </div>
       </li>

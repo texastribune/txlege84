@@ -15,7 +15,7 @@
 {% load staticfiles %}
 {% block content %}
   <div class="bill">
-    <div class="bill-authors bill-section">
+    <div class="bill-authors">
       <div>
         <header>
           <h3>Author</h3>
@@ -54,7 +54,7 @@
       {% endif %}
       <div>&nbsp;</div>
     </div>
-    <div class="bill-committee-assignment bill-section">
+    <div class="bill-committee-assignment">
       <div>
         <header>
           <h3>House Committee</h3>
@@ -76,18 +76,18 @@
         {% endif %}
       </div>
     </div>
-    <div class="bill-section">
-    {% if object.issues.first != null %}
-      <header>
-        <h3>Related Issue</h3>
-      </header>
-      {% for issue in object.issues.all %}
-        <p><a href="{{ issue.get_absolute_url }}">{{ issue.name }}</a></p>
-      {% endfor %}
-    {% endif %}
+    <div class="related-issue">
+      {% if object.issues.first != null %}
+        <header>
+          <h3>Related Issue</h3>
+        </header>
+        {% for issue in object.issues.all %}
+          <p><a href="{{ issue.get_absolute_url }}">{{ issue.name }}</a></p>
+        {% endfor %}
+      {% endif %}
     </div>
 
-    <div class="stages bill-section">
+    <div class="bill-stages">
       <header>
         <h3>Bill Stages</h3>
       </header>
@@ -167,7 +167,7 @@
       </div>
     </div>
 
-    <div class="bill-table bill-section bill-actions">
+    <div class="bill-actions bill-table">
       <h3>Actions</h3>
       <table>
         <thead>

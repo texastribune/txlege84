@@ -22,21 +22,13 @@ prep_for_development:
 	python txlege84/manage.py loadfakeissues
 	python txlege84/manage.py loadfakeexplainers
 
+pull:
+	git pull
+
 docker/build:
 	docker build --tag=${IMAGE} .
 
-docker/staging: docker/build
-	git pull
-	git checkout staging
-	-docker stop ${APP} && docker rm ${APP}
-	docker run --name=${APP} \
-		--detach=true \
-		--publish=80:8000 \
-		--env-file=env ${IMAGE}
-
-docker/prod: docker/build
-	git pull
-	git checkout master
+docker/prod: pull docker/build
 	-docker stop ${APP} && docker rm ${APP}
 	docker run --name=${APP} \
 		--detach=true \
@@ -48,9 +40,10 @@ docker/util: docker/build
 	docker run --env-file=env \
 		-it --rm ${APP}-util bash
 
-###
+docker/debug: docker/build
+	docker run --rm -it --volumes-from=${APP} --entrypoint=/bin/bash --workdir=/app/logs ${IMAGE}
+
 ### for development only from here on:
-###
 
 # start the db if it's there; if not create it
 docker/db:
