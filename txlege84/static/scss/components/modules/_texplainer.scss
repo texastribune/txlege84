@@ -1,16 +1,15 @@
-.texplainer-content {
+.texplainer-content,
+.texplainer-content-box {
   @include span-columns(12);
+}
 
-  .texplainer-content-box {
-    @include span-columns(12);
-
-    p {
-      margin-bottom: 1em;
-    }
-
-  }
+.texplainer-content-box {
 
   iframe {
+    margin-bottom: 1em;
+  }
+
+  p {
     margin-bottom: 1em;
   }
 

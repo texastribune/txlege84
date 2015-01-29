@@ -1,6 +1,28 @@
-.bill-section {
-  @include fill-parent;
+.arrow-right,
+.arrow-down {
+  text-align: center;
+}
 
+.arrow-right{
+  display: none;
+  top: 50%;
+
+  @include media($large) {
+    display: block;
+    @include span-columns(1);
+  }
+}
+
+.arrow-down{
+  display: block;
+  @include span-columns(12);
+
+  @include media($large) {
+    display: none;
+  }
+}
+
+.bill {
   ul {
     list-style: none;
   }
@@ -16,57 +38,44 @@
   }
 }
 
-.stages {
+.bill-actions,
+.bill-stages,
+.related-issue {
   @include span-columns(12);
-
-  @include media($medium) {
-    @include span-columns(12);
-  }
-
-  @include media($large) {
-    @include span-columns(12);
-  }
-
-}
-
-.arrow-right{
-  display: none;
-  text-align: center;
-  top: 50%;
-
-  @include media($large) {
-    display: block;
-    @include span-columns(1);
-  }
-}
-
-.arrow-down{
-  display: block;
-  @include span-columns(12);
-  text-align: center;
-
-  @include media($large) {
-    display: none;
-  }
-}
-
-.bill-actions {
-  @include span-columns(12);
-
-  @include media($medium) {
-    @include span-columns(12);
-    @include omega();
-  }
-
-  @include media($large) {
-    @include span-columns(12);
-    @include omega();
-  }
 }
 
 .bill-stage {
   @include span-columns(12);
   margin-bottom: 1em;
+
+  p {
+    margin-bottom: .25em;
+  }
+
+  .date-stage-complete {
+    display: inline-block;
+    font-size: .8em;
+    font-style: italic;
+    margin-top: .5em;
+
+    &.gov-action {
+      margin-left: 4em;
+    }
+  }
+
+  .fa {
+    font-size: 1.5em;
+  }
+
+  .fa-stack {
+    @include clearfix;
+    height: 3em;
+    width: 3em;
+  }
+
+  .fa-stack-1x {
+    display: none;
+  }
 
   .fa-arrow-right {
     display: none;
@@ -83,13 +92,12 @@
     color: $line-gray;
   }
 
-  .date-stage-complete {
-    display: inline-block;
-
-    &.gov-action {
-      margin-left: 4em;
-    }
+  .scroll {
+    height: 2em;
+    opacity: .3;
+    width: 2em;
   }
+
 
   &.complete {
 
@@ -219,33 +227,6 @@
       }
     }
   }
-
-  p {
-    margin-bottom: .25em;
-  }
-
-  .scroll {
-    height: 2em;
-    opacity: .3;
-    width: 2em;
-  }
-
-  .fa-stack {
-    @include clearfix;
-    height: 3em;
-    width: 3em;
-  }
-
-  .fa {
-    font-size: 1.5em;
-  }
-
-  .fa-stack-1x {
-    display: none;
-  }
-
-
-
 }
 
 .bill-stage-name {
@@ -253,28 +234,4 @@
   height: 2em;
 }
 
-.date-stage-complete {
-  font-size: .8em;
-  font-style: italic;
-}
-
-.related-issue {
-  @extend %content-block;
-  @include span-columns(12);
-  border: 1px solid;
-  margin-bottom: 1em;
-
-  .art {
-    display: none;
-
-    img {
-      width: 100%;
-    }
-
-    @include media($large) {
-      display: block;
-    }
-  }
-
-}
 
