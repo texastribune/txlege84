@@ -1,9 +1,8 @@
 <div class="legislator-info">
-  <div class="headshot">
-    <img src="{{ object.tribune_photo }}">
-  </div>
-
   <header class="legislator-details">
+    <div class="headshot">
+      <img src="{{ object.tribune_photo }}">
+    </div>
     <h2>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }} ({{ object.party.short_name }}-{{ object.tribune_city }})</h2>
     <h4>{% if object.chamber.name == "Texas Senate" %} Senate {% else %} House {% endif %} District {{ object.district }}</h4>
 
