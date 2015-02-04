@@ -3,13 +3,36 @@
   margin-bottom: 1em;
 
   .headshot {
-    @include span-columns(2);
+    @include span-columns(3);
     margin-top: 1.5em;
+
+    @include media($small) {
+      @include span-columns(2);
+    }
+    @include media($medium) {
+      @include span-columns(2);
+    }
+    @include media($large) {
+      @include span-columns(2);
+    }
   }
 
   h2 {
-    @include span-columns(10);
+    @include span-columns(9);
     @include omega();
+
+    @include media($small) {
+      @include span-columns(10);
+      @include omega();
+    }
+    @include media($medium) {
+      @include span-columns(10);
+      @include omega();
+    }
+    @include media($large) {
+      @include span-columns(10);
+      @include omega();
+    }
   }
 
   .legislator-details {
@@ -20,10 +43,22 @@
   .office-info {
     margin-bottom: 1em;
 
-    @include span-columns(10);
+    @include span-columns(9);
     @include omega();
     @include clearfix;
 
+    @include media($small) {
+      @include span-columns(10);
+      @include omega();
+    }
+    @include media($medium) {
+      @include span-columns(10);
+      @include omega();
+    }
+    @include media($large) {
+      @include span-columns(10);
+      @include omega();
+    }
   }
 
 }
