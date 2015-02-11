@@ -33,28 +33,28 @@
   <h3 class="section-header">Filed legislation</h3>
 </header>
 <div class="bill-table">
-{% if object.sponsorships.first != null %}
   <table>
     <thead>
       <tr>
         <th>Bill</th>
         <th>Caption</th>
+        <th>role</th>
         <th>Date of last action</th>
       </tr>
     </thead>
     <tbody>
       {% for sponsorship in object.sponsorships.all %}
-      <tr>
-        <td data-title="Bill"><a href="{{ sponsorship.bill.get_absolute_url }}">{{ sponsorship.bill.name }}</a></td>
-        <td data-title="Caption">{{ sponsorship.bill.description }}</td>
-        <td data-title="Date of last action">{{ sponsorship.bill.last_action_date|date:"SHORT_DATE_FORMAT" }}</td>
-      </tr>
+        {% if sponsorship.role = 'author' %}
+        <tr>
+          <td data-title="Bill"><a href="{{ sponsorship.bill.get_absolute_url }}">{{ sponsorship.bill.name }}</a></td>
+          <td data-title="Caption">{{ sponsorship.bill.description }}</td>
+          <td data-title="role">{{ sponsorship.role }}</td>
+          <td data-title="Date of last action">{{ sponsorship.bill.last_action_date|date:"SHORT_DATE_FORMAT" }}</td>
+        </tr>
+        {% endif %}
       {% endfor %}
     </tbody>
   </table>
-  {% else %}
-  <p>This legislator hasn't filed any bills yet.</p>
-  {% endif %}
 </div>
 
 {% endblock %}
