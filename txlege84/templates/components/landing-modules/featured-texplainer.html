@@ -1,8 +1,8 @@
 {% if explainer_list %}
 <section class="texplainer-content">
   <header>
-    <h2><a href="{% url 'explainer-list-detail' %}">Texplainers</a></h2>
-    <h4>Your guide to understanding how the Legislature works</h4>
+    <h2><a href="{% url 'explainer-list-detail' %}">How the Legislature Works</a></h2>
+    <h4>Your guide to understanding the Texas Legislature</h4>
   </header>
   {% with first_explainer=explainer_list.first %}
   <div class="texplainer-content-box">
@@ -16,7 +16,7 @@
   {% if explainer_list|length > 1 %}
     <div class="more-videos">
       <header>
-        <h5>More Texplainer videos</h5>
+        <h5>More videos</h5>
       </header>
       {% for explainer in explainer_list|slice:"1:" %}
       <div>
