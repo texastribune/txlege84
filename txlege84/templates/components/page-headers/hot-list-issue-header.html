@@ -2,7 +2,7 @@
 <section>
   <header class="hot-list-nav">
     <img class="hot-list-graphic header" src="{% static 'images/icons/' %}{{ issue.topic.slug }}.svg"></img>
-    <h2><a href="{% url 'topic-list-detail' %}">Hot Lists</a>: {{ issue.topic.name }}
+    <h2><a href="{% url 'topic-list-detail' %}">Issues by Topic</a>: {{ issue.topic.name }}
       <span class="share">
         <a href="https://twitter.com/intent/tweet?text=" title="share on Twitter" class="social-share" target="_blank">
           <i class="fa fa-twitter"></i>
