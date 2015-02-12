@@ -34,28 +34,28 @@
 </header>
 <div class="bill-table">
   {% if object.authored_bills.first = None %}
-  <p>This lawmaker hasn't field any legislation yet.</p>
+    <p>This lawmaker hasn't field any legislation yet.</p>
   {% else %}
-  <table>
-    <thead>
-      <tr>
-        <th>Bill</th>
-        <th>Caption</th>
-        <th>Date of last action</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for sponsorship in object.sponsorships.all %}
-        {% if sponsorship.role = 'author' %}
+    <table>
+      <thead>
         <tr>
-          <td data-title="Bill"><a href="{{ sponsorship.bill.get_absolute_url }}">{{ sponsorship.bill.name }}</a></td>
-          <td data-title="Caption">{{ sponsorship.bill.description }}</td>
-          <td data-title="Date of last action">{{ sponsorship.bill.last_action_date|date:"SHORT_DATE_FORMAT" }}</td>
+          <th>Bill</th>
+          <th>Caption</th>
+          <th>Date of last action</th>
         </tr>
-        {% endif %}
-      {% endfor %}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {% for sponsorship in object.sponsorships.all %}
+          {% if sponsorship.role = 'author' %}
+          <tr>
+            <td data-title="Bill"><a href="{{ sponsorship.bill.get_absolute_url }}">{{ sponsorship.bill.name }}</a></td>
+            <td data-title="Caption">{{ sponsorship.bill.description }}</td>
+            <td data-title="Date of last action">{{ sponsorship.bill.last_action_date|date:"SHORT_DATE_FORMAT" }}</td>
+          </tr>
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
   {% endif %}
 </div>
 
