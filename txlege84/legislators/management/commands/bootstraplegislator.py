@@ -114,6 +114,11 @@ class Command(BaseCommand):
                 tribune_photo = None
                 tribune_room = None
 
+            if 'active' in data:
+                active = data['active']
+            else:
+                active = False
+
             legislator, created = Legislator.objects.update_or_create(
                 openstates_id=data['leg_id'],
                 defaults={
@@ -124,7 +129,7 @@ class Command(BaseCommand):
                     'chamber': chamber,
                     'district': district,
                     'profile_url': profile_url,
-                    'active': data['active'],
+                    'active': active,
                     'capitol_address': capitol_address,
                     'capitol_phone': capitol_phone,
                     'district_address': district_address,
