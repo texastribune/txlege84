@@ -100,3 +100,7 @@ class Legislator(models.Model):
     def tribune_ethics_url(self):
         return u'https://www.texastribune.org/bidness/explore/{}/'.format(
             self.tribune_slug)
+
+    @property
+    def authored_bills(self):
+        return self.sponsorships.filter(role="author")
