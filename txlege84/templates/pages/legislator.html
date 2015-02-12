@@ -32,6 +32,11 @@
 <header>
   <h3 class="section-header">Filed legislation</h3>
 </header>
+{% for role in object.sponsorships.all %}
+  {% if role.role != 'author' %}
+    <p>This lawmaker hasn't filed any legislation yet.</p>
+  {% endif %}
+{% endfor %}
 <div class="bill-table">
   <table>
     <thead>
