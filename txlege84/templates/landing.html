@@ -6,8 +6,82 @@
 {% endblock %}
 
 {% block content %}
-  {% include "components/landing-modules/top-issues.html" with top_issues=top_issues %}
-  {% include "components/landing-modules/livestream.html" %}
-  {% include "components/landing-modules/hotlist-nav.html" %}
-  {% include "components/landing-modules/featured-texplainer.html" %}
+  {% load staticfiles %}
+
+  <section class="browse-issues">
+    <header>
+      <h3>Browse Issues by Topic</h3>
+      <p class="sub-text">Explore legislative issues by topic.</p>
+    </header>
+
+    {% for topic in topic_list %}
+    <article>
+      {% if forloop.first %}
+      <header>
+        <h4 class="featured-content">Featured Content</h4>
+      </header>
+      {% else %}
+      {% endif %}
+      <div class="shutter">
+
+        <div class="shutter-label">
+          <img class="graphic" src="{% static 'images/icons/' %}{{ topic.slug }}.svg">
+          {{ topic.name }}
+          <span class="icon closed">&#43;</span>
+          <span class="icon open">&#45;</span>
+        </div>
+
+        <div class="open-shutter-content">
+          <header>
+            <h5 class="sub-section-header">Top Issues</h5>
+          </header>
+          <ul class="serif">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+
+<!--       <p class="subtext">See all <a href="{{ topic.get_absolute_url }}">{{ topic.name }} issues</a>.</p> -->
+    </article>
+    {% endfor %}
+
+
+<!--         {% for topic in topic_list %}
+        <a href="{{ topic.get_absolute_url }}">
+        <li>
+          <div>
+            <img class="hot-list-graphic list" src="{% static 'images/icons/' %}{{ topic.slug }}.svg">
+            <h5>{{ topic.name }}</h5>
+            <p>{{ topic.issues.first }}</p>
+          </div>
+        </li>
+        </a>
+        {% endfor %} -->
+
+  </section>
+
+  <section class="hot-list-nav">
+    <header>
+      <h2><a href="{% url 'topic-list-detail' %}">Issues by Topic</a></h2>
+      <h4>The top issues of the 84th Legislature, by topic</h4>
+    </header>
+    <nav>
+      <ul>
+        {% for topic in topic_list %}
+        <a href="{{ topic.get_absolute_url }}">
+        <li>
+          <div>
+            <img class="hot-list-graphic list" src="{% static 'images/icons/' %}{{ topic.slug }}.svg">
+            <h5>{{ topic.name }}</h5>
+            <p>{{ topic.issues.first }}</p>
+          </div>
+        </li>
+        </a>
+        {% endfor %}
+      </ul>
+    </nav>
+    {% comment %}
+    {% endcomment %}
+  </section>
+
 {% endblock %}

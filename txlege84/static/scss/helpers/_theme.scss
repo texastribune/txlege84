@@ -25,6 +25,7 @@
 
 }
 
+h1,
 .project-title {
   color: $bodytext-black;
   font-size: 1.6em;
@@ -36,6 +37,7 @@
   text-transform: uppercase;
 }
 
+h2,
 .page-header {
   border-bottom: 1px solid $border-bottom;
   color: $bodytext-black;
@@ -46,6 +48,7 @@
   text-align: left;
 }
 
+h3,
 .section-header {
   border-bottom: 1px solid $border-bottom;
   color: $li-black;
@@ -56,6 +59,7 @@
   text-align: left;
 }
 
+h4,
 .featured-content {
   background: $teal;
   border-radius: 3px 3px 0 0;
@@ -66,11 +70,13 @@
   font-weight: 400;
   letter-spacing: .1em;
   line-height: 1.2em;
+  margin-bottom: 0;
   padding: 6px 15px 5px;
   text-align: left;
   text-transform: uppercase;
 }
 
+h5,
 .sub-section-header {
   border-bottom: 1px solid $border-bottom;
   color: $li-black;
@@ -112,6 +118,7 @@ p {
 
 }
 
+h6,
 .issue-card-title {
   color: $tribune-black;
   font-family: $base-serif;
@@ -164,31 +171,30 @@ p {
 .shutter {
   @include clearfix;
   background: $text-offwhite;
-  color: $shutter-gray;
-  float: left;
-  font-weight: 500;
-  font-size: 0.9em;
-  font-family: $base-sans-serif;
-  height: 53px;
-  letter-spacing: 0.1em;
-  margin: 5px 0 0;
-  text-align: left;
-  text-transform: uppercase;
-  width: 100%;
 
   &:hover {
     color: $li-black;
   }
 
   .shutter-label {
-    float: left;
+    color: $shutter-gray;
+    border-bottom: 2px solid $white;
+    font-weight: 500;
+    font-size: 0.9em;
+    font-family: $base-sans-serif;
+    height: 53px;
+    letter-spacing: 0.1em;
+    margin: 0 0 5px;
     padding: 16px 20px;
+    text-align: left;
+    text-transform: uppercase;
+    width: 100%;
   }
 
   .icon {
     float: right;
     font-size: 1.7em;
-    padding: 7px 20px 7px 0;
+    padding: 0 20px 0 0;
 
     &.open {
       color: $li-black;
@@ -199,6 +205,45 @@ p {
     }
 
   }
+
+  .open-shutter-content {
+    @extend %content-block;
+  }
+}
+
+ul {
+  &.serif {
+    li {
+      color: $li-black;
+      font-family: $base-serif;
+      margin: 0 auto 24px;
+
+      &:before {
+        color: $li-black;
+        content: '\2023';
+        font-family: $base-sans-serif;
+        margin: 0 .5em;
+        padding: 0;
+      }
+    }
+  }
+
+  &.sans {
+    li {
+      color: $teal;
+      font-family: $base-sans-serif;
+      margin: 24px auto;
+
+      &:before {
+        color: $li-black;
+        content: '\2023';
+        font-family: $base-sans-serif;
+        margin: 0 .5em;
+        padding: 0;
+      }
+    }
+  }
+
 }
 
 li {
@@ -214,38 +259,35 @@ li {
     }
   }
 
-  &.sans {
-    color: $teal;
-    font-family: $base-sans-serif;
-    margin: 24px auto;
-
-    &:before {
-      color: $li-black;
-      content: '\2023';
-      font-family: $base-sans-serif;
-      margin: 0 .5em;
-      padding: 0;
-    }
-  }
-
-  &.serif {
-    color: $li-black;
-    font-family: $base-serif;
-    margin: 0 auto 24px;
-
-    &:before {
-      color: $li-black;
-      content: '\2023';
-      font-family: $base-sans-serif;
-      margin: 0 .5em;
-      padding: 0;
-    }
-  }
-
-
 }
 
+.graphic {
+  float: left;
+  height: 2em;
+  width: 2em;
+  margin: -6px 6px  0 0;
 
+  @include media($medium) {
+    &.list {
+      margin: 0 .5em 4em;
+    }
+
+    &.header {
+      margin: -.25em .5em 0 0;
+    }
+  }
+
+  @include media($large) {
+    &.list {
+      margin: 0 .5em 4em;
+    }
+
+    &.header {
+      margin: -.25em .5em 0 0;
+    }
+  }
+
+}
 
 
 
