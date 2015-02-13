@@ -104,6 +104,10 @@ p {
     color: $bodytext-black;
     font-weight: 300;
     line-height: 1.2em;
+
+    &.lead {
+      text-align: center;
+    }
   }
 
 }
