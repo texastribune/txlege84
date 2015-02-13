@@ -5,15 +5,8 @@
   {% include "includes/og/og_landing.html" %}
 {% endblock %}
 
-{% block mobileheader %}
-  {% include "components/landing-modules/top-issues.html" with top_issues=top_issues %}
-{% endblock %}
-
-{% block desktopheader %}
-  {% include "components/landing-modules/top-issues.html" with top_issues=top_issues %}
-{% endblock %}
-
 {% block content %}
+  {% include "components/landing-modules/top-issues.html" with top_issues=top_issues %}
   {% include "components/landing-modules/livestream.html" %}
   {% include "components/landing-modules/hotlist-nav.html" %}
   {% include "components/landing-modules/featured-texplainer.html" %}

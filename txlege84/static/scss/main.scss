@@ -11,9 +11,8 @@
 @import 'helpers/theme';
 
 // == Themes ==
-// @import 'theme/global';
-// @import 'theme/prose';
-// @import 'theme/tables';
+@import 'theme/global';
+@import 'theme/tables';
 
 // == Sitewide Components ==
 @import 'components/modules/ads';
