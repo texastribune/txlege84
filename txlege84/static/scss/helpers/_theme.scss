@@ -2,6 +2,7 @@
   color: $bodytext-black;
   font-size: 1.6em;
   font-family: $base-serif;
+  font-weight: normal;
   letter-spacing: 0.04em;
   line-height: 1em;
   text-align: center;
@@ -35,8 +36,8 @@
   font-family: $base-serif;
   font-size: 0.85em;
   font-style: italic;
-  font-weight: 600;
-  letter-spacing: 1px;
+  font-weight: 400;
+  letter-spacing: .1em;
   line-height: 1.2em;
   padding: 6px 15px 5px;
   text-align: left;
@@ -84,9 +85,11 @@ p {
   color: $tribune-black;
   font-family: $base-serif;
   font-size: 1.4em;
-  letter-spacing: 0.04em;
+  font-weight: normal;
+  letter-spacing: 0.02em;
   line-height: 1em;
   text-align: left;
+  margin: .5em 0;
 }
 
 .update-time {
@@ -102,9 +105,11 @@ p {
 
 .button {
   background: $tribune-yellow;
+  border: $tribune-yellow;
   border-bottom: 4px solid $yellow-highlight;
   border-radius: 4px;
   color: $yellow-text;
+  display: inherit;
   font-family: $base-sans-serif;
   font-size: 0.9em;
   font-weight: 600;
@@ -113,15 +118,20 @@ p {
   padding: 13px 20px 10px;
   text-align: center;
   text-transform: uppercase;
+  margin: 0 auto;
+  width: 80%;
 
   &:hover {
     background: rgb(255, 231, 140);
     color: rgb(79, 64, 21);
-    // padding: 14px 20px 11px;
+    padding: 14px 20px 11px;
+    border-bottom: 2px solid $yellow-highlight;
+
   }
 }
 
 .shutter {
+  @include clearfix;
   background: $text-offwhite;
   color: $shutter-gray;
   float: left;
@@ -130,42 +140,74 @@ p {
   font-family: $base-sans-serif;
   height: 53px;
   letter-spacing: 0.1em;
-  line-height: 1em;
   margin: 5px 0 0;
-  padding: 16px 20px;
   text-align: left;
   text-transform: uppercase;
-  width: 80%;
+  width: 100%;
 
   &:hover {
-    color: $tagline-black;
+    color: $li-black;
+  }
+
+  .shutter-label {
+    float: left;
+    padding: 16px 20px;
+  }
+
+  .icon {
+    float: right;
+    font-size: 1.7em;
+    padding: 7px 20px 7px 0;
+
+    &.open {
+      color: $li-black;
+    }
+
+    &.close {
+      color: $shutter-gray;
+    }
+
   }
 }
 
-.sans-link :hover {
-  text-decoration: underline;
-}
-
-.sans {
-  color: rgb(0, 137, 144);
-  font: 400 1.1em 'Helvetica Neue';
+li {
+  font-weight: 400;
+  font-size: 1.1em;
   line-height: 1em;
-  margin: 24px auto;
   text-align: left;
+
+  &:before {
+    color: $li-black;
+    content: '\2023';
+    font-family: $base-sans-serif;
+    margin: 0 .5em;
+    padding: 0;
+  }
+
+  a {
+    &:hover {
+      color: $teal;
+      text-decoration: underline;
+    }
+  }
+
+  &.sans {
+    color: $teal;
+    font-family: $base-sans-serif;
+    margin: 24px auto;
+  }
+
+  &.serif {
+    color: $li-black;
+    font-family: $base-serif;
+    margin: 0 auto 24px;
+  }
+
+
 }
 
-.serif-link :hover {
-  color: rgb(0, 137, 144);
-  text-decoration: underline;
-}
 
-.serif {
-  color: rgb(51, 51, 51);
-  font: 400 1.1em Georgia;
-  line-height: 1em;
-  margin: 0 auto 24px;
-  text-align: left;
-}
+
 
 
 
