@@ -1,3 +1,30 @@
+.menu {
+  background: $bodytext-black;
+  color: $white;
+  font-family: $base-sans-serif;
+  font-size: 1.3em;
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    background: $tagline-black;
+    border-bottom: 1px solid $text-gray;
+    padding: .5em;
+
+    &:hover {
+      background: $li-black;
+    }
+  }
+
+  .trib-logo {
+    height: 2em;
+    padding: .5em;
+  }
+
+}
+
 .project-title {
   color: $bodytext-black;
   font-size: 1.6em;
@@ -176,14 +203,6 @@ li {
   line-height: 1em;
   text-align: left;
 
-  &:before {
-    color: $li-black;
-    content: '\2023';
-    font-family: $base-sans-serif;
-    margin: 0 .5em;
-    padding: 0;
-  }
-
   a {
     &:hover {
       color: $teal;
@@ -195,12 +214,28 @@ li {
     color: $teal;
     font-family: $base-sans-serif;
     margin: 24px auto;
+
+    &:before {
+      color: $li-black;
+      content: '\2023';
+      font-family: $base-sans-serif;
+      margin: 0 .5em;
+      padding: 0;
+    }
   }
 
   &.serif {
     color: $li-black;
     font-family: $base-serif;
     margin: 0 auto 24px;
+
+    &:before {
+      color: $li-black;
+      content: '\2023';
+      font-family: $base-sans-serif;
+      margin: 0 .5em;
+      padding: 0;
+    }
   }
 
 
