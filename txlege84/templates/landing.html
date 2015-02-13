@@ -36,27 +36,17 @@
             <h5 class="sub-section-header">Top Issues</h5>
           </header>
           <ul class="serif">
-            <li></li>
+            {% for issuelist in topic.issues.all|slice:":3" %}
+            <li>{{ issuelist }}</li>
+            {% endfor %}
           </ul>
+          <p class="mini-emphasis more-issues center"><a href="{{ topic.get_absolute_url }}"><span>&#43; </span>More Issues</a></p>
         </div>
       </div>
 
-<!--       <p class="subtext">See all <a href="{{ topic.get_absolute_url }}">{{ topic.name }} issues</a>.</p> -->
+      <p class="subtext">See all <a href="{{ topic.get_absolute_url }}">{{ topic.name }} issues</a>.</p>
     </article>
     {% endfor %}
-
-
-<!--         {% for topic in topic_list %}
-        <a href="{{ topic.get_absolute_url }}">
-        <li>
-          <div>
-            <img class="hot-list-graphic list" src="{% static 'images/icons/' %}{{ topic.slug }}.svg">
-            <h5>{{ topic.name }}</h5>
-            <p>{{ topic.issues.first }}</p>
-          </div>
-        </li>
-        </a>
-        {% endfor %} -->
 
   </section>
 

@@ -110,10 +110,10 @@ p {
     color: $bodytext-black;
     font-weight: 300;
     line-height: 1.2em;
+  }
 
-    &.lead {
-      text-align: center;
-    }
+  &.center {
+    text-align: center;
   }
 
 }
@@ -289,7 +289,20 @@ li {
 
 }
 
+.more-issues {
+  span {
+    color: $teal;
+  }
 
+  a {
+    color: $li-black;
+    text-decoration: none;
 
+    &:hover {
+      color: $teal;
+      text-decoration: none;
+    }
+  }
+}
 
 
