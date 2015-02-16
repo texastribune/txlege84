@@ -1,30 +1,3 @@
-.menu {
-  background: $bodytext-black;
-  color: $white;
-  font-family: $base-sans-serif;
-  font-size: 1.3em;
-
-  ul {
-    list-style: none;
-  }
-
-  li {
-    background: $tagline-black;
-    border-bottom: 1px solid $text-gray;
-    padding: .5em;
-
-    &:hover {
-      background: $li-black;
-    }
-  }
-
-  .trib-logo {
-    height: 2em;
-    padding: .5em;
-  }
-
-}
-
 h1,
 .project-title {
   color: $bodytext-black;
