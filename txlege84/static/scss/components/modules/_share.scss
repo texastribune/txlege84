@@ -27,38 +27,15 @@
   }
 
   .email {
-    background: $tribune-yellow;
-    border-bottom: .25em solid $yellow-highlight;
-
-    &:active,
-    &:hover {
-      background: $hover-yellow;
-      border-bottom: .125em solid $yellow-highlight;
-    }
+    @include button($tribune-yellow, $hover-yellow, $yellow-highlight);
   }
 
   .facebook {
-    background: $fb-blue;
-    border-bottom: .25em solid $fb-accent;
-
-    &:active,
-    &:hover {
-      background: $fb-hover;
-      border-bottom: .125em solid $fb-accent;
-    }
-
+    @include button($fb-blue, $fb-hover, $fb-accent);
   }
 
   .twitter {
-    background: $tw-blue;
-    border-bottom: .25em solid $tw-accent;
-
-    &:active,
-    &:hover {
-      background: $tw-hover;
-      border-bottom: .125em solid $tw-accent;
-    }
-
+    @include button($tw-blue, $tw-hover, $tw-accent);
   }
 
 }

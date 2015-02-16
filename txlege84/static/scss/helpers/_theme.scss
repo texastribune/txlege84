@@ -116,7 +116,7 @@ h6,
 }
 
 .button {
-  background: $tribune-yellow;
+  @include button($tribune-yellow, $hover-yellow, $yellow-highlight);
   border: $tribune-yellow;
   border-bottom: 4px solid $yellow-highlight;
   border-radius: 4px;
@@ -127,19 +127,14 @@ h6,
   font-weight: 600;
   letter-spacing: .08em;
   line-height: 1em;
-  padding: .875em 1.25em .625em;
-  text-align: center;
   text-transform: uppercase;
   margin: 0 auto;
   width: 80%;
 
   &:hover,
   &:active {
-    background: rgb(255, 231, 140);
     color: rgb(79, 64, 21);
-    padding: .9em 1.25em .6875em;
-    border-bottom: 2px solid $yellow-highlight;
-
+    padding-bottom: .835em;
   }
 }
 
