@@ -133,7 +133,8 @@ h6,
   margin: 0 auto;
   width: 80%;
 
-  &:hover {
+  &:hover,
+  &:active {
     background: rgb(255, 231, 140);
     color: rgb(79, 64, 21);
     padding: .9em 1.25em .6875em;

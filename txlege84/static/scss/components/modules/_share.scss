@@ -1,0 +1,64 @@
+.share-page {
+  text-align: center;
+
+  a {
+    color: $white;
+  }
+
+  li {
+    @include omega(3n);
+    color: $white;
+    display: inline-block;
+    line-height: 1em;
+    margin: 0 .25em;
+    padding: .875em 1.25em .625em;
+    text-align: center;
+    width: 25%;
+
+    &:hover {
+      color: $tagline-black;
+      padding: .875em 1.25em .75em;
+    }
+  }
+
+  .fa {
+    margin: 0;
+  }
+
+  .email {
+    background: $tribune-yellow;
+    border-bottom: .25em solid $yellow-highlight;
+
+    &:active,
+    &:hover {
+      background: $hover-yellow;
+      border-bottom: .125em solid $yellow-highlight;
+    }
+  }
+
+  .facebook {
+    background: $fb-blue;
+    border-bottom: .25em solid $fb-accent;
+
+    &:active,
+    &:hover {
+      background: $fb-hover;
+      border-bottom: .125em solid $fb-accent;
+    }
+
+  }
+
+  .twitter {
+    background: $tw-blue;
+    border-bottom: .25em solid $tw-accent;
+
+    &:active,
+    &:hover {
+      background: $tw-hover;
+      border-bottom: .125em solid $tw-accent;
+    }
+
+  }
+
+}
+
