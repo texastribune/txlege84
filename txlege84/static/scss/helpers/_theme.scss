@@ -85,6 +85,7 @@ h5,
   font-style: italic;
   font-weight: 500;
   line-height: 1.4em;
+  margin: .75em 0;
   text-align: left;
 }
 
@@ -206,8 +207,8 @@ h6,
 
   }
 
-  .open-shutter-content {
-    @extend %content-block;
+  .shutter-content {
+    padding: 0 1em 1.5em;
   }
 }
 
@@ -216,7 +217,7 @@ ul {
     li {
       color: $li-black;
       font-family: $base-serif;
-      margin: 0 auto 24px;
+      margin: 0 auto .75em;
 
       &:before {
         color: $li-black;
@@ -261,48 +262,6 @@ li {
 
 }
 
-.graphic {
-  float: left;
-  height: 2em;
-  width: 2em;
-  margin: -6px 6px  0 0;
 
-  @include media($medium) {
-    &.list {
-      margin: 0 .5em 4em;
-    }
-
-    &.header {
-      margin: -.25em .5em 0 0;
-    }
-  }
-
-  @include media($large) {
-    &.list {
-      margin: 0 .5em 4em;
-    }
-
-    &.header {
-      margin: -.25em .5em 0 0;
-    }
-  }
-
-}
-
-.more-issues {
-  span {
-    color: $teal;
-  }
-
-  a {
-    color: $li-black;
-    text-decoration: none;
-
-    &:hover {
-      color: $teal;
-      text-decoration: none;
-    }
-  }
-}
 
 

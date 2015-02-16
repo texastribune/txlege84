@@ -1,23 +1,8 @@
-.issue-nav-content-box {
-  @extend %content-block;
-}
-
-
-
-.headshot {
-  display: inline-block;
-  margin: 0 1em .5em 0;
-
-  img {
-    height: 100px;
-  }
-}
-
-.hot-list-graphic {
+.graphic {
   float: left;
   height: 2em;
   width: 2em;
-  margin: 0 .5em 3em 0;
+  margin: -6px 6px  0 0;
 
   @include media($medium) {
     &.list {
@@ -40,4 +25,3 @@
   }
 
 }
-
