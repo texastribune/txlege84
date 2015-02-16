@@ -44,7 +44,7 @@ h4,
   letter-spacing: .1em;
   line-height: 1.2em;
   margin-bottom: 0;
-  padding: 6px 15px 5px;
+  padding: .375em 1em .3em;
   text-align: left;
   text-transform: uppercase;
 }
@@ -125,9 +125,9 @@ h6,
   font-family: $base-sans-serif;
   font-size: 0.9em;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: .08em;
   line-height: 1em;
-  padding: 13px 20px 10px;
+  padding: .875em 1.25em .625em;
   text-align: center;
   text-transform: uppercase;
   margin: 0 auto;
@@ -136,7 +136,7 @@ h6,
   &:hover {
     background: rgb(255, 231, 140);
     color: rgb(79, 64, 21);
-    padding: 14px 20px 11px;
+    padding: .9em 1.25em .6875em;
     border-bottom: 2px solid $yellow-highlight;
 
   }
@@ -156,10 +156,10 @@ h6,
     font-weight: 500;
     font-size: 0.9em;
     font-family: $base-sans-serif;
-    height: 53px;
+    height: 3.3em;
     letter-spacing: 0.1em;
-    margin: 0 0 5px;
-    padding: 16px 20px;
+    margin: 0 0 .3em;
+    padding: 1em 1.25em;
     text-align: left;
     text-transform: uppercase;
     width: 100%;
@@ -168,7 +168,7 @@ h6,
   .icon {
     float: right;
     font-size: 1.7em;
-    padding: 0 20px 0 0;
+    line-height: .5em;
 
     &.open {
       color: $li-black;
@@ -206,7 +206,7 @@ ul {
     li {
       color: $teal;
       font-family: $base-sans-serif;
-      margin: 24px auto;
+      margin: 1.5em auto;
 
       &:before {
         color: $li-black;
