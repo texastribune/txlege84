@@ -4,9 +4,18 @@
   {% include "includes/og/og_topic.html" %}
 {% endblock %}
 
-{% block content %}
+{% block mobileheader %}
   {% include "components/page-headers/hot-list-header.html" %}
-  {% for issue in object.issues.all.published %}
-    {% include "components/issue-box.html" %}
-  {% endfor %}
+{% endblock %}
+
+{% block desktopheader %}
+  {% include "components/page-headers/hot-list-header.html" %}
+{% endblock %}
+
+{% block content %}
+
+{% for issue in object.issues.all.published %}
+  {% include "components/issue-box.html" %}
+{% endfor %}
+
 {% endblock %}

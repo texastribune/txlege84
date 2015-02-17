@@ -5,82 +5,16 @@
   {% include "includes/og/og_landing.html" %}
 {% endblock %}
 
-{% block page_header %}
-  <section class="share-page">
-    <ul>
-      <a href="mailto:?subject=}&body=">
-        <li class="email"><i class="fa fa-envelope"></i></li>
-      </a>
-      <a href="https://twitter.com/intent/tweet?text=&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
-        <li class="facebook"><i class="fa fa-twitter"></i></li>
-      </a>
-      <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=TK&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
-        <li class="twitter"><i class="fa fa-facebook"></i></li>
-      </a>
-    </ul>
-  </section>
+{% block mobileheader %}
+  {% include "components/landing-modules/top-issues.html" with top_issues=top_issues %}
 {% endblock %}
+
+{% block desktopheader %}
+  {% include "components/landing-modules/top-issues.html" with top_issues=top_issues %}
+{% endblock %}
+
 {% block content %}
-  {% load staticfiles %}
-
-  <section class="browse-issues">
-    <header>
-      <h3>Browse Issues by Topic</h3>
-      <p class="sub-text">Explore legislative issues by topic.</p>
-    </header>
-
-    {% for topic in topic_list %}
-    <article class="issue-nav-box">
-      {% if forloop.first %}
-      <header>
-        <h4 class="featured-content">Featured Content</h4>
-      </header>
-      {% else %}
-      {% endif %}
-      <div class="shutter">
-
-        <div class="shutter-label">
-          <img class="graphic" src="{% static 'images/icons/' %}{{ topic.slug }}.svg">
-          {{ topic.name }}
-          <span class="icon closed">&#43;</span>
-          <span class="icon open">&#45;</span>
-        </div>
-
-        <div class="open shutter-content">
-          <header>
-            <h5 class="sub-section-header">Top Issues</h5>
-          </header>
-          <ul class="serif">
-            {% for issuelist in topic.issues.all|slice:":3" %}
-            <li>{{ issuelist }}</li>
-            {% endfor %}
-          </ul>
-          <p class="mini-emphasis more-issues center"><a href="{{ topic.get_absolute_url }}"><span>&#43; </span>More Issues</a></p>
-          <header>
-            <h5 class="sub-section-header">Curated by</h5>
-          </header>
-          <div class="curated-by">
-            <img clas="headshot" src="http://placehold.it/75">
-            <p class="emphasis">Reporter Name</p>
-            <p class="sub-text">Their beat</p>
-          </div>
-
-<!--           {% with curators=issue.topic.curators.all %}
-          {% if curators %}
-            {% for curator in curators %}
-            <div class="curated-by">
-              <img src="{{ curator.staff.profile_photo }}">
-            </div>
-            {% endfor %}
-            <p class="emphasis">{% if curators|length == 1 %}{{ curators.first.first_name }} {{ curators.first.last_name }}{% elif curators|length > 2 %}{% for curator in curators %}{% if not forloop.first and not forloop.last %}, {% endif %}{% if forloop.last %} and {% endif %}{{ curator.first_name }} {{ curator.last_name }}{% endfor %}{% else %}{% for curator in curators %}{{ curator.first_name }} {{ curator.last_name }}{% if not forloop.last %} and {% endif %}{% endfor %}{% endif %}</p>
-            <p class="sub-text">Reporter title</p>
-          {% endif %}
-          {% endwith %} -->
-        </div>
-      </div>
-    </article>
-    {% endfor %}
-
-  </section>
-
+  {% include "components/landing-modules/livestream.html" %}
+  {% include "components/landing-modules/hotlist-nav.html" %}
+  {% include "components/landing-modules/featured-texplainer.html" %}
 {% endblock %}

@@ -4,7 +4,16 @@
   {% include "includes/og/og_issue.html" %}
 {% endblock %}
 
-{% block content %}
+{% block mobileheader %}
   {% include "components/page-headers/hot-list-issue-header.html" %}
-  {% include "components/issue-box.html" %}
+{% endblock %}
+
+{% block desktopheader %}
+  {% include "components/page-headers/hot-list-issue-header.html" %}
+{% endblock %}
+
+{% block content %}
+
+{% include "components/issue-box.html" %}
+
 {% endblock %}

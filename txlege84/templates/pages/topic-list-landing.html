@@ -4,9 +4,23 @@
   {% include "includes/og/og_hotlist_landing.html" %}
 {% endblock %}
 
-{% block content %}
+{% block mobileheader %}
   {% include "components/page-headers/hot-list-landing-header.html" %}
-  {% for topic in object_list %}
+{% endblock %}
+
+{% block desktopheader %}
+  {% include "components/page-headers/hot-list-landing-header.html" %}
+{% endblock %}
+
+  <div class="body-main">
+    {% include "modules/topic-page-header.html" with topic_list=topic_list %}
+  </div>
+</section>
+
+{% block content %}
+
+{% for topic in object_list %}
+
   <div class="issue-list-block">
     <header class="hot-list-nav">
       <h2><a href="{{ topic.get_absolute_url }}"><span class="hot-list-name">{{ topic.name }}</span></a></h2>
@@ -32,6 +46,6 @@
       </ul>
     </div>
   </div>
-  {% endfor %}
+{% endfor %}
 
 {% endblock %}

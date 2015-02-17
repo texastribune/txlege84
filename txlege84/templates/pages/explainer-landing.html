@@ -4,19 +4,30 @@
   {% include "includes/og/og_texplainer.html" %}
 {% endblock %}
 
-{% block content %}
+{% block mobileheader %}
   {% include "components/page-headers/texplainer_header.html" %}
-  <section>
-   {% for explainer in object_list %}
-    <div class="texplainer-content-box">
-      <h3 class="headline">{{ explainer.name }}</h3>
-      <div class="flexible-video">
-        <iframe width="560" height="315" src="//www.youtube.com/embed/{{ explainer.youtube_id }}" frameborder="0" allowfullscreen></iframe>
-      </div>
-      <p>{{ explainer.text|safe }}</p>
-    </div>
+{% endblock %}
 
-    <hr>
-    {% endfor %}
-  </section>
+{% block desktopheader %}
+  {% include "components/page-headers/texplainer_header.html" %}
+{% endblock %}
+
+{% block content %}
+
+<section>
+
+ {% for explainer in object_list %}
+  <div class="texplainer-content-box">
+    <h3 class="headline">{{ explainer.name }}</h3>
+    <div class="flexible-video">
+      <iframe width="560" height="315" src="//www.youtube.com/embed/{{ explainer.youtube_id }}" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <p>{{ explainer.text|safe }}</p>
+  </div>
+
+  <hr>
+  {% endfor %}
+</section>
+
+
 {% endblock %}

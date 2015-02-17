@@ -4,8 +4,15 @@
   {% include "includes/og/og_basic.html" %}
 {% endblock %}
 
-{% block content %}
+{% block mobileheader %}
   {% include "components/page-headers/committee-page-header.html" %}
+{% endblock %}
+
+{% block desktopheader %}
+  {% include "components/page-headers/committee-page-header.html" %}
+{% endblock %}
+
+{% block content %}
   <div class="committee">
     <div class="committee-members">
       <h5>Members</h5>

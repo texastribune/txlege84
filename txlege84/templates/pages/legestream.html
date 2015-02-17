@@ -4,7 +4,46 @@
   {% include "includes/og/og_legestream.html" %}
 {% endblock %}
 
-{% block content %}
+{% block mobileheader %}
+  <section class="legestream-page">
+    <header>
+      <h2>Chamber Livestreams
+        <span class="share">
+          <a href="https://twitter.com/intent/tweet?text=Check%20out%20%40texastribune's%20LegeStream%20to%20see%20the%20House%20and%20Senate%20in%20action%20%23txlege%20http%3A%2F%2Ftxlege.texastribune.org%2Flegestream%2F" title="share on Twitter" class="social-share" target="_blank">
+            <i class="fa fa-twitter"></i>
+          </a>
+          <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=http%3A%2F%2Ftxlege.texastribune.org%2Flegestream%2F&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org%2Flegestream%2F" title="share on Facebook" class="social-share" target="_blank">
+            <i class="fa fa-facebook"></i>
+          </a>
+        </span>
+      </h2>
+      <h4>See the House and Senate in action, courtesy of the Texas Legislature</h4>
+    </header>
+    <div class="watch">
+      <div class="chamber">
+        <h5>House</h5>
+        <p>{{ house.time_for.time_string }}</p>
+        <div id="house-stream" class="stream-placeholder">
+          <div class="stream-prompt">
+            <i class="fa fa-play fa-4x"></i>
+          </div>
+        </div>
+      </div>
+      {% include "includes/rotating_ad_mobile.html" %}
+      <div class="chamber">
+        <h5>Senate</h5>
+        <p>{{ senate.time_for.time_string }}</p>
+        <div id="senate-stream" class="stream-placeholder">
+          <div class="stream-prompt">
+            <i class="fa fa-play fa-4x"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block desktopheader %}
   <section class="legestream-page">
     <header>
       <h2>Chamber Livestreams
@@ -30,7 +69,6 @@
         </div>
       </div>
       {% include "includes/rotating_ad.html" %}
-      {% include "includes/rotating_ad_mobile.html" %}
       <div class="chamber">
         <h5>Senate</h5>
         <p>{{ senate.time_for.time_string }}</p>
@@ -43,3 +81,5 @@
     </div>
   </section>
 {% endblock %}
+
+{% block content %}{% endblock %}

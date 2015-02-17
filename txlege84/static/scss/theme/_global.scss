@@ -1,27 +1,184 @@
 /* Base Theme for HTML elements */
 
 body {
+  background: url(../images/brand/84th-lege-bg-mobile.jpg) no-repeat;
+  background-size: cover;
+  font-family: $base-sans-serif;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1;
+  position: absolute;
   text-rendering: optimizelegibility;
+  width: 100%;
+
+
+  @include media($medium) {
+    background: url(../images/brand/on-the-lege-capitol-faded-bg002.jpg) no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+  }
+
+  @include media($large) {
+    background: url(../images/brand/on-the-lege-capitol-faded-bg002.jpg) no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+  }
 }
 
 .body-main {
   @include clearfix;
+  background-color: $white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: $text-black;
+  font-family: $helvetica;
+  margin: .25em 0;
+  text-align: left;
+}
+
+// Project title
+h1 {
+  color: $tribune-black;
+  font-size: 2.25em;
+  font-weight: 600;
+  line-height: 1em;
+
+  @include media($medium) {
+    font-size: 3em;
+  }
+
+  @include media($large) {
+    font-size: 3.25em;
+  }
+}
+
+// Section or Page Header
+h2 {
+  border-bottom: 1px solid $line-gray;
+  font-size: 1.3em;
+  font-weight: 700;
+  margin-top: 1.5em;
+  padding-bottom: .3em;
+
+  a {
+    text-decoration: none;
+
+    i {
+      color: $href-teal;
+      // float: right;
+      margin: 0 .5em 0 0;
+    }
+
+  }
+
+  span.share {
+    min-width: 4em;
+    @include media($medium) {
+      float: right;
+      font-size: 1em;
+      margin: 0 0 0 1em;
+    }
+
+    @include media($large) {
+      float: right;
+      font-size: 1em;
+      margin: 0 0 0 1em;
+    }
+  }
+
+}
+
+// Sidebar Header
+h3 {
+  font-size: 1.3em;
+  font-weight: 700;
+
+  &.section-header {
+    margin-bottom: .5em;
+  }
+}
+
+// Header Tagline
+h4 {
+  color: $tagline-black;
+  font-size: .95em;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.2em;
+  margin-bottom: 1em;
+}
+
+h5 {
+  font-size: 0.8em;
+  font-family: arial;
+  font-size: 0.8em;
+  font-weight: 700;
+  line-height: 1.5em;
+  text-transform: uppercase;
+
+  a {
+    color: $bodytext-black;
+    border-bottom: 1px solid $href-teal;
+    text-decoration: none;
+
+    &:hover {
+      color: $href-teal;
+      border-bottom: none;
+      text-decoration: none;
+    }
+  }
+}
+
+header.with-subhead {
+  h3 {
+    margin: 0 0 1em;
+  }
+
+  h5 {
+    margin: 2em 0 1em;
+  }
+}
+
+p {
+  font-family: $helvetica;
+  font-size: 1em;
+  line-height: 1.2em;
+  margin-bottom: 1em;
 }
 
 a {
   color: $href-teal;
   text-decoration: none;
 
-  &:hover {
-    text-decoration: underline;
+  li {
+    h5 span {
+      color: $href-teal;
+      text-decoration: none;
+    }
+
+    .fa {
+      font-size: 1em;
+      margin-right: .5em;
+    }
   }
 
-}
+  &:hover {
+    text-decoration: underline;
 
-.fa {
-  font-size: 1em;
-  margin-right: .5em;
+    li {
+      h5 span {
+        color: $href-teal;
+        text-decoration: underline;
+      }
+    }
+  }
+
 }
 
 hr {
@@ -39,24 +196,93 @@ hr {
   }
 }
 
+button,
+.button {
+  color: $bodytext-black;
+  background-color: #ccc;
+  display: inline-block;
+  font-family: $base-sans-serif;
+  letter-spacing: .03rem;
+  vertical-align: middle;
+  @include button(flat, $tribune-yellow);
+
+  &:disabled {
+    background-color: darken($explainer-gray, 20%);
+    cursor: default;
+  }
+}
+
 ul {
   @include clearfix;
-  list-style: none;
+  list-style: disc;
   margin: 0;
   padding: 0;
 }
 
+li {
+  color: $li-black;
+  font-family: $helvetica;
+  // font-size: 1em;
+  // font-weight: 300;
+  line-height: 1.6em;
+  margin: 0 1em;
+  text-align: left;
+
+}
+
+nav {
+  @include clearfix;
+}
+
 section {
+  // @include span-columns(12);
   @include clearfix();
 }
 
-// Temp styles, should delete
 .desktop-hide {
-  @include desktop-hide;
+  display: block;
+
+  @include media($small) {
+    display: block;
+  }
+
+  @include media($medium) {
+    display: none;
+  }
+
+  @include media($large) {
+    display: none;
+  }
 }
 
 .mobile-hide {
-  @include mobile-hide;
+  @include clearfix;
+  display: none;
+
+  @include media($small) {
+    display: none;
+  }
+
+  @include media($medium) {
+    display: block;
+  }
+
+  @include media($large) {
+    display: block;
+  }
+}
+
+.content-divider {
+  padding: .5em;
+
+  @include media($medium) {
+    display: none;
+  }
+
+  @include media($large) {
+    display: none;
+  }
+
 }
 
 .share {
