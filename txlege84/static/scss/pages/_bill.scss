@@ -1,27 +1,3 @@
-.arrow-right,
-.arrow-down {
-  text-align: center;
-}
-
-.arrow-right{
-  display: none;
-  top: 50%;
-
-  @include media($large) {
-    display: block;
-    @include span-columns(1);
-  }
-}
-
-.arrow-down{
-  display: block;
-  @include span-columns(12);
-
-  @include media($large) {
-    display: none;
-  }
-}
-
 .bill {
   ul {
     list-style: none;
@@ -49,7 +25,12 @@
   margin-bottom: 1em;
 
   p {
-    margin-bottom: .25em;
+    margin: 0;
+    padding: 0;
+  }
+
+  .mini-emphasis {
+    margin: 0;
   }
 
   .date-stage-complete {
@@ -64,7 +45,7 @@
   }
 
   .fa {
-    font-size: 1.5em;
+    font-size: 2.5em !important;
   }
 
   .fa-stack {
@@ -77,46 +58,10 @@
     display: none;
   }
 
-  .fa-arrow-right {
-    display: none;
-    margin-left: 1em;
-  }
-
-  .fa-arrow-down {
-    display: inline-block;
-    margin: .5em .5em 0;
-  }
-
-  .fa-arrow-right,
-  .fa-arrow-down {
-    color: $line-gray;
-  }
-
-  .scroll {
-    height: 2em;
-    opacity: .3;
-    width: 2em;
-  }
-
-
   &.complete {
-
-    .scroll {
-      opacity: 1;
-    }
-
-    .fa-arrow-right {
-      display: none;
-      color: $tribune-black;
-    }
-
-    .fa-arrow-down {
-      display: inline-block;
-      color: $tribune-black;
-    }
-
     .fa-stack-1x {
       color: $green;
+      background-color: $green;
       display: block;
       left: .13em;
       top: .2em;
@@ -137,25 +82,6 @@
         margin-left: 0;
       }
     }
-
-    .fa-arrow-right {
-      display: inline-block;
-    }
-
-    .fa-arrow-down {
-      display: none;
-    }
-
-    &.complete {
-
-      .fa-arrow-right {
-        display: inline-block;
-      }
-
-      .fa-arrow-down {
-        display: none;
-      }
-    }
   }
 
   @include media($medium) {
@@ -172,25 +98,6 @@
         margin-left: 0;
       }
     }
-
-    .fa-arrow-right {
-      display: inline-block;
-    }
-
-    .fa-arrow-down {
-      display: none;
-    }
-
-    &.complete {
-
-      .fa-arrow-right {
-        display: inline-block;
-      }
-
-      .fa-arrow-down {
-        display: none;
-      }
-    }
   }
 
   @include media($large) {
@@ -205,25 +112,6 @@
 
       &.gov-action {
         margin-left: 0;
-      }
-    }
-
-    .fa-arrow-right {
-      display: inline-block;
-    }
-
-    .fa-arrow-down {
-      display: none;
-    }
-
-    &.complete {
-
-      .fa-arrow-right {
-        display: inline-block;
-      }
-
-      .fa-arrow-down {
-        display: none;
       }
     }
   }
