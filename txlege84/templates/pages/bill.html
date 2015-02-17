@@ -7,7 +7,81 @@
 {% load staticfiles %}
 {% block content %}
   {% include "components/page-headers/bill-page-header.html" %}
+
   <div class="bill">
+    <div class="bill-stages">
+      <header>
+        <h3>Bill Stages</h3>
+      </header>
+      <div class="bill-stage {% if object.first_action_date != None %} complete {% endif %} ">
+        <div class="bill-stage-name">Filed</div>
+        <span class="fa-stack">
+          <i class="fa fa-check-circle fa-stack-1x"></i>
+        </span>
+        <i class="fa fa-arrow-right"></i>
+        <i class="fa fa-arrow-down"></i>
+        <div class="date-stage-complete">{{ object.actions.first.date }}</div>
+      </div>
+      {% if object.chamber.name == 'Texas House' %}
+      <div class="bill-stage {% if object.passed_house != None %} complete {% endif %}">
+        <div class="bill-stage-name">
+          Approved by House
+        </div>
+        <span class="fa-stack">
+          <i class="fa fa-check-circle fa-stack-1x"></i>
+        </span>
+        <i class="fa fa-arrow-right"></i>
+        <i class="fa fa-arrow-down"></i>
+        <div class="date-stage-complete">{{ object.passed_house }}</div>
+      </div>
+      {% else %}
+      <div class="bill-stage {% if object.passed_senate != None %} complete {% endif %}">
+        <div class="bill-stage-name">
+          Approved by Senate
+        </div>
+        <span class="fa-stack">
+          <i class="fa fa-check-circle fa-stack-1x"></i>
+        </span>
+        <i class="fa fa-arrow-right"></i>
+        <i class="fa fa-arrow-down"></i>
+        <div class="date-stage-complete">{{ object.passed_senate }}</div>
+      </div>
+      {% endif %}
+
+      {% if object.chamber.name == 'Texas House' %}
+      <div class="bill-stage {% if object.passed_house != None %} complete {% endif %}">
+        <div class="bill-stage-name">
+          Approved by Senate
+        </div>
+        <span class="fa-stack">
+          <i class="fa fa-check-circle fa-stack-1x"></i>
+        </span>
+        <i class="fa fa-arrow-right"></i>
+        <i class="fa fa-arrow-down"></i>
+        <div class="date-stage-complete">{{ object.passed_house }}</div>
+      </div>
+      {% else %}
+      <div class="bill-stage {% if object.passed_house != None %} complete {% endif %}">
+        <div class="bill-stage-name">
+          Approved by House
+        </div>
+        <span class="fa-stack">
+          <i class="fa fa-check-circle fa-stack-1x"></i>
+        </span>
+        <i class="fa fa-arrow-right"></i>
+        <i class="fa fa-arrow-down"></i>
+        <div class="date-stage-complete">{{ object.passed_house }}</div>
+      </div>
+      {% endif %}
+
+      <div class="bill-stage{% if object.became_law != None %} complete {% endif %}">
+        <div class="bill-stage-name">Became law</div>
+        <span class="fa-stack">
+          <i class="fa fa-check-circle fa-stack-1x"></i>
+        </span>
+        <div class="date-stage-complete">{{ object.became_law }}</div>
+      </div>
+    </div>
     <div class="bill-authors">
       <div>
         <header>
@@ -80,83 +154,12 @@
       {% endif %}
     </div>
 
-    <div class="bill-stages">
-      <header>
-        <h3>Bill Stages</h3>
-      </header>
-      <div class="bill-stage {% if object.first_action_date != None %} complete {% endif %} ">
-        <div class="bill-stage-name">Filed</div>
-        <span class="fa-stack">
-          <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
-          <i class="fa fa-check-circle fa-stack-1x"></i>
-        </span>
-        <i class="fa fa-arrow-right"></i>
-        <i class="fa fa-arrow-down"></i>
-        <div class="date-stage-complete">{{ object.actions.first.date }}</div>
-      </div>
-      {% if object.chamber.name == 'Texas House' %}
-      <div class="bill-stage {% if object.passed_house != None %} complete {% endif %}">
-        <div class="bill-stage-name">
-          Approved by House
-        </div>
-        <span class="fa-stack">
-          <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
-          <i class="fa fa-check-circle fa-stack-1x"></i>
-        </span>
-        <i class="fa fa-arrow-right"></i>
-        <i class="fa fa-arrow-down"></i>
-        <div class="date-stage-complete">{{ object.passed_house }}</div>
-      </div>
-      {% else %}
-      <div class="bill-stage {% if object.passed_senate != None %} complete {% endif %}">
-        <div class="bill-stage-name">
-          Approved by Senate
-        </div>
-        <span class="fa-stack">
-          <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
-          <i class="fa fa-check-circle fa-stack-1x"></i>
-        </span>
-        <i class="fa fa-arrow-right"></i>
-        <i class="fa fa-arrow-down"></i>
-        <div class="date-stage-complete">{{ object.passed_senate }}</div>
-      </div>
-      {% endif %}
-
-      {% if object.chamber.name == 'Texas House' %}
-      <div class="bill-stage {% if object.passed_house != None %} complete {% endif %}">
-        <div class="bill-stage-name">
-          Approved by Senate
-        </div>
-        <span class="fa-stack">
-          <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
-          <i class="fa fa-check-circle fa-stack-1x"></i>
-        </span>
-        <i class="fa fa-arrow-right"></i>
-        <i class="fa fa-arrow-down"></i>
-        <div class="date-stage-complete">{{ object.passed_house }}</div>
-      </div>
-      {% else %}
-      <div class="bill-stage {% if object.passed_house != None %} complete {% endif %}">
-        <div class="bill-stage-name">
-          Approved by House
-        </div>
-        <span class="fa-stack">
-          <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
-          <i class="fa fa-check-circle fa-stack-1x"></i>
-        </span>
-        <i class="fa fa-arrow-right"></i>
-        <i class="fa fa-arrow-down"></i>
-        <div class="date-stage-complete">{{ object.passed_house }}</div>
-      </div>
-      {% endif %}
-
-      <div class="bill-stage{% if object.became_law != None %} complete {% endif %}">
-        <div class="bill-stage-name">Became law</div>
-        <span class="fa-stack">
-          <img class="fa fa-stack-2x scroll" src="{% static 'images/icons/bill-scroll-icon-blank.svg' %}"></img>
-          <i class="fa fa-check-circle fa-stack-1x"></i>
-        </span>
-        <div class="date-stage-complete">{{ object.became_law }}</div>
+    <div class="bill">
+      <div class="bill-section">
+        <header>
+          <h3>Last Action</h3>
+        </header>
+        <p>{{ object.actions.last.text }} <em> {{ object.actions.last.date }}</em></p>
       </div>
     </div>
 
