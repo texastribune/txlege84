@@ -1,55 +1,55 @@
-h1,
+// h1
 .project-title {
   color: $bodytext-black;
   font-size: 1.6em;
   font-family: $base-serif;
   font-weight: normal;
   letter-spacing: 0.04em;
-  line-height: 1em;
+  line-height: 1;
   text-align: center;
   text-transform: uppercase;
 }
 
-h2,
+// h2
 .page-header {
   border-bottom: 1px solid $border-bottom;
   color: $bodytext-black;
   font-family: $base-sans-serif;
   font-size: 1.8em;
   font-weight: 800;
-  line-height: 1.4em;
+  line-height: 1.4;
   text-align: left;
 }
 
-h3,
+// h3
 .section-header {
   border-bottom: 1px solid $border-bottom;
   color: $li-black;
   font-family: $base-sans-serif;
   font-size: 1.5em;
   font-weight: 800;
-  line-height: 1.4em;
+  line-height: 1.4;
   text-align: left;
 }
 
-h4,
+// h4
 .featured-content {
   background: $teal;
   border-radius: 3px 3px 0 0;
   color: $white;
   font-family: $base-serif;
-  font-size: 0.85em;
+  font-size: .85em;
   font-style: italic;
   font-weight: 400;
   letter-spacing: .1em;
-  line-height: 1.2em;
+  line-height: 1.2;
   margin-bottom: 0;
   padding: .375em 1em .3em;
   text-align: left;
   text-transform: uppercase;
 }
 
-h5,
+// h5
 .sub-section-header {
   border-bottom: 1px solid $border-bottom;
   color: $li-black;
@@ -57,7 +57,7 @@ h5,
   font-size: 0.95em;
   font-style: italic;
   font-weight: 500;
-  line-height: 1.4em;
+  line-height: 1.4;
   margin: .75em 0;
   text-align: left;
 }
@@ -67,7 +67,7 @@ p {
   font-family: $base-sans-serif;
   font-size: 1.05em;
   font-weight: 400;
-  line-height: 1em;
+  line-height: 1;
   text-align: left;
 
   &.emphasis {
@@ -83,7 +83,7 @@ p {
   &.sub-text {
     color: $bodytext-black;
     font-weight: 300;
-    line-height: 1.2em;
+    line-height: 1.2;
   }
 
   &.center {
@@ -92,14 +92,14 @@ p {
 
 }
 
-h6,
+// h6
 .issue-card-title {
   color: $tribune-black;
   font-family: $base-serif;
   font-size: 1.4em;
   font-weight: normal;
   letter-spacing: 0.02em;
-  line-height: 1em;
+  line-height: 1;
   text-align: left;
   margin: .5em 0;
 }
@@ -111,7 +111,7 @@ h6,
   font-style: italic;
   font-weight: 400;
   letter-spacing: 0.04em;
-  line-height: 1.2em;
+  line-height: 1.2;
   text-align: left;
 }
 
@@ -126,7 +126,7 @@ h6,
   font-size: 0.9em;
   font-weight: 600;
   letter-spacing: .08em;
-  line-height: 1em;
+  line-height: 1;
   text-transform: uppercase;
   margin: 0 auto;
   width: 80%;
@@ -164,7 +164,7 @@ h6,
   .icon {
     float: right;
     font-size: 1.7em;
-    line-height: .5em;
+    line-height: .5;
 
     &.open {
       color: $li-black;
@@ -219,7 +219,7 @@ ul {
 li {
   font-weight: 400;
   font-size: 1.1em;
-  line-height: 1em;
+  line-height: 1;
   text-align: left;
 
   a {
