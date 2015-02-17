@@ -4,16 +4,9 @@
   {% include "includes/og/og_bill.html" %}
 {% endblock %}
 
-{% block mobileheader %}
-  {% include "components/page-headers/bill-page-header.html" %}
-{% endblock %}
-
-{% block desktopheader %}
-  {% include "components/page-headers/bill-page-header.html" %}
-{% endblock %}
-
 {% load staticfiles %}
 {% block content %}
+  {% include "components/page-headers/bill-page-header.html" %}
   <div class="bill">
     <div class="bill-authors">
       <div>
