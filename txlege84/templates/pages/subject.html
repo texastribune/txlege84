@@ -4,32 +4,40 @@
   {% include "includes/og/og_subject.html" %}
 {% endblock %}
 
-{% block content %}
+{% block mobileheader %}
   {% include "components/page-headers/subject-page-header.html" %}
-  <section>
-  {% if object.bills.first != null %}
-    <table class="bill-table">
-      <thead>
-        <tr>
-          <th>Bill</th>
-          <th>Caption</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-      {% for bill in object.bills.all %}
-        <tr>
-          <td data-title="Bill"><a href="{{ bill.get_absolute_url }}">{{ bill.name }}</a></td>
-          <td data-title="Caption">{{ bill.description }}</td>
-          <td data-title="Action">{{ bill.actions.first.text }}</td>
-        </tr>
-      {% endfor %}
-      </tbody>
-    </table>
-  {% else %}
-  <p>No bills have been filed under this category yet.</p>
-  {% endif %}
-  </section>
+{% endblock %}
+
+{% block desktopheader %}
+  {% include "components/page-headers/subject-page-header.html" %}
+{% endblock %}
+
+{% block content %}
+
+<section>
+{% if object.bills.first != null %}
+  <table class="bill-table">
+    <thead>
+      <tr>
+        <th>Bill</th>
+        <th>Caption</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for bill in object.bills.all %}
+      <tr>
+        <td data-title="Bill"><a href="{{ bill.get_absolute_url }}">{{ bill.name }}</a></td>
+        <td data-title="Caption">{{ bill.description }}</td>
+        <td data-title="Action">{{ bill.actions.first.text }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+<p>No bills have been filed under this category yet.</p>
+{% endif %}
+</section>
 
 {% endblock %}
 

@@ -40,41 +40,43 @@
 <body>
 
   <div class="main-container">
-  {% include "theme_demo.html" %}
-    <section class="menu">
-      <header>
-        <a href="http://www.texastribune.org/">
-          <img class="trib-logo" alt="The Texas Tribune" src="{% static 'images/brand/TxTrib-logo-horizontal-blk.svg' %}">
-        </a>
-      </header>
-      <nav>
-        <ul>
-          <li>Find Bills</li>
-          <li>Browse Issues by Topic</li>
-          <li>Chamber Livestream</li>
-          <li>How the Legislature Works</li>
-          <li>Session Resources</li>
-        </ul>
-      </nav>
-    </section>
-    <section>
-      <header>
-        <h1 class="project-title">Texas Legislative Guide</h1>
-        <p class="sub-text center">Your go-to resource for the 2015 Texas legislative session</p>
-      </header>
-<!--           <div class="share">
-            <a href="https://twitter.com/intent/tweet?text=Check%20out%20%40TexasTribune%E2%80%99s%2084th%20Lege%20page%20--%20your%20go-to%20resource%20for%20the%202015%20%23txlege%20http%3A%2F%2Ftxlege.texastribune.org%2F" title="share on Twitter" class="social-share" target="_blank">
-              <i class="fa fa-twitter"></i>
-            </a>
-            <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=http%3A%2F%2Ftxlege.texastribune.org&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
-              <i class="fa fa-facebook"></i>
-            </a>
-          </div> -->
-    </section>
-    {% block page_header %}{% endblock %}
     {% include "includes/banner_ad.html" %}
+    <section class="side-bar">
+      <section class="main-header">
+        <div class="project-branding">
+          <header>
+            <a href="http://www.texastribune.org/">
+              <img class="trib-logo mobile-hide" alt="The Texas Tribune" src="{% static 'images/brand/tt-logo-stack.svg' %}">
+              <img class="trib-logo desktop-hide" alt="The Texas Tribune" src="{% static 'images/brand/TxTrib-logo-horizontal-blk.svg' %}">
+            </a>
+            <h1><a href="{% url 'landing-view' %}">Texas Legislative Guide</a></h1>
+            <div class="title-underline"><span></span></div>
+            <p>Your go-to resource for the 2015 Texas legislative session</p>
+            <div class="share">
+              <a href="https://twitter.com/intent/tweet?text=Check%20out%20%40TexasTribune%E2%80%99s%2084th%20Lege%20page%20--%20your%20go-to%20resource%20for%20the%202015%20%23txlege%20http%3A%2F%2Ftxlege.texastribune.org%2F" title="share on Twitter" class="social-share" target="_blank">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=http%3A%2F%2Ftxlege.texastribune.org&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
+                <i class="fa fa-facebook"></i>
+              </a>
+            </div>
+          </header>
+        </div>
+        <div class="page-header desktop-hide">
+          {% block mobileheader %}{% endblock %}
+        </div>
+      </section>
+
+      {% include "components/side-bar.html" with subject_list=subject_list %}
+
+    </section>
+
     <section class="body-main">
-    {% block content %}{% endblock %}
+      <div class="mobile-hide">
+        {% block desktopheader %}{% endblock %}
+      </div>
+      <div class="content-divider"></div>
+      {% block content %}{% endblock %}
     </section>
 
     {% include "includes/banner_ad2.html" %}
@@ -82,6 +84,7 @@
 
   <footer class="footer">
     <div class="main-container">
+
       <div class="footer-container">
         <div class="logo-container">
           <a href="https://twitter.com/newsapps"><img class="logo" src="{% static 'images/brand/TT-logo-white-stack.png' %}" alt="Texas Tribune logo"></a>
