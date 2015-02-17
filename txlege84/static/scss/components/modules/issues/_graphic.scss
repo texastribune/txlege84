@@ -1,0 +1,28 @@
+.graphic {
+  float: left;
+  height: 2em;
+  width: 2em;
+  // FIX THIS
+  margin: -6px 6px  0 0;
+
+  @include media($medium) {
+    &.list {
+      margin: 0 .5em 4em;
+    }
+
+    &.header {
+      margin: -.25em .5em 0 0;
+    }
+  }
+
+  @include media($large) {
+    &.list {
+      margin: 0 .5em 4em;
+    }
+
+    &.header {
+      margin: -.25em .5em 0 0;
+    }
+  }
+
+}
