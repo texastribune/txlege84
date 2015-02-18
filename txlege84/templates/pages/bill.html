@@ -69,8 +69,6 @@
         <span class="fa-stack">
           <i class="fa fa-check-circle fa-stack-1x"></i>
         </span>
-        <i class="fa fa-arrow-right"></i>
-        <i class="fa fa-arrow-down"></i>
         <div class="date-stage-complete">
           <p class="sub-section-header">{{ object.passed_house }}</p>
         </div>
@@ -131,16 +129,15 @@
     </div>
     <div class="bill-committee-assignment">
       <div>
-        <div>
-          <header>
-            <h3 class="section-header">House Committee</h3>
-          </header>
-          <ul class="sans">
-          {% if object.house_committee != "" %}
-            <li><a href="{{ object.house_committee.get_absolute_url }}">{{ object.house_committee }}</a></li>
-          {% else %}
-            <li class="no-link">Committee not yet assigned</li>
-          {% endif %}
+        <header>
+          <h3 class="section-header">House Committee</h3>
+        </header>
+        <ul class="sans">
+        {% if object.house_committee != "" %}
+          <li><a href="{{ object.house_committee.get_absolute_url }}">{{ object.house_committee }}</a></li>
+        {% else %}
+          <li class="no-link">Committee not yet assigned</li>
+        {% endif %}
         </ul>
       </div>
       <div>
@@ -201,7 +198,7 @@
         {% for o in object.actions.all reversed %}
           <tr>
             <td data-title="Action">{{ o.text }}</td>
-            <td data-title="Data">{{ o.date|date:"SHORT_DATE_FORMAT" }}</td>
+            <td data-title="Date">{{ o.date|date:"SHORT_DATE_FORMAT" }}</td>
             <td data-title="Acting Chamber">{{ o.acting_chamber.name }}</td>
           </tr>
         {% endfor %}
