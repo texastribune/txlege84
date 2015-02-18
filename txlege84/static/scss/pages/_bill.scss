@@ -23,6 +23,7 @@
 .bill-stage {
   @include span-columns(12);
   margin-bottom: 1em;
+
   .sub-section-header{
     border-bottom: 0px solid black;
   }
@@ -34,9 +35,11 @@
 
   .mini-emphasis {
     margin: 0;
+    text-align: right;
   }
 
   .date-stage-complete {
+    @include span-columns(4);
     display: inline-block;
     font-size: .8em;
     font-style: italic;
@@ -44,27 +47,28 @@
 
     &.gov-action {
       margin-left: 4em;
+      text-align: right;
     }
   }
 
   .fa {
-    font-size: 2.5em !important;
+    font-size: 2.5em;
   }
 
   .fa-stack {
-    @include clearfix;
-    height: 3em;
-    width: 3em;
+    @include span-columns(4);
   }
 
   .fa-stack-1x {
-    display: none;
+    text-align: center;
+    display: block;
+    left: .13em;
+    top: .2em;
   }
 
   &.complete {
     .fa-stack-1x {
       color: $green;
-      background-color: $green;
       display: block;
       left: .13em;
       top: .2em;
@@ -121,6 +125,7 @@
 }
 
 .bill-stage-name {
+  @include span-columns(4);
   font-size: .9em;
   height: 2em;
 }
