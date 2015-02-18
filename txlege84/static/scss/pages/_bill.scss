@@ -1,3 +1,11 @@
+.author-block {
+  @include span-columns(7);
+}
+
+.author-img {
+  @include span-columns(4);
+}
+
 .bill {
   ul {
     list-style: none;

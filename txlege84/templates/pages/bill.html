@@ -94,8 +94,11 @@
         </header>
         {% for n in object.sponsorships.all %}
           {% if n.role = 'author' %}
-            <p class="emphasis"><a href="{{ n.legislator.get_absolute_url }}">{{ n.legislator }}</a></p>
-            <p class="subtext">State {% if object.chamber.name == "Texas Senate" %} Senator, {% else %} Representative, {% endif %}{{ n.legislator.party }}{% if n.legislator.party == "Democratic" %}(D){% else %}(R){% endif %}</p>
+            <img class="author-img" src="{{ n.legislator.tribune_photo }}">
+            <div class="author-block">
+              <p class="emphasis"><a href="{{ n.legislator.get_absolute_url }}">{{ n.legislator }}</a></p>
+              <p class="subtext">State {% if object.chamber.name == "Texas Senate" %} Senator, {% else %} Representative, {% endif %} {% if n.legislator.party.name == "Democratic" %}(D){% else %}(R){% endif %}</p>
+            </div>
           {% endif %}
         {% endfor %}
       </div>
@@ -110,7 +113,7 @@
         <ul class="sans">
           {% for o in object.sponsorships.all %}
             {% if o.role = 'coauthor' %}
-            <li>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{{ o.legislator.get_absolute_url }}">{{ o }}</a></li>
+            <li>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{{ o.legislator.get_absolute_url }}">{{ o }}{% if o.legislator.party.name == "Democratic" %}(D){% else %}(R){% endif %}</a></li>
             {% endif %}
           {% endfor %}
         </ul>
@@ -124,7 +127,7 @@
         </header>
         {% for p in object.sponsorships.all %}
           {% if p.role = 'sponsor' %}
-            <p>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{{ p.legislator.get_absolute_url }}">{{ p.legislator }}</a></p>
+            <p>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{{ p.legislator.get_absolute_url }}">{{ p.legislator }}{% if p.legislator.party.name == "Democratic" %}(D){% else %}(R){% endif %}</a></p>
           {% endif %}
         {% endfor %}
       </div>
@@ -140,7 +143,7 @@
         {% if object.house_committee != "" %}
           <li><a href="{{ object.house_committee.get_absolute_url }}">{{ object.house_committee }}</a></li>
         {% else %}
-          <li class="no-link">Committee not yet assigned</li>
+          <li>Committee not yet assigned</li>
         {% endif %}
         </ul>
       </div>
@@ -152,7 +155,7 @@
         {% if object.senate_committee != "" %}
           <li><a href="{{ object.senate_committee.get_absolute_url }}">{{ object.senate_committee }}</a></li>
         {% else %}
-          <li class="no-link">Committee not yet assigned</li>
+          <li>Committee not yet assigned</li>
         {% endif %}
         </ul>
       </div>
