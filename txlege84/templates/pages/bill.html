@@ -101,16 +101,20 @@
       </div>
       {% if 'coauthor' in object.sponsorships.all.role %}
       <div>
-        <header>
+        <div class="shutter">
+        <div class="shutter-label">
           <h3 class="section-header">Coauthors</h3>
-        </header>
-        <ul>
+          <span class="icon closed">&#43;</span>
+          <span class="icon open">&#45;</span>
+        </div>
+        <ul class="sans">
           {% for o in object.sponsorships.all %}
             {% if o.role = 'coauthor' %}
             <li>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{{ o.legislator.get_absolute_url }}">{{ o }}</a></li>
             {% endif %}
           {% endfor %}
         </ul>
+        </div>
       </div>
       {% endif %}
       {% if 'sponsor' in object.sponsorships.all.role %}
