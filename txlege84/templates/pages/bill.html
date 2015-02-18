@@ -139,7 +139,7 @@
           {% if object.house_committee != "" %}
             <li><a href="{{ object.house_committee.get_absolute_url }}">{{ object.house_committee }}</a></li>
           {% else %}
-            <li>Committee not yet assigned</li>
+            <li class="no-link">Committee not yet assigned</li>
           {% endif %}
         </ul>
       </div>
@@ -151,7 +151,7 @@
         {% if object.senate_committee != "" %}
           <li><a href="{{ object.senate_committee.get_absolute_url }}">{{ object.senate_committee }}</a></li>
         {% else %}
-          <li>Committee not yet assigned</li>
+          <li class="no-link">Committee not yet assigned</li>
         {% endif %}
         </ul>
       </div>
@@ -189,7 +189,6 @@
     </div>
 
     <div class="bill-actions bill-table">
-      <h3>Actions</h3>
       <table>
         <thead>
           <tr>
