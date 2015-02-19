@@ -1,3 +1,19 @@
+h2 {
+  margin: 0;
+}
+
+p {
+  margin: .5em 0 .75em;
+}
+
+.ad-container {
+  border-top: 0;
+}
+
+.author {
+  @include span-columns(12);
+}
+
 .author-block {
   @include span-columns(7);
 }
@@ -48,10 +64,9 @@
 
   .date-stage-complete {
     @include span-columns(4);
-    display: inline-block;
     font-size: .8em;
     font-style: italic;
-    margin-top: .5em;
+    // margin-top: .5em;
 
     &.gov-action {
       margin-left: 4em;
@@ -69,17 +84,11 @@
 
   .fa-stack-1x {
     text-align: center;
-    display: block;
-    left: .13em;
-    top: .2em;
   }
 
   &.complete {
     .fa-stack-1x {
       color: $green;
-      display: block;
-      left: .13em;
-      top: .2em;
     }
   }
 
@@ -91,7 +100,7 @@
     }
 
     .date-stage-complete {
-      display: block;
+      // display: block;
 
       &.gov-action {
         margin-left: 0;
@@ -107,7 +116,7 @@
     }
 
     .date-stage-complete {
-      display: block;
+      // display: block;
 
       &.gov-action {
         margin-left: 0;
@@ -123,7 +132,7 @@
     }
 
     .date-stage-complete {
-      display: block;
+      // display: block;
 
       &.gov-action {
         margin-left: 0;

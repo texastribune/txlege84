@@ -15,10 +15,11 @@
       </header>
       <div class="bill-stage {% if object.first_action_date != None %} complete {% endif %} ">
         <div class="bill-stage-name">
-        <p class="mini-emphasis">Filed</p></div>
-        <span class="fa-stack">
+          <p class="mini-emphasis">Filed</p>
+        </div>
+        <div class="fa-stack">
           <i class="fa fa-check-circle fa-stack-1x"></i>
-        </span>
+        </div>
         <div class="date-stage-complete">
           <p class="sub-section-header">{{ object.actions.first.date }}</p>
         </div>
@@ -28,9 +29,9 @@
         <div class="bill-stage-name">
           <p class="mini-emphasis">Approved by House</p>
         </div>
-        <span class="fa-stack">
+        <div class="fa-stack">
           <i class="fa fa-check-circle fa-stack-1x"></i>
-        </span>
+        </div>
         <div class="date-stage-complete">
           <p class="sub-section-header">{{ object.passed_house }}</p>
         </div>
@@ -40,9 +41,9 @@
         <div class="bill-stage-name">
           <p class="mini-emphasis">Approved by Senate</p>
         </div>
-        <span class="fa-stack">
+        <div class="fa-stack">
           <i class="fa fa-check-circle fa-stack-1x"></i>
-        </span>
+        </div>
         <div class="date-stage-complete">
           <p class="sub-section-header">{{ object.passed_senate }}</p>
         </div>
@@ -54,9 +55,9 @@
         <div class="bill-stage-name">
           <p class="mini-emphasis">Approved by Senate</p>
         </div>
-        <span class="fa-stack">
+        <div class="fa-stack">
           <i class="fa fa-check-circle fa-stack-1x"></i>
-        </span>
+        </div>
         <div class="date-stage-complete">
           <p class="sub-section-header">{{ object.passed_house }}</p>
         </div>
@@ -66,9 +67,9 @@
         <div class="bill-stage-name">
           <p class="mini-emphasis">Approved by House</p>
         </div>
-        <span class="fa-stack">
+        <div class="fa-stack">
           <i class="fa fa-check-circle fa-stack-1x"></i>
-        </span>
+        </div>
         <div class="date-stage-complete">
           <p class="sub-section-header">{{ object.passed_house }}</p>
         </div>
@@ -79,9 +80,9 @@
         <div class="bill-stage-name">
           <p class="mini-emphasis">Became law</p>
         </div>
-        <span class="fa-stack">
+        <div class="fa-stack">
           <i class="fa fa-check-circle fa-stack-1x"></i>
-        </span>
+        </div>
         <div class="date-stage-complete">
           <p class="sub-section-header">{{ object.became_law }}</p>
         </div>
@@ -94,11 +95,13 @@
         </header>
         {% for n in object.sponsorships.all %}
           {% if n.role = 'author' %}
+          <div class="author">
             <img class="author-img" src="{{ n.legislator.tribune_photo }}">
             <div class="author-block">
               <p class="emphasis"><a href="{{ n.legislator.get_absolute_url }}">{{ n.legislator }}</a></p>
               <p class="subtext">State {% if object.chamber.name == "Texas Senate" %} Senator, {% else %} Representative, {% endif %} {% if n.legislator.party.name == "Democratic" %}(D){% else %}(R){% endif %}</p>
             </div>
+          </div>
           {% endif %}
         {% endfor %}
       </div>
@@ -173,7 +176,7 @@
     <div class="related-issue">
       {% if object.issues.first != null %}
         <header>
-          <h3>Related Issue</h3>
+          <h3 class="section-header">Related Issue</h3>
         </header>
         <ul class="sans">
         {% for issue in object.issues.all %}
