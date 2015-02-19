@@ -92,6 +92,14 @@ p {
     }
   }
 
+  .topic-icon {
+    @include span-columns(1);
+  }
+
+  .topic-text {
+    @include span-columns(10);
+  }
+
   @include media($small) {
     @include span-columns(3);
 
