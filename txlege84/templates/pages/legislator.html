@@ -8,10 +8,10 @@
   {% include "components/page-headers/legislator-page-header.html" %}
   {% if object.memberships.first != null %}
   <header>
-    <h3 class="section-header">Committee assignments</h3>
+    <h3 class="section-header">Committees</h3>
   </header>
   <div class="committee-assignments">
-    <ul>
+    <ul class="sans">
       {% for membership in object.memberships.all %}
       <li>
         {{ membership.role }}, <a href="{{ membership.committee.get_absolute_url }}">{{ membership.committee }}</a>
