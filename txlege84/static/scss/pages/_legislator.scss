@@ -29,9 +29,6 @@
 
   }
 
-  .office-info {
-  }
-
   .share-page {
     margin: 1em;
     border-bottom: 1px solid $border-bottom;
@@ -43,12 +40,17 @@
 .lawmaker-links {
   margin-bottom: 1em;
 
-  .button{
-    width: 100%;
+  a {
+    text-decoration: none;
   }
 
   button {
     margin-bottom: .5em;
+    text-decoration: none;
+  }
+
+  .button {
+    width: 100%;
   }
 }
 .committee-assignments {
