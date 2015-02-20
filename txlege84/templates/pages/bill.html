@@ -99,7 +99,7 @@
             <img class="author-img" src="{{ n.legislator.tribune_photo }}">
             <div class="author-block">
               <p class="emphasis"><a href="{{ n.legislator.get_absolute_url }}">{{ n.legislator }}</a></p>
-              <p class="subtext">State {% if object.chamber.name == "Texas Senate" %} Senator, {% else %} Representative, {% endif %} {% if n.legislator.party.name == "Democratic" %}(D){% else %}(R){% endif %}</p>
+              <p class="subtext">State {% if object.chamber.name == "Texas Senate" %} Senator, {% else %} Representative, {% endif %} ({{ n.legislator.party.short_name }})</p>
             </div>
           </div>
           {% endif %}
