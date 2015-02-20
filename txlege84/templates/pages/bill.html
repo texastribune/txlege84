@@ -135,6 +135,23 @@
         {% endfor %}
       </div>
       {% endif %}
+      {% if 'cosponsor in object.sponsorships.all.role' %}
+      <div class="shutter">
+        <div class="shutter-label">
+          Co-Sponsors
+          <span class="icon closed">&#43;</span>
+          <span class="icon open">&#45;</span>
+          <ul class="sans">
+            {% for cosponsor in object.sponsorships.all %}
+              {% if cosponsor.role == 'cosponsor' %}
+              <li>{{ cosponsor.legislator }} (<span class="{% if cosponsor.legislator.party.short_name == 'D' %} democrat {% else %} republican {% endif %}">{{ cosponsor.legislator.party.short_name }})</span></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+
+      </div>
+      {% endif %}
       <div>&nbsp;</div>
     </div>
     <div class="bill-committee-assignment">
