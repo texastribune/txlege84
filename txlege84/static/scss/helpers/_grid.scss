@@ -36,6 +36,7 @@ $max-width: 1081px;
 .body-main {
   @extend %content-block;
   @include span-columns(12);
+  @include clearfix;
 }
 
 
