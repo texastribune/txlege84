@@ -47,7 +47,7 @@
       {% for curator in curators %}
       <div class="curated-by">
         <img clas="headshot" src="{{ curator.staff.profile_photo }}">
-        <p class="emphasis">{{ curators.first.first_name }} {{ curators.first.last_name }}</p>
+        <p class="emphasis">{{ curator.first_name }} {{ curator.last_name }}</p>
         <p class="sub-text"></p>
       </div>
       {% endfor %}
