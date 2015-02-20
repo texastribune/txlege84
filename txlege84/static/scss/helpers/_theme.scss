@@ -216,7 +216,7 @@ ul {
     li {
       color: $li-black;
       font-family: $base-sans-serif;
-      margin: 1.5em auto;
+      margin: .5em 0;
     }
   }
 
@@ -226,6 +226,11 @@ ul {
     padding-left: 1em;
 
     li {
+      line-height: 0;
+
+      a {
+        line-height: 1;
+      }
       &:before {
         color: $li-black;
         content: '\25cf';

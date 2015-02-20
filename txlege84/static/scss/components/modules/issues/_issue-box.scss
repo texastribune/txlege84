@@ -1,34 +1,45 @@
+.issue-wrapper {
+  margin-bottom: 2em;
+}
+
 .issue-box {
   @include clearfix;
   background-color: $background-gray;
-  margin:1em 0 1.5em;
+  margin: 1em 0 0;
   padding: .5em;
 
   p {
     font-family: $base-serif;
     line-height: 1.4;
   }
+}
 
-  .share-box {
-    @include span-columns(12);
-    color: $tribune-black;
-    background-color: $tribune-yellow;
+.share-box {
+  @include span-columns(12);
+  @include clearfix;
+  color: $tribune-black;
+  background-color: $tribune-yellow;
+  margin-bottom: 1.25em;
 
-    h5 {
-      font-size: .7em;
-      font-weight: 400;
-      letter-spacing: .1em;
-      text-align: center;
+  p {
+    font-size: .9em;
+    margin: .25em 0;
+    text-transform: uppercase;
+    text-align: center;
 
-      i {
-        font-size: 1.5em;
-        padding: .25em 0;
-        margin: 0 .5em;
-      }
+    i {
+      font-size: 1.1em;
+      padding: .25em 0;
+      margin: 0 .5em;
+    }
 
-      a {
-        border-bottom: 0;
-        text-decoration: none;
+    a {
+      border-bottom: 0;
+      color: $text-gray;
+      text-decoration: none;
+
+      &:hover {
+        color: $teal;
       }
     }
   }
