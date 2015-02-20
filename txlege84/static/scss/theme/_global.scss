@@ -47,7 +47,7 @@ ul {
 }
 
 section {
-  @include clearfix();
+  @include clearfix;
 }
 
 // Temp styles, should delete
