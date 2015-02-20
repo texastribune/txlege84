@@ -36,19 +36,6 @@ $max-width: 1081px;
 .body-main {
   @extend %content-block;
   @include span-columns(12);
-
-  // @include media($small) {
-  //   @include span-columns(7);
-  //   @include omega();
-  // }
-
-  @include media($medium) {
-    @include span-columns(7);
-  }
-
-  @include media($large) {
-    @include span-columns(8);
-  }
 }
 
 
