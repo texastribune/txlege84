@@ -3,7 +3,7 @@
     <div class="headshot">
     <img src="{{ object.tribune_photo }}">
       <p class="lawmaker-name emphasis">{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ object.full_name }}</p>
-      <p class="subtext">({{ object.party.short_name }}-{{ object.tribune_city }}){% if object.chamber.name == "Texas Senate" %} Senate {% else %} House {% endif %} District {{ object.district }}</p>
+      <p class="subtext">({{ object.party.short_name }}-{{ object.tribune_city }}),{% if object.chamber.name == "Texas Senate" %} Senate {% else %} House {% endif %} District {{ object.district }}</p>
     </div>
 
     <section class="share-page">
