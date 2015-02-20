@@ -181,6 +181,14 @@ p {
   }
 }
 
+.democrat {
+  color: $dem-blue;
+}
+
+.republican {
+  color: $rep-red;
+}
+
 ul {
   &.serif {
     li {

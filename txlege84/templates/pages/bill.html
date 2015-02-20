@@ -116,7 +116,7 @@
         <ul class="sans">
           {% for o in object.sponsorships.all %}
             {% if o.role = 'coauthor' %}
-            <li>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{{ o.legislator.get_absolute_url }}">{{ o }}{% if o.legislator.party.name == "Democratic" %}(D){% else %}(R){% endif %}</a></li>
+            <li>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{{ o.legislator.get_absolute_url }}">{{ o }} <span class="{% if n.legislator.party.short_name == 'D' %} democrat {%else%} republican {%endif%}">{{ o.legislator.party.short_name }}</span></a></li>
             {% endif %}
           {% endfor %}
         </ul>
@@ -126,11 +126,11 @@
       {% if 'sponsor' in object.sponsorships.all.role %}
       <div>
         <header>
-          <h3 class="section-header">Bill Sponsor</h3>
+          <h3 class="section-header">Bill Sponsors</h3>
         </header>
         {% for p in object.sponsorships.all %}
           {% if p.role = 'sponsor' %}
-            <p>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{{ p.legislator.get_absolute_url }}">{{ p.legislator }}{% if p.legislator.party.name == "Democratic" %}(D){% else %}(R){% endif %}</a></p>
+            <p>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{{ p.legislator.get_absolute_url }}">{{ p.legislator }} ({{ p.legislator.party. }})</a></p>
           {% endif %}
         {% endfor %}
       </div>
