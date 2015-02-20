@@ -1,9 +1,7 @@
 .graphic {
   float: left;
-  height: 2em;
   width: 2em;
-  // FIX THIS
-  margin: -6px 6px  0 0;
+  margin: -.375em .375em 0 0;
 
   @include media($medium) {
     &.list {
@@ -25,4 +23,9 @@
     }
   }
 
+}
+
+.page-header .graphic {
+  width: 1.25em;
+  margin: 0 .25em 0 0;
 }
