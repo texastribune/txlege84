@@ -1,7 +1,13 @@
 .issue-box {
   @include clearfix;
   background-color: $background-gray;
-  margin-bottom: 1.5em;
+  margin:1em 0 1.5em;
+  padding: .5em;
+
+  p {
+    font-family: $base-serif;
+    line-height: 1.4;
+  }
 
   .share-box {
     @include span-columns(12);
@@ -26,75 +32,5 @@
       }
     }
   }
-}
-
-.issue {
-  @extend %content-block;
-  @include clearfix;
-
-  h3 {
-    padding: 1.5em 0 .25em;
-
-    a {
-    color: $text-black;
-    }
-  }
-
-  ul {
-    margin-bottom: 1em;
-  }
-
-  li {
-    margin: 0 0 .25em;
-  }
-
-  .related-legislation,
-  .related-content {
-    @include clearfix;
-    margin-top: 0;
-
-    h5 {
-      padding-top: 1em;
-    }
-
-    ul {
-      list-style: disc;
-      padding-left: 1.1em;
-    }
-  }
-
-  .related-legislation {
-    @include span-columns(12);
-
-    @include media($small) {
-      @include span-columns(4);
-    }
-
-    @include media($medium) {
-      @include span-columns(4);
-    }
-
-    @include media($large) {
-      @include span-columns(4);
-    }
-  }
-
-  .related-content {
-    @include span-columns(12);
-
-    @include media($small) {
-      @include span-columns(8);
-    }
-
-    @include media($medium) {
-      @include span-columns(8);
-    }
-
-    @include media($large) {
-      @include span-columns(8);
-    }
-
-  }
-
 }
 
