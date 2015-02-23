@@ -1,22 +1,22 @@
 .committee-chairs {
-  @include div-grid(12, 2);
   @include clearfix;
   margin-bottom: 2em;
+  @include span-columns(12);
+}
 
+.chair-detail {
+  @include span-columns(7);
+}
+
+.curated-by {
+  @include span-columns(4);
+  img {
+    display: block;
+    width: 100%;
+  }
 }
 
 .committee-members {
   @include span-columns(12);
-  @include li-grid(12, 2, 4);
   margin-bottom: 1em;
-
-  img {
-    display: block;
-  }
-
-  li {
-    min-height: 150px;
-    margin-bottom: 2em;
-  }
-
 }

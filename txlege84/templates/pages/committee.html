@@ -9,43 +9,47 @@
     <header>
       <h2 class="page-header">{{ object.name }}</h2>
     </header>
-    <section class="share-page">
-      <ul>
-        <a href="mailto:?subject=}&body=">
-          <li class="email"><i class="fa fa-envelope"></i></li>
-        </a>
-        <a href="https://twitter.com/intent/tweet?text=&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
-          <li class="facebook"><i class="fa fa-twitter"></i></li>
-        </a>
-        <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=TK&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
-          <li class="twitter"><i class="fa fa-facebook"></i></li>
-        </a>
-      </ul>
-    </section>
+  </section>
+  <section class="share-page">
+    <ul>
+      <a href="mailto:?subject=}&body=">
+        <li class="email"><i class="fa fa-envelope"></i></li>
+      </a>
+      <a href="https://twitter.com/intent/tweet?text=&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
+        <li class="facebook"><i class="fa fa-twitter"></i></li>
+      </a>
+      <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=TK&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
+        <li class="twitter"><i class="fa fa-facebook"></i></li>
+      </a>
+    </ul>
+  </section>
+
+  <section>
     <div class="committee-chairs">
-      <div>
-      {{ object.chair }}
-        {% if object.chair.slug != "" %}
-          <img class="curated-by" src="{{ object.chair.tribune_photo }}">
-          <h5 class="sub-section-header">Chair</h5>
-          <p class="emphasis"><a href="{{ object.chair.get_absolute_url }}">{{ object.chair }}</a></p>
-          <p class="sub-text">State {% if object.chair.chamber.name == "Texas Senate" %} Senator {% else %} Representative {% endif %} ({{ object.chair.party.short_name }})</p>
-        {% endif %}
+      <div class="curated-by">
+        <img src="{{ object.chair.tribune_photo }}">
       </div>
-      <div>
-        {% if object.vice_chair.slug != "" %}
-        <img class="curated-by" src="{{ object.chair.tribune_photo }}">
-        <h5 class="sub-section-header">Vice Chair</h5>
-        <p class="emphasis"><a href="{{ object.vice_chair.get_absolute_url }}">{{ object.vice_chair }}</a></p>
+      <div class="chair-detail">
+        <h5 class="sub-section-header">Chair</h5>
+        <p class="emphasis"><a href="{{ object.chair.get_absolute_url }}">{{ object.chair }}</a></p>
         <p class="sub-text">State {% if object.vide_chair.chamber.name == "Texas Senate" %} Senator {% else %} Representative {% endif %} ({{ object.vice_chair.party.short_name }})</p>
-        {% endif %}
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="committee-chairs">
+      <div class="curated-by">
+        <img src="{{ object.vice_chair.tribune_photo }}">
+      </div>
+      <div class="chair-detail">
+        <h5 class="sub-section-header">Vice Chair</h5>
+        <p class="emphasis"><a href="{{ object.vice_chair.get_absolute.url }}">{{ object.vice_chair }}</a></p>
+        <p class="sub-text">State {% if object.vide_chair.chamber.name == "Texas Senate" %} Senator {% else %} Representative {% endif %} ({{ object.vice_chair.party.short_name }})</p>
       </div>
     </div>
   </section>
 
-
-
-  <div class="committee">
+  <section>
     <div class="committee-members">
       <h5 class="sub-section-header">Committee Members</h5>
       <ul>
@@ -53,8 +57,10 @@
         <li><a href="{{ o.legislator.get_absolute_url }}">{{ o.legislator }} ({{ o.legislator.party.short_name }})</a></li>
       {% endfor %}
       </ul>
+      <hr class="yellow-hr"/>
     </div>
-    <hr class="yellow-hr"/>
+  </section>
+  <section>
     <div class="bill-table">
       <table>
         <thead>
@@ -76,6 +82,6 @@
         </tbody>
       </table>
     </div>
-  </div>
+  </section>
 
 {% endblock %}
