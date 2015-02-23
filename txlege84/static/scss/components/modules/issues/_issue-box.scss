@@ -1,6 +1,4 @@
-.issue-wrapper {
-  margin-bottom: 2em;
-}
+
 
 .issue-box {
   @include clearfix;
@@ -15,11 +13,12 @@
 }
 
 .share-box {
-  @include span-columns(12);
   @include clearfix;
   color: $tribune-black;
   background-color: $tribune-yellow;
-  margin-bottom: 1.25em;
+  margin-bottom: 1em;
+  padding: .1em 0;
+  width: 100%;
 
   p {
     font-size: .9em;
