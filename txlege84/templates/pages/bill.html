@@ -216,7 +216,7 @@
         </header>
         <ul class="sans">
         {% for issue in object.issues.all %}
-          <p><a href="{{ issue.get_absolute_url }}"><img class="hot-list-graphic" src="{% static 'images/icons/' %}{{ issue.topic.slug }}.svg"> {{ issue.name }}</a></p>
+          <p><a href="{{ issue.get_absolute_url }}"><img class="hot-list-graphic" src="{% static 'images/icons/' %}{{ issue.topic.slug }}.svg">{{ issue.name }}</a></p>
         {% endfor %}
         </ul>
       {% endif %}
