@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block og_data %}
+  {% include "includes/og/og_bill.html" %}
+{% endblock %}
+
+{% load staticfiles %}
+{% block content %}
+
+<div class="sidebar-content-bills collapse">
+  <div>
+    <header>
+      <h4>Search bills by number</h4>
+    </header>
+    <form>
+      <input id="bill-search" type="text" placeholder="E.g. HB 200, SR 124">
+    </form>
+    <button>Find</button>
+  </div>
+<div>
+
+{% endblock %}

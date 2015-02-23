@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 
 from django.contrib import admin
 
-from bills.views import (BillDetail, BillSearchJson,
+from bills.views import (BillDetail, BillSearchView, BillSearchJson,
                          SubjectDetail, LegeStreamDetail)
 from core.views import LandingView
 from committees.views import CommitteeDetail
@@ -35,6 +35,9 @@ urlpatterns = patterns(
         LegeStreamDetail.as_view(), name='legestream'),
 
     url(r'^search/bills/', BillSearchJson.as_view(), name='bill-search'),
+
+    url(r'^bill-search/', BillSearchView.as_view(
+        template_name='pages/bill-search.html')),
 
     # Examples:
     # url(r'^$', 'txlege84.views.home', name='home'),

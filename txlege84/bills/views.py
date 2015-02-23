@@ -16,6 +16,10 @@ class SubjectDetail(AllSubjectsMixin, AllLegislatorsMixin, DetailView):
     template_name = 'pages/subject.html'
 
 
+class BillSearchView(AllLegislatorsMixin, AllSubjectsMixin, TemplateView):
+    template_name = 'pages/bill-search.html'
+
+
 class BillSearchJson(ListView):
     queryset = Bill.objects.all().values('name', 'slug')
 
