@@ -44,12 +44,19 @@ p {
   @include span-columns(12);
 }
 
+.bill-detail {
+  color: $text-gray;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
 .bill-stage {
   @include span-columns(12);
   margin-bottom: 1em;
 
   .sub-section-header{
     border-bottom: 0px solid black;
+    font-family: $base-sans-serif;
   }
 
   p {
