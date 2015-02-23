@@ -18,6 +18,7 @@
   font-size: 1.8em;
   font-weight: 800;
   line-height: 1.4;
+  margin: .25em 0;
   text-align: left;
 }
 
@@ -104,15 +105,24 @@ p {
   margin: .5em 0;
 }
 
+.pub-date,
 .update-time {
   color: $text-gray;
-  font-family: $base-sans-serif;
   font-size: 0.95em;
   font-style: italic;
   font-weight: 400;
   letter-spacing: 0.04em;
   line-height: 1.2;
   text-align: left;
+}
+
+.update-time {
+  font-family: $base-sans-serif;
+}
+
+.pub-date {
+  font-family: $base-serif;
+  margin: 0;
 }
 
 .button {
@@ -182,19 +192,23 @@ p {
 }
 
 ul {
-  &.serif {
+  &.serif,
+  &.story-timeline {
     li {
       color: $li-black;
       font-family: $base-serif;
       margin: 0 auto .75em;
+    }
+  }
 
-      &:before {
-        color: $li-black;
-        content: '\2023';
-        font-family: $base-sans-serif;
-        margin: 0 .5em;
-        padding: 0;
-      }
+  &.serif li,
+  &.sans li {
+    &:before {
+      color: $li-black;
+      content: '\2023';
+      font-family: $base-sans-serif;
+      margin: 0 .5em;
+      padding: 0;
     }
   }
 
@@ -202,18 +216,31 @@ ul {
     li {
       color: $li-black;
       font-family: $base-sans-serif;
-      margin: 1.5em auto;
+      margin: .5em 0;
+    }
+  }
 
+  &.story-timeline {
+    border-left: 1px solid;
+    margin: 0 0 0 .5em;
+    padding-left: 1em;
+
+    li {
+      line-height: 0;
+
+      a {
+        line-height: 1;
+      }
       &:before {
         color: $li-black;
-        content: '\2023';
+        content: '\25cf';
         font-family: $base-sans-serif;
-        margin: 0 .5em;
+        font-size: 1.5em;
+        margin: 0 .3em 0 -.96em;
         padding: 0;
       }
     }
   }
-
 }
 
 li {

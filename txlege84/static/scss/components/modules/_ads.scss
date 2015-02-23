@@ -14,14 +14,6 @@
     border: 1px solid $line-gray;
   }
 
-  @include media($medium) {
-    text-align: left;
-  }
-
-  @include media($large) {
-    text-align: left;
-  }
-
   &.bottom {
     margin: 1em auto;
   }
