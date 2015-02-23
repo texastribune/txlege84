@@ -6,6 +6,7 @@
   font-weight: normal;
   letter-spacing: 0.04em;
   line-height: 1;
+  margin: 1em 0 .25em 0;
   text-align: center;
   text-transform: uppercase;
 }
@@ -30,7 +31,9 @@
   font-size: 1.5em;
   font-weight: 800;
   line-height: 1.4;
+  margin: .25em 0;
   text-align: left;
+
 }
 
 // h4
@@ -85,6 +88,7 @@ p {
     color: $bodytext-black;
     font-weight: 300;
     line-height: 1.2;
+    margin: .25em 0;
   }
 
   &.center {
@@ -266,6 +270,11 @@ li {
 
 }
 
+hr.video-divider {
+  background-color: $tribune-yellow;
+  width: 40%;
+  text-align: center;
+}
 
 
 

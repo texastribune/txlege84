@@ -1,56 +1,16 @@
 $ls-small: new-breakpoint(min-width 695px max-width 799px);
 
-.livestream {
-  @include clearfix;
+.livestream-page {
 
-  .watch {
-
-    @include media($ls-small) {
-      .chamber {
-        @include span-columns(6);
-        @include omega(2n);
-      }
-    }
-
-    @include media($large) {
-      .chamber {
-        @include span-columns(6);
-        @include omega(2n);
-      }
-    }
-
+  .section-header {
+    border-bottom: 0;
+    margin-bottom: 0;
   }
 
-  .chamber p {
-    min-height: 2.4em;
-  }
-
-  .stream-placeholder {
+  .sub-text {
     margin-bottom: 1em;
   }
 
-}
-
-.legestream-page {
-  .watch {
-    @include media($ls-small) {
-      .chamber {
-        @include span-columns(12);
-      }
-    }
-
-    @include media($large) {
-      .chamber {
-        @include span-columns(12);
-      }
-    }
-
-  }
-
-  .chamber {
-    @include clearfix;
-    margin-bottom: 1em;
-  }
 }
 
 .stream-placeholder {
