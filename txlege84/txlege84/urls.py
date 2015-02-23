@@ -16,11 +16,11 @@ from topics.views import IssueDetail, TopicDetail, TopicListDetail
 urlpatterns = patterns(
     '',
     url(r'^$', LandingView.as_view(), name='landing-view'),
-    url(r'^topic/$',
+    url(r'^topics/$',
         TopicListDetail.as_view(), name='topic-list-detail'),
-    url(r'^topic/(?P<slug>[-\w]+)/$',
+    url(r'^topics/(?P<slug>[-\w]+)/$',
         TopicDetail.as_view(), name='topic-detail'),
-    url(r'^topic/(?P<hot_list_slug>[-\w]+)/(?P<slug>[-\w]+)/$',
+    url(r'^topics/(?P<hot_list_slug>[-\w]+)/(?P<slug>[-\w]+)/$',
         IssueDetail.as_view(), name='issue-detail'),
     url(r'^84/bills/(?P<slug>[-\w]+)/$',
         BillDetail.as_view(), name='bill-detail'),
@@ -34,17 +34,18 @@ urlpatterns = patterns(
         ExplainerListDetail.as_view(), name='explainer-list-detail'),
     url(r'^livestream/$',
         LegeStreamDetail.as_view(), name='legestream'),
-
     url(r'^search/bills/', BillSearchJson.as_view(), name='bill-search'),
 
     # Redirects
+    # Note: /hot-lists/ landing won't exist in 2.0
+    # Create another redirect for /topics/ to landing index before launch
+    # And change /hot-lists/ to landing index
     url(r'^hot-lists/$',
-        RedirectView.as_view(url='topic')),
+        RedirectView.as_view(url='../topics')),
     url(r'^hot-lists/(?P<slug>[-\w]+)/$',
-        RedirectView.as_view(url='../../topic/%(slug)s/')),
+        RedirectView.as_view(url='../../topics/%(slug)s/')),
     url(r'^hot-lists/(?P<hot_list_slug>[-\w]+)/(?P<slug>[-\w]+)/$',
-        RedirectView.as_view(url='../../../topic/%(hot_list_slug)s/%(slug)s/')),
-
+        RedirectView.as_view(url='../../../topics/%(hot_list_slug)s/%(slug)s/')),
     url(r'^legestream/$',
         RedirectView.as_view(url='../livestream/')),
     url(r'^texplainers/$',
