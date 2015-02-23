@@ -5,7 +5,59 @@
 {% endblock %}
 
 {% block content %}
-  {% include "components/page-headers/hot-list-header.html" %}
+  {% load staticfiles %}
+  <section>
+    <header>
+      <h2 class="page-header">
+        <img class="graphic" src="{% static 'images/icons/' %}{{ topic.slug }}.svg"></img>{{ topic.name }}</a>
+      </h2>
+      <p class="sub-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rhoncus massa at mauris luctus, in suscipit nibh sollicitudin.</p>
+    </header>
+    <section class="share-page">
+      <ul>
+        <a href="mailto:?subject=}&body=">
+          <li class="email"><i class="fa fa-envelope"></i></li>
+        </a>
+        <a href="https://twitter.com/intent/tweet?text=Check%20out%20%40TexasTribune%E2%80%99s%20list%20of%20the%20top%20{{ topic.name|lower|urlencode:""}}%20issues%20for%20the%2084th%20%23txlege%20http%3A%2F%2Ftxlege.texastribune.org{{ topic.get_absolute_url|urlencode:"" }}" title="share on Twitter" class="social-share" target="_blank">
+          <li class="facebook"><i class="fa fa-twitter"></i></li>
+        </a>
+        <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=http%3A%2F%2Ftxlege.texastribune.org{{ topic.get_absolute_url|urlencode:"" }}&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org{{ topic.get_absolute_url|urlencode:"" }}" title="share on Facebook" class="social-share" target="_blank">
+          <li class="twitter"><i class="fa fa-facebook"></i></li>
+        </a>
+      </ul>
+    </section>
+    {% include "includes/banner_ad.html" %}
+    <section>
+      <header>
+        <h2 class="section-header">Top Issues</h2>
+      </header>
+      <ul class="serif">
+      {% for issue in object.issues.all.published %}
+        <li><a href="{{ topic.get_absolute_url }}#{{ issue.slug }}">{{ issue.name }}</a></li>
+      {% endfor %}
+      </ul>
+    </section>
+
+    {% with curators=topic.curators.all %}
+    {% if curators %}
+    <section>
+      <header>
+        <h5 class="sub-section-header">Curated by</h5>
+      </header>
+      {% for curator in curators %}
+      <div class="curated-by">
+        <img clas="headshot" src="{{ curator.staff.profile_photo }}">
+        <p class="emphasis">{{ curator.first_name }} {{ curator.last_name }}</p>
+        <p class="sub-text"></p>
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+    {% endwith %}
+    <nav class="full-hot-list">
+
+    </nav>
+  </section>
   {% for issue in object.issues.all.published %}
     {% include "components/issue-box.html" %}
   {% endfor %}
