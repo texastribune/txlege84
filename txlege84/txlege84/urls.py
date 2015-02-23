@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 # from django.conf.urls.static import static
 from django.views.generic import TemplateView
+from django.views.generic import RedirectView
 
 from django.contrib import admin
 
@@ -29,12 +30,19 @@ urlpatterns = patterns(
         LegislatorDetail.as_view(), name='legislator-detail'),
     url(r'^84/committees/(?P<chamber>[-\w]+)/(?P<slug>[-\w]+)/$',
         CommitteeDetail.as_view(), name='committee-detail'),
-    url(r'^texplainers/$',
+    url(r'^how-session-works/$',
         ExplainerListDetail.as_view(), name='explainer-list-detail'),
-    url(r'^legestream/$',
+
+    url(r'^livestream/$',
         LegeStreamDetail.as_view(), name='legestream'),
 
     url(r'^search/bills/', BillSearchJson.as_view(), name='bill-search'),
+
+    # Redirects
+    url(r'^legestream/$',
+        RedirectView.as_view(url='../livestream/'), name='legestream'),
+    url(r'^texplainers/$',
+        RedirectView.as_view(url='../how-session-works/')),
 
     # Examples:
     # url(r'^$', 'txlege84.views.home', name='home'),
