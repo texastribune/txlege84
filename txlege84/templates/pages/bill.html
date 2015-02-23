@@ -7,7 +7,7 @@
 {% load staticfiles %}
 {% block content %}
 <section>
-  <header>
+  <header class="bill-page">
     <h2 class="page-header">{{ object.name }}</h2>
     <p class="sub-text">{{ object.description }}</p>
     <p class="bill-detail"><i class="fa fa-file-text-o"></i><em>Read the full <a href="http://www.legis.state.tx.us/BillLookup/Text.aspx?LegSess=84R&Bill={{ object.slug }}" target="_blank">Bill Text</a> and <a href="http://www.capitol.state.tx.us/BillLookup/Amendments.aspx?LegSess=84R&Bill={{ object.slug }}" target="_blank">Amendments</a></em></p>
@@ -27,7 +27,7 @@
   </header>
 
 
-  <div class="bill">
+  <div class="bill bill-page">
     <div class="bill-stages">
       <header>
         <h3 class="section-header">Bill Stages</h3>

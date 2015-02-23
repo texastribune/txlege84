@@ -1,11 +1,3 @@
-h2 {
-  margin: 0;
-}
-
-p {
-  margin: .5em 0 .75em;
-}
-
 .ad-container {
   border-top: 0;
 }
@@ -25,6 +17,16 @@ p {
 .bill {
   ul {
     list-style: none;
+  }
+}
+
+.bill-page {
+  h2 {
+    margin: 0;
+  }
+
+  p {
+    margin: .5em 0 .75em;
   }
 }
 
