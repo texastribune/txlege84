@@ -9,7 +9,7 @@
 }
 
 .curated-by {
-  @include span-columns(4);
+  @include span-columns(5);
   img {
     display: block;
     width: 100%;
@@ -19,4 +19,8 @@
 .committee-members {
   @include span-columns(12);
   margin-bottom: 1em;
+
+  li {
+    margin: 1em 0;
+  }
 }

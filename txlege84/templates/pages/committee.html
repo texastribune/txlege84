@@ -54,7 +54,7 @@
       <h5 class="sub-section-header">Committee Members</h5>
       <ul>
       {% for o in object.member_list %}
-        <li><a href="{{ o.legislator.get_absolute_url }}">{{ o.legislator }} ({{ o.legislator.party.short_name }})</a></li>
+        <li><a href="{{ o.legislator.get_absolute_url }}">{{ o.legislator }} <span class="{% if o.legislator.party.short_name == 'D' %} democrat {% else %} republican {% endif %}">({{ o.legislator.party.short_name }})</span></a></li>
       {% endfor %}
       </ul>
       <hr class="yellow-hr"/>
