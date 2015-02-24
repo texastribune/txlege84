@@ -12,6 +12,7 @@
   <div class="bill-search">
     <header>
       <h3 class="section-header">Find bills</h3>
+      <p class="sub-text">Look up legislation by number, such as SB 1 or HR 200. You can also browse bills by category, lawmaker or committee by clicking on the links below.</p>
     </header>
     <section class="share-page">
       <ul>
@@ -38,7 +39,7 @@
 
   <div class="shutter">
     <div class="shutter-label">
-      Browse Catagories
+      Browse Bills by Category
       <span class="icon closed">&#43;</span>
       <span class="icon open">&#45;</span>
     </div>
@@ -51,20 +52,7 @@
 
   <div class="shutter">
     <div class="shutter-label">
-      Browse Committees
-      <span class="icon closed">&#43;</span>
-      <span class="icon open">&#45;</span>
-    </div>
-    <ul class="sans">
-    {% for committee in committee_list %}
-      <li> <a href="{{ committee.get_absolute_url }}">{{ committee.name }}</a></li>
-    {% endfor %}
-    </ul>
-  </div>
-
-  <div class="shutter">
-    <div class="shutter-label">
-      Browse Lawmakers
+      Browse Bills by Lawmaker
       <span class="icon closed">&#43;</span>
       <span class="icon open">&#45;</span>
     </div>
@@ -74,6 +62,19 @@
     {% endfor %}
     {% for legislator in sen_list %}
       <li><a href="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+
+  <div class="shutter">
+    <div class="shutter-label">
+      Browse Bills by Committee
+      <span class="icon closed">&#43;</span>
+      <span class="icon open">&#45;</span>
+    </div>
+    <ul class="sans">
+    {% for committee in committee_list %}
+      <li> <a href="{{ committee.get_absolute_url }}">{{ committee.name }}</a></li>
     {% endfor %}
     </ul>
   </div>
