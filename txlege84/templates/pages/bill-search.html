@@ -7,6 +7,7 @@
 {% load staticfiles %}
 {% block content %}
 
+{% include "includes/banner_ad.html" %}
 <section>
   <div class="bill-search">
     <header>
@@ -24,14 +25,17 @@
           <li class="twitter"><i class="fa fa-facebook"></i></li>
         </a>
       </ul>
-    </section>
-    <form>
-      <input id="bill-search" type="text" placeholder="E.g. HB 200, SR 124">
-    </form>
-    <button class="button">Find</button>
-  </div>
   </section>
-  <section>
+
+    <div class="sidebar-content-bills collapse">
+      <div>
+        <form>
+          <input class="bill-search-form" id="bill-search" type="text" placeholder="E.g. HB 200, SR 124">
+        </form>
+        <button class="button">Find</button>
+      </div>
+    </div>
+
   <div class="shutter">
     <div class="shutter-label">
       Browse Catagories
@@ -44,8 +48,7 @@
     {% endfor %}
     </ul>
   </div>
-</section>
-<section>
+
   <div class="shutter">
     <div class="shutter-label">
       Browse Committees
@@ -58,8 +61,7 @@
     {% endfor %}
     </ul>
   </div>
-</section>
-<section>
+
   <div class="shutter">
     <div class="shutter-label">
       Browse Lawmakers
@@ -75,6 +77,7 @@
     {% endfor %}
     </ul>
   </div>
+</div>
 </section>
 
 {% endblock %}

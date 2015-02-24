@@ -1,8 +1,12 @@
 .bill-search {
   @include span-columns(12);
 
-  form {
+  .bill-search-form {
     @include span-columns(12);
+  }
+
+  .button {
+    margin: 0 0 1em;
   }
 
   input[type=text] {
@@ -10,4 +14,13 @@
     margin-bottom: 1em;
     padding: .5em;
   }
+  .tt-dropdown-menu {
+    min-width: 160px;
+    width: 100%;
+    margin-top: 2px;
+    padding: 0;
+    background-color: #fff;
+    height: 320px;
+    overflow-y: auto;
+}
 }
