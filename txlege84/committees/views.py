@@ -1,6 +1,6 @@
 from django.http import Http404
 from django.utils.translation import ugettext as _
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 
 from bills.mixins import AllSubjectsMixin
 from legislators.mixins import AllLegislatorsMixin
@@ -36,3 +36,8 @@ class CommitteeDetail(AllSubjectsMixin, AllLegislatorsMixin, DetailView):
             raise Http404(_("No %(verbose_name)s found matching the query") %
                           {'verbose_name': queryset.model._meta.verbose_name})
         return obj
+
+
+class CommitteeListView(ListView):
+    queryset = Committee.objects.all()
+    template_name = 'pages/committee-landing.html'
