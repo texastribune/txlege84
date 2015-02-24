@@ -45,9 +45,17 @@ docker/debug: docker/build
 
 ### for development only from here on:
 
+docker/db-data:
+	# NOTE: this will issue an error if the container is already there; it can be safely ignored
+	# I'd like a better way to be idempotent
+	-docker create \
+		--name ${APP}-db-data \
+		texastribune/postgres
+
 # start the db if it's there; if not create it
-docker/db:
+docker/db: docker/db-data
 	docker start ${APP}-dev-db || docker run --detach \
+		--volumes-from=${APP}-db-data \
 		--publish=5432:5432 \
 		--name=${APP}-dev-db \
 		texastribune/postgres
