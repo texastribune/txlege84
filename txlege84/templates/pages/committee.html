@@ -35,7 +35,6 @@
         {% for o in object.actions.all %}
           <tr>
             <td data-title="Bill"><a href="{{ o.bill.get_absolute_url }}">{{ o.bill.name }}</a></td>
-            <td data-title="Category">{% for p in o.bill.subjects.all %}{{ p }}<br />{% endfor %}</td>
             <td data-title="Caption">{{ o.bill.description }}</td>
             <td data-title="Referred to Committee on">{{ o.date|date:"SHORT_DATE_FORMAT" }}</td>
           </tr>
