@@ -25,7 +25,7 @@
           <li class="twitter"><i class="fa fa-facebook"></i></li>
         </a>
       </ul>
-  </section>
+    </section>
 
     <div class="sidebar-content-bills collapse">
       <div>
@@ -36,48 +36,52 @@
       </div>
     </div>
 
-  <div class="shutter">
-    <div class="shutter-label">
-      Browse Catagories
-      <span class="icon closed">&#43;</span>
-      <span class="icon open">&#45;</span>
+    <div class="shutter">
+      <div class="shutter-label">
+        Browse Catagories
+        <span class="icon closed">&#43;</span>
+        <span class="icon open">&#45;</span>
+      </div>
+      <ul class="sans">
+      {% for category in subject_list %}
+        <li> <a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+      {% endfor %}
+      </ul>
     </div>
-    <ul class="sans">
-    {% for category in subject_list %}
-      <li> <a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
-    {% endfor %}
-    </ul>
-  </div>
 
-  <div class="shutter">
-    <div class="shutter-label">
-      Browse Committees
-      <span class="icon closed">&#43;</span>
-      <span class="icon open">&#45;</span>
+    <div class="shutter">
+      <div class="shutter-label">
+        Browse Committees
+        <span class="icon closed">&#43;</span>
+        <span class="icon open">&#45;</span>
+      </div>
+      <ul class="sans">
+      {% for committee in committee_list %}
+        <li> <a href="{{ committee.get_absolute_url }}">{{ committee.name }}</a></li>
+      {% endfor %}
+      </ul>
     </div>
-    <ul class="sans">
-    {% for committee in committee_list %}
-      <li> <a href="{{ committee.get_absolute_url }}">{{ committee.name }}</a></li>
-    {% endfor %}
-    </ul>
-  </div>
 
-  <div class="shutter">
-    <div class="shutter-label">
-      Browse Lawmakers
-      <span class="icon closed">&#43;</span>
-      <span class="icon open">&#45;</span>
+    <div class="shutter">
+      <div class="shutter-label">
+        Browse Lawmakers
+        <span class="icon closed">&#43;</span>
+        <span class="icon open">&#45;</span>
+      </div>
+      <h5 class="sub-section-header center">Representatives</h5>
+      <ul class="sans">
+      {% for legislator in rep_list %}
+        <li><a href="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }}</a></li>
+      {% endfor %}
+      </ul>
+      <h5 class="sub-section-header center">Senators</h5>
+      <ul class="sans">
+      {% for legislator in sen_list %}
+        <li><a href="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }}</a></li>
+      {% endfor %}
+      </ul>
     </div>
-    <ul class="sans">
-    {% for legislator in rep_list %}
-      <li><a href="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }}</a></li>
-    {% endfor %}
-    {% for legislator in sen_list %}
-      <li><a href="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }}</a></li>
-    {% endfor %}
-    </ul>
   </div>
-</div>
 </section>
 
 {% endblock %}
