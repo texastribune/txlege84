@@ -8,7 +8,7 @@
   @include span-columns(7);
 }
 
-.curated-by {
+.chair-vicechair {
   @include span-columns(5);
   img {
     display: block;
@@ -18,9 +18,29 @@
 
 .committee-members {
   @include span-columns(12);
-  margin-bottom: 1em;
+
+  .yellow-hr {
+    background-color: $tribune-yellow;
+    height: 1px;
+  }
 
   li {
     margin: 1em 0;
+  }
+}
+
+.newsletter-signup {
+  input[type=email] {
+    @include span-columns(12);
+    width: 100%;
+    margin: 0 0 1em;
+  }
+
+  .sub-section-header {
+    border: none;
+  }
+
+  .button {
+    @include span-columns(12);
   }
 }
