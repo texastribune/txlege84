@@ -2,6 +2,7 @@ from django.http import JsonResponse
 from django.views.generic import DetailView, ListView, TemplateView
 
 from bills.mixins import AllSubjectsMixin
+from committees.mixins import AllCommitteesMixin
 from legislators.mixins import AllLegislatorsMixin, ChambersMixin
 from bills.models import Bill, Subject
 
@@ -16,7 +17,8 @@ class SubjectDetail(AllSubjectsMixin, AllLegislatorsMixin, DetailView):
     template_name = 'pages/subject.html'
 
 
-class BillSearchView(AllLegislatorsMixin, AllSubjectsMixin, TemplateView):
+class BillSearchView(AllLegislatorsMixin, AllSubjectsMixin,
+                     AllCommitteesMixin, TemplateView):
     template_name = 'pages/bill-search.html'
 
 

@@ -1,0 +1,13 @@
+.bill-search {
+  @include span-columns(12);
+
+  form {
+    @include span-columns(12);
+  }
+
+  input[type=text] {
+    width: 100%;
+    margin-bottom: 1em;
+    padding: .5em;
+  }
+}
