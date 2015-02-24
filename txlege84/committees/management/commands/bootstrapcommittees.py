@@ -43,11 +43,17 @@ class Command(BaseCommand):
 
         committee.members.clear()
 
+        member_list = []
+
         for member in data['members']:
             legislator = Legislator.objects.get(openstates_id=member['leg_id'])
 
-            membership, _ = Membership.objects.get_or_create(
+            member = Membership(
                 legislator=legislator,
                 committee=committee,
                 role=member['role'].title(),
             )
+
+            member_list.append(member)
+
+        Membership.objects.bulk_create(member_list)
