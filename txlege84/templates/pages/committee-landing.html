@@ -45,20 +45,22 @@
       <span class="icon closed">&#43;</span>
       <span class="icon open">&#45;</span>
     </div>
+      <ul class="sans">
       {% for committee in committee_list %}
         {% if committee.chamber.name == "Texas Senate" %}
         <li><a href="{{ committee.get_absolute.url }}">{{ committee.name }}</a></li>
         {% endif %}
       {% endfor %}
+      </ul>
   </div>
 
-  <div class="shutter">
+<!--   <div class="shutter">
     <div class="shutter-label">
       Joint Committees
       <span class="icon closed">&#43;</span>
       <span class="icon open">&#45;</span>
     </div>
-  </div>
+  </div> -->
 
 </section>
 
