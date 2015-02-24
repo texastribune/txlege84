@@ -25,12 +25,27 @@ prep_for_development:
 pull:
 	git pull
 
+master:
+	git checkout master
+
+staging:
+	git checkout staging
+
 docker/build:
 	docker build --tag=${IMAGE} .
 
-docker/prod: pull docker/build
+docker/prod: pull master docker/build
 	-docker stop ${APP} && docker rm ${APP}
 	docker run --name=${APP} \
+		--hostname=${APP}-prod \
+		--detach=true \
+		--publish=80:8000 \
+		--env-file=env ${IMAGE}
+
+docker/staging: pull staging docker/build
+	-docker stop ${APP} && docker rm ${APP}
+	docker run --name=${APP} \
+		--hostname=${APP}-staging \
 		--detach=true \
 		--publish=80:8000 \
 		--env-file=env ${IMAGE}
