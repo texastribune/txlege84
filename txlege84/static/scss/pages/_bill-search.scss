@@ -1,0 +1,59 @@
+.bill-search {
+  @include span-columns(12);
+
+  .bill-search-form {
+    @include span-columns(12);
+  }
+
+  .button {
+    margin: 0 0 1em;
+  }
+
+  input[type=text] {
+    width: 100%;
+    margin-bottom: 1em;
+    padding: .5em;
+  }
+
+  .sidebar-content-bills {
+    background-color: white;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .tt-dropdown-menu {
+  background-color: rgb(255, 255, 255);
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 0;
+  width: 100%;
+}
+
+.tt-suggestion {
+  display: block;
+  margin: 0;
+  padding: 1.25em .83em .83em;
+
+  &:last-child {
+    border-bottom: transparent;
+  }
+
+  p {
+    font-size: .75em;
+    margin: 0 0 .5em;
+  }
+}
+
+.tt-cursor {
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.twitter-typeahead,
+.twitter-typeahead .tt-query,
+.twitter-typeahead .tt-hint {
+  width: 100%;
+}
+}
