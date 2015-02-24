@@ -1,3 +1,9 @@
+.bill-table {
+  table {
+    border-top: none;
+  }
+}
+
 .committee-chairs {
   @include clearfix;
   margin-bottom: 2em;
@@ -30,6 +36,7 @@
 }
 
 .newsletter-signup {
+  margin-bottom: 3em;
   input[type=email] {
     @include span-columns(12);
     width: 100%;
@@ -42,5 +49,6 @@
 
   .button {
     @include span-columns(12);
+    margin-bottom: 2em;
   }
 }
