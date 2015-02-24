@@ -6,7 +6,7 @@
 
 .committee-chairs {
   @include clearfix;
-  margin-bottom: 2em;
+  margin: 1em 0;
   @include span-columns(12);
 }
 
@@ -20,6 +20,10 @@
     display: block;
     width: 100%;
   }
+}
+
+.committee-header {
+  margin-bottom: 2em;
 }
 
 .committee-members {

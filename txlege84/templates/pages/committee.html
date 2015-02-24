@@ -5,9 +5,10 @@
 {% endblock %}
 
 {% block content %}
-  <section>
+  <section class="committee-header">
     <header>
       <h2 class="page-header">{{ object.name }}</h2>
+      <p class="sub-text committee-subhead">{% if object.chamber == 'Texas Senate' %} Senate {% else %} House {% endif %} Committee</p>
     </header>
   </section>
   <section class="share-page">
@@ -34,7 +35,7 @@
       <div class="chair-detail">
         <h5 class="sub-section-header">Chair</h5>
         <p class="emphasis"><a href="{{ object.chair.get_absolute_url }}">{{ object.chair }}</a></p>
-        <p class="sub-text">State {% if object.vide_chair.chamber.name == "Texas Senate" %} Senator {% else %} Representative {% endif %} ({{ object.vice_chair.party.short_name }})</p>
+        <p class="sub-text">State {% if object.vide_chair.chamber.name == "Texas Senate" %} Senator {% else %} Representative {% endif %} <span class="{% if o.legislator.party.short_name == 'D' %} democrat {% else %} republican {% endif %}">({{ object.vice_chair.party.short_name }})</span></p>
       </div>
     </div>
   </section>
@@ -46,7 +47,7 @@
       <div class="chair-detail">
         <h5 class="sub-section-header">Vice Chair</h5>
         <p class="emphasis"><a href="{{ object.vice_chair.get_absolute.url }}">{{ object.vice_chair }}</a></p>
-        <p class="sub-text">State {% if object.vide_chair.chamber.name == "Texas Senate" %} Senator {% else %} Representative {% endif %} ({{ object.vice_chair.party.short_name }})</p>
+        <p class="sub-text">State {% if object.vide_chair.chamber.name == "Texas Senate" %} Senator {% else %} Representative {% endif %} <span class="{% if o.legislator.party.short_name == 'D' %} democrat {% else %} republican {% endif %}">({{ object.vice_chair.party.short_name }})</span></p>
       </div>
     </div>
   </section>
