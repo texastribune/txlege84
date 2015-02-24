@@ -18,7 +18,7 @@
       <h5>Members</h5>
       <ul>
       {% for o in object.member_list %}
-        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="{{ o.legislator.get_absolute_url }}">{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ o.legislator }}</a></li>
+        <li><img class="headshot" src="{{ o.legislator.tribune_photo }}"><a href="{{ o.legislator.get_absolute_url }}">{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ o.legislator }}</a></li>
       {% endfor %}
       </ul>
     </div>

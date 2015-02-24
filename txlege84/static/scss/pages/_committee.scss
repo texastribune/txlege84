@@ -7,16 +7,19 @@
 
 .committee-members {
   @include span-columns(12);
-  @include li-grid(12, 2, 4);
   margin-bottom: 1em;
 
   img {
     display: block;
+    max-height: 200px;
+    max-width: 135px;
   }
 
   li {
+    @include span-columns(3);
+    @include omega(3n);
     min-height: 150px;
-    margin-bottom: 2em;
+    margin: 0 .5em 2em .5em;
   }
 
 }
