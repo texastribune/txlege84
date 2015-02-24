@@ -36,7 +36,7 @@ urlpatterns = patterns(
 
     url(r'^search/bills/', BillSearchJson.as_view(), name='bill-search'),
 
-    url(r'^bill-search/', BillSearchView.as_view(
+    url(r'^find-bills/', BillSearchView.as_view(
         template_name='pages/bill-search.html')),
 
     # Examples:
