@@ -7,6 +7,61 @@
 {% block content %}
 {% load staticfiles %}
 
-hihihihi
+<section>
+  <h5 class="section-header">Browse Committees</h5>
+
+  <section class="share-page">
+    <ul>
+      <a href="mailto:?subject=}&body=">
+        <li class="email"><i class="fa fa-envelope"></i></li>
+      </a>
+      <a href="https://twitter.com/intent/tweet?text=&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
+        <li class="facebook"><i class="fa fa-twitter"></i></li>
+      </a>
+      <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=TK&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
+        <li class="twitter"><i class="fa fa-facebook"></i></li>
+      </a>
+    </ul>
+  </section>
+
+  <div class="shutter">
+    <div class="shutter-label">
+      House Committees
+      <span class="icon closed">&#43;</span>
+      <span class="icon open">&#45;</span>
+    </div>
+    <ul class="sans">
+      {% for committee in committee_list %}
+        {% if committee.chamber.name == "Texas House" %}
+        <li><a href="{{ committee.get_absolute.url }}">{{ committee.name }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="shutter">
+    <div class="shutter-label">
+      Senate Committees
+      <span class="icon closed">&#43;</span>
+      <span class="icon open">&#45;</span>
+    </div>
+      {% for committee in committee_list %}
+        {% if committee.chamber.name == "Texas Senate" %}
+        <li><a href="{{ committee.get_absolute.url }}">{{ committee.name }}</a></li>
+        {% endif %}
+      {% endfor %}
+  </div>
+
+  <div class="shutter">
+    <div class="shutter-label">
+      Joint Committees
+      <span class="icon closed">&#43;</span>
+      <span class="icon open">&#45;</span>
+    </div>
+  </div>
+
+</section>
+
+
 
 {% endblock %}
