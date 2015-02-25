@@ -5,21 +5,97 @@
 {% endblock %}
 
 {% block content %}
-  {% include "components/page-headers/committee-page-header.html" %}
-  <div class="committee">
+  <section class="committee-header">
+    <header>
+      <h2 class="page-header">{{ object.name }}</h2>
+      <p class="sub-text committee-subhead">{% if object.chamber == 'Texas Senate' %} Senate {% else %} House {% endif %} Committee</p>
+    </header>
+  </section>
+  <section class="share-page">
+    <ul>
+      <a href="mailto:?subject=}&body=">
+        <li class="email"><i class="fa fa-envelope"></i></li>
+      </a>
+      <a href="https://twitter.com/intent/tweet?text=&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
+        <li class="facebook"><i class="fa fa-twitter"></i></li>
+      </a>
+      <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=TK&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
+        <li class="twitter"><i class="fa fa-facebook"></i></li>
+      </a>
+    </ul>
+  </section>
+
+  {% include "includes/banner_ad.html" %}
+
+  <section>
+    <div class="committee-chairs">
+      <div class="chair-vicechair">
+        <img src="{{ object.chair.tribune_photo }}">
+      </div>
+      <div class="chair-detail">
+        <h5 class="sub-section-header">Chair</h5>
+        <p class="emphasis"><a href="{{ object.chair.get_absolute_url }}">{{ object.chair }}</a></p>
+        <p class="sub-text">State {% if object.vide_chair.chamber.name == "Texas Senate" %} Senator {% else %} Representative {% endif %} <span class="{% if o.legislator.party.short_name == 'D' %} democrat {% else %} republican {% endif %}">({{ object.vice_chair.party.short_name }})</span></p>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="committee-chairs">
+      <div class="chair-vicechair">
+        <img src="{{ object.vice_chair.tribune_photo }}">
+      </div>
+      <div class="chair-detail">
+        <h5 class="sub-section-header">Vice Chair</h5>
+        <p class="emphasis"><a href="{{ object.vice_chair.get_absolute.url }}">{{ object.vice_chair }}</a></p>
+        <p class="sub-text">State {% if object.vide_chair.chamber.name == "Texas Senate" %} Senator {% else %} Representative {% endif %} <span class="{% if o.legislator.party.short_name == 'D' %} democrat {% else %} republican {% endif %}">({{ object.vice_chair.party.short_name }})</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
     <div class="committee-members">
-      <h5>Members</h5>
+      <h5 class="sub-section-header">Committee Members</h5>
       <ul>
       {% for o in object.member_list %}
-        <li><img class="headshot" src="http://s3.amazonaws.com/static.texastribune.org/media/profiles/politicians/charles-schwertner_4_jpg_131x197_crop_q100.jpg"><a href="{{ o.legislator.get_absolute_url }}">{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %} {{ o.legislator }}</a></li>
+        <li><a href="{{ o.legislator.get_absolute_url }}">{{ o.legislator }} <span class="{% if o.legislator.party.short_name == 'D' %} democrat {% else %} republican {% endif %}">({{ o.legislator.party.short_name }})</span></a></li>
       {% endfor %}
       </ul>
+      <hr class="yellow-hr"/>
     </div>
+  </section>
+  <section>
+    <div class="newsletter-signup">
+      <h5 class="sub-section-header">Newsletter Signup</h5>
+      <!-- Begin MailChimp Signup Form -->
+      <div id="mc_embed_signup">
+      <form action="//texastribune.us3.list-manage2.com/subscribe/post?u=3d0ce87edeeb6df90043897db&amp;id=68501b81bf" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <div id="mc_embed_signup_scroll">
+      <div class="mc-field-group">
+        <label class="hidden" for="mce-EMAIL"></label>
+        <input class="required input_neue" type="email" name="EMAIL" value="" placeholder="username@email.com" />
+        <input class="button" type="submit" name="subscribe" value="Subscribe" />
+      </div>
+        <div id="mce-responses" class="clear">
+          <div class="response" id="mce-error-response" style="display:none"></div>
+          <div class="response" id="mce-success-response" style="display:none"></div>
+        </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+          <div style="position: absolute; left: -5000px;">
+            <input type="text" name="b_3d0ce87edeeb6df90043897db_7476115edd" tabindex="-1" value=""></div>
+          </div>
+      </form>
+      </div>
+      <!-- https://us3.admin.mailchimp.com/lists/integration/embeddedcode?id=271841 -->
+      <!--End mc_embed_signup-->
+    </div>
+  </section>
+  <section>
+  <h3 class="section-header">Referred bills</h3>
     <div class="bill-table">
       <table>
         <thead>
           <tr>
             <th>Bill</th>
+            <th>Category</th>
             <th>Caption</th>
             <th>Date Referred to Committee</th>
           </tr>
@@ -36,6 +112,6 @@
         </tbody>
       </table>
     </div>
-  </div>
+  </section>
 
 {% endblock %}
