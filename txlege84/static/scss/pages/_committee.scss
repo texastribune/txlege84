@@ -1,22 +1,59 @@
-.committee-chairs {
-  @include div-grid(12, 2);
-  @include clearfix;
-  margin-bottom: 2em;
+.bill-table {
+  table {
+    border-top: none;
+  }
+}
 
+.committee-chairs {
+  @include clearfix;
+  margin: 1em 0;
+  @include span-columns(12);
+}
+
+.chair-detail {
+  @include span-columns(7);
+}
+
+.chair-vicechair {
+  @include span-columns(5);
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.committee-header {
+  margin-bottom: 2em;
 }
 
 .committee-members {
   @include span-columns(12);
-  @include li-grid(12, 2, 4);
-  margin-bottom: 1em;
 
-  img {
-    display: block;
+  .yellow-hr {
+    background-color: $tribune-yellow;
+    height: 1px;
   }
 
   li {
-    min-height: 150px;
-    margin-bottom: 2em;
+    margin: 1em 0;
+  }
+}
+
+.newsletter-signup {
+  margin-bottom: 3em;
+  input[type=email] {
+    @include span-columns(12);
+    width: 100%;
+    margin: 0 0 1em;
+    padding: .5em;
   }
 
+  .sub-section-header {
+    border: none;
+  }
+
+  .button {
+    @include span-columns(12);
+    margin-bottom: 2em;
+  }
 }
