@@ -62,9 +62,15 @@
     <div class="committee-assignments">
       <ul class="sans">
         {% for membership in object.memberships.all %}
-        <li>
-          {{ membership.role }}, <a href="{{ membership.committee.get_absolute_url }}">{{ membership.committee }}</a>
-        </li>
+          {% if membership.role == "Chair" %}
+            <li>{{ membership.role }}, <a href="{{ membership.committee.get_absolute_url }}">{{ membership.committee }}</a></li>
+          {% endif %}
+          {% if membership.role == "Vice Chair" %}
+            <li>{{ membership.role }}, <a href="{{ membership.committee.get_absolute_url }}">{{ membership.committee }}</a></li>
+          {% endif %}
+          {% if membership.role == "Member" %}
+            <li>{{ membership.role }}, <a href="{{ membership.committee.get_absolute_url }}">{{ membership.committee }}</a></li>
+          {% endif %}
         {% endfor %}
       </ul>
     </div>
