@@ -37,7 +37,7 @@ urlpatterns = patterns(
     url(r'^search/bills/', BillSearchJson.as_view(), name='bill-search'),
 
     url(r'^find-bills/', BillSearchView.as_view(
-        template_name='pages/bill-search.html')),
+        template_name='pages/find-bills.html')),
 
     # Examples:
     # url(r'^$', 'txlege84.views.home', name='home'),
