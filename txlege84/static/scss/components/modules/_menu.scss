@@ -1,5 +1,5 @@
 .menu {
-  background: $bodytext-black;
+  background-color: $bodytext-black;
   color: $white;
   font-family: $base-sans-serif;
   font-size: 1.1em;
@@ -9,7 +9,7 @@
   }
 
   li {
-    background: $tagline-black;
+    background-color: $tagline-black;
     border-bottom: 1px solid $text-gray;
     padding: .75em;
 
