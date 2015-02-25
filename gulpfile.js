@@ -10,7 +10,8 @@ var reload = browserSync.reload;
 var BOWER_JS_FILES = [
   'bower_components/jquery/dist/jquery.js',
   'bower_components/fitvids/jquery.fitvids.js',
-  'bower_components/typeahead.js/dist/typeahead.bundle.js'
+  'bower_components/typeahead.js/dist/typeahead.bundle.js',
+  'bower_components/fastclick/lib/fastclick.js'
 ];
 
 gulp.task('jshint', function() {
