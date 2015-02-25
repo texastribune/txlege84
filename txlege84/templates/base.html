@@ -39,23 +39,24 @@
 </head>
 <body>
 
-  <div class="main-container">
-    <section class="menu">
-      <header>
-        <a href="http://www.texastribune.org/">
-          <img class="trib-logo" alt="The Texas Tribune" src="{% static 'images/brand/tribune-nameplate-white.svg' %}">
-        </a>
-      </header>
-      <nav>
-        <ul>
-          <li>Find Bills</li>
-          <li>Browse Issues by Topic</li>
-          <li>Chamber Livestream</li>
-          <li>How the Legislature Works</li>
-          <li>Session Resources</li>
-        </ul>
-      </nav>
-    </section>
+<section class="masthead">
+  <a href="http://www.texastribune.org">
+    <img class="trib-logo" alt="The Texas Tribune" src="{% static 'images/brand/tribune-nameplate-white.svg' %}">
+  </a>
+  <button id="menu-button" class="menu-button"><i class="fa fa-bars"></i></button>
+</section>
+
+<nav id="menu-nav" class="menu-nav">
+  <ul>
+    <a href="{% url 'find-bills' %}"><li>Find Bills</li></a>
+    <a href="{% url 'landing-view' %}"><li>Browse Issues by Topic</li></a>
+    <a href="{% url 'legestream' %}"><li>Chamber Livestream</li></a>
+    <a href="#"><li>How the Legislature Works</li></a>
+    <li>Session Resources</li>
+  </ul>
+</nav>
+
+  <main class="main-container">
     <section>
       <header>
         <h1 class="project-title">Texas Legislative Guide</h1>
@@ -75,8 +76,7 @@
     {% block content %}{% endblock %}
     {% include "includes/banner_ad2.html" %}
     </section>
-
-  </div>
+  </main>
 
   <footer class="footer">
     <div class="main-container">
