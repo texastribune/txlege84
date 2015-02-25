@@ -4,7 +4,7 @@ from django.views.generic import RedirectView, TemplateView
 
 from django.contrib import admin
 
-from bills.views import (BillDetail, BillSearchJson,
+from bills.views import (BillDetail, BillSearchView, BillSearchJson,
                          SubjectDetail, LegeStreamDetail)
 from core.views import LandingView
 from committees.views import CommitteeDetail
@@ -33,8 +33,8 @@ urlpatterns = patterns(
         ExplainerListDetail.as_view(), name='explainer-list-detail'),
     url(r'^livestream/$',
         LegeStreamDetail.as_view(), name='legestream'),
-    url(r'^search/bills/', BillSearchJson.as_view(), name='bill-search'),
-
+    url(r'^find-bills/', BillSearchView.as_view(
+        template_name='pages/find-bills.html')),
     # Redirects
     # Note: /hot-lists/ landing won't exist in 2.0
     # Create another redirect for /topics/ to landing index before launch
@@ -49,6 +49,8 @@ urlpatterns = patterns(
         RedirectView.as_view(url='../livestream/')),
     url(r'^texplainers/$',
         RedirectView.as_view(url='../how-session-works/')),
+    url(r'^search/bills/',
+        RedirectView.as_view(url='../find-bills/')),
 
     # Examples:
     # url(r'^$', 'txlege84.views.home', name='home'),

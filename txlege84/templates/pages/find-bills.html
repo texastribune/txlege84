@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block og_data %}
+  {% include "includes/og/og_bill.html" %}
+{% endblock %}
+
+{% load staticfiles %}
+{% block content %}
+
+{% include "includes/banner_ad.html" %}
+<section>
+  <div class="bill-search">
+    <header>
+      <h3 class="section-header">Find bills</h3>
+      <p class="sub-text">Look up legislation by number, such as SB 1 or HR 200. You can also browse bills by category, lawmaker or committee by clicking on the links below.</p>
+      <section class="share-page">
+        <ul>
+          <a href="mailto:?subject=}&body=">
+            <li class="email"><i class="fa fa-envelope"></i></li>
+          </a>
+          <a href="https://twitter.com/intent/tweet?text=&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
+            <li class="facebook"><i class="fa fa-twitter"></i></li>
+          </a>
+          <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=TK&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
+            <li class="twitter"><i class="fa fa-facebook"></i></li>
+          </a>
+        </ul>
+      </section>
+    </header>
+
+    <div class="sidebar-content-bills collapse">
+      <div>
+        <form>
+          <input class="bill-search-form" id="bill-search" type="text" placeholder="E.g. HB 200, SR 124">
+        </form>
+        <!-- <button class="button">Find</button> -->
+      </div>
+    </div>
+
+  <div class="shutter">
+    <div class="shutter-label">
+      Browse Bills by Category
+      <span class="icon closed">&#43;</span>
+      <span class="icon open">&#45;</span>
+      </div>
+      <ul class="sans">
+      {% for category in subject_list %}
+        <li> <a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+      {% endfor %}
+      </ul>
+    </div>
+
+  <div class="shutter">
+    <div class="shutter-label">
+      Representatives
+      <span class="icon closed">&#43;</span>
+      <span class="icon open">&#45;</span>
+    </div>
+    <ul class="sans">
+    {% for legislator in rep_list %}
+      <li><a href="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+
+  <div class="shutter">
+    <div class="shutter-label">
+      Senators
+      <span class="icon closed">&#43;</span>
+      <span class="icon open">&#45;</span>
+    </div>
+    <ul class="sans">
+    {% for legislator in sen_list %}
+      <li><a href="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+
+  <div class="shutter">
+    <div class="shutter-label">
+      Browse Bills by Committee
+      <span class="icon closed">&#43;</span>
+      <span class="icon open">&#45;</span>
+    </div>
+    <ul class="sans">
+    {% for committee in committee_list %}
+      <li> <a href="{{ committee.get_absolute_url }}">{{ committee.name }}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+  </div>
+</section>
+
+{% endblock %}
