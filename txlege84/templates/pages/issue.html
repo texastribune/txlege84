@@ -8,8 +8,9 @@
 {% load staticfiles %}
   <section>
     <header>
+      <img class="graphic header" src="{% static 'images/icons/' %}{{ topic.slug }}.svg">
       <h2 class="page-header">
-        <img class="graphic" src="{% static 'images/icons/' %}{{ issue.topic.slug }}.svg"></img>{{ issue.topic.name }}</a>
+        {{ issue.topic.name }}
       </h2>
       <p class="sub-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rhoncus massa at mauris luctus, in suscipit nibh sollicitudin.</p>
     </header>
