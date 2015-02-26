@@ -2,9 +2,18 @@
   margin-bottom: 1.5em;
 }
 
-.legislator-info {
-  @include span-columns(12);
+.legislator-details {
+  @include clearfix;
+  // @include span-columns(12);
   margin-bottom: 1em;
+
+  p {
+    margin: .25em;
+  }
+
+  h3 {
+    margin-bottom: .5em;
+  }
 
   .headshot {
     margin: 0 auto;
@@ -19,18 +28,6 @@
       text-align: center;
       margin: .25em;
     }
-  }
-
-  .legislator-details {
-    @include clearfix;
-    p {
-      margin: .25em;
-    }
-
-    h3 {
-      margin-bottom: .5em;
-    }
-
   }
 
   .share-page {
