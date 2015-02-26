@@ -1,10 +1,11 @@
 .masthead {
   background-color: $bodytext-black;
   color: $white;
-  padding: .625em;
+  padding: 0 0 0 .625em;
 
   .trib-logo {
     height: 1.5em;
+    margin: .5em 0;
     vertical-align: bottom;
   }
 
@@ -15,13 +16,13 @@
     font-size: 1.375em;
     line-height: 0;
     outline: 0;
-    padding: 0;
+    padding: .375em .75em;
     text-align: center;
 
     .fa {
       margin: 0;
       padding: 0;
-      transition: transform .2s ease;
+      transition: transform 200ms ease-in-out;
     }
 
     .fa-times {
