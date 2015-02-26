@@ -23,4 +23,14 @@
     padding: .5em;
   }
 
+  a {
+    color: $white;
+    text-decoration: none;
+
+    &:hover {
+      color: $tribune-yellow;
+      text-decoration: none;
+    }
+  }
+
 }
