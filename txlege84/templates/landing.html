@@ -35,7 +35,6 @@
       <header>
         <h4 class="featured-content">Featured Content</h4>
       </header>
-      {% else %}
       {% endif %}
       <div class="shutter">
 
@@ -46,7 +45,7 @@
           <span class="icon open">&#45;</span>
         </div>
 
-        <div class="open shutter-content">
+        <div class="shutter-content{% if forloop.first %} shutter-content-open{% endif %}">
           <header>
             <h5 class="sub-section-header">Top Issues</h5>
           </header>

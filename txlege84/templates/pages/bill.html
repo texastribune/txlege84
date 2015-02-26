@@ -125,20 +125,20 @@
         {% endfor %}
       </div>
       {% if 'coauthor' in bill.sponsorships.all.role %}
-      <div>
-        <div class="shutter">
+      <div class="shutter">
         <div class="shutter-label">
           <h3 class="section-header">Coauthors</h3>
           <span class="icon closed">&#43;</span>
           <span class="icon open">&#45;</span>
         </div>
-        <ul class="sans">
-          {% for o in bill.sponsorships.all %}
-            {% if o.role = 'coauthor' %}
-            <li>{% if bill.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{{ o.legislator.get_absolute_url }}">{{ o }} <span class="{% if n.legislator.party.short_name == 'D' %} democrat {%else%} republican {%endif%}">{{ o.legislator.party.short_name }}</span></a></li>
-            {% endif %}
-          {% endfor %}
-        </ul>
+        <div class="shutter-content">
+          <ul class="sans">
+            {% for o in bill.sponsorships.all %}
+              {% if o.role = 'coauthor' %}
+              <li>{% if bill.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{{ o.legislator.get_absolute_url }}">{{ o }} <span class="{% if n.legislator.party.short_name == 'D' %} democrat {%else%} republican {%endif%}">{{ o.legislator.party.short_name }}</span></a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
         </div>
       </div>
       {% endif %}
@@ -160,15 +160,16 @@
           Co-Sponsors
           <span class="icon closed">&#43;</span>
           <span class="icon open">&#45;</span>
-          <ul class="sans">
-            {% for cosponsor in bill.sponsorships.all %}
-              {% if cosponsor.role == 'cosponsor' %}
-              <li>{{ cosponsor.legislator }} (<span class="{% if cosponsor.legislator.party.short_name == 'D' %} democrat {% else %} republican {% endif %}">{{ cosponsor.legislator.party.short_name }})</span></li>
-              {% endif %}
-            {% endfor %}
-          </ul>
+          <div class="shutter-content">
+            <ul class="sans">
+              {% for cosponsor in bill.sponsorships.all %}
+                {% if cosponsor.role == 'cosponsor' %}
+                <li>{{ cosponsor.legislator }} (<span class="{% if cosponsor.legislator.party.short_name == 'D' %} democrat {% else %} republican {% endif %}">{{ cosponsor.legislator.party.short_name }})</span></li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
         </div>
-
       </div>
       {% endif %}
       <div>&nbsp;</div>
