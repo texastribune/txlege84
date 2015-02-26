@@ -7,14 +7,14 @@
 {% block content %}
 {% load staticfiles %}
   <section>
-    <header>
+    <header class="page-header">
       <img class="graphic header" src="{% static 'images/icons/' %}{{ topic.slug }}.svg">
-      <h2 class="page-header">
+      <h2>
         {{ issue.topic.name }}
       </h2>
       <p class="sub-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rhoncus massa at mauris luctus, in suscipit nibh sollicitudin.</p>
     </header>
-    <section class="share-page">
+    <div class="share-page">
       <ul>
         <a href="mailto:?subject=}&body=">
           <li class="email"><i class="fa fa-envelope"></i></li>
@@ -26,9 +26,11 @@
           <li class="facebook"><i class="fa fa-facebook"></i></li>
         </a>
       </ul>
-    </section>
+    </div>
+  </section>
     {% include "includes/banner_ad.html" %}
-    <section>
+  <section>
+    <article>
       <header>
         <h2 class="section-header">Top Issues</h2>
       </header>
@@ -37,10 +39,10 @@
         <li><a href="{{ issue.get_absolute_url }}#{{ issue.slug }}">{{ issue.name }}</a></li>
       {% endfor %}
       </ul>
-    </section>
+    </article>
     {% with curators=issue.topic.curators.all %}
     {% if curators %}
-    <section>
+    <article>
       <header>
         <h5 class="sub-section-header">Curated by</h5>
       </header>
@@ -51,7 +53,7 @@
         <p class="sub-text"></p>
       </div>
       {% endfor %}
-    </section>
+    </article>
     {% endif %}
     {% endwith %}
   </section>

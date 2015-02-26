@@ -6,28 +6,29 @@
 
 {% load staticfiles %}
 {% block content %}
+<section>
+  <header class="page-header">
+    <h2>Find bills</h2>
+    <p class="sub-text">Look up legislation by number, such as SB 1 or HR 200. You can also browse bills by category, lawmaker or committee by clicking on the links below.</p>
+  </header>
+  <div class="share-page">
+    <ul>
+      <a href="mailto:?subject=}&body=">
+        <li class="email"><i class="fa fa-envelope"></i></li>
+      </a>
+      <a href="https://twitter.com/intent/tweet?text=&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
+        <li class="twitter"><i class="fa fa-twitter"></i></li>
+      </a>
+      <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=TK&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
+        <li class="facebook"><i class="fa fa-facebook"></i></li>
+      </a>
+    </ul>
+  </div>
+</section>
 
 {% include "includes/banner_ad.html" %}
 <section>
   <div class="bill-search">
-    <header>
-      <h3 class="page-header">Find bills</h3>
-      <p class="sub-text">Look up legislation by number, such as SB 1 or HR 200. You can also browse bills by category, lawmaker or committee by clicking on the links below.</p>
-      <section class="share-page">
-        <ul>
-          <a href="mailto:?subject=}&body=">
-            <li class="email"><i class="fa fa-envelope"></i></li>
-          </a>
-          <a href="https://twitter.com/intent/tweet?text=&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
-            <li class="twitter"><i class="fa fa-twitter"></i></li>
-          </a>
-          <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=TK&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
-            <li class="facebook"><i class="fa fa-facebook"></i></li>
-          </a>
-        </ul>
-      </section>
-    </header>
-
     <div class="sidebar-content-bills collapse">
       <div>
         <form>
