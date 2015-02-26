@@ -8,7 +8,7 @@
 {% block content %}
 <section>
   <header class="bill-page">
-    <h2 class="page-header">{% if "SB" in object.name %}Senate Bill {{ object.name|slice:"3:" }} ({{ object.name }}){% elif "HB" in object.name %}House Bill {{ object.name|slice:"3:" }} ({{ object.name }}){% elif "HR" in object.name %}House Resolution {{ object.name|slice:"3:" }} ({{ object.name }}){% else %}{{ object.name }}{% endif %}</h2>
+    <h2 class="page-header">{{ object.long_name }}</h2>
     <p class="sub-text">{{ object.description }}</p>
     <p class="bill-detail"><i class="fa fa-file-text-o"></i><em>Read the full <a href="http://www.legis.state.tx.us/BillLookup/Text.aspx?LegSess=84R&Bill={{ object.slug }}" target="_blank">Bill Text</a> and <a href="http://www.capitol.state.tx.us/BillLookup/Amendments.aspx?LegSess=84R&Bill={{ object.slug }}" target="_blank">Amendments</a></em></p>
     <section class="share-page">
