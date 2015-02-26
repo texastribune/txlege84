@@ -35,7 +35,7 @@
       <div class="chair-detail">
         <h5 class="sub-section-header">Chair</h5>
         <p class="emphasis"><a href="{{ object.chair.get_absolute_url }}">{{ object.chair }}</a></p>
-        <p class="sub-text">State {% if object.vide_chair.chamber.name == "Texas Senate" %} Senator {% else %} Representative {% endif %} <span class="{% if o.legislator.party.short_name == 'D' %} democrat {% else %} republican {% endif %}">({{ object.vice_chair.party.short_name }})</span></p>
+        <p class="sub-text">State {% if object.vide_chair.chamber.name == "Texas Senate" %} Senator {% else %} Representative {% endif %} <span class="{% if o.chair.party.short_name == 'D' %} democrat {% else %} republican {% endif %}">({{ object.vice_chair.party.short_name }})</span></p>
       </div>
     </div>
   </section>
@@ -47,7 +47,7 @@
       <div class="chair-detail">
         <h5 class="sub-section-header">Vice Chair</h5>
         <p class="emphasis"><a href="{{ object.vice_chair.get_absolute.url }}">{{ object.vice_chair }}</a></p>
-        <p class="sub-text">State {% if object.vide_chair.chamber.name == "Texas Senate" %} Senator {% else %} Representative {% endif %} <span class="{% if o.legislator.party.short_name == 'D' %} democrat {% else %} republican {% endif %}">({{ object.vice_chair.party.short_name }})</span></p>
+        <p class="sub-text">State {% if object.vide_chair.chamber.name == "Texas Senate" %} Senator {% else %} Representative {% endif %} <span class="{% if o.vice_chair.party.short_name == 'D' %} democrat {% else %} republican {% endif %}">({{ object.vice_chair.party.short_name }})</span></p>
       </div>
     </div>
   </section>
@@ -57,7 +57,7 @@
       <h5 class="sub-section-header">Committee Members</h5>
       <ul>
       {% for o in object.member_list %}
-        <li><a href="{{ o.legislator.get_absolute_url }}">{{ o.legislator }} <span class="{% if o.legislator.party.short_name == 'D' %} democrat {% else %} republican {% endif %}">({{ o.legislator.party.short_name }})</span></a></li>
+        <li><a href="{{ o.legislator.get_absolute_url }}">{{ o.legislator.last_first_full_name }} <span class="{% if o.legislator.party.short_name == 'D' %}democrat{% else %}republican{%endif%}">({{ o.legislator.party.short_name }})</span></a></li>
       {% endfor %}
       </ul>
       <hr class="yellow-hr"/>
