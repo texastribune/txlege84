@@ -6,6 +6,12 @@
 {% endblock %}
 
 {% block page_header %}
+  <section>
+    <header>
+      <h2 class="page-header">Browse Issues by Topic</h3>
+      <p class="sub-text">Explore legislative issues by topic.</p>
+    </header>
+  </section>
   <section class="share-page">
     <ul>
       <a href="mailto:?subject=}&body=">
@@ -24,11 +30,6 @@
   {% load staticfiles %}
   {% include "includes/banner_ad.html" %}
   <section class="browse-issues">
-    <header>
-      <h3>Browse Issues by Topic</h3>
-      <p class="sub-text">Explore legislative issues by topic.</p>
-    </header>
-
     {% for topic in topic_list %}
     <article class="issue-nav-box">
       {% if forloop.first %}
