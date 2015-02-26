@@ -58,7 +58,7 @@
     </div>
     <ul class="sans">
     {% for legislator in rep_list %}
-      <li><a href="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }} <span class="{% if legislator.party.short_name == 'D' %}democrat{% else %}republican{%endif%}">({{ legislator.party.short_name }})</span></a></li>
+      <li><a href="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }} <span class="{{ legislator.party.name|lower }}">({{ legislator.party.short_name }})</span></a></li>
     {% endfor %}
     </ul>
   </div>
@@ -71,7 +71,7 @@
     </div>
     <ul class="sans">
     {% for legislator in sen_list %}
-      <li><a href="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }} <span class="{% if legislator.party.short_name == 'D' %}democrat{% else %}republican{%endif%}">({{ legislator.party.short_name }})</span></a></li>
+      <li><a href="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }} <span class="{{ legislator.party.name|lower }}">({{ legislator.party.short_name }})</span></a></li>
     {% endfor %}
     </ul>
   </div>
