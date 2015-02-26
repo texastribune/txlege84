@@ -19,7 +19,7 @@ class SubjectDetail(AllSubjectsMixin, AllLegislatorsMixin, DetailView):
 
 class BillSearchView(AllLegislatorsMixin, AllSubjectsMixin,
                      AllCommitteesMixin, TemplateView):
-    template_name = 'pages/bill-search.html'
+    template_name = 'pages/find-bills.html'
 
 
 class BillSearchJson(ListView):

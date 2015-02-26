@@ -18,7 +18,7 @@
   font-family: $base-sans-serif;
   font-size: 1.8em;
   font-weight: 800;
-  line-height: 1.4;
+  line-height: 1.1;
   margin: .25em 0;
   text-align: left;
 }
@@ -170,7 +170,6 @@ p {
     font-weight: 500;
     font-size: 0.9em;
     font-family: $base-sans-serif;
-    height: 3.3em;
     letter-spacing: 0.1em;
     margin: 0 0 .3em;
     padding: 1em 1.25em;
@@ -199,7 +198,7 @@ p {
   }
 }
 
-.democrat {
+.democratic {
   color: $dem-blue;
 }
 
@@ -217,14 +216,18 @@ ul {
     }
   }
 
-  &.serif li,
-  &.sans li {
-    &:before {
-      color: $li-black;
-      content: '\2023';
-      font-family: $base-sans-serif;
-      margin: 0 .5em;
-      padding: 0;
+  &.serif,
+  &.sans {
+    padding: 0 0 0 1em;
+
+    li {
+      &:before {
+        color: $li-black;
+        content: '\2023';
+        font-family: $base-sans-serif;
+        margin: 0 .5em 0 -1em;
+        padding: 0;
+      }
     }
   }
 
@@ -279,6 +282,3 @@ hr.video-divider {
   width: 40%;
   text-align: center;
 }
-
-
-

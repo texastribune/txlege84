@@ -52,7 +52,7 @@
           </header>
           <ul class="serif">
             {% for issuelist in topic.issues.all|slice:":3" %}
-            <li>{{ issuelist }}</li>
+            <li><span><a href="{{ topic.get_absolute_url }}">{{ issuelist }}</a></span></li>
             {% endfor %}
           </ul>
           <p class="mini-emphasis more-issues center"><a href="{{ topic.get_absolute_url }}"><span>&#43; </span>More Issues</a></p>

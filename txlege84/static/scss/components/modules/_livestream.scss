@@ -13,8 +13,17 @@ $ls-small: new-breakpoint(min-width 695px max-width 799px);
 
 }
 
+#house-stream {
+  background-image: url('/../static/images/tx-house-chamber-video-img.jpg');
+}
+
+#senate-stream {
+    background-image: url('/../static/images/tx-senate-chamber-video-img.jpg');
+}
+
 .stream-placeholder {
   background-color: $tribune-black;
+  background-size: cover;
   color: $white;
   cursor: pointer;
   height: 0;

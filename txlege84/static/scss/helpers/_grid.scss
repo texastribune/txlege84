@@ -39,6 +39,9 @@ $max-width: 1081px;
   @include clearfix;
 }
 
+.content-block {
+  @extend %content-block;
+}
 
 // Basic Grid Mixins
 
