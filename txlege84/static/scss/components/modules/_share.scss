@@ -1,4 +1,6 @@
 .share-page {
+  // For breakpoints, see components/_page-header.scss
+
   text-align: center;
   margin: 1em 0;
 
@@ -14,7 +16,7 @@
     margin: 0 .25em;
     padding: .875em 1.25em .625em;
     text-align: center;
-    width: 25%;
+    width: 28%;
 
     &:hover {
       color: $tagline-black;
@@ -28,10 +30,12 @@
 
   .email {
     @include button($tribune-yellow, $hover-yellow, $yellow-highlight);
+    margin-left: 0;
   }
 
   .facebook {
     @include button($fb-blue, $fb-hover, $fb-accent);
+    margin-right: 0;
   }
 
   .twitter {
@@ -39,4 +43,3 @@
   }
 
 }
-
