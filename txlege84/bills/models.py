@@ -5,6 +5,18 @@ from committees.models import Committee
 from legislators.models import Chamber, Legislator
 
 
+BILL_TYPES = {
+    'HB': 'House Bill',
+    'SB': 'Senate Bill',
+    'HR': 'House Resolution',
+    'SR': 'Senate Resolution',
+    'HJR': 'House Joint Resolution',
+    'SJR': 'Senate Joint Resolution',
+    'HCR': 'House Concurrent Resolution',
+    'SCR': 'Senate Concurrent Resolution',
+}
+
+
 class Subject(models.Model):
     name = models.CharField(max_length=50)
     slug = models.SlugField()
@@ -62,6 +74,13 @@ class Bill(models.Model):
         return self.actions.reverse().exclude(
             related_committee__isnull=True).filter(
             acting_chamber__name='Texas Senate')[0].related_committee
+
+    @property
+    def long_name(self):
+        split_name = self.name.split(' ')
+
+        return '{0} {1}'.format(
+            BILL_TYPES[split_name[0]], split_name[1])
 
     def get_absolute_url(self):
         from django.core.urlresolvers import reverse
