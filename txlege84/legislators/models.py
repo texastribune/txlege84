@@ -33,6 +33,15 @@ class Chamber(models.Model):
 
         super(Chamber, self).save(*args, **kwargs)
 
+    @property
+    def member_title(self):
+        if self.name == 'Texas House':
+            return u'Representative'
+        elif self.name == 'Texas Senate':
+            return u'Senator'
+        else:
+            return u''
+
 
 class Legislator(models.Model):
     first_name = models.CharField(max_length=40)
