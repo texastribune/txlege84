@@ -160,10 +160,6 @@ p {
   @include clearfix;
   background: $text-offwhite;
 
-  &:hover {
-    color: $li-black;
-  }
-
   .shutter-label {
     border-bottom: 2px solid $white;
     color: $shutter-gray;
@@ -177,6 +173,10 @@ p {
     text-align: left;
     text-transform: uppercase;
     width: 100%;
+
+    &:hover {
+      color: $li-black;
+    }
   }
 
   .icon {
