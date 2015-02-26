@@ -1,31 +1,44 @@
-.menu {
-  background: $bodytext-black;
+.masthead {
+  background-color: $bodytext-black;
   color: $white;
-  font-family: $base-sans-serif;
-  font-size: 1.1em;
-
-  ul {
-    list-style: none;
-  }
-
-  li {
-    background: $tagline-black;
-    border-bottom: 1px solid $text-gray;
-    padding: .75em;
-
-    &:hover {
-      background: $li-black;
-    }
-  }
+  padding: .625em;
 
   .trib-logo {
-    height: 2em;
-    padding: .5em;
+    height: 1.5em;
+    vertical-align: bottom;
+  }
+
+  .menu-button {
+    background-color: $bodytext-black;
+    border: 0;
+    float: right;
+    font-size: 1.375em;
+    line-height: 0;
+    outline: 0;
+    padding: 0;
+    text-align: center;
+
+    .fa {
+      margin: 0;
+      padding: 0;
+      transition: transform .2s ease;
+    }
+
+    .fa-times {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.menu-nav {
+  display: none;
+
+  &-open {
+    display: block;
   }
 
   a {
     color: $white;
-    text-decoration: none;
 
     &:hover {
       color: $tribune-yellow;
@@ -33,4 +46,17 @@
     }
   }
 
+  ul {
+    list-style: none;
+  }
+
+  li {
+    background-color: $tagline-black;
+    border-bottom: 1px solid $text-gray;
+    padding: .75em;
+
+    &:hover {
+      background: $li-black;
+    }
+  }
 }

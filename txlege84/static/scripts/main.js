@@ -1,8 +1,25 @@
-/* global Bloodhound */
+/* global Bloodhound, FastClick */
 
 (function() {
   'use strict';
 
+  FastClick.attach(document.body);
+
+  var $menuButton = $('#menu-button');
+  var $menuIcon = $menuButton.find('i');
+  var $menuNav = $('#menu-nav');
+
+  $menuButton.on('click', function(e) {
+    e.preventDefault();
+
+    if ($menuNav.hasClass('menu-nav-open')) {
+      $menuIcon.removeClass('fa-times').addClass('fa-bars');
+    } else {
+      $menuIcon.removeClass('fa-bars').addClass('fa-times');
+    }
+
+    $menuNav.toggleClass('menu-nav-open');
+  });
 
   // Build sidebar accordion
   var $sidebarButtonA = $('.sidebar-header-bills');
