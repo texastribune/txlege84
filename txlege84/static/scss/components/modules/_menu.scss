@@ -39,6 +39,11 @@
 
   a {
     color: $white;
+
+    &:hover {
+      color: $tribune-yellow;
+      text-decoration: none;
+    }
   }
 
   ul {

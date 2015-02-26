@@ -51,14 +51,14 @@
     <a href="{% url 'find-bills' %}"><li>Find Bills</li></a>
     <a href="{% url 'landing-view' %}"><li>Browse Issues by Topic</li></a>
     <a href="{% url 'legestream' %}"><li>Chamber Livestream</li></a>
-    <a href="#"><li>How the Legislature Works</li></a>
+    <a href="{% url 'explainer-list-detail' %}"><li>How the Legislature Works</li></a>
     <li>Session Resources</li>
   </ul>
 </nav>
 
   <main class="main-container">
     <section>
-      <header>
+      <header class="content-block">
         <h1 class="project-title">Texas Legislative Guide</h1>
         <p class="sub-text center">Your go-to resource for the 2015 Texas legislative session</p>
       </header>

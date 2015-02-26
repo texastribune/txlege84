@@ -33,10 +33,8 @@ urlpatterns = patterns(
         ExplainerListDetail.as_view(), name='explainer-list-detail'),
     url(r'^legestream/$',
         LegeStreamDetail.as_view(), name='legestream'),
-
     url(r'^search/bills/', BillSearchJson.as_view(), name='bill-search'),
-
-    url(r'^bill-search/', BillSearchView.as_view(), name='find-bills'),
+    url(r'^find-bills/$', BillSearchView.as_view(), name='find-bills'),
 
     # Examples:
     # url(r'^$', 'txlege84.views.home', name='home'),
