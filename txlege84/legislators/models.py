@@ -42,6 +42,13 @@ class Chamber(models.Model):
         else:
             return u''
 
+    @property
+    def short_name(self):
+        if self.name == 'Texas House':
+            return u'Rep.'
+        elif self.name == 'Texas Senate':
+            return u'Sen.'
+
 
 class Legislator(models.Model):
     first_name = models.CharField(max_length=40)
