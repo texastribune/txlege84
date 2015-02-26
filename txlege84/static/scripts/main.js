@@ -3,8 +3,10 @@
 (function() {
   'use strict';
 
+  // Fastclick initialize
   FastClick.attach(document.body);
 
+  // Menu
   var $menuButton = $('#menu-button');
   var $menuIcon = $menuButton.find('i');
   var $menuNav = $('#menu-nav');
@@ -21,41 +23,8 @@
     $menuNav.toggleClass('menu-nav-open');
   });
 
-  // Build sidebar accordion
-  var $sidebarButtonA = $('.sidebar-header-bills');
-  var $sidebarButtonB = $('.sidebar-header-resources');
-  var $sidebarContentA = $('.sidebar-content-bills');
-  var $sidebarContentB = $('.sidebar-content-resources');
-  var $categoryDropdown = $('#category-dropdown');
-  var $legislatorDropdown = $('#legislator-dropdown');
-  var $arrowIconA = $('.arrow-a');
-  var $arrowIconB = $('.arrow-b');
+  // Accordions AKA Shutters
 
-  function toggleBillSearch() {
-    $sidebarContentA.toggleClass('collapse');
-    $arrowIconA.toggleClass('collapse');
-  }
-
-  function toggleResources() {
-    $sidebarContentB.toggleClass('collapse');
-    $arrowIconB.toggleClass('collapse');
-  }
-
-  $sidebarButtonA.click(function() {
-    toggleBillSearch();
-  });
-
-  $sidebarButtonB.click(function() {
-    toggleResources();
-  });
-
-  $categoryDropdown.change(function() {
-    document.location.href = $(this).val();
-  });
-
-  $legislatorDropdown.change(function() {
-    document.location.href = $(this).val();
-  });
 
   // Add fitvids to Texplainer, other video embeds
   $('.flexible-video').fitVids();
