@@ -1,3 +1,49 @@
+ .banner {
+  @include clearfix;
+  display: table;
+  height: 13em;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+
+  header {
+    @extend %content-block;
+    background: none;
+    display: block;
+    height: 10em;
+    padding: 0 2em 0 0;
+    position: absolute;
+    text-align: right;
+    top: 0;
+    vertical-align: middle;
+    width: 100%;
+
+    p {
+
+      @include media($medium) {
+        font-size: 1.3em;
+      }
+
+      @include media($large) {
+        font-size: 1.3em;
+      }
+    }
+  }
+
+}
+
+.banner-image {
+  background: url('../images/on-the-lege-capitol-lrg-bg004.jpg') no-repeat center center;
+  background-size: cover;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+
 // h1
 .project-title {
   color: $bodytext-black;
@@ -9,6 +55,18 @@
   margin: 1em 0 .25em 0;
   text-align: center;
   text-transform: uppercase;
+
+  @include media($small) {
+    font-size: 2.4em;
+  }
+
+  @include media($medium) {
+    font-size: 3em;
+  }
+
+  @include media($large) {
+    font-size: 3.4em;
+  }
 }
 
 // h2
