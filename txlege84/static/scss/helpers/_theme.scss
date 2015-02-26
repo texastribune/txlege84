@@ -71,15 +71,19 @@
 
 // h2
 .page-header {
-  border-bottom: 1px solid $border-bottom;
-  color: $bodytext-black;
-  font-family: $base-sans-serif;
-  font-size: 1.8em;
-  font-weight: 800;
-  line-height: 1.1;
-  margin: .75em 0 .25em;
-  padding-bottom: .2em;
-  text-align: left;
+  // For breakpoints, see components/_page-header.scss
+
+  h2 {
+    border-bottom: 1px solid $border-bottom;
+    color: $bodytext-black;
+    font-family: $base-sans-serif;
+    font-size: 1.8em;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: .75em 0 .25em;
+    padding-bottom: .2em;
+    text-align: left;
+  }
 }
 
 // h3

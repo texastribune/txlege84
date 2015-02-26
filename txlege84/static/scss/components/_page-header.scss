@@ -1,0 +1,31 @@
+$phead-medium: new-breakpoint(min-width 610px max-width 790px);
+$phead-large: new-breakpoint(min-width 790px);
+
+.page-header {
+  // @extend %content-block;
+  @include clearfix;
+
+  @include media($phead-medium) {
+    @include span-columns(7);
+    @include pad(0);
+  }
+
+  @include media($phead-large) {
+    @include span-columns(8);
+    @include pad(0);
+  }
+}
+
+.share-page {
+  @include clearfix;
+
+  @include media($phead-medium) {
+    @include span-columns(5);
+    @include omega();
+  }
+
+  @include media($phead-large) {
+    @include span-columns(4);
+    @include omega();
+  }
+}
