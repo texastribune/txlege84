@@ -37,57 +37,65 @@
       </div>
     </div>
 
-  <div class="shutter">
-    <div class="shutter-label">
-      Browse Bills by Category
-      <span class="icon closed">&#43;</span>
-      <span class="icon open">&#45;</span>
+    <div class="shutter">
+      <div class="shutter-label">
+        Browse Bills by Category
+        <span class="icon closed">&#43;</span>
+        <span class="icon open">&#45;</span>
       </div>
-      <ul class="sans">
-      {% for category in subject_list %}
-        <li> <a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
-      {% endfor %}
-      </ul>
+      <div class="shutter-content">
+        <ul class="sans">
+        {% for category in subject_list %}
+          <li> <a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+        {% endfor %}
+        </ul>
+      </div>
     </div>
 
-  <div class="shutter">
-    <div class="shutter-label">
-      Representatives
-      <span class="icon closed">&#43;</span>
-      <span class="icon open">&#45;</span>
+    <div class="shutter">
+      <div class="shutter-label">
+        Representatives
+        <span class="icon closed">&#43;</span>
+        <span class="icon open">&#45;</span>
+      </div>
+      <div class="shutter-content">
+        <ul class="sans">
+        {% for legislator in rep_list %}
+          <li><a href="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }} <span class="{{ legislator.party.name|lower }}">({{ legislator.party.short_name }})</span></a></li>
+        {% endfor %}
+        </ul>
+      </div>
     </div>
-    <ul class="sans">
-    {% for legislator in rep_list %}
-      <li><a href="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }} <span class="{{ legislator.party.name|lower }}">({{ legislator.party.short_name }})</span></a></li>
-    {% endfor %}
-    </ul>
-  </div>
 
-  <div class="shutter">
-    <div class="shutter-label">
-      Senators
-      <span class="icon closed">&#43;</span>
-      <span class="icon open">&#45;</span>
+    <div class="shutter">
+      <div class="shutter-label">
+        Senators
+        <span class="icon closed">&#43;</span>
+        <span class="icon open">&#45;</span>
+      </div>
+      <div class="shutter-content">
+        <ul class="sans">
+        {% for legislator in sen_list %}
+          <li><a href="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }} <span class="{{ legislator.party.name|lower }}">({{ legislator.party.short_name }})</span></a></li>
+        {% endfor %}
+        </ul>
+      </div>
     </div>
-    <ul class="sans">
-    {% for legislator in sen_list %}
-      <li><a href="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }} <span class="{{ legislator.party.name|lower }}">({{ legislator.party.short_name }})</span></a></li>
-    {% endfor %}
-    </ul>
-  </div>
 
-  <div class="shutter">
-    <div class="shutter-label">
-      Browse Bills by Committee
-      <span class="icon closed">&#43;</span>
-      <span class="icon open">&#45;</span>
+    <div class="shutter">
+      <div class="shutter-label">
+        Browse Bills by Committee
+        <span class="icon closed">&#43;</span>
+        <span class="icon open">&#45;</span>
+      </div>
+      <div class="shutter-content">
+        <ul class="sans">
+        {% for committee in committee_list %}
+          <li> <a href="{{ committee.get_absolute_url }}">{{ committee.name }}</a></li>
+        {% endfor %}
+        </ul>
+      </div>
     </div>
-    <ul class="sans">
-    {% for committee in committee_list %}
-      <li> <a href="{{ committee.get_absolute_url }}">{{ committee.name }}</a></li>
-    {% endfor %}
-    </ul>
-  </div>
   </div>
 </section>
 
