@@ -195,7 +195,12 @@ p {
   }
 
   .shutter-content {
+    display: none;
     padding: 0 1em 1.5em;
+
+    &-open {
+      display: block;
+    }
   }
 }
 

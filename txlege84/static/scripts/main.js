@@ -25,6 +25,11 @@
 
   // Accordions AKA Shutters
 
+  var $shutterToggles = $('.shutter-label');
+
+  $shutterToggles.on('click', function() {
+    $(this).next('.shutter-content').toggleClass('shutter-content-open');
+  });
 
   // Add fitvids to Texplainer, other video embeds
   $('.flexible-video').fitVids();
