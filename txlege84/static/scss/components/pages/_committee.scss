@@ -1,3 +1,5 @@
+$com-bp-large: new-breakpoint(min-width 749px);
+
 .bill-table {
   table {
     border-top: none;
@@ -9,8 +11,8 @@
   margin: 1em 0;
   @include span-columns(12);
 
-  @include media($large) {
-    @include span-columns(4);
+  @include media($com-bp-large) {
+    @include span-columns(6);
     @include omega(2n);
   }
 }
@@ -20,9 +22,11 @@
 }
 
 .chair-photo {
-  @include span-columns(5);
   img {
+    float: left;
     display: block;
+    max-width: 131px;
+    margin: 0 1em 1em 0;
     width: 100%;
   }
 }
@@ -37,8 +41,7 @@
 
   li {
     margin: 1em 0;
-
-    @include media($large) {
+    @include media($com-bp-large) {
       @include span-columns(4);
       @include omega(3n);
     }
