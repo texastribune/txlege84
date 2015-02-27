@@ -42,3 +42,16 @@
   }
 }
 
+
+.issue-prose {
+  @include media($large) {
+    @include span-columns(8);
+  }
+}
+
+.related-content {
+  @include media($large) {
+    @include span-columns(4);
+    @include omega();
+  }
+}

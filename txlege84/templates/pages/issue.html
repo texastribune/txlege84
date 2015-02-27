@@ -8,29 +8,33 @@
 {% load staticfiles %}
 
   <section class="issue-box">
-    <header>
-      <h6 class="issue-card-title" id="{{ issue.slug }}">
-        <a href="{{ issue.get_absolute_url }}">{{ issue.name }}</a>
-      </h6>
-      {% with curators=issue.topic.curators.all %}
-      {% if curators %}
-        <p class="update-time">Curated by {% if curators|length == 1 %}{{ curators.first.first_name }} {{ curators.first.last_name }}{% elif curators|length > 2 %}{% for curator in curators %}{% if not forloop.first and not forloop.last %}, {% endif %}{% if forloop.last %} and {% endif %}{{ curator.first_name }} {{ curator.last_name }}{% endfor %}{% else %}{% for curator in curators %}{{ curator.first_name }} {{ curator.last_name }}{% if not forloop.last %} and {% endif %}{% endfor %}{% endif %} | Updated: {{ issue.modified_date|date:"N j, Y" }}</p>
-      {% endif %}
-      {% endwith %}
-    </header>
-    {{ issue.active_text.text|safe }}
-    {% if issue.related_bills.first != null %}
-    <section class="related-legislation">
-      <header>
-        <h5 class="sub-section-header">Relevant Legislation</h5>
+    <section class="issue-prose">
+      <header id="{{ issue.slug }}">
+        <h2 class="issue-card-title">
+          <img class="graphic header" src="{% static 'images/icons/' %}{{ issue.topic.slug }}.svg">{{ issue.name }}
+        </h2>
+        {% with curators=issue.topic.curators.all %}
+        {% if curators %}
+          <p class="update-time">Curated by {% if curators|length == 1 %}{{ curators.first.first_name }} {{ curators.first.last_name }}{% elif curators|length > 2 %}{% for curator in curators %}{% if not forloop.first and not forloop.last %}, {% endif %}{% if forloop.last %} and {% endif %}{{ curator.first_name }} {{ curator.last_name }}{% endfor %}{% else %}{% for curator in curators %}{{ curator.first_name }} {{ curator.last_name }}{% if not forloop.last %} and {% endif %}{% endfor %}{% endif %} | Updated: {{ issue.modified_date|date:"N j, Y" }}</p>
+        {% endif %}
+        {% endwith %}
       </header>
-      <ul class="sans">
-      {% for bill in issue.related_bills.all %}
-      <li><a href="{% url 'bill-detail' bill.slug %}">{{ bill.name }}</a></li>
-      {% endfor %}
-      </ul>
+      {{ issue.active_text.text|safe }}
+      {% if issue.related_bills.first != null %}
+      <section class="related-legislation">
+        <header>
+          <h5 class="sub-section-header">Relevant Legislation</h5>
+        </header>
+        <ul class="sans">
+        {% for bill in issue.related_bills.all %}
+        <li><a href="{% url 'bill-detail' bill.slug %}">{{ bill.name }}</a></li>
+        {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
     </section>
-    {% endif %}
+
+
 
     {% if issue.stories.first != null %}
     <section class="related-content">
@@ -60,18 +64,15 @@
       </a>
     </p>
   </section>
-  {% include "includes/banner_ad.html" %}
   <section>
     <header class="page-header issue">
-      <h2>
-        <img class="graphic header" src="{% static 'images/icons/' %}{{ issue.topic.slug }}.svg">
-        {{ issue.topic.name }}
-      </h2>
+      <h2><img class="graphic header" src="{% static 'images/icons/' %}{{ issue.topic.slug }}.svg">
+      <a href="{{ issue.topic.get_absolute_url }}">{{ issue.topic.name }}</a></h2>
       <p class="sub-text">Browse the issues we’re following related to {{ issue.topic.name|lower }}.</p>
     </header>
     <ul class="serif">
     {% for issue in issue.topic.issues.all.published %}
-      <li><a href="{{ issue.get_absolute_url }}#{{ issue.slug }}">{{ issue.name }}</a></li>
+      <li><a href="{{ issue.get_absolute_url }}">{{ issue.name }}</a></li>
     {% endfor %}
     </ul>
     <p class="emphasis">To see what else we’re following, go <a href="/">here</a>.</p>
