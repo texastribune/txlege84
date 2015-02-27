@@ -58,4 +58,8 @@ $ls-small: new-breakpoint(min-width 695px max-width 799px);
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
+
+  .fa {
+    font-size: 4em;
+  }
 }

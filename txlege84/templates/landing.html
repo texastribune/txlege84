@@ -9,8 +9,8 @@
   {% load staticfiles %}
   <section>
     <header class="page-header">
-      <h2>Browse Issues by Topic</h2>
-      <p class="sub-text">Explore legislative issues by topic.</p>
+      <h2>Browse issues by topic</h2>
+      <p class="sub-text">Our reporters have curated lists of issues they’re following under various topics. Learn more about the issues and related legislation.</p>
     </header>
     <div class="share-page">
       <ul>
@@ -33,7 +33,7 @@
     <article class="issue-nav-box">
       {% if forloop.first %}
       <header>
-        <h4 class="featured-content">Featured Content</h4>
+        <h4 class="featured-content">Featured content</h4>
       </header>
       {% endif %}
       <div class="shutter">
@@ -47,14 +47,14 @@
 
         <div class="shutter-content{% if forloop.first %} shutter-content-open{% endif %}">
           <header>
-            <h5 class="sub-section-header">Top Issues</h5>
+            <h5 class="sub-section-header">Top issues</h5>
           </header>
           <ul class="serif">
             {% for issuelist in topic.issues.all|slice:":3" %}
             <li><span><a href="{{ topic.get_absolute_url }}">{{ issuelist }}</a></span></li>
             {% endfor %}
           </ul>
-          <p class="mini-emphasis more-issues center"><a href="{{ topic.get_absolute_url }}"><span>&#43; </span>More Issues</a></p>
+          <p class="mini-emphasis more-issues center"><a href="{{ topic.get_absolute_url }}"><span>&#43; </span>More issues</a></p>
           {% with curators=topic.curators.all %}
           {% if curators %}
           <section>

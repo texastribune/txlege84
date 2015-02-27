@@ -1,3 +1,5 @@
+$com-bp-large: new-breakpoint(min-width 749px);
+
 .bill-table {
   table {
     border-top: none;
@@ -8,22 +10,25 @@
   @include clearfix;
   margin: 1em 0;
   @include span-columns(12);
+
+  @include media($com-bp-large) {
+    @include span-columns(6);
+    @include omega(2n);
+  }
 }
 
 .chair-detail {
   @include span-columns(7);
 }
 
-.chair-vicechair {
-  @include span-columns(5);
+.chair-photo {
   img {
+    float: left;
     display: block;
+    max-width: 131px;
+    margin: 0 1em 1em 0;
     width: 100%;
   }
-}
-
-.committee-header {
-  margin-bottom: 2em;
 }
 
 .committee-members {
@@ -36,7 +41,12 @@
 
   li {
     margin: 1em 0;
+    @include media($com-bp-large) {
+      @include span-columns(4);
+      @include omega(3n);
+    }
   }
+
 }
 
 .newsletter-signup {
