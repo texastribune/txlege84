@@ -14,6 +14,17 @@ $phead-large: new-breakpoint(min-width 790px);
     @include span-columns(8);
     @include pad(0);
   }
+
+  &.issue {
+    @include media($phead-medium) {
+      @include span-columns(12);
+    }
+
+    @include media($phead-large) {
+      @include span-columns(12);
+    }
+
+  }
 }
 
 .share-page {

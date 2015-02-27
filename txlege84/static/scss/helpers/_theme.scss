@@ -84,6 +84,7 @@
     padding-bottom: .2em;
     text-align: left;
   }
+
 }
 
 // h3
@@ -156,7 +157,7 @@ p {
     color: $bodytext-black;
     font-weight: 300;
     line-height: 1.2;
-    margin: .25em 0;
+    margin: .25em 0 1em;
   }
 
   &.center {
