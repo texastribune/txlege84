@@ -80,6 +80,7 @@ $stages-bp: new-breakpoint(min-width 697px);
     @include media($stages-bp) {
       @include span-columns(12);
       margin-top: 1em;
+
       p {
         text-align: center;
       }
@@ -101,7 +102,7 @@ $stages-bp: new-breakpoint(min-width 697px);
 
   .fa-stack-1x {
     text-align: center;
-    color: #ccc;
+    color: $border-bottom;
   }
 
   &.complete {
