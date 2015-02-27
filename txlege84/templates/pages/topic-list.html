@@ -12,7 +12,7 @@
         <img class="graphic header" src="{% static 'images/icons/' %}{{ topic.slug }}.svg">
         {{ topic.name }}
       </h2>
-      <p class="sub-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rhoncus massa at mauris luctus, in suscipit nibh sollicitudin.</p>
+      <p class="sub-text">Browse the issues we’re following that are related to {{ topic.name|lower }}. To see what we’re following in other categories, go <a href="/">here</a>.</p>
     </header>
     <div class="share-page">
       <ul>
@@ -31,7 +31,7 @@
     {% include "includes/banner_ad.html" %}
   <section>
     <header>
-      <h2 class="section-header">Top Issues</h2>
+      <h2 class="section-header">Top issues</h2>
     </header>
     <ul class="serif">
     {% for issue in object.issues.all.published %}
