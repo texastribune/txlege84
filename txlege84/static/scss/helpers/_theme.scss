@@ -173,7 +173,7 @@ p {
   font-size: 1.4em;
   font-weight: normal;
   letter-spacing: 0.02em;
-  line-height: 1;
+  line-height: 1.2;
   text-align: left;
   margin: .5em 0;
 }
@@ -326,10 +326,10 @@ ul {
     padding-left: 1em;
 
     li {
-      line-height: 0;
+      line-height: 1;
 
       a {
-        line-height: 1;
+        line-height: 1.2;
       }
       &:before {
         color: $li-black;

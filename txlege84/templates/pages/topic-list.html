@@ -30,18 +30,20 @@
   </section>
     {% include "includes/banner_ad.html" %}
   <section>
-    <header>
-      <h2 class="section-header">Top issues</h2>
-    </header>
-    <ul class="serif">
-    {% for issue in object.issues.all.published %}
-      <li><a href="{{ topic.get_absolute_url }}#{{ issue.slug }}">{{ issue.name }}</a></li>
-    {% endfor %}
-    </ul>
+    <article class="top-issues">
+      <header>
+        <h2 class="sub-section-header">Top issues</h2>
+      </header>
+      <ul class="serif">
+      {% for issue in object.issues.all.published %}
+        <li><a href="{{ topic.get_absolute_url }}#{{ issue.slug }}">{{ issue.name }}</a></li>
+      {% endfor %}
+      </ul>
+    </article>
 
     {% with curators=topic.curators.all %}
     {% if curators %}
-    <section>
+    <article class="curator-list">
       <header>
         <h5 class="sub-section-header">Curated by</h5>
       </header>
@@ -52,12 +54,9 @@
         <p class="sub-text"></p>
       </div>
       {% endfor %}
-    </section>
+    </article>
     {% endif %}
     {% endwith %}
-    <nav class="full-hot-list">
-
-    </nav>
   </section>
   {% for issue in object.issues.all.published %}
     {% include "components/issue-box.html" %}
