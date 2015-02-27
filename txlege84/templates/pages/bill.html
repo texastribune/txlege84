@@ -215,11 +215,12 @@
           <h3 class="section-header">House Committee</h3>
         </header>
         <ul class="sans">
-        {% if object.house_committee != "" %}
-          <li><a href="{{ object.house_committee.get_absolute_url }}">{{ object.house_committee }}</a></li>
+        {% if not object.house_committee %}
+        <li>Committee not yet assigned</li>
         {% else %}
-          <li>Committee not yet assigned</li>
+        <li><a href="{{ object.house_committee.get_absolute_url }}">{{ object.house_committee }}</a></li>
         {% endif %}
+
         </ul>
       </div>
       <div>
@@ -227,10 +228,10 @@
           <h3 class="section-header">Senate Committee</h3>
         </header>
         <ul class="sans">
-        {% if object.senate_committee != "" %}
-          <li><a href="{{ object.senate_committee.get_absolute_url }}">{{ object.senate_committee }}</a></li>
+        {% if not object.senate_committee %}
+        <li>Committee not yet assigned</li>
         {% else %}
-          <li>Committee not yet assigned</li>
+        <li><a href="{{ object.senate_committee.get_absolute_url }}">{{ object.senate_committee }}</a></li>
         {% endif %}
         </ul>
       </div>
