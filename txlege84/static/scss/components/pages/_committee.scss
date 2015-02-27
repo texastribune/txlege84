@@ -8,22 +8,23 @@
   @include clearfix;
   margin: 1em 0;
   @include span-columns(12);
+
+  @include media($large) {
+    @include span-columns(4);
+    @include omega(2n);
+  }
 }
 
 .chair-detail {
   @include span-columns(7);
 }
 
-.chair-vicechair {
+.chair-photo {
   @include span-columns(5);
   img {
     display: block;
     width: 100%;
   }
-}
-
-.committee-header {
-  margin-bottom: 2em;
 }
 
 .committee-members {
@@ -36,7 +37,13 @@
 
   li {
     margin: 1em 0;
+
+    @include media($large) {
+      @include span-columns(4);
+      @include omega(3n);
+    }
   }
+
 }
 
 .newsletter-signup {
