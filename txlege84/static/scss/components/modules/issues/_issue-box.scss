@@ -1,3 +1,5 @@
+$issue-bp: new-breakpoint(min-width 671px);
+
 .issue-box {
   @include clearfix;
   background-color: $background-gray;
@@ -44,27 +46,22 @@
 
 
 .issue-prose {
-  @include media($medium) {
+  @include media($issue-bp) {
     @include span-columns(8);
   }
-
-  @include media($large) {
-    @include span-columns(8);
-  }
-
 }
 
 .related-legislation {
-
+  li {
+    @include media($issue-bp) {
+      @include span-columns(6);
+      @include omega(2n);
+    }
+  }
 }
 
 .related-content {
-  @include media($medium) {
-    @include span-columns(4);
-    @include omega();
-  }
-
-  @include media($large) {
+  @include media($issue-bp) {
     @include span-columns(4);
     @include omega();
   }
