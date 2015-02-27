@@ -2,16 +2,13 @@
   @include span-columns(12);
   margin-top: 1em;
 
-  .bill-search-form {
-    @include span-columns(12);
-  }
-
   .button {
     margin: 0 0 1em;
   }
 
   form {
     display: inline-block;
+    @include span-columns(10 of 12);
   }
 
   input[type=text] {
