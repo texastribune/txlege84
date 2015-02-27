@@ -32,54 +32,54 @@
       <header>
         <h3 class="section-header">Bill Stages</h3>
       </header>
-      <div class="bill-stage {% if object.first_action_date != None %} complete {% endif %} ">
+      <div class="bill-stage {% if object.first_action_date %} complete {% endif %} ">
         <div class="bill-stage-name">
           <p class="mini-emphasis">Filed</p>
         </div>
         <div class="fa-stack">
-          {% if object.first_action_date != None %}
+          {% if object.first_action_date %}
           <i class="fa fa-check-circle fa-stack-1x"></i>
           {% else %}
           <i class="fa fa-times-circle fa-stack-1x"></i>
           {% endif %}
         </div>
-        {% if object.first_action_date != None %}
+        {% if object.first_action_date %}
         <div class="date-stage-complete">
           <p class="sub-section-header">{{ object.first_action_date}}</p>
         </div>
         {% endif %}
       </div>
       {% if object.chamber.name == 'Texas House' %}
-      <div class="bill-stage {% if object.passed_house != None %} complete {% endif %}">
+      <div class="bill-stage {% if object.passed_house %} complete {% endif %}">
         <div class="bill-stage-name">
           <p class="mini-emphasis">Approved by House</p>
         </div>
         <div class="fa-stack">
-          {% if object.passed_house != None %}
+          {% if object.passed_house %}
           <i class="fa fa-check-circle fa-stack-1x"></i>
           {% else %}
           <i class="fa fa-times-circle fa-stack-1x"></i>
           {% endif %}
         </div>
-        {% if object.passed_house != None %}
+        {% if object.passed_house %}
         <div class="date-stage-complete">
           <p class="sub-section-header">{{ object.passed_house }}</p>
         </div>
         {% endif %}
       </div>
       {% else %}
-      <div class="bill-stage {% if object.passed_senate != None %} complete {% endif %}">
+      <div class="bill-stage {% if object.passed_senate %} complete {% endif %}">
         <div class="bill-stage-name">
           <p class="mini-emphasis">Approved by Senate</p>
         </div>
         <div class="fa-stack">
-          {% if object.passed_senate != None %}
+          {% if object.passed_senate %}
           <i class="fa fa-check-circle fa-stack-1x"></i>
           {% else %}
           <i class="fa fa-times-circle fa-stack-1x"></i>
           {% endif %}
         </div>
-        {% if object.passed_senate != None %}
+        {% if object.passed_senate %}
         <div class="date-stage-complete">
           <p class="sub-section-header">{{ object.passed_senate }}</p>
         </div>
@@ -88,36 +88,36 @@
       {% endif %}
 
       {% if object.chamber.name == 'Texas House' %}
-      <div class="bill-stage {% if object.passed_house != None %} complete {% endif %}">
+      <div class="bill-stage {% if object.passed_house %} complete {% endif %}">
         <div class="bill-stage-name">
           <p class="mini-emphasis">Approved by Senate</p>
         </div>
         <div class="fa-stack">
-          {% if object.passed_house != None %}
+          {% if object.passed_house %}
           <i class="fa fa-check-circle fa-stack-1x"></i>
           {% else %}
           <i class="fa fa-times-circle fa-stack-1x"></i>
           {% endif %}
         </div>
-        {% if object.passed_house != None %}
+        {% if object.passed_house %}
         <div class="date-stage-complete">
           <p class="sub-section-header">{{ object.passed_house }}</p>
         </div>
         {% endif %}
       </div>
       {% else %}
-      <div class="bill-stage {% if object.passed_house != None %} complete {% endif %}">
+      <div class="bill-stage {% if object.passed_house %} complete {% endif %}">
         <div class="bill-stage-name">
           <p class="mini-emphasis">Approved by House</p>
         </div>
         <div class="fa-stack">
-          {% if object.passed_house != None %}
+          {% if object.passed_house %}
           <i class="fa fa-check-circle fa-stack-1x"></i>
           {% else %}
           <i class="fa fa-times-circle fa-stack-1x"></i>
           {% endif %}
         </div>
-        {% if object.passed_house != None %}
+        {% if object.passed_house %}
         <div class="date-stage-complete">
           <p class="sub-section-header">{{ object.passed_house }}</p>
         </div>
@@ -125,18 +125,18 @@
       </div>
       {% endif %}
 
-      <div class="bill-stage{% if object.became_law != None %} complete {% endif %}">
+      <div class="bill-stage{% if object.became_law %} complete {% endif %}">
         <div class="bill-stage-name">
           <p class="mini-emphasis">Became law</p>
         </div>
         <div class="fa-stack">
-          {% if object.became_law != None %}
+          {% if object.became_law %}
           <i class="fa fa-check-circle fa-stack-1x"></i>
           {% else %}
           <i class="fa fa-times-circle fa-stack-1x"></i>
           {% endif %}
         </div>
-        {% if object.became_law != None %}
+        {% if object.became_law %}
         <div class="date-stage-complete">
           <p class="sub-section-header">{{ object.became_law }}</p>
         </div>
