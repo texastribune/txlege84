@@ -1,10 +1,10 @@
-
+$issue-bp: new-breakpoint(min-width 671px);
 
 .issue-box {
   @include clearfix;
   background-color: $background-gray;
   margin: 1em 0 0;
-  padding: .5em;
+  padding: .5em 1.25em;
 
   p {
     font-family: $base-serif;
@@ -28,7 +28,7 @@
 
     i {
       font-size: 1.1em;
-      padding: .25em 0;
+      padding: 0 .5em 0 1em;
       margin: 0 .5em;
     }
 
@@ -44,3 +44,25 @@
   }
 }
 
+
+.issue-prose {
+  @include media($issue-bp) {
+    @include span-columns(8);
+  }
+}
+
+.related-legislation {
+  li {
+    @include media($issue-bp) {
+      @include span-columns(6);
+      @include omega(2n);
+    }
+  }
+}
+
+.related-content {
+  @include media($issue-bp) {
+    @include span-columns(4);
+    @include omega();
+  }
+}

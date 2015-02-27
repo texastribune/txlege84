@@ -7,14 +7,14 @@
 {% block content %}
   {% load staticfiles %}
   <section>
-    <header>
-      <img class="graphic header" src="{% static 'images/icons/' %}{{ topic.slug }}.svg">
-      <h2 class="page-header">
+    <header class="page-header">
+      <h2>
+        <img class="graphic header" src="{% static 'images/icons/' %}{{ topic.slug }}.svg">
         {{ topic.name }}
       </h2>
-      <p class="sub-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rhoncus massa at mauris luctus, in suscipit nibh sollicitudin.</p>
+      <p class="sub-text">Browse the issues we’re following that are related to {{ topic.name|lower }}. To see what we’re following in other categories, go <a href="/">here</a>.</p>
     </header>
-    <section class="share-page">
+    <div class="share-page">
       <ul>
         <a href="mailto:?subject=}&body=">
           <li class="email"><i class="fa fa-envelope"></i></li>
@@ -26,22 +26,24 @@
           <li class="facebook"><i class="fa fa-facebook"></i></li>
         </a>
       </ul>
-    </section>
+    </div>
+  </section>
     {% include "includes/banner_ad.html" %}
-    <section>
+  <section>
+    <article class="top-issues">
       <header>
-        <h2 class="section-header">Top Issues</h2>
+        <h2 class="sub-section-header">Top issues</h2>
       </header>
       <ul class="serif">
       {% for issue in object.issues.all.published %}
         <li><a href="{{ topic.get_absolute_url }}#{{ issue.slug }}">{{ issue.name }}</a></li>
       {% endfor %}
       </ul>
-    </section>
+    </article>
 
     {% with curators=topic.curators.all %}
     {% if curators %}
-    <section>
+    <article class="curator-list">
       <header>
         <h5 class="sub-section-header">Curated by</h5>
       </header>
@@ -52,12 +54,9 @@
         <p class="sub-text"></p>
       </div>
       {% endfor %}
-    </section>
+    </article>
     {% endif %}
     {% endwith %}
-    <nav class="full-hot-list">
-
-    </nav>
   </section>
   {% for issue in object.issues.all.published %}
     {% include "components/issue-box.html" %}
