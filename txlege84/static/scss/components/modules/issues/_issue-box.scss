@@ -44,12 +44,26 @@
 
 
 .issue-prose {
+  @include media($medium) {
+    @include span-columns(8);
+  }
+
   @include media($large) {
     @include span-columns(8);
   }
+
+}
+
+.related-legislation {
+
 }
 
 .related-content {
+  @include media($medium) {
+    @include span-columns(4);
+    @include omega();
+  }
+
   @include media($large) {
     @include span-columns(4);
     @include omega();
