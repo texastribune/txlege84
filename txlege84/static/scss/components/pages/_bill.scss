@@ -1,3 +1,5 @@
+$stages-bp: new-breakpoint(min-width 697px);
+
 .author {
   @include span-columns(12);
 }
@@ -52,6 +54,14 @@
   @include span-columns(12);
   margin-bottom: 1em;
 
+  @include media($stages-bp) {
+    @include span-columns(3);
+
+    p {
+      min-height: 2.25em;
+    }
+  }
+
   .sub-section-header{
     border-bottom: 0px solid black;
     font-family: $base-sans-serif;
@@ -60,24 +70,21 @@
   p {
     margin: 0;
     padding: 0;
-
-  }
-
-  .mini-emphasis {
-    margin: 0;
-    text-align: right;
   }
 
   .date-stage-complete {
     @include span-columns(4);
     font-size: .8em;
     font-style: italic;
-    // margin-top: .5em;
 
-    &.gov-action {
-      margin-left: 4em;
-      text-align: right;
+    @include media($stages-bp) {
+      @include span-columns(12);
+      margin-top: 1em;
+      p {
+        text-align: center;
+      }
     }
+
   }
 
   .fa {
@@ -86,6 +93,10 @@
 
   .fa-stack {
     @include span-columns(4);
+
+    @include media($stages-bp) {
+      width: 100%;
+    }
   }
 
   .fa-stack-1x {
@@ -98,44 +109,23 @@
       color: $green;
     }
   }
-
-  .topic-icon {
-    @include span-columns(1);
-  }
-
-  .topic-text {
-    @include span-columns(10);
-  }
-
-  @include media($small) {
-    @include span-columns(3);
-
-    p {
-      min-height: 2.25em;
-    }
-  }
-
-  @include media($medium) {
-    @include span-columns(3);
-
-    p {
-      min-height: 2.25em;
-    }
-  }
-
-  @include media($large) {
-    @include span-columns(3);
-
-    p {
-      min-height: 2.25em;
-    }
-  }
 }
 
 .bill-stage-name {
   @include span-columns(4);
   font-size: .9em;
   height: 2em;
+  margin: 0;
+  p {
+    text-align: right;
+  }
+
+  @include media($stages-bp) {
+    @include span-columns(12);
+    p {
+      text-align: center;
+    }
+  }
 }
 
 .hot-list-graphic {
