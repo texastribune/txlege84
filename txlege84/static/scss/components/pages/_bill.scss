@@ -147,10 +147,10 @@ $stages-bp: new-breakpoint(min-width 697px);
   .bill-categories,
   .related-issue {
     @include span-columns(12);
-    @include media ($stages-bp) {
-      @include span-columns(6);
-      @include omega(2n);
-    }
+    // @include media ($stages-bp) {
+    //   @include span-columns(6);
+    //   @include omega(2n);
+    // }
     .hot-list-graphic {
       margin: 0 .25em -.25em 0;
     }
