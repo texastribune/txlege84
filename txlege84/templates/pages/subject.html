@@ -7,8 +7,8 @@
 {% block content %}
   <section>
     <header class="page-header">
-      <h2>Browse bills by category: {{ object.name }}</h2>
-      <h4>Bills are categorized by <a href="http://openstates.org/">Open States</a>, a product of the Sunlight Foundation.</h4>
+      <h2>{{ object.name }}</h2>
+      <p class="sub-text">Bills are categorized by <a href="http://openstates.org/">Open States</a>, a product of the Sunlight Foundation.</p>
     </header>
     <div class="share-page">
       <ul>
@@ -24,6 +24,8 @@
       </ul>
     </div>
   </section>
+
+  {% include "includes/banner_ad.html" %}
 
   <section>
   {% if object.bills.first != null %}
