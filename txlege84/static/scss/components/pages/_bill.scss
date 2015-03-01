@@ -1,9 +1,4 @@
 $stages-bp: new-breakpoint(min-width 697px);
-.bill {
-  ul {
-    list-style: none;
-  }
-}
 
 .bill-page {
   h2 {
@@ -18,10 +13,16 @@ $stages-bp: new-breakpoint(min-width 697px);
 .bill-authors,
 .bill-committee-assignment {
   @include clearfix;
-  @include div-grid(12, 2);
-
+  @include span-columns(12);
   div {
     margin-bottom: .5em;
+  }
+  .committee-assignment {
+    @include span-columns(12);
+    @include media ($stages-bp) {
+      @include span-columns(6);
+      @include omega(2n);
+    }
   }
 }
 
@@ -140,6 +141,27 @@ $stages-bp: new-breakpoint(min-width 697px);
   }
 }
 
-.hot-list-graphic {
-  margin: 0 .25em -.25em;
+.bill-subject-container {
+  @include clearfix;
+  @include span-columns(12);
+  .bill-categories,
+  .related-issue {
+    @include span-columns(12);
+    @include media ($stages-bp) {
+      @include span-columns(6);
+      @include omega(2n);
+    }
+    .hot-list-graphic {
+      margin: 0 .25em -.25em 0;
+    }
+  }
+}
+
+
+
+.bill {
+  @include span-columns(12);
+  ul {
+    list-style: none;
+  }
 }

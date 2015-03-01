@@ -213,7 +213,7 @@
       <div>&nbsp;</div>
     </div>
     <div class="bill-committee-assignment">
-      <div>
+      <div class="committee-assignment">
         <header>
           <h3 class="section-header">House committee</h3>
         </header>
@@ -226,7 +226,7 @@
 
         </ul>
       </div>
-      <div>
+      <div class="committee-assignment">
         <header>
           <h3 class="section-header">Senate committee</h3>
         </header>
@@ -239,27 +239,29 @@
         </ul>
       </div>
     </div>
-    <div class="bill-categories">
-      <header>
-        <h3 class="section-header">Bill categories</h3>
-      </header>
-      <ul class="sans">
-      {% for category in object.subjects.all %}
-        <li><a href="{{ category.get_absolute_url }}">{{ category }}</a></li>
-      {% endfor %}
-      </ul>
-    </div>
-    <div class="related-issue">
-      {% if object.issues.first %}
+    <div class="bill-subject-container">
+      <div class="bill-categories">
         <header>
-          <h3 class="section-header">Related issues</h3>
+          <h3 class="section-header">Bill categories</h3>
         </header>
         <ul class="sans">
-        {% for issue in object.issues.all %}
-          <p><a href="{{ issue.get_absolute_url }}"><img class="hot-list-graphic" src="{% static 'images/icons/' %}{{ issue.topic.slug }}.svg">{{ issue.name }}</a></p>
+        {% for category in object.subjects.all %}
+          <li><a href="{{ category.get_absolute_url }}">{{ category }}</a></li>
         {% endfor %}
         </ul>
-      {% endif %}
+      </div>
+      <div class="related-issue">
+        {% if object.issues.first %}
+          <header>
+            <h3 class="section-header">Related issues</h3>
+          </header>
+          <div>
+          {% for issue in object.issues.all %}
+            <p><a href="{{ issue.get_absolute_url }}"><img class="hot-list-graphic" src="{% static 'images/icons/' %}{{ issue.topic.slug }}.svg">{{ issue.name }}</a></p>
+          {% endfor %}
+          </div>
+        {% endif %}
+      </div>
     </div>
 
     <div class="bill">
@@ -269,29 +271,29 @@
         </header>
         <p class="sub-text">{{ object.actions.last.text }} {{ object.actions.last.date }}</p>
       </div>
-    </div>
-    <header>
-      <h3 class="section-header">Actions</h3>
-    </header>
-    <div class="bill-actions bill-table">
-      <table>
-        <thead>
-          <tr>
-            <th>Action</th>
-            <th>Date</th>
-            <th>Acting Chamber</th>
-          </tr>
-        </thead>
-        <tbody>
-        {% for action in object.actions.all reversed %}
-          <tr>
-            <td data-title="Action">{{ action.text }}</td>
-            <td data-title="Date">{{ action.date|date:"SHORT_DATE_FORMAT" }}</td>
-            <td data-title="Acting Chamber">{{ action.acting_chamber.name }}</td>
-          </tr>
-        {% endfor %}
-        </tbody>
-      </table>
+      <header>
+        <h3 class="section-header">Actions</h3>
+      </header>
+      <div class="bill-actions bill-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Action</th>
+              <th>Date</th>
+              <th>Acting Chamber</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for action in object.actions.all reversed %}
+            <tr>
+              <td data-title="Action">{{ action.text }}</td>
+              <td data-title="Date">{{ action.date|date:"SHORT_DATE_FORMAT" }}</td>
+              <td data-title="Acting Chamber">{{ action.acting_chamber.name }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </section>
