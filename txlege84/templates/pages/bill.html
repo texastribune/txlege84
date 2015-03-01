@@ -30,7 +30,7 @@
   <div class="bill bill-page">
     <div class="bill-stages">
       <header>
-        <h3 class="section-header">Bill Stages</h3>
+        <h3 class="section-header">Bill stages</h3>
       </header>
       <div class="bill-stage {% if object.first_action_date %} complete {% endif %} ">
         <div class="bill-stage-name">
@@ -154,7 +154,7 @@
             <img class="author-img" src="{{ author.legislator.tribune_photo }}">
             <div class="author-block">
               <p class="emphasis"><a href="{{ author.legislator.get_absolute_url }}">{{ author.legislator }}</a></p>
-              <p class="subtext">State {% if object.chamber.name == "Texas Senate" %} Senator, {% else %} Representative, {% endif %} ({{ author.legislator.party.short_name }})</p>
+              <p class="subtext">State {{ author.legislator.chamber.member_title }} <span class="{% if author.legislator.party.short_name == 'D' %} democratic {% else %} republican {% endif %}">({{ author.legislator.party.short_name }})</span></p>
             </div>
           </div>
           {% endif %}
@@ -171,7 +171,7 @@
         <ul class="sans">
           {% for coauthors in object.sponsorships.all %}
             {% if coauthors.role = 'coauthor' %}
-            <li>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{{ coauthors.legislator.get_absolute_url }}">{{ coauthors }} <span class="{% if coauthors.legislator.party.short_name == 'D' %} democrat {%else%} republican {%endif%}">{{ coauthors.legislator.party.short_name }}</span></a></li>
+            <li>{{ object.chamber.short_name }}<a href="{{ coauthors.legislator.get_absolute_url }}">{{ coauthors }} <span class="{% if coauthors.legislator.party.short_name == 'D' %} democratic {% else %} republican {% endif %}">{{ coauthors.legislator.party.short_name }}</span></a></li>
             {% endif %}
           {% endfor %}
         </ul>
@@ -181,11 +181,11 @@
       {% if 'sponsor' in object.sponsorships.all.role %}
       <div>
         <header>
-          <h3 class="section-header">Bill Sponsors</h3>
+          <h3 class="section-header">Bill sponsors</h3>
         </header>
         {% for sponsors in object.sponsorships.all %}
           {% if sponsors.role = 'sponsor' %}
-            <p>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{{ sponsors.legislator.get_absolute_url }}">{{ sponsors.legislator }} <span class="{% if sponsors.legislator.party.short_name == 'D' %} democrat {% else %} republican {% endif %}">({{ sponsors.legislator.party.short_name }})</span></a></p>
+            <p>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{{ sponsors.legislator.get_absolute_url }}">{{ sponsors.legislator }} <span class="{% if sponsors.legislator.party.short_name == 'D' %} democratic {% else %} republican {% endif %}">({{ sponsors.legislator.party.short_name }})</span></a></p>
           {% endif %}
         {% endfor %}
       </div>
@@ -199,7 +199,7 @@
           <ul class="sans">
             {% for cosponsor in object.sponsorships.all %}
               {% if cosponsor.role == 'cosponsor' %}
-              <li>{{ cosponsor.legislator }} (<span class="{% if cosponsor.legislator.party.short_name == 'D' %} democrat {% else %} republican {% endif %}">{{ cosponsor.legislator.party.short_name }})</span></li>
+              <li>{{ cosponsor.legislator }} (<span class="{% if cosponsor.legislator.party.short_name == 'D' %} democratic {% else %} republican {% endif %}">{{ cosponsor.legislator.party.short_name }})</span></li>
               {% endif %}
             {% endfor %}
           </ul>
@@ -212,7 +212,7 @@
     <div class="bill-committee-assignment">
       <div>
         <header>
-          <h3 class="section-header">House Committee</h3>
+          <h3 class="section-header">House committee</h3>
         </header>
         <ul class="sans">
         {% if not object.house_committee %}
@@ -225,7 +225,7 @@
       </div>
       <div>
         <header>
-          <h3 class="section-header">Senate Committee</h3>
+          <h3 class="section-header">Senate committee</h3>
         </header>
         <ul class="sans">
         {% if not object.senate_committee %}
@@ -249,7 +249,7 @@
     <div class="related-issue">
       {% if object.issues.first %}
         <header>
-          <h3 class="section-header">Related Issues</h3>
+          <h3 class="section-header">Related issues</h3>
         </header>
         <ul class="sans">
         {% for issue in object.issues.all %}
@@ -262,12 +262,14 @@
     <div class="bill">
       <div class="bill-section">
         <header>
-          <h3 class="section-header">Last Action</h3>
+          <h3 class="section-header">Last action</h3>
         </header>
         <p class="sub-text">{{ object.actions.last.text }} {{ object.actions.last.date }}</p>
       </div>
     </div>
-
+    <header>
+      <h3 class="section-header">Actions</h3>
+    </header>
     <div class="bill-actions bill-table">
       <table>
         <thead>
