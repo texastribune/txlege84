@@ -1,17 +1,4 @@
 $stages-bp: new-breakpoint(min-width 697px);
-
-.author {
-  @include span-columns(12);
-}
-
-.author-block {
-  @include span-columns(7);
-}
-
-.author-img {
-  @include span-columns(4);
-}
-
 .bill {
   ul {
     list-style: none;
@@ -38,6 +25,27 @@ $stages-bp: new-breakpoint(min-width 697px);
   }
 }
 
+.bill-author {
+  @include clearfix;
+  margin: 1em 0;
+  @include span-columns(12);
+  @include media($stages-bp) {
+    @include span-columns(6);
+    @include omega(2n);
+  }
+  .author {
+    @include span-columns(12);
+  }
+
+  .author-block {
+    @include span-columns(7);
+  }
+
+  .author-img {
+    @include span-columns(4);
+  }
+}
+
 .bill-actions,
 .bill-stages,
 .related-issue {
@@ -48,6 +56,9 @@ $stages-bp: new-breakpoint(min-width 697px);
   color: $text-gray;
   font-weight: 300;
   line-height: 1.2;
+  @include media ($phead-large) {
+    @include span-columns(7);
+  }
 }
 
 .bill-stage {

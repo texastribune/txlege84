@@ -7,26 +7,29 @@
 {% load staticfiles %}
 {% block content %}
 <section>
-  <header class="bill-page">
-    <h2 class="page-header">{{ object.long_name }}</h2>
+  <header class="page-header">
+    <h2>{{ object.long_name }}</h2>
     <p class="sub-text">{{ object.description }}</p>
     <p class="bill-detail"><i class="fa fa-file-text-o"></i><em>Read the full <a href="http://www.legis.state.tx.us/BillLookup/Text.aspx?LegSess=84R&Bill={{ object.slug }}" target="_blank">Bill Text</a> and <a href="http://www.capitol.state.tx.us/BillLookup/Amendments.aspx?LegSess=84R&Bill={{ object.slug }}" target="_blank">Amendments</a></em></p>
-    <section class="share-page">
-      <ul>
-        <a href="mailto:?subject=}&body=">
-          <li class="email"><i class="fa fa-envelope"></i></li>
-        </a>
-        <a href="https://twitter.com/intent/tweet?text=&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
-          <li class="facebook"><i class="fa fa-twitter"></i></li>
-        </a>
-        <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=TK&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
-          <li class="twitter"><i class="fa fa-facebook"></i></li>
-        </a>
-      </ul>
-    </section>
   </header>
+  <div class="share-page">
+    <ul>
+      <a href="mailto:?subject=}&body=">
+        <li class="email"><i class="fa fa-envelope"></i></li>
+      </a>
+      <a href="https://twitter.com/intent/tweet?text=&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
+        <li class="facebook"><i class="fa fa-twitter"></i></li>
+      </a>
+      <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=TK&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
+        <li class="twitter"><i class="fa fa-facebook"></i></li>
+      </a>
+    </ul>
+  </div>
+</section>
 
+{% include "includes/banner_ad.html" %}
 
+<section>
   <div class="bill bill-page">
     <div class="bill-stages">
       <header>
@@ -144,7 +147,7 @@
       </div>
     </div>
     <div class="bill-authors">
-      <div>
+      <article class="bill-author">
         <header>
           <h3 class="section-header">Bill authors</h3>
         </header>
@@ -159,7 +162,7 @@
           </div>
           {% endif %}
         {% endfor %}
-      </div>
+      </article>
       {% if 'coauthor' in object.sponsorships.all.role %}
       <div>
         <div class="shutter">
