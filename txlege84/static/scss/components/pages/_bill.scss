@@ -57,6 +57,7 @@ $stages-bp: new-breakpoint(min-width 697px);
   color: $text-gray;
   font-weight: 300;
   line-height: 1.2;
+  margin: 0;
   @include media ($phead-large) {
     @include span-columns(7);
   }
@@ -144,16 +145,8 @@ $stages-bp: new-breakpoint(min-width 697px);
 .bill-subject-container {
   @include clearfix;
   @include span-columns(12);
-  .bill-categories,
-  .related-issue {
-    @include span-columns(12);
-    // @include media ($stages-bp) {
-    //   @include span-columns(6);
-    //   @include omega(2n);
-    // }
-    .hot-list-graphic {
-      margin: 0 .25em -.25em 0;
-    }
+  .hot-list-graphic {
+    margin: 0 .25em -.25em 0;
   }
 }
 
