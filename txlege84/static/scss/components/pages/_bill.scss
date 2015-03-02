@@ -44,6 +44,11 @@ $stages-bp: new-breakpoint(min-width 697px);
 
   .author-img {
     @include span-columns(4);
+    float: left;
+    display: block;
+    max-width: 131px;
+    margin: 0 1em 1em 0;
+    width: 100%;
   }
 }
 
