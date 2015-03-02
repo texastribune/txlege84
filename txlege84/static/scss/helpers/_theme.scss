@@ -31,14 +31,6 @@
     }
   }
 
-  @include media($medium) {
-    height: 13em;
-  }
-
-  @include media($large) {
-    height: 13em;
-  }
-
 }
 
 .banner-image {
