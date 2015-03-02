@@ -1,7 +1,7 @@
  .banner {
   @include clearfix;
   display: table;
-  height: 13em;
+  height: 10em;
   margin: 0;
   padding: 0;
   position: relative;
@@ -31,16 +31,38 @@
     }
   }
 
+  @include media($medium) {
+    height: 13em;
+  }
+
+  @include media($large) {
+    height: 13em;
+  }
+
 }
 
 .banner-image {
-  background: url('../images/on-the-lege-capitol-lrg-bg004.jpg') no-repeat center center;
-  background-size: cover;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
+
+  @include media($medium) {
+    background: url('../images/on-the-lege-capitol-lrg-bg004.jpg') no-repeat center center;
+    background-size: cover;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+  }
+
+  @include media($large) {
+    background: url('../images/on-the-lege-capitol-lrg-bg004.jpg') no-repeat center center;
+    background-size: cover;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 }
 
 
