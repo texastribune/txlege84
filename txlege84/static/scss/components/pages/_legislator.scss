@@ -25,6 +25,13 @@
     margin: 0 auto;
     text-align: center;
     margin-top: 1.5em;
+    @include media($large) {
+      margin-top: .25em;
+    }
+
+    @include media($medium) {
+      margin-top: .25em;
+    }
 
     .lawmaker-img {
       @include media($large) {
@@ -102,10 +109,27 @@
   }
 }
 
-.share-wrapper {
+.large-share-wrapper {
   .share-page {
+    @include media($small) {
+      display: none;
+    }
     @include media($medium) {
-      @include span-columns(12);
+      @include span-columns(6);
+    }
+  }
+}
+
+.small-share-wrapper {
+  .share-page {
+    @include media($small) {
+      display: block;
+    }
+    @include media($medium) {
+      display: none;
+    }
+    @include media($large) {
+      display: none;
     }
   }
 }
