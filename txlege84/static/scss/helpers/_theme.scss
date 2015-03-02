@@ -377,3 +377,36 @@ hr.video-divider {
   width: 40%;
   text-align: center;
 }
+
+.newsletter-signup {
+  margin-bottom: 3em;
+  input[type=email] {
+    @include span-columns(12);
+    width: 100%;
+    margin: 0 0 1em;
+    padding: .5em;
+    @include media($large) {
+      @include span-columns(6);
+    }
+    @include media($medium) {
+      @include span-columns(6);
+    }
+
+  }
+
+  .sub-section-header {
+    border: none;
+  }
+
+  .button {
+    @include span-columns(12);
+    margin-bottom: 2em;
+    @include media($large) {
+      @include span-columns(3);
+    }
+    @include media($medium) {
+      @include span-columns(3);
+    }
+  }
+}
+
