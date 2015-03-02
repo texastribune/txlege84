@@ -17,6 +17,11 @@ class SubjectDetail(AllSubjectsMixin, AllLegislatorsMixin, DetailView):
     template_name = 'pages/subject.html'
 
 
+class SubjectListDetail(ListView):
+    model = Subject
+    template_name = 'pages/subject-list.html'
+
+
 class BillSearchView(AllLegislatorsMixin, AllSubjectsMixin,
                      AllCommitteesMixin, TemplateView):
     template_name = 'pages/find-bills.html'
