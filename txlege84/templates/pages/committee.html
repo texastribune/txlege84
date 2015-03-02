@@ -35,7 +35,7 @@
         <header class="chair-detail">
           <h3 class="section-header">Chair</h3>
           <p class="emphasis"><a href="{{ committee.chair.get_absolute.url }}">{{ committee.chair }}</a></p>
-          <p class="sub-text">State {{ committee.chair.chamber.member_title }} (<span class="{{ committee.chair.party.name|lower }}">{{ committee.chair.party.short_name }}</span>)</p>
+          <p class="sub-text">State {{ committee.chair.chamber.member_title }} <span class="{{ committee.chair.party.name|lower }}">({{ committee.chair.party.short_name }})</span></p>
         </header>
     </article>
     <article class="committee-chairs">
@@ -45,7 +45,7 @@
       <header class="chair-detail">
         <h3 class="section-header">Vice Chair</h3>
         <p class="emphasis"><a href="{{ committee.vice_chair.get_absolute.url }}">{{ committee.vice_chair }}</a></p>
-        <p class="sub-text">State {{ committee.vice_chair.chamber.member_title }} (<span class="{{ committee.vice_chair.party.name|lower }}">{{ committee.vice_chair.party.short_name }}</span>)</p>
+        <p class="sub-text">State {{ committee.vice_chair.chamber.member_title }} <span class="{{ committee.vice_chair.party.name|lower }}">({{ committee.vice_chair.party.short_name }})</span></p>
       </header>
     </article>
     <article class="committee-members">
@@ -54,7 +54,7 @@
       </header>
       <ul>
       {% for member in committee.member_list %}
-        <li><a href="{{ member.legislator.get_absolute_url }}">{{ member.legislator.last_first_full_name }} (<span class="{{ member.legislator.party.name|lower }}">{{ member.legislator.party.short_name }}</span>)</a></li>
+        <li><a href="{{ member.legislator.get_absolute_url }}">{{ member.legislator.last_first_full_name }} <span class="{{ member.legislator.party.name|lower }}">({{ member.legislator.party.short_name }})</span></a></li>
       {% endfor %}
       </ul>
     </article>
