@@ -28,8 +28,8 @@
 </section>
 <section>
   <ul class="sans">
-  {% for category in object.all %}
-    <li>{{ category.name }}</li>
+  {% for category in object_list %}
+    <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
   {% endfor %}
   </ul>
 </section>
