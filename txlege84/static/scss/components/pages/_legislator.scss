@@ -8,7 +8,9 @@
     @include span-columns(4);
   }
   @include media($medium) {
-    @include span-columns(4);
+    @include span-columns(6);
+    margin: 0;
+    padding: 0;
   }
 
   p {
@@ -30,17 +32,24 @@
       }
 
       @include media($medium) {
-        @include span-columns(7);
+        @include span-columns(5);
       }
     }
 
     .lawmaker-header {
       @include media($large) {
         @include span-columns(5);
+        text-align: left;
       }
 
       @include media($medium) {
-        @include span-columns(5);
+        @include span-columns(7);
+        p {
+          text-align: left;
+        }
+        .lawmaker-name {
+          margin-bottom: .5em;
+        }
       }
 
       .lawmaker-name {
@@ -61,7 +70,9 @@
   }
 
   @include media($medium) {
-    @include span-columns(3);
+    @include span-columns(6);
+    margin: 0;
+    padding: 0;
   }
 
   margin-bottom: 1em;
@@ -81,6 +92,14 @@
       @include span-columns(12);
     }
     @include media($large) {
+      @include span-columns(12);
+    }
+  }
+}
+
+.share-wrapper {
+  .share-page {
+    @include media($medium) {
       @include span-columns(12);
     }
   }
