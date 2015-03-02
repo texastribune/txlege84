@@ -65,15 +65,21 @@ class Bill(models.Model):
 
     @property
     def house_committee(self):
-        return self.actions.reverse().exclude(
-            related_committee__isnull=True).filter(
-            acting_chamber__name='Texas House')[0].related_committee
+        try:
+            return self.actions.reverse().exclude(
+                related_committee__isnull=True).filter(
+                acting_chamber__name='Texas House')[0].related_committee
+        except IndexError:
+            return None
 
     @property
     def senate_committee(self):
-        return self.actions.reverse().exclude(
-            related_committee__isnull=True).filter(
-            acting_chamber__name='Texas Senate')[0].related_committee
+        try:
+            return self.actions.reverse().exclude(
+                related_committee__isnull=True).filter(
+                acting_chamber__name='Texas Senate')[0].related_committee
+        except IndexError:
+            return None
 
     @property
     def long_name(self):
