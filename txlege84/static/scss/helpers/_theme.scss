@@ -244,33 +244,16 @@ p {
     color: $shutter-gray;
     cursor: pointer;
     font-family: $base-sans-serif;
-    font-size: .9em;
+    font-size: .875em;
     font-weight: 500;
     letter-spacing: .1em;
     margin: 0 0 .3em;
     padding: 1em 1.25em;
-    text-align: left;
     text-transform: uppercase;
-    width: 100%;
 
     &:hover {
       color: $li-black;
     }
-  }
-
-  .icon {
-    float: right;
-    font-size: 1.7em;
-    line-height: .5;
-
-    &.open {
-      color: $li-black;
-    }
-
-    &.close {
-      color: $shutter-gray;
-    }
-
   }
 
   .shutter-content {
@@ -280,6 +263,25 @@ p {
     &-open {
       display: block;
       margin-bottom: .5em;
+    }
+  }
+}
+
+.shutter-icon {
+  color: $li-black;
+  float: right;
+  font-size: 1.7em;
+  line-height: .5;
+
+  &:before {
+    content: '\002B';
+  }
+
+  &-open {
+    color: $shutter-gray;
+
+    &:before {
+      content: '\2212';
     }
   }
 }

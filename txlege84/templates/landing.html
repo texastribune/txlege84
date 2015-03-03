@@ -41,8 +41,7 @@
         <div class="shutter-label">
           <img class="graphic" src="{% static 'images/icons/' %}{{ topic.slug }}.svg">
           {{ topic.name }}
-          <span class="icon closed">&#43;</span>
-          <span class="icon open">&#45;</span>
+          <span class="shutter-icon{% if forloop.first %} shutter-icon-open{% endif %}"></span>
         </div>
 
         <div class="shutter-content{% if forloop.first %} shutter-content-open{% endif %}">
