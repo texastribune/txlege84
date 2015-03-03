@@ -1,0 +1,9 @@
+<section class="alert-bar">
+  <a href="{% url 'legestream' %}">
+    <i class="alert-arrow fa fa-angle-double-right"></i>
+    <div class="body-main">
+        <p class="alert-chamber">The {{ convene_time.chamber.name }} is LIVE.</p>
+        <p class="alert-time">Started {{ convene_time.time|timesince }} ago</p>
+    </div>
+  </a>
+</section>

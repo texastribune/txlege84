@@ -75,7 +75,15 @@
       <p class="sub-text center">Your go-to resource for the 2015 Texas legislative session</p>
     </header>
   </section>
+
   <main class="main-container">
+    {% if house_convene.stream_is_live %}
+      {% include "components/alert.html" with convene_time=house_convene %}
+    {% endif %}
+    {% if senate_convene.stream_is_live %}
+      {% include "components/alert.html" with convene_time=senate_convene %}
+    {% endif %}
+    
     {% block page_header %}{% endblock %}
     <section class="body-main">
     {% block content %}{% endblock %}
