@@ -35,9 +35,10 @@
       <header class="featured">
         <h4 class="featured-content">Featured content</h4>
       </header>
-      {% endif %}
       <div class="shutter">
-
+      {% else %}
+      <div class="shutter topic-list">
+      {% endif %}
         <div class="shutter-label">
           <img class="graphic" src="{% static 'images/icons/' %}{{ topic.slug }}.svg">
           {{ topic.name }}
@@ -54,7 +55,7 @@
             <li><span><a href="{{ topic.get_absolute_url }}">{{ issuelist }}</a></span></li>
             {% endfor %}
           </ul>
-          <p class="mini-emphasis more-issues center"><a href="{{ topic.get_absolute_url }}"><span>&#43; </span>More issues</a></p>
+          <p class="mini-emphasis more-issues"><a href="{{ topic.get_absolute_url }}"><span>&#43; </span>More issues</a></p>
         </article>
         {% with curators=topic.curators.all %}
         {% if curators %}

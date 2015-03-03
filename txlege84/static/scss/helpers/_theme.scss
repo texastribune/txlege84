@@ -249,8 +249,9 @@ p {
 
 .shutter {
   @include clearfix;
-  border: 3px solid $text-offwhite;
+  // border: 3px solid $text-offwhite;
   margin: 0 0 .5em;
+
 
   .shutter-label {
     background-color: $text-offwhite;
@@ -266,6 +267,7 @@ p {
 
     &:hover {
       color: $li-black;
+      background-color: rgb(250, 250, 250);
     }
   }
 
