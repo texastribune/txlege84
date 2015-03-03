@@ -8,7 +8,7 @@
   <section>
     <header class="page-header">
       <h2>{{ object.name }}</h2>
-      <p class="sub-text">Bills are categorized by <a href="http://openstates.org/">Open States</a>, a product of the Sunlight Foundation. <a href="{% url 'category-list-detail' %}">Click here</a> to view all bill categories.</p>
+      <p class="sub-text">Bills are categorized by <a href="http://openstates.org/">Open States</a>, a product of the Sunlight Foundation. <a href="{% url 'category-list-detail' %}">View all bill categories</a>.</p>
     </header>
     <div class="share-page">
       <ul>
@@ -38,7 +38,7 @@
         </tr>
       </thead>
       <tbody>
-      {% for bill in object.bills.all %}
+      {% for bill in subject.bills.all %}
         <tr>
           <td data-title="Bill"><a href="{{ bill.get_absolute_url }}">{{ bill.name }}</a></td>
           <td data-title="Caption">{{ bill.description }}</td>
@@ -53,4 +53,3 @@
   </section>
 
 {% endblock %}
-
