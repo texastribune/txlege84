@@ -3,11 +3,13 @@ from django.utils.translation import ugettext as _
 from django.views.generic import DetailView
 
 from bills.mixins import AllSubjectsMixin
+from core.mixins import ConveneTimeMixin
 from legislators.mixins import AllLegislatorsMixin
 from committees.models import Committee
 
 
-class CommitteeDetail(AllSubjectsMixin, AllLegislatorsMixin, DetailView):
+class CommitteeDetail(AllSubjectsMixin, AllLegislatorsMixin,
+                      ConveneTimeMixin, DetailView):
     model = Committee
     template_name = 'pages/committee.html'
 
@@ -21,7 +23,8 @@ class CommitteeDetail(AllSubjectsMixin, AllLegislatorsMixin, DetailView):
         if slug is not None and chamber_slug is not None:
             chamber_field = 'chamber__slug'
             slug_field = self.get_slug_field()
-            queryset = queryset.filter(**{slug_field: slug, chamber_field: chamber_slug})
+            queryset = queryset.filter(
+                **{slug_field: slug, chamber_field: chamber_slug})
 
         # If none of those are defined, it's an error.
         else:

@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils import timezone
 
 from legislators.models import Chamber
 
@@ -17,3 +18,9 @@ class ConveneTime(models.Model):
 
     def __unicode__(self):
         return u'Time for {}'.format(self.chamber)
+
+    @property
+    def stream_is_live(self):
+        if self.time < timezone.now():
+            return True
+        return False
