@@ -114,11 +114,16 @@
 
 }
 
+.featured {
+  border-bottom: 3px solid $teal;
+}
+
 // h4
 .featured-content {
   background: $teal;
   border-radius: 3px 3px 0 0;
   color: $white;
+  display: block;
   font-family: $base-serif;
   font-size: .85em;
   font-style: italic;
@@ -129,6 +134,14 @@
   padding: .375em 1em .3em;
   text-align: left;
   text-transform: uppercase;
+
+  @include media($medium) {
+    display: inline-block;
+  }
+
+  @include media($large) {
+    display: inline-block;
+  }
 }
 
 // h5
