@@ -409,7 +409,9 @@ hr.video-divider {
 }
 
 .newsletter-signup {
-  margin-bottom: 3em;
+  @include clearfix;
+
+  margin-bottom: 1.5em;
   input[type=email] {
     @include span-columns(12);
     width: 100%;
