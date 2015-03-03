@@ -40,33 +40,20 @@
 <body>
 
   <section class="masthead">
-    <div class="container">
-      <a href="http://www.texastribune.org">
-        <img class="trib-logo" alt="The Texas Tribune" src="{% static 'images/brand/tribune-nameplate-white.svg' %}">
-      </a>
-      <button id="menu-button" class="menu-button"><i class="fa fa-bars"></i></button>
-    </div>
+    <a href="http://www.texastribune.org">
+      <img class="trib-logo" alt="The Texas Tribune" src="{% static 'images/brand/tribune-nameplate-white.svg' %}">
+    </a>
+    <button id="menu-button" class="menu-button"><i class="fa fa-bars"></i></button>
   </section>
 
   <nav id="menu-nav" class="menu-nav">
-    <div class="container">
-      <ul>
-        <li><a href="{% url 'find-bills' %}">Find Bills</a></li>
-        <li><a href="{% url 'landing-view' %}">Issues by Topic</a></li>
-        <li><a href="{% url 'legestream' %}">Livestream</a></li>
-        <li><a href="{% url 'explainer-list-detail' %}">How Session Works</a></li>
-        <li id="sub-nav-container" class="sub-nav-container">
-          <a id="sub-nav-trigger" href="javascript:void(0)">Resources <i class="fa fa-chevron-down"></i></a>
-          <ul id="sub-nav" class="sub-nav">
-            <li><a href="http://www.texastribune.org/bidness/explore/">Ethics Explorer</a></li>
-            <li><a href="http://www.texastribune.org/directory/">Elected Officials Directory</a></li>
-            <li><a href="http://s3.amazonaws.com/static.texastribune.org/media/documents/TT-84thLege-HouseSeating2015.pdf">House Seating Chart</a></li>
-            <li><a href="http://s3.amazonaws.com/static.texastribune.org/media/documents/TT-84thLege-SenateSeating2015.pdf">Senate Seating Chart</a></li>
-            <li><a href="http://www.texastribune.org/directory/offices/">Capitol Map</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+    <ul>
+      <a href="{% url 'find-bills' %}"><li>Find Bills</li></a>
+      <a href="{% url 'landing-view' %}"><li>Browse Issues by Topic</li></a>
+      <a href="{% url 'legestream' %}"><li>Chamber Livestream</li></a>
+      <a href="{% url 'explainer-list-detail' %}"><li>How the Legislature Works</li></a>
+      <li>Session Resources</li>
+    </ul>
   </nav>
   <section class="banner">
     <div class="banner-image"></div>
