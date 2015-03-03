@@ -89,9 +89,10 @@ $menu-breakpoint: new-breakpoint(min-width 55.625em); // 890px
   .container > ul {
     list-style: none;
 
-    > li {
+    li {
       @include media($menu-breakpoint) {
         display: inline-block;
+        text-align: right;
       }
     }
   }
