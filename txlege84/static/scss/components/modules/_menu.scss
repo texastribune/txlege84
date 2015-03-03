@@ -58,6 +58,11 @@ $menu-breakpoint: new-breakpoint(min-width 55.625em); // 890px
     float: right;
     font-size: .65em;
     margin: .28em 0 0 .5em; // Center fa w/ text
+
+    @include media($menu-breakpoint) {
+      float: none;
+      margin: 0;
+    }
   }
 
   a {
