@@ -55,7 +55,9 @@ $menu-breakpoint: new-breakpoint(min-width 55.625em); // 890px
   }
 
   .fa {
-    margin: 0; // forcefully overwriting a greedy .fa margin-right somewhere up the chain
+    float: right;
+    font-size: .65em;
+    margin: .28em 0 0 .5em; // Center fa w/ text
   }
 
   a {
