@@ -340,6 +340,21 @@ ul {
       font-family: $base-sans-serif;
       margin: 0 auto .75em;
     }
+
+    &.find-bill-list {
+      li {
+        @include media($medium) {
+          @include span-columns(6);
+          @include omega(2n);
+        }
+
+        @include media($large) {
+          @include span-columns(4);
+          @include omega(3n);
+        }
+      }
+    }
+
   }
 
   &.serif {
