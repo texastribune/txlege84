@@ -34,11 +34,6 @@ $com-bp-large: new-breakpoint(min-width 749px);
 .committee-members {
   @include span-columns(12);
 
-  .yellow-hr {
-    background-color: $tribune-yellow;
-    height: 1px;
-  }
-
   li {
     margin: 1em 0;
     @include media($com-bp-large) {
@@ -47,23 +42,4 @@ $com-bp-large: new-breakpoint(min-width 749px);
     }
   }
 
-}
-
-.newsletter-signup {
-  margin-bottom: 3em;
-  input[type=email] {
-    @include span-columns(12);
-    width: 100%;
-    margin: 0 0 1em;
-    padding: .5em;
-  }
-
-  .sub-section-header {
-    border: none;
-  }
-
-  .button {
-    @include span-columns(12);
-    margin-bottom: 2em;
-  }
 }
