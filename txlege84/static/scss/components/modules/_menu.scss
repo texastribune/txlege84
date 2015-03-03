@@ -142,8 +142,8 @@ $menu-breakpoint: new-breakpoint(min-width 55.625em); // 890px
 
   a {
     background-color: darken($tagline-black, 5%);
-    font-size: .75em; // 12px
-    padding: .9em; // 12px 10px
+    font-size: .7em; // 12px
+    padding: .9em .9em .9em 1.7em; // Indent sub nav just slightly
 
     @include media($menu-breakpoint) {
       background-color: transparent;
