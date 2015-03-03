@@ -249,17 +249,18 @@ p {
 
 .shutter {
   @include clearfix;
-  background: $text-offwhite;
+  border: 3px solid $text-offwhite;
+  margin: 0 0 .5em;
 
   .shutter-label {
-    border-bottom: 2px solid $white;
+    background-color: $text-offwhite;
     color: $shutter-gray;
     cursor: pointer;
     font-family: $base-sans-serif;
     font-size: .875em;
     font-weight: 500;
     letter-spacing: .1em;
-    margin: 0 0 .3em;
+    margin: 0;
     padding: 1em 1.25em;
     text-transform: uppercase;
 

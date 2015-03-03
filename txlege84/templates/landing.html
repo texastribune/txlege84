@@ -45,6 +45,7 @@
         </div>
 
         <div class="shutter-content{% if forloop.first %} shutter-content-open{% endif %}">
+        <article class="top-issues">
           <header>
             <h5 class="sub-section-header">Top issues</h5>
           </header>
@@ -54,22 +55,23 @@
             {% endfor %}
           </ul>
           <p class="mini-emphasis more-issues center"><a href="{{ topic.get_absolute_url }}"><span>&#43; </span>More issues</a></p>
-          {% with curators=topic.curators.all %}
-          {% if curators %}
-          <section>
-            <header>
-              <h5 class="sub-section-header">Curated by</h5>
-            </header>
-            {% for curator in curators %}
-            <div class="curated-by">
-              <img clas="headshot" src="{{ curator.staff.profile_photo }}">
-              <p class="emphasis">{{ curator.first_name }} {{ curator.last_name }}</p>
-              <p class="sub-text"></p>
-            </div>
-            {% endfor %}
-          </section>
-          {% endif %}
-          {% endwith %}
+        </article>
+        {% with curators=topic.curators.all %}
+        {% if curators %}
+        <article class="curator-list">
+          <header>
+            <h5 class="sub-section-header">Curated by</h5>
+          </header>
+          {% for curator in curators %}
+          <div class="curated-by">
+            <img clas="headshot" src="{{ curator.staff.profile_photo }}">
+            <p class="emphasis">{{ curator.first_name }} {{ curator.last_name }}</p>
+            <p class="sub-text"></p>
+          </div>
+          {% endfor %}
+        </article>
+        {% endif %}
+        {% endwith %}
         </div>
       </div>
     </article>
