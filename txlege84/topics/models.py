@@ -94,11 +94,11 @@ class StoryPointer(models.Model):
     headline = models.CharField(max_length=200)
     url = models.URLField()
     pub_date = models.DateField()
-    order = models.PositiveIntegerField(default=0)
+    order = models.PositiveIntegerField(default=0)  # no longer used!
     issue = models.ForeignKey(Issue, related_name='stories')
 
     class Meta:
-        ordering = ('order',)
+        ordering = ('-pub_date',)
 
     def __unicode__(self):
         return self.headline
