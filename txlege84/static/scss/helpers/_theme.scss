@@ -407,6 +407,9 @@ hr.video-divider {
     @include media($medium) {
       @include span-columns(3);
     }
+    &:hover {
+      padding: .7em;
+    }
   }
 }
 
