@@ -6,37 +6,74 @@
 
 {% block content %}
 <section>
-  <header class="page-header legislator-details">
-    <div class="headshot">
-    <img src="{{ object.tribune_photo }}">
-      <p class="lawmaker-name emphasis">{{ object.chamber.short_name }} {{ object.full_name }}</p>
-      <p class="subtext">({{ object.party.short_name }}-{{ object.tribune_city }}),{% if object.chamber.name == "Texas Senate" %} Senate {% else %} House {% endif %} District {{ object.district }}</p>
+  <section class="desktop-header">
+    <div class="lawmaker-photo">
+      <img class="desktop-image" src="{{ object.tribune_photo }}">
     </div>
-  </header>
-  <section class="share-page">
+    <div class="lawmaker-desktop-intro">
+      <header class="lawmaker-name page-header">
+        <h2>{{ object.chamber.short_name }} {{ object.full_name }}</h2>
+        <p class="sub-text">District {{ object.district }} (<span class="{{ object.party.name|lower }}">{{ object.party.short_name }}</span> - {{ object.tribune_city }})</p>
+        <p class="sub-text"><a href="{{ object.tribune_directory_url }} target=_blank">View in Directory</a>, or <a href="{{ object.tribune_ethics_url }} target=_blank">view in Ethics Explorer</a>.</p>
+      </header>
+      <div class="lawmaker-links">
+        <p class="emphasis">Capitol office:</p>
+        {% if object.tribune_room %}
+        <p class="sub-text">Room: {{ object.tribune_room }} (<a href="https://www.texastribune.org/directory/offices/{{ object.tribune_room }}/">See on map</a>)</p>
+        {% endif %}
+        <p class="sub-text">Phone: <a href="tel:{{ object.capitol_phone }}">{{ object.capitol_phone }}</a></p>
+      <!-- <a href="{{ object.tribune_directory_url }}"><button class="button">View in Directory</button></a>
+      <a href="{{ object.tribune_ethics_url }}"><button class="button">View in Ethics Explorer</button></a> -->
+    </div>
+  </div>
+    <section class="share-page">
     <ul>
       <a href="mailto:?subject=}&body=" class="social-share">
         <li class="email"><i class="fa fa-envelope"></i></li>
       </a>
       <a href="https://twitter.com/intent/tweet?text=&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
-        <li class="facebook"><i class="fa fa-twitter"></i></li>
+        <li class="twitter"><i class="fa fa-twitter"></i></li>
       </a>
       <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=TK&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
-        <li class="twitter"><i class="fa fa-facebook"></i></li>
+        <li class="facebook"><i class="fa fa-facebook"></i></li>
       </a>
     </ul>
+    </section>
   </section>
-</section>
-<section class="lawmaker-links">
-  <header>
-    <h3 class="section-header">Capitol Office:</h3>
-    {% if object.tribune_room %}
-    <p class="sub-text">Room: {{ object.tribune_room }} (<a href="https://www.texastribune.org/directory/offices/{{ object.tribune_room }}/">See on map</a>)</p>
-    {% endif %}
-    <p class="sub-text">Phone: <a href="tel:{{ object.capitol_phone }}">{{ object.capitol_phone }}</a></p>
-  </header>
-  <a href="{{ object.tribune_directory_url }}"><button class="button">View in Directory</button></a>
-  <a href="{{ object.tribune_ethics_url }}"><button class="button">View in Ethics Explorer</button></a>
+
+  <section class="mobile-header legislator-details">
+    <header>
+      <div class="headshot">
+        <img class="lawmaker-img" src="{{ object.tribune_photo }}">
+        <p class="lawmaker-name emphasis">{{ object.chamber.short_name }} {{ object.full_name }}</p>
+        <p class="subtext">District {{ object.district }} (<span class="{{ object.party.name|lower }}">{{ object.party.short_name }}</span>-{{ object.tribune_city }})</p>
+      </div>
+    </header>
+    <section class="share-page">
+      <ul>
+        <a href="mailto:?subject=}&body=" class="social-share">
+          <li class="email"><i class="fa fa-envelope"></i></li>
+        </a>
+        <a href="https://twitter.com/intent/tweet?text=&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
+          <li class="facebook"><i class="fa fa-twitter"></i></li>
+        </a>
+        <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=TK&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
+          <li class="twitter"><i class="fa fa-facebook"></i></li>
+        </a>
+      </ul>
+    </section>
+    <section class="lawmaker-links">
+      <header>
+        <h3 class="section-header">Capitol office:</h3>
+        {% if object.tribune_room %}
+        <p class="sub-text">Room: {{ object.tribune_room }} (<a href="https://www.texastribune.org/directory/offices/{{ object.tribune_room }}/">See on map</a>)</p>
+        {% endif %}
+        <p class="sub-text">Phone: <a href="tel:{{ object.capitol_phone }}">{{ object.capitol_phone }}</a></p>
+      </header>
+      <a href="{{ object.tribune_directory_url }}"><button class="button">View in Directory</button></a>
+      <a href="{{ object.tribune_ethics_url }}"><button class="button">View in Ethics Explorer</button></a>
+    </section>
+  </section>
 </section>
 
   {% if object.memberships.first != null %}
@@ -89,5 +126,4 @@
       {% endif %}
     </div>
   </section>
-</section>
 {% endblock %}
