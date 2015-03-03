@@ -1,13 +1,17 @@
+$law-bp-large: new-breakpoint(min-width 951px);
+$law-bp-medium: new-breakpoint(min-width 551px max-width 950px);
+$law-bp-small: new-breakpoint(max-width 550px);
+
 .committee-assignments {
   margin-bottom: 1.5em;
 }
 
 .legislator-details {
   margin-bottom: 1em;
-  @include media($large) {
+  @include media($law-bp-large) {
     @include span-columns(5);
   }
-  @include media($medium) {
+  @include media($law-bp-medium) {
     @include span-columns(6);
     margin: 0;
     padding: 0;
@@ -25,26 +29,26 @@
     margin: 0 auto;
     text-align: center;
     margin-top: 1.5em;
-    @include media($large) {
+    @include media($law-bp-large) {
       margin-top: .25em;
     }
 
-    @include media($medium) {
+    @include media($law-bp-medium) {
       margin-top: .25em;
     }
 
     .lawmaker-img {
-      @include media($large) {
+      @include media($law-bp-large) {
         @include span-columns(6);
       }
 
-      @include media($medium) {
+      @include media($law-bp-medium) {
         @include span-columns(5);
       }
     }
 
     .lawmaker-header {
-      @include media($large) {
+      @include media($law-bp-large) {
         @include span-columns(6);
         p {
           text-align: left;
@@ -54,7 +58,7 @@
         }
       }
 
-      @include media($medium) {
+      @include media($law-bp-medium) {
         @include span-columns(7);
         p {
           text-align: left;
@@ -77,11 +81,11 @@
 }
 
 .lawmaker-links {
-  @include media($large) {
+  @include media($law-bp-large) {
     @include span-columns(3);
   }
 
-  @include media($medium) {
+  @include media($law-bp-medium) {
     @include span-columns(6);
     margin: 0;
     padding: 0;
@@ -100,27 +104,24 @@
 
   .button {
     width: 100%;
-    @include media($medium) {
+    @include media($law-bp-medium) {
       @include span-columns(12);
     }
-    @include media($large) {
+    @include media($law-bp-large) {
       @include span-columns(12);
     }
   }
 }
 
+
 //desktop styles
+
 .desktop-header {
-  @include media($small) {
+  @include media($law-bp-small) {
     display: none;
   }
 
-  .page-header {
-    width: 50%;
-  }
-
-  .lawmaker-about {
-    width: 20%;
+  .lawmaker-photo {
     img {
       float: left;
       display: block;
@@ -129,13 +130,35 @@
       width: 100%;
     }
   }
+
+  .lawmaker-desktop-intro {
+    @include media($law-bp-large) {
+      @include span-columns(6);
+    }
+    @include media($law-bp-medium) {
+      @include span-columns(8);
+    }
+  }
+
+  .lawmaker-name {
+    @include span-columns(12);
+  }
+
+  .lawmaker-links {
+    @include media($law-bp-large) {
+      @include span-columns(8);
+    }
+    p {
+      margin: .25em 0;
+    }
+  }
 }
 
 .mobile-header {
-  @include media($medium) {
+  @include media($law-bp-medium) {
     display: none;
   }
-  @include media($large) {
+  @include media($law-bp-large) {
     display: none;
   }
 }
