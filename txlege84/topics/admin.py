@@ -26,10 +26,12 @@ class IssueTextAdmin(admin.ModelAdmin):
         js = ('ckeditor/ckeditor.js',)
 
 
-class StoryPointerInline(SortableInlineAdminMixin, admin.TabularInline):
+class StoryPointerInline(admin.TabularInline):
     model = StoryPointer
 
-    extra = 0
+    exclude = ('order',)
+
+    extra = 1
 
 
 class IssueTextInline(admin.TabularInline):
