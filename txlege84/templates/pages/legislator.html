@@ -6,35 +6,54 @@
 
 {% block content %}
 <section>
-  <section class="legislator-details">
+  <section class="desktop-header">
+    <div class="lawmaker-about">
+      <img class="desktop-image" src="{{ object.tribune_photo }}">
+    </div>
+    <header class="page-header">
+      <h2>{{ object.chamber.short_name }} {{ object.full_name }}</h2>
+      <p class="sub-text"><span class="{{ object.party.name|lower }}">{{ object.party.short_name }}</span> - {{ object.tribune_city }}</p>
+    </header>
+    <section class="share-page">
+    <ul>
+      <a href="mailto:?subject=}&body=" class="social-share">
+        <li class="email"><i class="fa fa-envelope"></i></li>
+      </a>
+      <a href="https://twitter.com/intent/tweet?text=&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
+        <li class="facebook"><i class="fa fa-twitter"></i></li>
+      </a>
+      <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=TK&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
+        <li class="twitter"><i class="fa fa-facebook"></i></li>
+      </a>
+    </ul>
+    </section>
+
+  </section>
+
+  <section class="mobile-header legislator-details">
     <header>
       <div class="headshot">
         <img class="lawmaker-img" src="{{ object.tribune_photo }}">
         <div class="lawmaker-header">
           <p class="lawmaker-name emphasis">{{ object.chamber.short_name }} {{ object.full_name }}</p>
           <p class="subtext">(<span class="{{ object.party.name|lower }}">{{ object.party.short_name }}</span>-{{ object.tribune_city }})</p>
-          <p class="subtext">{% if object.chamber.name == "Texas Senate" %} Senate {% else %} House {% endif %} District {{ object.district }}</p>
+          <p class="subtext">{{ object.chamber.chamber_name }}</p>
         </div>
       </div>
     </header>
-  </section>
-
-  <div class="small-share-wrapper">
-    <section class="share-page">
-      <ul>
-        <a href="mailto:?subject=}&body=" class="social-share">
-          <li class="email"><i class="fa fa-envelope"></i></li>
-        </a>
-        <a href="https://twitter.com/intent/tweet?text=&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
-          <li class="facebook"><i class="fa fa-twitter"></i></li>
-        </a>
-        <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=TK&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
-          <li class="twitter"><i class="fa fa-facebook"></i></li>
-        </a>
-      </ul>
+      <section class="share-page">
+    <ul>
+      <a href="mailto:?subject=}&body=" class="social-share">
+        <li class="email"><i class="fa fa-envelope"></i></li>
+      </a>
+      <a href="https://twitter.com/intent/tweet?text=&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
+        <li class="facebook"><i class="fa fa-twitter"></i></li>
+      </a>
+      <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=TK&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
+        <li class="twitter"><i class="fa fa-facebook"></i></li>
+      </a>
+    </ul>
     </section>
-  </div>
-
 
     <section class="lawmaker-links">
       <header>
@@ -47,22 +66,7 @@
       <a href="{{ object.tribune_directory_url }}"><button class="button">View in Directory</button></a>
       <a href="{{ object.tribune_ethics_url }}"><button class="button">View in Ethics Explorer</button></a>
     </section>
-
-  <div class="large-share-wrapper">
-    <section class="share-page">
-      <ul>
-        <a href="mailto:?subject=}&body=" class="social-share">
-          <li class="email"><i class="fa fa-envelope"></i></li>
-        </a>
-        <a href="https://twitter.com/intent/tweet?text=&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
-          <li class="facebook"><i class="fa fa-twitter"></i></li>
-        </a>
-        <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=TK&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
-          <li class="twitter"><i class="fa fa-facebook"></i></li>
-        </a>
-      </ul>
-    </section>
-  </div>
+  </section>
 </section>
 
   {% if object.memberships.first != null %}
@@ -115,5 +119,4 @@
       {% endif %}
     </div>
   </section>
-</section>
 {% endblock %}

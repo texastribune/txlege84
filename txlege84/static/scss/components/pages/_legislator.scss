@@ -109,27 +109,33 @@
   }
 }
 
-.large-share-wrapper {
-  .share-page {
-    @include media($small) {
-      display: none;
-    }
-    @include media($medium) {
-      @include span-columns(6);
+//desktop styles
+.desktop-header {
+  @include media($small) {
+    display: none;
+  }
+
+  .page-header {
+    width: 50%;
+  }
+
+  .lawmaker-about {
+    width: 20%;
+    img {
+      float: left;
+      display: block;
+      max-width: 131px;
+      margin: .5em 1em 1em 0;
+      width: 100%;
     }
   }
 }
 
-.small-share-wrapper {
-  .share-page {
-    @include media($small) {
-      display: block;
-    }
-    @include media($medium) {
-      display: none;
-    }
-    @include media($large) {
-      display: none;
-    }
+.mobile-header {
+  @include media($medium) {
+    display: none;
+  }
+  @include media($large) {
+    display: none;
   }
 }
