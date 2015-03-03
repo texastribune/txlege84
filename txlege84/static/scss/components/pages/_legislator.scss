@@ -7,16 +7,10 @@ $law-bp-xsmall: new-breakpoint(max-width 550px);
   margin-bottom: 1.5em;
 }
 
+
+// mobile styles
 .legislator-details {
   margin-bottom: 1em;
-  @include media($law-bp-large) {
-    @include span-columns(5);
-  }
-  @include media($law-bp-medium) {
-    @include span-columns(6);
-    margin: 0;
-    padding: 0;
-  }
 
   p {
     margin: .25em;
@@ -31,28 +25,18 @@ $law-bp-xsmall: new-breakpoint(max-width 550px);
     text-align: center;
     margin-top: 1.5em;
 
-      .lawmaker-name {
-        color: $teal;
-      }
-    }
-
-    p {
-      text-align: center;
-      margin: .25em;
+    .lawmaker-name {
+      color: $teal;
     }
   }
+
+  p {
+    text-align: center;
+    margin: .25em;
+  }
+}
 
 .lawmaker-links {
-  @include media($law-bp-large) {
-    @include span-columns(3);
-  }
-
-  @include media($law-bp-medium) {
-    @include span-columns(6);
-    margin: 0;
-    padding: 0;
-  }
-
   margin-bottom: 1em;
 
   a {
@@ -66,12 +50,6 @@ $law-bp-xsmall: new-breakpoint(max-width 550px);
 
   .button {
     width: 100%;
-    @include media($law-bp-medium) {
-      @include span-columns(12);
-    }
-    @include media($law-bp-large) {
-      @include span-columns(12);
-    }
   }
 }
 
