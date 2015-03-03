@@ -1,6 +1,7 @@
-$law-bp-large: new-breakpoint(min-width 951px);
-$law-bp-medium: new-breakpoint(min-width 551px max-width 950px);
-$law-bp-small: new-breakpoint(max-width 550px);
+$law-bp-large: new-breakpoint(min-width 900px);
+$law-bp-medium: new-breakpoint(min-width 790px max-width 900px);
+$law-bp-small: new-breakpoint(min-width 550px max-width 790px);
+$law-bp-xsmall: new-breakpoint(max-width 550px);
 
 .committee-assignments {
   margin-bottom: 1.5em;
@@ -29,44 +30,6 @@ $law-bp-small: new-breakpoint(max-width 550px);
     margin: 0 auto;
     text-align: center;
     margin-top: 1.5em;
-    @include media($law-bp-large) {
-      margin-top: .25em;
-    }
-
-    @include media($law-bp-medium) {
-      margin-top: .25em;
-    }
-
-    .lawmaker-img {
-      @include media($law-bp-large) {
-        @include span-columns(6);
-      }
-
-      @include media($law-bp-medium) {
-        @include span-columns(5);
-      }
-    }
-
-    .lawmaker-header {
-      @include media($law-bp-large) {
-        @include span-columns(6);
-        p {
-          text-align: left;
-        }
-        .lawmaker-name {
-          margin-bottom: .5em;
-        }
-      }
-
-      @include media($law-bp-medium) {
-        @include span-columns(7);
-        p {
-          text-align: left;
-        }
-        .lawmaker-name {
-          margin-bottom: .5em;
-        }
-      }
 
       .lawmaker-name {
         color: $teal;
@@ -78,7 +41,6 @@ $law-bp-small: new-breakpoint(max-width 550px);
       margin: .25em;
     }
   }
-}
 
 .lawmaker-links {
   @include media($law-bp-large) {
@@ -117,7 +79,7 @@ $law-bp-small: new-breakpoint(max-width 550px);
 //desktop styles
 
 .desktop-header {
-  @include media($law-bp-small) {
+  @include media($law-bp-xsmall) {
     display: none;
   }
 
@@ -131,11 +93,20 @@ $law-bp-small: new-breakpoint(max-width 550px);
     }
   }
 
+  .share-page {
+    @include media($law-bp-small) {
+      @include span-columns(12);
+    }
+  }
+
   .lawmaker-desktop-intro {
     @include media($law-bp-large) {
       @include span-columns(6);
     }
     @include media($law-bp-medium) {
+      @include span-columns(5);
+    }
+    @include media($law-bp-small) {
       @include span-columns(8);
     }
   }
@@ -148,6 +119,12 @@ $law-bp-small: new-breakpoint(max-width 550px);
     @include media($law-bp-large) {
       @include span-columns(8);
     }
+    @include media($law-bp-medium) {
+      @include span-columns(12);
+    }
+    @include media($law-bp-small) {
+      @include span-columns(12);
+    }
     p {
       margin: .25em 0;
     }
@@ -159,6 +136,9 @@ $law-bp-small: new-breakpoint(max-width 550px);
     display: none;
   }
   @include media($law-bp-large) {
+    display: none;
+  }
+  @include media($law-bp-small) {
     display: none;
   }
 }

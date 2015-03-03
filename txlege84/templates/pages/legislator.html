@@ -13,7 +13,8 @@
     <div class="lawmaker-desktop-intro">
       <header class="lawmaker-name page-header">
         <h2>{{ object.chamber.short_name }} {{ object.full_name }}</h2>
-        <p class="sub-text"><span class="{{ object.party.name|lower }}">{{ object.party.short_name }}</span> - {{ object.tribune_city }}</p>
+        <p class="sub-text">District {{ object.district }} (<span class="{{ object.party.name|lower }}">{{ object.party.short_name }}</span> - {{ object.tribune_city }})</p>
+        <p class="sub-text"><a href="{{ object.tribune_directory_url }}">View in Directory</a>, or <a href="{{ object.tribune_ethics_url }}">view in Ethics Explorer</a>.</p>
       </header>
       <div class="lawmaker-links">
         <p class="emphasis">Capitol office:</p>
@@ -21,8 +22,8 @@
         <p class="sub-text">Room: {{ object.tribune_room }} (<a href="https://www.texastribune.org/directory/offices/{{ object.tribune_room }}/">See on map</a>)</p>
         {% endif %}
         <p class="sub-text">Phone: <a href="tel:{{ object.capitol_phone }}">{{ object.capitol_phone }}</a></p>
-      <a href="{{ object.tribune_directory_url }}"><button class="button">View in Directory</button></a>
-      <a href="{{ object.tribune_ethics_url }}"><button class="button">View in Ethics Explorer</button></a>
+      <!-- <a href="{{ object.tribune_directory_url }}"><button class="button">View in Directory</button></a>
+      <a href="{{ object.tribune_ethics_url }}"><button class="button">View in Ethics Explorer</button></a> -->
     </div>
   </div>
     <section class="share-page">
