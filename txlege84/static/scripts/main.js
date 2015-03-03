@@ -31,9 +31,9 @@
     e.preventDefault();
 
     if ($menuSubNav.hasClass('sub-nav-open')) {
-      $menuSubNavIcon.removeClass('fa-chevron-up').addClass('fa-chevron-down');
+      $menuSubNavIcon.removeClass('fa-chevron-down').addClass('fa-chevron-right');
     } else {
-      $menuSubNavIcon.removeClass('fa-chevron-down').addClass('fa-chevron-up');
+      $menuSubNavIcon.removeClass('fa-chevron-right').addClass('fa-chevron-down');
     }
 
     $menuSubNav.toggleClass('sub-nav-open');
@@ -42,7 +42,7 @@
   // hides the sub nav if it is open and someone clicks elsewhere
   $(document).on('click', function(event) {
   if (!$(event.target).closest($subNavContainer).length) {
-    $menuSubNavIcon.removeClass('fa-chevron-up').addClass('fa-chevron-down');
+    $menuSubNavIcon.removeClass('fa-chevron-down').addClass('fa-chevron-right');
     $menuSubNav.removeClass('sub-nav-open');
   }
 });
