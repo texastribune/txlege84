@@ -1,10 +1,16 @@
+$law-bp-large: new-breakpoint(min-width 900px);
+$law-bp-medium: new-breakpoint(min-width 790px max-width 900px);
+$law-bp-small: new-breakpoint(min-width 550px max-width 790px);
+$law-bp-xsmall: new-breakpoint(max-width 550px);
+
 .committee-assignments {
   margin-bottom: 1.5em;
 }
 
+
+// mobile styles
+
 .legislator-details {
-  @include clearfix;
-  // @include span-columns(12);
   margin-bottom: 1em;
 
   p {
@@ -23,34 +29,99 @@
     .lawmaker-name {
       color: $teal;
     }
-
-    p {
-      text-align: center;
-      margin: .25em;
-    }
   }
 
-  .share-page {
-    margin: 1em;
-    border-bottom: 1px solid $border-bottom;
-    padding: 0 0 1em;
+  p {
+    text-align: center;
+    margin: .25em;
   }
-
 }
 
 .lawmaker-links {
   margin-bottom: 1em;
+
+  p {
+    text-align: left;
+  }
 
   a {
     text-decoration: none;
   }
 
   button {
-    margin-bottom: .5em;
+    margin: .5em 0;
     text-decoration: none;
   }
 
   .button {
     width: 100%;
+  }
+}
+
+
+//desktop styles
+
+.desktop-header {
+  @include media($law-bp-xsmall) {
+    display: none;
+  }
+
+  .lawmaker-photo {
+    img {
+      float: left;
+      display: block;
+      max-width: 131px;
+      margin: .5em 1em 1em 0;
+      width: 100%;
+    }
+  }
+
+  .share-page {
+    @include media($law-bp-small) {
+      @include span-columns(12);
+    }
+  }
+
+  .lawmaker-desktop-intro {
+    @include media($law-bp-large) {
+      @include span-columns(6);
+    }
+    @include media($law-bp-medium) {
+      @include span-columns(5);
+    }
+    @include media($law-bp-small) {
+      @include span-columns(8);
+    }
+  }
+
+  .lawmaker-name {
+    @include span-columns(12);
+  }
+
+  .lawmaker-links {
+    @include media($law-bp-large) {
+      @include span-columns(8);
+    }
+    @include media($law-bp-medium) {
+      @include span-columns(12);
+    }
+    @include media($law-bp-small) {
+      @include span-columns(12);
+    }
+    p {
+      margin: .25em 0;
+    }
+  }
+}
+
+.mobile-header {
+  @include media($law-bp-medium) {
+    display: none;
+  }
+  @include media($law-bp-large) {
+    display: none;
+  }
+  @include media($law-bp-small) {
+    display: none;
   }
 }

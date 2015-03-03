@@ -114,11 +114,16 @@
 
 }
 
+.featured {
+  border-bottom: 3px solid $teal;
+}
+
 // h4
 .featured-content {
   background: $teal;
   border-radius: 3px 3px 0 0;
   color: $white;
+  display: block;
   font-family: $base-serif;
   font-size: .85em;
   font-style: italic;
@@ -129,6 +134,14 @@
   padding: .375em 1em .3em;
   text-align: left;
   text-transform: uppercase;
+
+  @include media($medium) {
+    display: inline-block;
+  }
+
+  @include media($large) {
+    display: inline-block;
+  }
 }
 
 // h5
@@ -236,22 +249,25 @@ p {
 
 .shutter {
   @include clearfix;
-  background: $text-offwhite;
+  // border: 3px solid $text-offwhite;
+  margin: 0 0 .5em;
+
 
   .shutter-label {
-    border-bottom: 2px solid $white;
+    background-color: $text-offwhite;
     color: $shutter-gray;
     cursor: pointer;
     font-family: $base-sans-serif;
     font-size: .875em;
     font-weight: 500;
     letter-spacing: .1em;
-    margin: 0 0 .3em;
+    margin: 0;
     padding: 1em 1.25em;
     text-transform: uppercase;
 
     &:hover {
       color: $li-black;
+      background-color: rgb(250, 250, 250);
     }
   }
 
@@ -324,6 +340,21 @@ ul {
       font-family: $base-sans-serif;
       margin: 0 auto .75em;
     }
+
+    &.find-bill-list {
+      li {
+        @include media($medium) {
+          @include span-columns(6);
+          @include omega(2n);
+        }
+
+        @include media($large) {
+          @include span-columns(4);
+          @include omega(3n);
+        }
+      }
+    }
+
   }
 
   &.serif {
@@ -378,7 +409,9 @@ hr.video-divider {
 }
 
 .newsletter-signup {
-  margin-bottom: 3em;
+  @include clearfix;
+
+  margin-bottom: 1.5em;
   input[type=email] {
     @include span-columns(12);
     width: 100%;
