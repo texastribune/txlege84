@@ -28,7 +28,9 @@
   var $shutterToggles = $('.shutter-label');
 
   $shutterToggles.on('click', function() {
-    $(this).next('.shutter-content').toggleClass('shutter-content-open');
+    var selected = $(this);
+    selected.find('.shutter-icon').toggleClass('shutter-icon-open');
+    selected.next('.shutter-content').toggleClass('shutter-content-open');
   });
 
   // Add fitvids to Texplainer, other video embeds

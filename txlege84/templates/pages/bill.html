@@ -168,8 +168,7 @@
         <div class="shutter">
         <div class="shutter-label">
           <h3 class="section-header">Coauthors</h3>
-          <span class="icon closed">&#43;</span>
-          <span class="icon open">&#45;</span>
+          <span class="shutter-icon"></span>
         </div>
         <ul class="sans">
           {% for coauthors in object.sponsorships.all %}
@@ -197,8 +196,7 @@
       <div class="shutter">
         <div class="shutter-label">
           Co-Sponsors
-          <span class="icon closed">&#43;</span>
-          <span class="icon open">&#45;</span>
+          <span class="shutter-icon"></span>
           <ul class="sans">
             {% for cosponsor in object.sponsorships.all %}
               {% if cosponsor.role == 'cosponsor' %}
