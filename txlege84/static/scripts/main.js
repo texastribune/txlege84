@@ -10,6 +10,9 @@
   var $menuButton = $('#menu-button');
   var $menuIcon = $menuButton.find('i');
   var $menuNav = $('#menu-nav');
+  var $subNavContainer = $('#sub-nav-container');
+  var $menuSubNavTrigger = $('#sub-nav-trigger');
+  var $menuSubNav = $('#sub-nav');
 
   $menuButton.on('click', function(e) {
     e.preventDefault();
@@ -23,12 +26,27 @@
     $menuNav.toggleClass('menu-nav-open');
   });
 
+  $menuSubNavTrigger.on('click', function(e) {
+    e.preventDefault();
+
+    $menuSubNav.toggleClass('sub-nav-open');
+  });
+
+  // hides the sub nav if it is open and someone clicks elsewhere
+  $(document).on('click', function(event) {
+  if (!$(event.target).closest($subNavContainer).length) {
+    $menuSubNav.removeClass('sub-nav-open');
+  }
+});
+
   // Accordions AKA Shutters
 
   var $shutterToggles = $('.shutter-label');
 
   $shutterToggles.on('click', function() {
-    $(this).next('.shutter-content').toggleClass('shutter-content-open');
+    var selected = $(this);
+    selected.find('.shutter-icon').toggleClass('shutter-icon-open');
+    selected.next('.shutter-content').toggleClass('shutter-content-open');
   });
 
   // Add fitvids to Texplainer, other video embeds
