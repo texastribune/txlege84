@@ -61,7 +61,7 @@ $menu-breakpoint: new-breakpoint(min-width 46.25em); // 740px
 
     @include media($menu-breakpoint) {
       float: none;
-      margin: 0;
+      margin: -.1em 0 0;
     }
   }
 
