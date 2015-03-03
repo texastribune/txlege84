@@ -9,6 +9,7 @@ $law-bp-xsmall: new-breakpoint(max-width 550px);
 
 
 // mobile styles
+
 .legislator-details {
   margin-bottom: 1em;
 
@@ -39,12 +40,16 @@ $law-bp-xsmall: new-breakpoint(max-width 550px);
 .lawmaker-links {
   margin-bottom: 1em;
 
+  p {
+    text-align: left;
+  }
+
   a {
     text-decoration: none;
   }
 
   button {
-    margin-bottom: .5em;
+    margin: .5em 0;
     text-decoration: none;
   }
 

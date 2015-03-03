@@ -45,11 +45,8 @@
     <header>
       <div class="headshot">
         <img class="lawmaker-img" src="{{ object.tribune_photo }}">
-        <div class="lawmaker-header">
-          <p class="lawmaker-name emphasis">{{ object.chamber.short_name }} {{ object.full_name }}</p>
-          <p class="subtext">(<span class="{{ object.party.name|lower }}">{{ object.party.short_name }}</span>-{{ object.tribune_city }})</p>
-          <p class="subtext">{{ object.chamber.chamber_name }}</p>
-        </div>
+        <p class="lawmaker-name emphasis">{{ object.chamber.short_name }} {{ object.full_name }}</p>
+        <p class="subtext">District {{ object.district }} (<span class="{{ object.party.name|lower }}">{{ object.party.short_name }}</span>-{{ object.tribune_city }})</p>
       </div>
     </header>
     <section class="share-page">
