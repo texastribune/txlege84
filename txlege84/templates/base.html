@@ -76,14 +76,14 @@
     </header>
   </section>
 
+  {% if house_convene.stream_is_live %}
+    {% include "components/alert.html" with convene_time=house_convene %}
+  {% endif %}
+  {% if senate_convene.stream_is_live %}
+    {% include "components/alert.html" with convene_time=senate_convene %}
+  {% endif %}
+
   <main class="main-container">
-    {% if house_convene.stream_is_live %}
-      {% include "components/alert.html" with convene_time=house_convene %}
-    {% endif %}
-    {% if senate_convene.stream_is_live %}
-      {% include "components/alert.html" with convene_time=senate_convene %}
-    {% endif %}
-    
     {% block page_header %}{% endblock %}
     <section class="body-main">
     {% block content %}{% endblock %}
