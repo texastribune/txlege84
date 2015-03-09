@@ -7,7 +7,8 @@ from django.contrib import admin
 from bills.views import (BillDetail, BillSearchView, BillSearchJson,
                          SubjectDetail, SubjectListDetail, LegeStreamDetail)
 from core.views import LandingView
-from committees.views import CommitteeDetail
+from committees.views import (ChamberCommitteeList,
+                              CommitteeDetail, CommitteeList)
 from explainers.views import ExplainerListDetail
 from legislators.views import LegislatorDetail
 from topics.views import IssueDetail, TopicDetail, TopicListDetail
@@ -31,6 +32,10 @@ urlpatterns = patterns(
         LegislatorDetail.as_view(), name='legislator-detail'),
     url(r'^84/committees/(?P<chamber>[-\w]+)/(?P<slug>[-\w]+)/$',
         CommitteeDetail.as_view(), name='committee-detail'),
+    url(r'^84/committees/(?P<slug>[-\w]+)/$',
+        ChamberCommitteeList.as_view(), name='chamber-committees'),
+    url(r'^84/committees/$',
+        CommitteeList.as_view(), name='committees-landing'),
     url(r'^texplainers/$',
         ExplainerListDetail.as_view(), name='explainer-list-detail'),
     url(r'^legestream/$',

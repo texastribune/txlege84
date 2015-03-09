@@ -349,8 +349,8 @@ ul {
         }
 
         @include media($large) {
-          @include span-columns(4);
-          @include omega(3n);
+          @include span-columns(6);
+          @include omega(2n);
         }
       }
     }
