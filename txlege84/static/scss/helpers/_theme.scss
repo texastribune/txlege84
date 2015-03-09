@@ -18,6 +18,15 @@
     vertical-align: middle;
     width: 100%;
 
+    a {
+      color: $bodytext-black;
+
+      &:hover {
+        color: $bodytext-black;
+        text-decoration: none;
+      }
+    }
+
     p {
 
       @include media($medium) {
