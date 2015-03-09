@@ -17,12 +17,12 @@ $ls-small: new-breakpoint(min-width 695px max-width 799px);
   margin-bottom: .5em;
 }
 
-#house-stream {
+.house-stream {
   background-image: url('/../static/images/tx-house-chamber-video-img.jpg');
 }
 
-#senate-stream {
-    background-image: url('/../static/images/tx-senate-chamber-video-img.jpg');
+.senate-stream {
+  background-image: url('/../static/images/tx-senate-chamber-video-img.jpg');
 }
 
 .stream-placeholder {
