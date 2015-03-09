@@ -78,13 +78,31 @@
 
     <div class="shutter">
       <div class="shutter-label">
-        Browse Bills by Committee
+        Browse Bills by House Committee
         <span class="shutter-icon"></span>
       </div>
       <div class="shutter-content">
         <ul class="sans find-bill-list">
         {% for committee in committee_list %}
+          {% if committee.chamber.name == 'Texas House' %}
           <li> <a href="{{ committee.get_absolute_url }}">{{ committee.name }}</a></li>
+          {% endif %}
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="shutter">
+      <div class="shutter-label">
+        Browse Bills by Senate Committee
+        <span class="shutter-icon"></span>
+      </div>
+      <div class="shutter-content">
+        <ul class="sans find-bill-list">
+        {% for committee in committee_list %}
+          {% if committee.chamber.name == 'Texas Senate' %}
+          <li> <a href="{{ committee.get_absolute_url }}">{{ committee.name }}</a></li>
+          {% endif %}
         {% endfor %}
         </ul>
       </div>
