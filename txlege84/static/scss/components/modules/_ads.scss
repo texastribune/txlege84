@@ -1,7 +1,7 @@
 .ad-container {
   @include clearfix;
-  border-bottom: 1px solid $line-gray;
-  border-top: 1px solid $line-gray;
+  border-bottom: 1px solid $href-offwhite;
+  border-top: 1px solid $href-offwhite;
   padding: 1em 0;
   margin: 1em 0;
 }
@@ -12,7 +12,7 @@
   width: 100%;
 
   div {
-    border: 1px solid $line-gray;
+    border: 1px solid $href-offwhite;
   }
 
   &.bottom {
