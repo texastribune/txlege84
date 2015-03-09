@@ -11,6 +11,9 @@ class Committee(models.Model):
     members = models.ManyToManyField(Legislator, through='Membership')
     slug = models.SlugField(null=True, blank=True)
 
+    class Meta:
+        ordering = ('name',)
+
     def __unicode__(self):
         return self.name
 
