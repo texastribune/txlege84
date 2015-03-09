@@ -63,6 +63,7 @@
             <li><a href="http://s3.amazonaws.com/static.texastribune.org/media/documents/TT-84thLege-HouseSeating2015.pdf">House Seating Chart</a></li>
             <li><a href="http://s3.amazonaws.com/static.texastribune.org/media/documents/TT-84thLege-SenateSeating2015.pdf">Senate Seating Chart</a></li>
             <li><a href="http://www.texastribune.org/directory/offices/">Capitol Map</a></li>
+            <li><a href="http://www.texastribune.org/subscribe/">Newsletter Subscriptions</a></li>
           </ul>
         </li>
       </ul>
@@ -75,6 +76,14 @@
       <p class="sub-text center">Your go-to resource for the 2015 Texas legislative session</p>
     </header>
   </section>
+
+  {% if house_convene.stream_is_live %}
+    {% include "components/alert.html" with convene_time=house_convene %}
+  {% endif %}
+  {% if senate_convene.stream_is_live %}
+    {% include "components/alert.html" with convene_time=senate_convene %}
+  {% endif %}
+
   <main class="main-container">
     {% block page_header %}{% endblock %}
     <section class="body-main">
