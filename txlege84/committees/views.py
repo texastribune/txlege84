@@ -5,16 +5,19 @@ from django.views.generic import DetailView, ListView
 from bills.mixins import AllSubjectsMixin
 from core.mixins import ConveneTimeMixin
 from legislators.mixins import AllLegislatorsMixin
-from committees.models import Committee
 from legislators.models import Chamber
+from committees.models import Committee
+
 
 class CommitteeList(ConveneTimeMixin, ListView):
     model = Committee
     template_name = 'pages/committees-landing.html'
 
+
 class ChamberCommitteeList(ConveneTimeMixin, DetailView):
     model = Chamber
     template_name = 'pages/chamber-committees.html'
+
 
 class CommitteeDetail(AllSubjectsMixin, AllLegislatorsMixin,
                       ConveneTimeMixin, DetailView):

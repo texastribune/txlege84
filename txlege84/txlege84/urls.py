@@ -7,7 +7,8 @@ from django.contrib import admin
 from bills.views import (BillDetail, BillSearchView, BillSearchJson,
                          SubjectDetail, SubjectListDetail, LegeStreamDetail)
 from core.views import LandingView
-from committees.views import CommitteeList, ChamberCommitteeList, CommitteeDetail
+from committees.views import (ChamberCommitteeList,
+                              CommitteeDetail, CommitteeList)
 from explainers.views import ExplainerListDetail
 from legislators.views import LegislatorDetail
 from topics.views import IssueDetail, TopicDetail, TopicListDetail
