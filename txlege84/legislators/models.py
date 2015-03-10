@@ -85,6 +85,9 @@ class Legislator(models.Model):
 
     objects = ActiveQuerySet.as_manager()
 
+    class Meta:
+        ordering = ('last_name',)
+
     def __unicode__(self):
         return self.full_name
 
