@@ -55,7 +55,7 @@
             <li><span><a href="{{ issue.get_absolute_url }}">{{ issue }}</a></span></li>
             {% endfor %}
           </ul>
-          <p class="mini-emphasis more-issues"><a href="{{ topic.get_absolute_url }}"><span>&#43; </span>More issues</a></p>
+          <p class="mini-emphasis more-issues"><a href="{{ topic.get_absolute_url }}"><span>&#43; </span>All issues</a></p>
         </article>
         {% with curators=topic.curators.all %}
         {% if curators %}
