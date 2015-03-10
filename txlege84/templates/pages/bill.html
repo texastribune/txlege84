@@ -155,7 +155,7 @@
             <img class="author-img" src="{{ author.legislator.tribune_photo }}">
             <div class="author-block">
               <p class="emphasis"><a href="{{ author.legislator.get_absolute_url }}">{{ author.legislator }}</a></p>
-              <p class="subtext">State {{ author.legislator.chamber.member_title }} <span class="{% if author.legislator.party.short_name == 'D' %} democratic {% else %} republican {% endif %}">({{ author.legislator.party.short_name }})</span></p>
+              <p class="subtext">State {{ author.legislator.chamber.member_title }} <span class="{{ author.legislator.party|lower }}">({{ author.legislator.party.short_name }})</span></p>
             </div>
           </div>
         {% endfor %}
@@ -185,23 +185,26 @@
           <h3 class="section-header">Bill sponsors</h3>
         </header>
         {% for sponsor in object.sponsors %}
-            <p>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{{ sponsor.legislator.get_absolute_url }}">{{ sponsor.legislator }} <span class="{{ sponsor.legislator.party.name|lower }}">({{ sponsor.legislator.party.short_name }})</span></a></p>
+            <p>{{ object.chamber.short_name }}<a href="{{ sponsor.legislator.get_absolute_url }}">{{ sponsor.legislator }} <span class="{{ sponsor.legislator.party.name|lower }}">({{ sponsor.legislator.party.short_name }})</span></a></p>
         {% endfor %}
       </article>
       {% endif %}
       {% if object.cosponsors %}
-      <div class="shutter">
-        <div class="shutter-label">
-          Co-Sponsors
-          <span class="shutter-icon"></span>
-          <ul class="sans">
-            {% for cosponsor in object.cosponsors %}
-              <li>{{ cosponsor.legislator }} (<span class="{{ cosponsor.legislator.party }}">{{ cosponsor.legislator.party.short_name }})</span></li>
-            {% endfor %}
-          </ul>
+      <article class="bill-coauthors">
+        <div class="shutter">
+          <div class="shutter-label">
+            Co-Sponsors
+            <span class="shutter-icon"></span>
+          </div>
+          <div class="shutter-content">
+            <ul class="sans">
+              {% for cosponsor in object.cosponsors %}
+                <li>{{ cosponsor.legislator }} (<span class="{{ cosponsor.legislator.party }}">{{ cosponsor.legislator.party.short_name }})</span></li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
-
-      </div>
+      </article>
       {% endif %}
       <div>&nbsp;</div>
     </div>
