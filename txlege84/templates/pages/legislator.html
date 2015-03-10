@@ -59,7 +59,6 @@
     </section>
   </section>
 </section>
-
   {% if object.memberships.first != null %}
   <section>
     <header>
@@ -67,8 +66,14 @@
     </header>
     <div class="committee-assignments">
       <ul class="sans">
-        {% for membership in object.memberships.all %}
-          <li>{{ membership.role }}, <a href="{{ membership.committee.get_absolute_url }}">{{ membership.committee }}</a></li>
+        {% for membership in object.chair_memberships %}
+          <li>Chair, <a href="{{ membership.committee.get_absolute_url }}">{{ membership.committee.name }}</a></li>
+        {% endfor %}
+        {% for membership in object.vicechair_memberships %}
+          <li>Vice Chair, <a href="{{ membership.committee.get_absolute_url }}">{{ membership.committee.name }}</a></li>
+        {% endfor %}
+        {% for membership in object.member_memberships %}
+          <li>Member, <a href="{{ membership.committee.get_absolute_url }}">{{ membership.committee.name }}</a></li>
         {% endfor %}
       </ul>
     </div>

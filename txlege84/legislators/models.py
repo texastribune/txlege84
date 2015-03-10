@@ -123,3 +123,15 @@ class Legislator(models.Model):
     def tribune_ethics_url(self):
         return u'https://www.texastribune.org/bidness/explore/{}/'.format(
             self.tribune_slug)
+
+    @property
+    def chair_memberships(self):
+        return self.memberships.filter(role='Chair')
+
+    @property
+    def vicechair_memberships(self):
+        return self.memberships.filter(role='Vice Chair')
+
+    @property
+    def member_memberships(self):
+        return self.memberships.filter(role='Member')

@@ -49,10 +49,6 @@ class Membership(models.Model):
     def __unicode__(self):
         return '{0} in {1}'.format(self.role, self.committee.name)
 
-    @property
-    def chaired_committees(self):
-        return self.get(role='Chair').committee
-
 
 class Event(models.Model):
     pass
