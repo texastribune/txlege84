@@ -22,7 +22,7 @@ $menu-breakpoint: new-breakpoint(min-width 46.25em); // 740px
     float: right;
     font-size: 1.375em;
     line-height: 0;
-    padding: .375em .75em;
+    padding: .375em .5em;
     text-align: center;
 
     @include media($menu-breakpoint) {
