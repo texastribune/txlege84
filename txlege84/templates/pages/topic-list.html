@@ -61,4 +61,6 @@
   {% for issue in object.issues.all.published %}
     {% include "components/issue-box.html" %}
   {% endfor %}
+
+  {% include "includes/newsletter-signup-topic.html" %}
 {% endblock %}
