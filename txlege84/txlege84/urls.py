@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 # from django.conf.urls.static import static
-from django.views.generic import RedirectView, TemplateView
+from django.views.generic import RedirectView
 
 from django.contrib import admin
 
@@ -44,26 +44,15 @@ urlpatterns = patterns(
     url(r'^84/find-bills/$', BillSearchView.as_view(), name='find-bills'),
 
     # Redirects
-    # Note: /hot-lists/ landing won't exist in 2.0
-    # Create another redirect for /topics/ to landing index before launch
-    # And change /hot-lists/ to landing index
     url(r'^hot-lists/$',
-        RedirectView.as_view(url='../topics')),
+        RedirectView.as_view(pattern_name='landing-view')),
     url(r'^hot-lists/(?P<slug>[-\w]+)/$',
-        RedirectView.as_view(url='../../topics/%(slug)s/')),
+        RedirectView.as_view(pattern_name='topic-detail')),
     url(r'^hot-lists/(?P<hot_list_slug>[-\w]+)/(?P<slug>[-\w]+)/$',
-        RedirectView.as_view(
-            url='../../../topics/%(hot_list_slug)s/%(slug)s/')),
-    url(r'^legestream/$',
-        RedirectView.as_view(url='../livestream/')),
+        RedirectView.as_view(pattern_name='issue-detail')),
+    url(r'^legestream/$', RedirectView.as_view(pattern_name='legestream')),
     url(r'^texplainers/$',
-        RedirectView.as_view(url='../how-session-works/')),
-    url(r'^search/bills/',
-        RedirectView.as_view(url='../find-bills/')),
-
-    # Examples:
-    # url(r'^$', 'txlege84.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
+        RedirectView.as_view(pattern_name='explainer-list-detail')),
 
     url(r'', include('social.apps.django_app.urls', namespace='social')),
     url(r'^admin/', include(admin.site.urls)),
