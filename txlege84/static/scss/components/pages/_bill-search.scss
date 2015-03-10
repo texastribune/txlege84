@@ -1,18 +1,26 @@
 .bill-search {
   @include span-columns(12);
-
-  .bill-search-form {
-    @include span-columns(12);
-  }
+  margin-top: 1em;
 
   .button {
     margin: 0 0 1em;
   }
 
+  form {
+    display: inline-block;
+    @include span-columns(10 of 12);
+  }
+
   input[type=text] {
+    display: inline-block;
     width: 100%;
-    margin: 1em 0;
+    margin: 0 0 .5em;
     padding: .5em;
+  }
+
+  .fa {
+    font-size: 2em;
+    float: left;
   }
 
   .sidebar-content-bills {
@@ -29,6 +37,15 @@
   overflow-y: auto;
   padding: 0;
   width: 100%;
+}
+
+.find-bill-list {
+
+  li {
+    @include span-columns(4);
+    @include omega(3n);
+  }
+
 }
 
 .tt-suggestion {

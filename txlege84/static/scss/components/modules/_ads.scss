@@ -1,8 +1,9 @@
 .ad-container {
-  border-bottom: 1px solid $line-gray;
-  border-top: 1px solid $line-gray;
+  @include clearfix;
+  border-bottom: 1px solid $href-offwhite;
+  border-top: 1px solid $href-offwhite;
   padding: 1em 0;
-  margin: 0;
+  margin: 1em 0;
 }
 
 .banner-ad {
@@ -11,7 +12,7 @@
   width: 100%;
 
   div {
-    border: 1px solid $line-gray;
+    border: 1px solid $href-offwhite;
   }
 
   &.bottom {

@@ -1,6 +1,6 @@
 // Default Breakpoints
-$small: new-breakpoint(min-width 460px max-width 810px);
-$medium: new-breakpoint(min-width 811px max-width 1080px);
+$small: new-breakpoint(min-width 460px max-width 670px);
+$medium: new-breakpoint(min-width 671px max-width 1080px);
 $large: new-breakpoint(min-width 1081px);
 $default-768: new-breakpoint(min-width 768px);
 $default-480: new-breakpoint(max-width 480px);
@@ -10,6 +10,10 @@ $max-width: 1081px;
 .container,
 .main-container {
   @extend %container;
+}
+
+.main-container {
+  margin-bottom: 1em;
 }
 
 .side-bar {
@@ -39,6 +43,9 @@ $max-width: 1081px;
   @include clearfix;
 }
 
+.content-block {
+  @extend %content-block;
+}
 
 // Basic Grid Mixins
 

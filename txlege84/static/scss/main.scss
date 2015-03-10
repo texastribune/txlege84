@@ -18,25 +18,20 @@
 @import 'components/modules/ads';
 @import 'components/modules/footer';
 @import 'components/modules/menu';
-// @import 'components/modules/side-bar';
+@import 'components/modules/alert';
 
 // == Modules ==
+@import 'components/page-header';
 @import 'components/modules/share';
-
 @import 'components/modules/issues/topic-nav-box';
 @import 'components/modules/issues/graphic';
 @import 'components/modules/issues/curated-by';
 @import 'components/modules/issues/issue-box';
-
 @import 'components/modules/livestream';
-// @import 'components/modules/top-issues';
-
-// == Hot List Modules ==
-// @import 'components/modules/hot-lists/hot-list-nav';
 
 // == Specific Page Styles ==
-@import 'pages/_bill';
-@import 'pages/_bill-search';
-@import 'pages/_committee';
-@import 'pages/_legislator';
-@import 'pages/_topic-list-landing';
+@import 'components/pages/bill';
+@import 'components/pages/bill-search';
+@import 'components/pages/committee';
+@import 'components/pages/legislator';
+@import 'components/pages/topic';

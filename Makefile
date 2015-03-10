@@ -25,12 +25,27 @@ prep_for_development:
 pull:
 	git pull
 
+master:
+	git checkout master
+
+staging:
+	git checkout staging
+
 docker/build:
 	docker build --tag=${IMAGE} .
 
-docker/prod: pull docker/build
+docker/prod: pull master docker/build
 	-docker stop ${APP} && docker rm ${APP}
 	docker run --name=${APP} \
+		--hostname=${APP}-prod \
+		--detach=true \
+		--publish=80:8000 \
+		--env-file=env ${IMAGE}
+
+docker/staging: pull staging docker/build
+	-docker stop ${APP} && docker rm ${APP}
+	docker run --name=${APP} \
+		--hostname=${APP}-staging \
 		--detach=true \
 		--publish=80:8000 \
 		--env-file=env ${IMAGE}
@@ -45,9 +60,17 @@ docker/debug: docker/build
 
 ### for development only from here on:
 
+docker/db-data:
+	# NOTE: this will issue an error if the container is already there; it can be safely ignored
+	# I'd like a better way to be idempotent
+	-docker create \
+		--name ${APP}-db-data \
+		texastribune/postgres
+
 # start the db if it's there; if not create it
-docker/db:
+docker/db: docker/db-data
 	docker start ${APP}-dev-db || docker run --detach \
+		--volumes-from=${APP}-db-data \
 		--publish=5432:5432 \
 		--name=${APP}-dev-db \
 		texastribune/postgres

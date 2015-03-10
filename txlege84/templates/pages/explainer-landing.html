@@ -6,36 +6,36 @@
 
 {% block content %}
   <section>
-    <header>
-      <h2 class="page-header">How the Legislature Works</h2>
+    <header class="page-header">
+      <h2>How the Legislature Works</h2>
       <p class="sub-text">Your guide to understanding the session.</p>
     </header>
-    <section class="share-page">
+    <div class="share-page">
       <ul>
         <a href="mailto:?subject=}&body=">
           <li class="email"><i class="fa fa-envelope"></i></li>
         </a>
         <a href="https://twitter.com/intent/tweet?text=Check%20out%20%40texastribune's%20%20guide%20to%20understanding%20how%20%23txlege%20works%20http%3A%2F%2Ftxlege.texastribune.org%2Ftexplainers%2F" title="share on Twitter" class="social-share" target="_blank">
-          <li class="facebook"><i class="fa fa-twitter"></i></li>
+          <li class="twitter"><i class="fa fa-twitter"></i></li>
         </a>
         <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=http%3A%2F%2Ftxlege.texastribune.org%2Ftexplainers%2F&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org%2Ftexplainers%2F" title="share on Facebook" class="social-share" target="_blank">
-          <li class="twitter"><i class="fa fa-facebook"></i></li>
+          <li class="facebook"><i class="fa fa-facebook"></i></li>
         </a>
       </ul>
-    </section>
-    <section>
-     {% for explainer in object_list %}
-      <article class="texplainer-content-box">
-        <header>
-          <p class="emphasis">{{ explainer.name }}</p>
-        </header>
-        <div class="flexible-video">
-          <iframe width="560" height="315" src="//www.youtube.com/embed/{{ explainer.youtube_id }}" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p class="sub-text">{{ explainer.text|safe }}</p>
-      </article>
-      <hr class="video-divider">
-      {% endfor %}
-    </section>
+    </div>
+  </section>
+  <section>
+   {% for explainer in object_list %}
+    <article class="texplainer-content-box">
+      <header>
+        <p class="emphasis">{{ explainer.name }}</p>
+      </header>
+      <div class="flexible-video">
+        <iframe width="560" height="315" src="//www.youtube.com/embed/{{ explainer.youtube_id }}" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <p class="sub-text">{{ explainer.text|safe }}</p>
+    </article>
+    <hr class="video-divider">
+    {% endfor %}
   </section>
 {% endblock %}

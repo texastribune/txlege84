@@ -10,7 +10,8 @@ var reload = browserSync.reload;
 var BOWER_JS_FILES = [
   'bower_components/jquery/dist/jquery.js',
   'bower_components/fitvids/jquery.fitvids.js',
-  'bower_components/typeahead.js/dist/typeahead.bundle.js'
+  'bower_components/typeahead.js/dist/typeahead.bundle.js',
+  'bower_components/fastclick/lib/fastclick.js'
 ];
 
 gulp.task('jshint', function() {
@@ -91,7 +92,8 @@ gulp.task('styles', function() {
     }))
     .pipe(gulpIf('*.css', csso()))
     .pipe(gulp.dest('txlege84/static/css'))
-    .pipe(size({title: 'styles'}));
+    .pipe(size({title: 'styles'}))
+    .pipe(gulpIf('*.css', reload({stream: true})));
 });
 
 gulp.task('clean', function() {
@@ -109,7 +111,7 @@ gulp.task('serve', ['styles', 'scripts'], function() {
   });
 
   gulp.watch(['txlege84/templates/**/*.html'], reload);
-  gulp.watch(['txlege84/static/scss/**/*.scss'], ['styles', reload]);
+  gulp.watch(['txlege84/static/scss/**/*.scss'], ['styles']);
   gulp.watch(['txlege84/static/scripts/**/*.js'], ['jshint', 'scripts', reload]);
 });
 
