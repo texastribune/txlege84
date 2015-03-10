@@ -11,13 +11,13 @@ from committees.views import (ChamberCommitteeList,
                               CommitteeDetail, CommitteeList)
 from explainers.views import ExplainerListDetail
 from legislators.views import LegislatorDetail
-from topics.views import IssueDetail, TopicDetail, TopicListDetail
+from topics.views import IssueDetail, TopicDetail
 
 urlpatterns = patterns(
     '',
     url(r'^$', LandingView.as_view(), name='landing-view'),
     url(r'^topics/$',
-        TopicListDetail.as_view(), name='topic-list-detail'),
+        RedirectView.as_view(pattern_name='landing-view')),
     url(r'^topics/(?P<slug>[-\w]+)/$',
         TopicDetail.as_view(), name='topic-detail'),
     url(r'^topics/(?P<hot_list_slug>[-\w]+)/(?P<slug>[-\w]+)/$',
