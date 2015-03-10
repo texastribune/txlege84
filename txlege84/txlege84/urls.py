@@ -10,7 +10,7 @@ from core.views import LandingView
 from committees.views import (ChamberCommitteeList,
                               CommitteeDetail, CommitteeList)
 from explainers.views import ExplainerListDetail
-from legislators.views import LegislatorDetail
+from legislators.views import LegislatorList, LegislatorDetail
 from topics.views import IssueDetail, TopicDetail
 
 urlpatterns = patterns(
@@ -30,6 +30,8 @@ urlpatterns = patterns(
         SubjectListDetail.as_view(), name='category-list-detail'),
     url(r'^84/legislators/(?P<slug>[-\w]+)/$',
         LegislatorDetail.as_view(), name='legislator-detail'),
+    url(r'^84/legislators/$',
+        LegislatorList.as_view(), name='legislator-landing'),
     url(r'^84/committees/(?P<chamber>[-\w]+)/(?P<slug>[-\w]+)/$',
         CommitteeDetail.as_view(), name='committee-detail'),
     url(r'^how-session-works/$',

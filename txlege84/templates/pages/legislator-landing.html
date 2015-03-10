@@ -11,6 +11,7 @@
       <h2>Legislators</h2>
       <p class="sub-text">Browse bills by lawmaker by clicking on the links below.</p>
     </header>
+    {% comment %}
     <div class="share-page">
       <ul>
         <a href="mailto:?subject=}&body=">
@@ -24,41 +25,38 @@
         </a>
       </ul>
     </div>
+    {% endcomment %}
   </section>
 
 {% include "includes/banner_ad.html" %}
   <section>
-      <div class="shutter">
-        <div class="shutter-label">
-          House Committees
-          <span class="shutter-icon"></span>
-        </div>
-        <div class="shutter-content">
-          <ul class="sans find-bill-list">
-          {% for committee in committee_list %}
-            {% if committee.chamber.name == 'Texas House' %}
-            <li> <a href="{{ committee.get_absolute_url }}">{{ committee.name }}</a></li>
-            {% endif %}
-          {% endfor %}
-          </ul>
-        </div>
+    <div class="shutter">
+      <div class="shutter-label">
+        Browse Bills by Representative
+        <span class="shutter-icon"></span>
       </div>
+      <div class="shutter-content">
+        <ul class="sans find-bill-list">
+        {% for legislator in rep_list %}
+          <li><a href="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }} <span class="{{ legislator.party.name|lower }}">({{ legislator.party.short_name }})</span></a></li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
 
-      <div class="shutter">
-        <div class="shutter-label">
-          Senate Committees
-          <span class="shutter-icon"></span>
-        </div>
-        <div class="shutter-content">
-          <ul class="sans find-bill-list">
-          {% for committee in committee_list %}
-            {% if committee.chamber.name == 'Texas Senate' %}
-            <li> <a href="{{ committee.get_absolute_url }}">{{ committee.name }}</a></li>
-            {% endif %}
-          {% endfor %}
-          </ul>
-        </div>
+    <div class="shutter">
+      <div class="shutter-label">
+        Browse Bills by Senator
+        <span class="shutter-icon"></span>
       </div>
+      <div class="shutter-content">
+        <ul class="sans find-bill-list">
+        {% for legislator in sen_list %}
+          <li><a href="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }} <span class="{{ legislator.party.name|lower }}">({{ legislator.party.short_name }})</span></a></li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
   </section>
   <section class="newsletter-signup">
     <header>
