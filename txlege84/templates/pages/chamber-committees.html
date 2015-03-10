@@ -11,19 +11,21 @@
     <h2>{{ chamber.chamber_name }} Committees</h2>
     <p class="sub-text">See committee membership and browse bills by committee by clicking on the links below.</p>
   </header>
+  {% comment %}
   <div class="share-page">
     <ul>
-      <a href="mailto:?subject=}&body=">
-        <li class="email"><i class="fa fa-envelope"></i></li>
-      </a>
-      <a href="https://twitter.com/intent/tweet?text=&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
-        <li class="twitter"><i class="fa fa-twitter"></i></li>
-      </a>
-      <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=TK&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
+        <a href="mailto:?subject=The%20Texas%20Tribune%27s%20Texas%20Legislative%20Guide%3A%20Committees&body=http%3A%2F%2Ftxlege.texastribune.org%2F84%2Fcommittees%2F{{ chamber.slug|urlencode:"" }}">
+          <li class="email"><i class="fa fa-envelope"></i></li>
+        </a>
+        <a href="https://twitter.com/intent/tweet?text=Check%20out%20%40TexasTribune's%20Texas%20Legislative%20Guide%20%26%20browse%20bills%20by%20committee%20%23txlege%20http%3A%2F%2Ftxlege.texastribune.org%2F84%2Fcommittees%2F{{ chamber.slug|urlencode:"" }}&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
+          <li class="twitter"><i class="fa fa-twitter"></i></li>
+        </a>
+        <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=http%3A%2F%2Ftxlege.texastribune.org%2F84%2Fcommittees%2F{{ chamber.slug|urlencode:"" }}&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org%2F84%2Fcommittees%2F{{ chamber.slug|urlencode:"" }}" title="share on Facebook" class="social-share" target="_blank">
         <li class="facebook"><i class="fa fa-facebook"></i></li>
       </a>
     </ul>
   </div>
+  {% endcomment %}
 </section>
 
 {% include "includes/banner_ad.html" %}
