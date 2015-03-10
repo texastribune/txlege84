@@ -92,6 +92,18 @@ class Bill(models.Model):
     def authors(self):
         return self.sponsorships.filter(role='author')
 
+    @property
+    def coauthors(self):
+        return self.sponsorships.filter(role='coauthor')
+
+    @property
+    def sponsors(self):
+        return self.sponsorships.filter(role='sponsor')
+
+    @property
+    def cosponsors(self):
+        return self.sponsorships.filter(role='cosponsor')
+
     def get_absolute_url(self):
         from django.core.urlresolvers import reverse
         return reverse('bill-detail', args=(self.slug,))

@@ -146,15 +146,10 @@
         {% endif %}
       </div>
     </div>
-    <div class="bill-authors">
       <article class="bill-author">
         <header>
           <h3 class="section-header">Bill authors</h3>
         </header>
-        {% for person in object.sponsorships.all %}
-          <p>{{ person.role }} {{ person.legislator }}
-        {% endfor %}
-        <hr />
         {% for author in object.authors %}
           <div class="author">
             <img class="author-img" src="{{ author.legislator.tribune_photo }}">
@@ -165,45 +160,43 @@
           </div>
         {% endfor %}
       </article>
-      {% if 'coauthor' in object.sponsorships.all.role %}
-      <div>
+      {% if object.coauthors%}
+      <article class="bill-coauthors">
         <div class="shutter">
-        <div class="shutter-label">
-          <h3 class="section-header">Coauthors</h3>
-          <span class="shutter-icon"></span>
+          <div class="shutter-label">
+            Coauthors
+            <span class="shutter-icon"></span>
+          </div>
+          <div class="shutter-content">
+          <ul class="sans">
+            {% for coauthors in object.sponsorships.all %}
+              {% if coauthors.role = 'coauthor' %}
+              <li><a href="{{ coauthors.legislator.get_absolute_url }}">{{ object.chamber.short_name }} {{ coauthors.legislator }} <span class="{{ coauthors.legislator.party.name|lower }}">({{ coauthors.legislator.party.short_name }})</span></a> </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+          </div>
         </div>
-        <ul class="sans">
-          {% for coauthors in object.sponsorships.all %}
-            {% if coauthors.role = 'coauthor' %}
-            <li>{{ object.chamber.short_name }}<a href="{{ coauthors.legislator.get_absolute_url }}">{{ coauthors }} <span class="{% if coauthors.legislator.party.short_name == 'D' %} democratic {% else %} republican {% endif %}">{{ coauthors.legislator.party.short_name }}</span></a></li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-        </div>
-      </div>
+      </article>
       {% endif %}
-      {% if 'sponsor' in object.sponsorships.all.role %}
-      <div>
+      {% if object.sponsors %}
+      <article class="bill-authors">
         <header>
           <h3 class="section-header">Bill sponsors</h3>
         </header>
-        {% for sponsors in object.sponsorships.all %}
-          {% if sponsors.role = 'sponsor' %}
-            <p>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{{ sponsors.legislator.get_absolute_url }}">{{ sponsors.legislator }} <span class="{% if sponsors.legislator.party.short_name == 'D' %} democratic {% else %} republican {% endif %}">({{ sponsors.legislator.party.short_name }})</span></a></p>
-          {% endif %}
+        {% for sponsor in object.sponsors %}
+            <p>{% if object.chamber.name == "Texas Senate" %} Sen. {% else %} Rep. {% endif %}<a href="{{ sponsor.legislator.get_absolute_url }}">{{ sponsor.legislator }} <span class="{{ sponsor.legislator.party.name|lower }}">({{ sponsor.legislator.party.short_name }})</span></a></p>
         {% endfor %}
-      </div>
+      </article>
       {% endif %}
-      {% if 'cosponsor' in object.sponsorships.all.role %}
+      {% if object.cosponsors %}
       <div class="shutter">
         <div class="shutter-label">
           Co-Sponsors
           <span class="shutter-icon"></span>
           <ul class="sans">
-            {% for cosponsor in object.sponsorships.all %}
-              {% if cosponsor.role == 'cosponsor' %}
-              <li>{{ cosponsor.legislator }} (<span class="{% if cosponsor.legislator.party.short_name == 'D' %} democratic {% else %} republican {% endif %}">{{ cosponsor.legislator.party.short_name }})</span></li>
-              {% endif %}
+            {% for cosponsor in object.cosponsors %}
+              <li>{{ cosponsor.legislator }} (<span class="{{ cosponsor.legislator.party }}">{{ cosponsor.legislator.party.short_name }})</span></li>
             {% endfor %}
           </ul>
         </div>
