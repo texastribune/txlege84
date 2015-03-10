@@ -213,6 +213,18 @@
     <div class="bill-committee-assignment">
       <div class="committee-assignment">
         <header>
+          <h3 class="section-header">Senate committee</h3>
+        </header>
+        <ul class="sans">
+        {% if not object.senate_committee %}
+        <li>Committee not yet assigned</li>
+        {% else %}
+        <li><a href="{{ object.senate_committee.get_absolute_url }}">{{ object.senate_committee }}</a></li>
+        {% endif %}
+        </ul>
+      </div>
+      <div class="committee-assignment">
+        <header>
           <h3 class="section-header">House committee</h3>
         </header>
         <ul class="sans">
@@ -222,18 +234,6 @@
         <li><a href="{{ object.house_committee.get_absolute_url }}">{{ object.house_committee }}</a></li>
         {% endif %}
 
-        </ul>
-      </div>
-      <div class="committee-assignment">
-        <header>
-          <h3 class="section-header">Senate committee</h3>
-        </header>
-        <ul class="sans">
-        {% if not object.senate_committee %}
-        <li>Committee not yet assigned</li>
-        {% else %}
-        <li><a href="{{ object.senate_committee.get_absolute_url }}">{{ object.senate_committee }}</a></li>
-        {% endif %}
         </ul>
       </div>
     </div>

@@ -32,12 +32,12 @@
   <section>
     <div class="shutter">
       <div class="shutter-label">
-        Browse Bills by Representative
+        Browse Bills by Senator
         <span class="shutter-icon"></span>
       </div>
       <div class="shutter-content">
         <ul class="sans find-bill-list">
-        {% for legislator in rep_list %}
+        {% for legislator in sen_list %}
           <li><a href="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }} <span class="{{ legislator.party.name|lower }}">({{ legislator.party.short_name }})</span></a></li>
         {% endfor %}
         </ul>
@@ -46,12 +46,12 @@
 
     <div class="shutter">
       <div class="shutter-label">
-        Browse Bills by Senator
+        Browse Bills by Representative
         <span class="shutter-icon"></span>
       </div>
       <div class="shutter-content">
         <ul class="sans find-bill-list">
-        {% for legislator in sen_list %}
+        {% for legislator in rep_list %}
           <li><a href="{{ legislator.get_absolute_url }}">{{ legislator.last_first_full_name }} <span class="{{ legislator.party.name|lower }}">({{ legislator.party.short_name }})</span></a></li>
         {% endfor %}
         </ul>
