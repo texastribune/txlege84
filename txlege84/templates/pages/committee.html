@@ -34,7 +34,7 @@
       </div>
         <header class="chair-detail">
           <h3 class="section-header">Chair</h3>
-          <p class="emphasis"><a href="{{ committee.chair.get_absolute.url }}">{{ committee.chair }}</a></p>
+          <p class="emphasis"><a href="{{ committee.chair.get_absolute_url }}">{{ committee.chair }}</a></p>
           <p class="sub-text">State {{ committee.chair.chamber.member_title }} <span class="{{ committee.chair.party.name|lower }}">({{ committee.chair.party.short_name }})</span></p>
         </header>
     </article>
@@ -44,7 +44,7 @@
       </div>
       <header class="chair-detail">
         <h3 class="section-header">Vice Chair</h3>
-        <p class="emphasis"><a href="{{ committee.vice_chair.get_absolute.url }}">{{ committee.vice_chair }}</a></p>
+        <p class="emphasis"><a href="{{ committee.vice_chair.get_absolute_url }}">{{ committee.vice_chair }}</a></p>
         <p class="sub-text">State {{ committee.vice_chair.chamber.member_title }} <span class="{{ committee.vice_chair.party.name|lower }}">({{ committee.vice_chair.party.short_name }})</span></p>
       </header>
     </article>
