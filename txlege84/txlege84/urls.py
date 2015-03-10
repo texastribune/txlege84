@@ -67,14 +67,6 @@ urlpatterns = patterns(
 
     url(r'', include('social.apps.django_app.urls', namespace='social')),
     url(r'^admin/', include(admin.site.urls)),
-
-    # FOR DEVELOPMENT:
-    url(r'^hot-list/$', TemplateView.as_view(
-        template_name='pages/topic-list-landing.html')),
-    url(r'^hot-list-detail/$', TemplateView.as_view(
-        template_name='pages/topic-list.html')),
-    url(r'^issue-detail/$', TemplateView.as_view(
-        template_name='pages/issue.html')),
 )
 
 # Uncomment the import above and next line to serve media files in development
