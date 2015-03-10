@@ -151,8 +151,11 @@
         <header>
           <h3 class="section-header">Bill authors</h3>
         </header>
-        {% for author in object.sponsorships.all %}
-          {% if author.role = 'author' %}
+        {% for person in object.sponsorships.all %}
+          <p>{{ person.role }} {{ person.legislator }}
+        {% endfor %}
+        <hr />
+        {% for author in object.authors %}
           <div class="author">
             <img class="author-img" src="{{ author.legislator.tribune_photo }}">
             <div class="author-block">
@@ -160,7 +163,6 @@
               <p class="subtext">State {{ author.legislator.chamber.member_title }} <span class="{% if author.legislator.party.short_name == 'D' %} democratic {% else %} republican {% endif %}">({{ author.legislator.party.short_name }})</span></p>
             </div>
           </div>
-          {% endif %}
         {% endfor %}
       </article>
       {% if 'coauthor' in object.sponsorships.all.role %}

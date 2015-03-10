@@ -88,6 +88,10 @@ class Bill(models.Model):
         return '{0} {1}'.format(
             BILL_TYPES[split_name[0]], split_name[1])
 
+    @property
+    def authors(self):
+        return self.sponsorships.filter(role='author')
+
     def get_absolute_url(self):
         from django.core.urlresolvers import reverse
         return reverse('bill-detail', args=(self.slug,))
