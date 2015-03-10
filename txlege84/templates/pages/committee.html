@@ -8,7 +8,7 @@
   <section>
     <header class="page-header">
       <h2>{{ committee.name }}</h2>
-      <p class="sub-text committee-subhead">{% if committee.chamber == 'Texas Senate' %} Senate {% else %} House {% endif %} Committee</p>
+      <p class="sub-text committee-subhead">{{ committee.chamber.chamber_name }} Committee</p>
     </header>
     <div class="share-page">
       <ul>

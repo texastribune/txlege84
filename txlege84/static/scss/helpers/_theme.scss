@@ -18,6 +18,15 @@
     vertical-align: middle;
     width: 100%;
 
+    a {
+      color: $bodytext-black;
+
+      &:hover {
+        color: $bodytext-black;
+        text-decoration: none;
+      }
+    }
+
     p {
 
       @include media($medium) {
@@ -349,8 +358,8 @@ ul {
         }
 
         @include media($large) {
-          @include span-columns(4);
-          @include omega(3n);
+          @include span-columns(6);
+          @include omega(2n);
         }
       }
     }
