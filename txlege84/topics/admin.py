@@ -4,10 +4,10 @@ from django.db import models
 from django.forms import TextInput
 from django.utils.safestring import mark_safe
 
-from adminsortable.admin import SortableAdminMixin, SortableInlineAdminMixin
+from adminsortable.admin import SortableInlineAdminMixin
 
 from topics.models import (
-    Issue, IssueText, StoryPointer, Topic, TopIssue)
+    FeaturedTopic, Issue, IssueText, StoryPointer, Topic)
 
 
 @admin.register(IssueText)
@@ -136,11 +136,11 @@ class TopicAdmin(admin.ModelAdmin):
     save_on_top = True
 
 
-@admin.register(TopIssue)
-class TopIssueAdmin(SortableAdminMixin, admin.ModelAdmin):
-    fields = ('issue',)
+@admin.register(FeaturedTopic)
+class FeaturedTopicAdmin(admin.ModelAdmin):
+    fields = ('topic',)
 
-    raw_id_fields = ('issue',)
+    raw_id_fields = ('topic',)
 
 
 class StoryPointerInline(SortableInlineAdminMixin, admin.TabularInline):
