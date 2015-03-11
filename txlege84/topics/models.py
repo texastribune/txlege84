@@ -32,9 +32,6 @@ class Topic(models.Model):
         from django.core.urlresolvers import reverse
         return reverse('topic-detail', args=(self.slug,))
 
-    class Meta:
-        verbose_name = u'hot list'
-
 
 class IssueText(models.Model):
     issue = models.ForeignKey(
@@ -102,6 +99,13 @@ class StoryPointer(models.Model):
 
     def __unicode__(self):
         return self.headline
+
+
+class FeaturedTopic(models.Model):
+    topic = models.ForeignKey(Topic, related_name='featured_topic')
+
+    def __unicode__(self):
+        return u'Featured Topic: {}'.format(self.topic.name)
 
 
 class TopIssue(models.Model):
