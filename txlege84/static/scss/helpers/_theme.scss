@@ -195,6 +195,14 @@ p {
     margin: .25em 0 1em;
   }
 
+  &.sub-project-title {
+    color: $bodytext-black;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: .25em 0 1em;
+    text-align: center;
+  }
+
   &.center {
     text-align: center;
   }
