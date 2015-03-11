@@ -19,6 +19,9 @@ class Topic(models.Model):
         settings.AUTH_USER_MODEL, null=True, blank=True)
     slug = models.SlugField()
 
+    class Meta:
+        ordering = ('name',)
+
     def __unicode__(self):
         return self.name
 
@@ -31,9 +34,6 @@ class Topic(models.Model):
     def get_absolute_url(self):
         from django.core.urlresolvers import reverse
         return reverse('topic-detail', args=(self.slug,))
-
-    class Meta:
-        verbose_name = u'hot list'
 
 
 class IssueText(models.Model):
@@ -102,6 +102,13 @@ class StoryPointer(models.Model):
 
     def __unicode__(self):
         return self.headline
+
+
+class FeaturedTopic(models.Model):
+    topic = models.ForeignKey(Topic, related_name='featured_topic')
+
+    def __unicode__(self):
+        return u'Featured Topic: {}'.format(self.topic.name)
 
 
 class TopIssue(models.Model):
