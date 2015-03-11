@@ -10,38 +10,58 @@ from core.views import LandingView
 from committees.views import (ChamberCommitteeList,
                               CommitteeDetail, CommitteeList)
 from explainers.views import ExplainerListDetail
-from legislators.views import LegislatorDetail
+from legislators.views import LegislatorDetail, LegislatorList
 from topics.views import IssueDetail, TopicDetail
 
 urlpatterns = patterns(
     '',
+
+    # Landing page
     url(r'^$', LandingView.as_view(), name='landing-view'),
-    url(r'^topics/$',
-        RedirectView.as_view(pattern_name='landing-view')),
-    url(r'^topics/(?P<slug>[-\w]+)/$',
-        TopicDetail.as_view(), name='topic-detail'),
+
+    # Topic pages
     url(r'^topics/(?P<hot_list_slug>[-\w]+)/(?P<slug>[-\w]+)/$',
         IssueDetail.as_view(), name='issue-detail'),
+    url(r'^topics/(?P<slug>[-\w]+)/$',
+        TopicDetail.as_view(), name='topic-detail'),
+    url(r'^topics/$',
+        RedirectView.as_view(pattern_name='landing-view')),
+
+    # Bill pages
     url(r'^84/bills/(?P<slug>[-\w]+)/$',
         BillDetail.as_view(), name='bill-detail'),
+    url(r'^84/bills/$', BillSearchView.as_view(), name='find-bills'),
+
+    # Subject pages
     url(r'^84/categories/(?P<slug>[-\w]+)/$',
         SubjectDetail.as_view(), name='category-detail'),
     url(r'^84/categories/$',
         SubjectListDetail.as_view(), name='category-list-detail'),
+
+    # Legislator pages
     url(r'^84/legislators/(?P<slug>[-\w]+)/$',
         LegislatorDetail.as_view(), name='legislator-detail'),
+    url(r'^84/legislators/$',
+        LegislatorList.as_view(), name='legislator-landing'),
+
+    # Committee pages
     url(r'^84/committees/(?P<chamber>[-\w]+)/(?P<slug>[-\w]+)/$',
         CommitteeDetail.as_view(), name='committee-detail'),
-    url(r'^how-session-works/$',
-        ExplainerListDetail.as_view(), name='explainer-list-detail'),
     url(r'^84/committees/(?P<slug>[-\w]+)/$',
         ChamberCommitteeList.as_view(), name='chamber-committees'),
     url(r'^84/committees/$',
         CommitteeList.as_view(), name='committees-landing'),
+
+    # Explainer pages
+    url(r'^how-session-works/$',
+        ExplainerListDetail.as_view(), name='explainer-list-detail'),
+
+    # Livestream pages
     url(r'^livestream/$',
         LegeStreamDetail.as_view(), name='legestream'),
+
+    # JSON feed for bill search
     url(r'^search/bills/', BillSearchJson.as_view(), name='bill-search'),
-    url(r'^84/find-bills/$', BillSearchView.as_view(), name='find-bills'),
 
     # Redirects
     url(r'^hot-lists/$',

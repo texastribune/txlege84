@@ -14,7 +14,7 @@
       <header class="lawmaker-name page-header">
         <h2>{{ object.chamber.short_name }} {{ object.full_name }}</h2>
         <p class="sub-text">District {{ object.district }} (<span class="{{ object.party.name|lower }}">{{ object.party.short_name }}</span> - {{ object.tribune_city }})</p>
-        <p class="sub-text"><a href="{{ object.tribune_directory_url }} target=_blank">View in Directory</a>, or <a href="{{ object.tribune_ethics_url }} target=_blank">view in Ethics Explorer</a>.</p>
+        <p class="sub-text"><a href="{{ object.tribune_directory_url }} target=_blank">View in Directory</a> | <a href="{{ object.tribune_ethics_url }} target=_blank">View in Ethics Explorer</a></p>
       </header>
   </div>
     <section class="share-page">
@@ -59,7 +59,6 @@
     </section>
   </section>
 </section>
-
   {% if object.memberships.first != null %}
   <section>
     <header>
@@ -67,16 +66,14 @@
     </header>
     <div class="committee-assignments">
       <ul class="sans">
-        {% for membership in object.memberships.all %}
-          {% if membership.role == "Chair" %}
-            <li>{{ membership.role }}, <a href="{{ membership.committee.get_absolute_url }}">{{ membership.committee }}</a></li>
-          {% endif %}
-          {% if membership.role == "Vice Chair" %}
-            <li>{{ membership.role }}, <a href="{{ membership.committee.get_absolute_url }}">{{ membership.committee }}</a></li>
-          {% endif %}
-          {% if membership.role == "Member" %}
-            <li>{{ membership.role }}, <a href="{{ membership.committee.get_absolute_url }}">{{ membership.committee }}</a></li>
-          {% endif %}
+        {% for membership in object.chair_memberships %}
+          <li>Chair, <a href="{{ membership.committee.get_absolute_url }}">{{ membership.committee.name }}</a></li>
+        {% endfor %}
+        {% for membership in object.vicechair_memberships %}
+          <li>Vice Chair, <a href="{{ membership.committee.get_absolute_url }}">{{ membership.committee.name }}</a></li>
+        {% endfor %}
+        {% for membership in object.member_memberships %}
+          <li>Member, <a href="{{ membership.committee.get_absolute_url }}">{{ membership.committee.name }}</a></li>
         {% endfor %}
       </ul>
     </div>

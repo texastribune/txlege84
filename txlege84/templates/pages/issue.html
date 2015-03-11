@@ -6,12 +6,17 @@
 
 {% block content %}
 {% load staticfiles %}
-
+  <section>
+    <header class="page-header issue">
+      <h2><img class="graphic header" src="{% static 'images/icons/' %}{{ issue.topic.slug }}.svg">
+      <a href="{{ issue.topic.get_absolute_url }}">{{ issue.topic.name }}</a></h2>
+    </header>
+  </section>
   <section class="issue-box">
     <section class="issue-prose">
       <header id="{{ issue.slug }}">
         <h2 class="issue-card-title">
-          <img class="graphic header" src="{% static 'images/icons/' %}{{ issue.topic.slug }}.svg">{{ issue.name }}
+          {{ issue.name }}
         </h2>
         {% with curators=issue.topic.curators.all %}
         {% if curators %}
@@ -64,15 +69,14 @@
   </section>
   <section>
     <header class="page-header issue">
-      <h2><img class="graphic header" src="{% static 'images/icons/' %}{{ issue.topic.slug }}.svg">
-      <a href="{{ issue.topic.get_absolute_url }}">{{ issue.topic.name }}</a></h2>
-      <p class="sub-text">Browse the issues we’re following related to {{ issue.topic.name|lower }}.</p>
+      <p class="mini-emphasis">Browse more issues in <a href="{{ issue.topic.get_absolute_url }}">{{ issue.topic.name|lower }}</a> or see all the topics <a href="{% url 'landing-view' %}">we’re following</a>.</p>
     </header>
     <ul class="serif">
     {% for issue in issue.topic.issues.all.published %}
       <li><a href="{{ issue.get_absolute_url }}">{{ issue.name }}</a></li>
     {% endfor %}
     </ul>
-    <p class="emphasis">To see what else we’re following, go <a href="/">here</a>.</p>
+    <p class="mini-emphasis"></p>
   </section>
+  {% include "includes/newsletter-signup-issue.html" %}
 {% endblock %}
