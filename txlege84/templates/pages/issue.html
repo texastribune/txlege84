@@ -69,7 +69,7 @@
   </section>
   <section>
     <header class="page-header issue">
-      <p class="mini-emphasis">Browse more issues in <a href="{{ issue.topic.get_absolute_url }}">{{ issue.topic.name|lower }}</a> or see all the topics <a href="{% url 'landing-view' %}">we’re following</a>.</p>
+      <p class="mini-emphasis">Browse more issues in <a href="{{ issue.topic.get_absolute_url }}">{{ issue.topic.name }}</a> or see all the topics <a href="{% url 'landing-view' %}">we’re following</a>.</p>
     </header>
     <ul class="serif">
     {% for issue in issue.topic.issues.all.published %}
