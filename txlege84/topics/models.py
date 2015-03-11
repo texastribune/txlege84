@@ -19,6 +19,9 @@ class Topic(models.Model):
         settings.AUTH_USER_MODEL, null=True, blank=True)
     slug = models.SlugField()
 
+    class Meta:
+        ordering = ('name',)
+
     def __unicode__(self):
         return self.name
 
