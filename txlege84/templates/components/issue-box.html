@@ -4,9 +4,9 @@
       <h3 class="issue-card-title">
         <a href="{{ issue.get_absolute_url }}">{{ issue.name }}</a>
       </h3>
-      <p class="update-time">Updated: {{ issue.modified_date|date:"N j, Y" }}</p>
     </header>
     {{ issue.active_text.text|safe }}
+    <p class="update-time">Updated: {{ issue.modified_date|date:"N j, Y" }}</p>
     {% if issue.related_bills.first != null %}
     <section class="related-legislation">
       <header>
