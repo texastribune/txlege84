@@ -26,13 +26,18 @@ class Command(BaseCommand):
         time = timezone.make_aware(
             parse(time.replace(' noon', '')), timezone.get_default_timezone())
 
-        ConveneTime.objects.update_or_create(
-            chamber=Chamber.objects.get(name='Texas {}'.format(chamber)),
-            defaults={
-                'time_string': time_string,
-                'status': status,
-                'time': time,
-            }
-        )
+        chamber_model = Chamber.objects.get(name='Texas {}'.format(chamber))
+        convene_time = ConveneTime.objects.get(chamber=chamber_model)
+
+        if convene_time.time_string == time_string:
+            self.stdout.write('Has not changed.')
+            return
+
+        convene_time.time_string = time_string
+        convene_time.status = status
+        convene_time.time = time
+        convene_time.active = True
+
+        convene_time.save()
 
         self.stdout.write(u'Now set to: {}'.format(time_string))
