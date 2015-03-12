@@ -1,0 +1,45 @@
+.share-page {
+  // For breakpoints, see components/_page-header.scss
+
+  text-align: center;
+  margin: 1em 0;
+
+  a {
+    color: $white;
+  }
+
+  li {
+    @include omega(3n);
+    color: $white;
+    display: inline-block;
+    line-height: 1em;
+    margin: 0 .25em;
+    padding: .875em 1.25em .625em;
+    text-align: center;
+    width: 28%;
+
+    &:hover {
+      color: $tagline-black;
+      padding: .875em 1.25em .75em;
+    }
+  }
+
+  .fa {
+    margin: 0;
+  }
+
+  .email {
+    @include button($tribune-yellow, $hover-yellow, $yellow-highlight);
+    margin-left: 0;
+  }
+
+  .facebook {
+    @include button($fb-blue, $fb-hover, $fb-accent);
+    margin-right: 0;
+  }
+
+  .twitter {
+    @include button($tw-blue, $tw-hover, $tw-accent);
+  }
+
+}

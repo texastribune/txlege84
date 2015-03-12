@@ -5,16 +5,139 @@
   {% include "includes/og/og_landing.html" %}
 {% endblock %}
 
-{% block mobileheader %}
-  {% include "components/landing-modules/top-issues.html" with top_issues=top_issues %}
-{% endblock %}
-
-{% block desktopheader %}
-  {% include "components/landing-modules/top-issues.html" with top_issues=top_issues %}
-{% endblock %}
-
 {% block content %}
-  {% include "components/landing-modules/livestream.html" %}
-  {% include "components/landing-modules/hotlist-nav.html" %}
-  {% include "components/landing-modules/featured-texplainer.html" %}
+  {% load staticfiles %}
+  <section>
+    <header class="page-header">
+      <h2>Browse issues by topic</h2>
+      <p class="sub-text">Our reporters have curated lists of issues they’re following under various topics. Learn more about the issues and related legislation.</p>
+    </header>
+    <div class="share-page">
+      <ul>
+        <a href="mailto:?subject=The%20Texas%20Tribune%27s%20Texas%20Legislative%20Guide%3A%20Legislative%20Topics&body=%E2%80%8BI%20thought%20you%20might%20be%20interested%20in%20what%20the%20reporters%20at%20The%20Texas%20Tribune%20are%20covering%20at%20the%20Texas%20Legislature.%0A%0Ahttp%3A%2F%2Ftxlege.texastribune.org%2F">
+          <li class="email"><i class="fa fa-envelope"></i></li>
+        </a>
+        <a href="https://twitter.com/intent/tweet?text=Check%20out%20%40TexasTribune%E2%80%99s%20Texas%20Legislative%20Guide%20--%20your%20go-to%20resource%20for%20the%202015%20%23txlege%20http%3A%2F%2Ftxlege.texastribune.org%2F" title="share on Twitter" class="social-share" target="_blank">
+          <li class="twitter"><i class="fa fa-twitter"></i></li>
+        </a>
+        <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=http%3A%2F%2Ftxlege.texastribune.org&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
+          <li class="facebook"><i class="fa fa-facebook"></i></li>
+        </a>
+      </ul>
+    </div>
+  </section>
+  {% include "includes/banner_ad.html" %}
+  <section class="browse-issues">
+
+    <article class="issue-nav-box">
+      <header class="featured">
+        <h4 class="featured-content">Featured topic</h4>
+      </header>
+      <div class="shutter">
+        <div class="shutter-label">
+          <img class="graphic" src="{% static 'images/icons/' %}{{ featured_topic.topic.slug }}.svg">
+          {{ featured_topic.topic.name }}
+          <span class="shutter-icon shutter-icon-open"></span>
+        </div>
+
+        <div class="shutter-content shutter-content-open">
+        <article class="top-issues">
+          <header>
+            <h5 class="sub-section-header">Top issues</h5>
+          </header>
+          <ul class="serif">
+            {% for issue in featured_topic.topic.issues.all|slice:":3" %}
+            <li><span><a href="{{ issue.get_absolute_url }}">{{ issue }}</a></span></li>
+            {% endfor %}
+          </ul>
+          <p class="mini-emphasis more-issues"><a href="{{ featured_topic.topic.get_absolute_url }}"><span>&#43; </span>All issues</a></p>
+        </article>
+        {% with curators=featured_topic.topic.curators.all %}
+        {% if curators %}
+        <article class="curator-list">
+          <header>
+            <h5 class="sub-section-header">Curated by</h5>
+          </header>
+          {% for curator in curators %}
+          <div class="curated-by">
+            <img clas="headshot" src="{{ curator.staff.profile_photo }}">
+            <p class="emphasis">{{ curator.first_name }} {{ curator.last_name }}</p>
+            <p class="sub-text"></p>
+          </div>
+          {% endfor %}
+        </article>
+        {% endif %}
+        {% endwith %}
+        </div>
+      </div>
+    </article>
+
+    {% for topic in topic_list %}
+    <article class="issue-nav-box">
+      <div class="shutter topic-list">
+        <div class="shutter-label">
+          <img class="graphic" src="{% static 'images/icons/' %}{{ topic.slug }}.svg">
+          {{ topic.name }}
+          <span class="shutter-icon"></span>
+        </div>
+
+        <div class="shutter-content">
+        <article class="top-issues">
+          <header>
+            <h5 class="sub-section-header">Top issues</h5>
+          </header>
+          <ul class="serif">
+            {% for issue in topic.issues.all|slice:":3" %}
+            <li><span><a href="{{ issue.get_absolute_url }}">{{ issue }}</a></span></li>
+            {% endfor %}
+          </ul>
+          <p class="mini-emphasis more-issues"><a href="{{ topic.get_absolute_url }}"><span>&#43; </span>All issues</a></p>
+        </article>
+        {% with curators=topic.curators.all %}
+        {% if curators %}
+        <article class="curator-list">
+          <header>
+            <h5 class="sub-section-header">Curated by</h5>
+          </header>
+          {% for curator in curators %}
+          <div class="curated-by">
+            <img clas="headshot" src="{{ curator.staff.profile_photo }}">
+            <p class="emphasis">{{ curator.first_name }} {{ curator.last_name }}</p>
+            <p class="sub-text"></p>
+          </div>
+          {% endfor %}
+        </article>
+        {% endif %}
+        {% endwith %}
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+
+  </section>
+  <section class="newsletter-signup">
+    <header>
+      <h4 class="sub-section-header">Sign up for The Brief: The news you need to start your day.</h4>
+    </header>
+    <!-- Begin MailChimp Signup Form -->
+    <div id="mc_embed_signup">
+      <form action="//texastribune.us3.list-manage2.com/subscribe/post?u=3d0ce87edeeb6df90043897db&amp;id=68501b81bf" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <div id="mc_embed_signup_scroll">
+      <div class="mc-field-group">
+        <label class="hidden" for="mce-EMAIL"></label>
+        <input class="required input_neue" type="email" name="EMAIL" value="" placeholder="username@email.com" />
+        <input class="button" type="submit" name="subscribe" value="Subscribe" />
+      </div>
+        <div id="mce-responses" class="clear">
+          <div class="response" id="mce-error-response" style="display:none"></div>
+          <div class="response" id="mce-success-response" style="display:none"></div>
+        </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+          <div style="position: absolute; left: -5000px;">
+            <input type="text" name="b_3d0ce87edeeb6df90043897db_7476115edd" tabindex="-1" value=""></div>
+          </div>
+      </form>
+    </div>
+    <!-- https://us3.admin.mailchimp.com/lists/integration/embeddedcode?id=271841 -->
+    <!--End mc_embed_signup-->
+  </section>
 {% endblock %}

@@ -11,6 +11,9 @@ class Committee(models.Model):
     members = models.ManyToManyField(Legislator, through='Membership')
     slug = models.SlugField(null=True, blank=True)
 
+    class Meta:
+        ordering = ('name',)
+
     def __unicode__(self):
         return self.name
 
@@ -30,7 +33,7 @@ class Committee(models.Model):
 
     @property
     def member_list(self):
-        return self.memberships.filter(role='Member')
+        return self.memberships.filter(role='Member').order_by('legislator__last_name')
 
     def get_absolute_url(self):
         from django.core.urlresolvers import reverse

@@ -4,40 +4,52 @@
   {% include "includes/og/og_subject.html" %}
 {% endblock %}
 
-{% block mobileheader %}
-  {% include "components/page-headers/subject-page-header.html" %}
-{% endblock %}
-
-{% block desktopheader %}
-  {% include "components/page-headers/subject-page-header.html" %}
-{% endblock %}
-
 {% block content %}
+  <section>
+    <header class="page-header">
+      <h2>{{ object.name }}</h2>
+      <p class="sub-text">Bills are categorized by <a href="http://openstates.org/">Open States</a>, a product of the Sunlight Foundation. <a href="{% url 'category-list-detail' %}">View all bill categories</a>.</p>
+    </header>
+    <div class="share-page">
+      <ul>
+        <a href="mailto:?subject=The%20Texas%20Tribune%27s%20Texas%20Legislative%20Guide&body=I%20thought%20you%20might%20be%20interested%20in%20what%E2%80%99s%20going%20on%20at%20the%20Texas%20Legislature.%20Learn%20about%20bills%20filed%20under%20{{ object.name|urlencode:"" }}%20here%3A%20http%3A%2F%2Ftxlege.texastribune.org{{ object.get_absolute_url }}">
+          <li class="email"><i class="fa fa-envelope"></i></li>
+        </a>
+        <a href="https://twitter.com/intent/tweet?text=&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
+          <li class="twitter"><i class="fa fa-twitter"></i></li>
+        </a>
+        <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=TK&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
+          <li class="facebook"><i class="fa fa-facebook"></i></li>
+        </a>
+      </ul>
+    </div>
+  </section>
 
-<section>
-{% if object.bills.first != null %}
-  <table class="bill-table">
-    <thead>
-      <tr>
-        <th>Bill</th>
-        <th>Caption</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-    {% for bill in object.bills.all %}
-      <tr>
-        <td data-title="Bill"><a href="{{ bill.get_absolute_url }}">{{ bill.name }}</a></td>
-        <td data-title="Caption">{{ bill.description }}</td>
-        <td data-title="Action">{{ bill.actions.first.text }}</td>
-      </tr>
-    {% endfor %}
-    </tbody>
-  </table>
-{% else %}
-<p>No bills have been filed under this category yet.</p>
-{% endif %}
-</section>
+  {% include "includes/banner_ad.html" %}
+
+  <section>
+  {% if object.bills.first != null %}
+    <table class="bill-table">
+      <thead>
+        <tr>
+          <th>Bill</th>
+          <th>Caption</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for bill in subject.bills.all %}
+        <tr>
+          <td data-title="Bill"><a href="{{ bill.get_absolute_url }}">{{ bill.name }}</a></td>
+          <td data-title="Caption">{{ bill.description }}</td>
+          <td data-title="Action">{{ bill.actions.first.text }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+  <p>No bills have been filed under this category yet.</p>
+  {% endif %}
+  </section>
 
 {% endblock %}
-

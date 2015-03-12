@@ -4,18 +4,63 @@
   {% include "includes/og/og_topic.html" %}
 {% endblock %}
 
-{% block mobileheader %}
-  {% include "components/page-headers/hot-list-header.html" %}
-{% endblock %}
-
-{% block desktopheader %}
-  {% include "components/page-headers/hot-list-header.html" %}
-{% endblock %}
-
 {% block content %}
+  {% load staticfiles %}
+  <section>
+    <header class="page-header">
+      <h2>
+        <img class="graphic header" src="{% static 'images/icons/' %}{{ topic.slug }}.svg">
+        {{ topic.name }}
+      </h2>
+      <p class="sub-text">Browse the issues we’re following that are related to {{ topic.name|lower }}. To see what we’re following in other categories, go <a href="/">here</a>.</p>
+    </header>
+    <div class="share-page">
+      <ul>
+        <a href="mailto:?subject=The%20Texas%20Tribune%27s%20Texas%20Legislative%20Guide%3A%20{{ object.name|urlencode:"" }}&body=I%20read%20about%20a%20topic%20that%20you%20might%20be%20interested%20in%20at%20The%20Texas%20Tribune%3A%20{{ object.name|urlencode:"" }}%0A%0Ahttp%3A%2F%2Ftxlege.texastribune.org{{ object.get_absolute_url }}">
+          <li class="email"><i class="fa fa-envelope"></i></li>
+        </a>
+        <a href="https://twitter.com/intent/tweet?text=Check%20out%20%40TexasTribune%E2%80%99s%20list%20of%20the%20top%20{{ topic.name|lower|urlencode:""}}%20issues%20for%20the%2084th%20%23txlege%20http%3A%2F%2Ftxlege.texastribune.org{{ topic.get_absolute_url|urlencode:"" }}" title="share on Twitter" class="social-share" target="_blank">
+          <li class="twitter"><i class="fa fa-twitter"></i></li>
+        </a>
+        <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=http%3A%2F%2Ftxlege.texastribune.org{{ topic.get_absolute_url|urlencode:"" }}&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org{{ topic.get_absolute_url|urlencode:"" }}" title="share on Facebook" class="social-share" target="_blank">
+          <li class="facebook"><i class="fa fa-facebook"></i></li>
+        </a>
+      </ul>
+    </div>
+  </section>
+    {% include "includes/banner_ad.html" %}
+  <section>
+    <article class="top-issues">
+      <header>
+        <h2 class="sub-section-header">Top issues</h2>
+      </header>
+      <ul class="serif">
+      {% for issue in object.issues.all.published %}
+        <li><a href="{{ topic.get_absolute_url }}#{{ issue.slug }}">{{ issue.name }}</a></li>
+      {% endfor %}
+      </ul>
+    </article>
 
-{% for issue in object.issues.all.published %}
-  {% include "components/issue-box.html" %}
-{% endfor %}
+    {% with curators=topic.curators.all %}
+    {% if curators %}
+    <article class="curator-list">
+      <header>
+        <h5 class="sub-section-header">Curated by</h5>
+      </header>
+      {% for curator in curators %}
+      <div class="curated-by">
+        <img clas="headshot" src="{{ curator.staff.profile_photo }}">
+        <p class="emphasis">{{ curator.first_name }} {{ curator.last_name }}</p>
+        <p class="sub-text"></p>
+      </div>
+      {% endfor %}
+    </article>
+    {% endif %}
+    {% endwith %}
+  </section>
+  {% for issue in object.issues.all.published %}
+    {% include "components/issue-box.html" %}
+  {% endfor %}
 
+  {% include "includes/newsletter-signup-topic.html" %}
 {% endblock %}

@@ -1,60 +1,32 @@
 $ls-small: new-breakpoint(min-width 695px max-width 799px);
 
-.livestream {
-  @include clearfix;
+.livestream-page {
 
-  .watch {
-
-    @include media($ls-small) {
-      .chamber {
-        @include span-columns(6);
-        @include omega(2n);
-      }
-    }
-
-    @include media($large) {
-      .chamber {
-        @include span-columns(6);
-        @include omega(2n);
-      }
-    }
-
+  .section-header {
+    border-bottom: 0;
+    margin-bottom: 0;
   }
 
-  .chamber p {
-    min-height: 2.4em;
-  }
-
-  .stream-placeholder {
+  .sub-text {
     margin-bottom: 1em;
   }
-
 }
 
-.legestream-page {
-  .watch {
-    @include media($ls-small) {
-      .chamber {
-        @include span-columns(12);
-      }
-    }
+.flexible-video {
+  margin-bottom: .5em;
+}
 
-    @include media($large) {
-      .chamber {
-        @include span-columns(12);
-      }
-    }
+.house-stream {
+  background-image: url('/static/images/tx-house-chamber-video-img.jpg');
+}
 
-  }
-
-  .chamber {
-    @include clearfix;
-    margin-bottom: 1em;
-  }
+.senate-stream {
+  background-image: url('/static/images/tx-senate-chamber-video-img.jpg');
 }
 
 .stream-placeholder {
   background-color: $tribune-black;
+  background-size: cover;
   color: $white;
   cursor: pointer;
   height: 0;
@@ -69,6 +41,7 @@ $ls-small: new-breakpoint(min-width 695px max-width 799px);
 
   &.stream-activated {
     background-color: transparent;
+    background-image: none;
   }
 
   iframe {
@@ -85,4 +58,9 @@ $ls-small: new-breakpoint(min-width 695px max-width 799px);
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
+
+  .fa {
+    font-size: 4em;
+    margin: 0;
+  }
 }

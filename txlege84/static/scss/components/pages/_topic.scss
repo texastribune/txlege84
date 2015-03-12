@@ -1,0 +1,29 @@
+$topic-bp-med: new-breakpoint(min-width 500px max-width 790px);
+$topic-bp-lg: new-breakpoint(min-width 790px);
+
+.top-issues {
+  @include media($topic-bp-lg) {
+    @include span-columns(4);
+  }
+}
+
+.curator-list {
+  margin-bottom: .5em;
+
+  @include media($topic-bp-med) {
+    @include span-columns(12);
+    .curated-by {
+      @include span-columns(6);
+    }
+  }
+
+  @include media($topic-bp-lg) {
+    @include span-columns(8);
+    @include omega();
+
+    .curated-by {
+      @include span-columns(4 of 8);
+    }
+  }
+
+}

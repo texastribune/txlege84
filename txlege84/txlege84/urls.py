@@ -1,55 +1,81 @@
 from django.conf.urls import patterns, include, url
 # from django.conf.urls.static import static
-from django.views.generic import TemplateView
+from django.views.generic import RedirectView
 
 from django.contrib import admin
 
-from bills.views import (BillDetail, BillSearchJson,
-                         SubjectDetail, LegeStreamDetail)
+from bills.views import (BillDetail, BillSearchView, BillSearchJson,
+                         SubjectDetail, SubjectListDetail, LegeStreamDetail)
 from core.views import LandingView
-from committees.views import CommitteeDetail
+from committees.views import (ChamberCommitteeList,
+                              CommitteeDetail, CommitteeList)
 from explainers.views import ExplainerListDetail
-from legislators.views import LegislatorDetail
-from topics.views import IssueDetail, TopicDetail, TopicListDetail
+from legislators.views import LegislatorDetail, LegislatorList
+from topics.views import IssueDetail, TopicDetail
 
 urlpatterns = patterns(
     '',
+
+    # Landing page
     url(r'^$', LandingView.as_view(), name='landing-view'),
-    url(r'^hot-lists/$',
-        TopicListDetail.as_view(), name='topic-list-detail'),
-    url(r'^hot-lists/(?P<slug>[-\w]+)/$',
-        TopicDetail.as_view(), name='topic-detail'),
-    url(r'^hot-lists/(?P<hot_list_slug>[-\w]+)/(?P<slug>[-\w]+)/$',
+
+    # Topic pages
+    url(r'^topics/(?P<hot_list_slug>[-\w]+)/(?P<slug>[-\w]+)/$',
         IssueDetail.as_view(), name='issue-detail'),
+    url(r'^topics/(?P<slug>[-\w]+)/$',
+        TopicDetail.as_view(), name='topic-detail'),
+    url(r'^topics/$',
+        RedirectView.as_view(pattern_name='landing-view')),
+
+    # Bill pages
     url(r'^84/bills/(?P<slug>[-\w]+)/$',
         BillDetail.as_view(), name='bill-detail'),
+    url(r'^84/bills/$', BillSearchView.as_view(), name='find-bills'),
+
+    # Subject pages
     url(r'^84/categories/(?P<slug>[-\w]+)/$',
         SubjectDetail.as_view(), name='category-detail'),
+    url(r'^84/categories/$',
+        SubjectListDetail.as_view(), name='category-list-detail'),
+
+    # Legislator pages
     url(r'^84/legislators/(?P<slug>[-\w]+)/$',
         LegislatorDetail.as_view(), name='legislator-detail'),
+    url(r'^84/legislators/$',
+        LegislatorList.as_view(), name='legislator-landing'),
+
+    # Committee pages
     url(r'^84/committees/(?P<chamber>[-\w]+)/(?P<slug>[-\w]+)/$',
         CommitteeDetail.as_view(), name='committee-detail'),
-    url(r'^texplainers/$',
+    url(r'^84/committees/(?P<slug>[-\w]+)/$',
+        ChamberCommitteeList.as_view(), name='chamber-committees'),
+    url(r'^84/committees/$',
+        CommitteeList.as_view(), name='committees-landing'),
+
+    # Explainer pages
+    url(r'^how-session-works/$',
         ExplainerListDetail.as_view(), name='explainer-list-detail'),
-    url(r'^legestream/$',
+
+    # Livestream pages
+    url(r'^livestream/$',
         LegeStreamDetail.as_view(), name='legestream'),
 
+    # JSON feed for bill search
     url(r'^search/bills/', BillSearchJson.as_view(), name='bill-search'),
 
-    # Examples:
-    # url(r'^$', 'txlege84.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
+    # Redirects
+    url(r'^hot-lists/$',
+        RedirectView.as_view(pattern_name='landing-view')),
+    url(r'^hot-lists/(?P<slug>[-\w]+)/$',
+        RedirectView.as_view(pattern_name='topic-detail')),
+    url(r'^hot-lists/(?P<hot_list_slug>[-\w]+)/(?P<slug>[-\w]+)/$',
+        RedirectView.as_view(pattern_name='issue-detail')),
+    url(r'^legestream/$', RedirectView.as_view(pattern_name='legestream')),
+    url(r'^texplainers/$',
+        RedirectView.as_view(pattern_name='explainer-list-detail')),
 
     url(r'', include('social.apps.django_app.urls', namespace='social')),
     url(r'^admin/', include(admin.site.urls)),
-
-    # FOR DEVELOPMENT:
-    url(r'^hot-list/$', TemplateView.as_view(
-        template_name='pages/topic-list-landing.html')),
-    url(r'^hot-list-detail/$', TemplateView.as_view(
-        template_name='pages/topic-list.html')),
-    url(r'^issue-detail/$', TemplateView.as_view(
-        template_name='pages/issue.html')),
 )
 
 # Uncomment the import above and next line to serve media files in development

@@ -1,0 +1,165 @@
+// the toggle point between the mobile menu and the desktop menu
+$menu-breakpoint: new-breakpoint(min-width 46.25em); // 740px
+
+.masthead {
+  background-color: $bodytext-black;
+  color: $white;
+  padding: 0 0 0 .625em;
+
+  @include media($menu-breakpoint) {
+    text-align: center; // logo comes back to the middle in larger view
+  }
+
+  .trib-logo {
+    height: 1.5em;
+    margin: .5em 0;
+    vertical-align: bottom;
+  }
+
+  .menu-button {
+    background-color: $bodytext-black;
+    border: 0;
+    float: right;
+    font-size: 1.375em;
+    line-height: 0;
+    padding: .375em .5em;
+    text-align: center;
+
+    @include media($menu-breakpoint) {
+      display: none; // don't need the menu button in larger view
+    }
+
+    .fa {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.menu-nav {
+  display: none;
+  font-family: $helvetica;
+
+  @include media($menu-breakpoint) {
+    display: block; // makes menu appear in larger view
+    text-align: center; // center everything in the menu in larger view
+  }
+
+  &-open {
+    display: block;
+  }
+
+  .fa {
+    float: right;
+    font-size: .65em;
+    margin: .28em 0 0 .5em; // Center fa w/ text
+
+    @include media($menu-breakpoint) {
+      float: none;
+      margin: 1px 0 0;
+      vertical-align: top;
+    }
+  }
+
+  a {
+    background-color: $tagline-black;
+    color: $white;
+    display: block;
+    font-size: .875em; // 14px
+    font-weight: 500;
+    letter-spacing: .071428571em; // 1px
+    padding: .571428571em .714285714em; // 8px 10px
+    text-transform: uppercase;
+
+    @include media($menu-breakpoint) {
+      background-color: transparent;
+      color: $bodytext-black;
+      white-space: nowrap; // never go to a new line
+    }
+
+    &:hover {
+      color: $tribune-yellow;
+      text-decoration: none;
+
+      @include media($menu-breakpoint) {
+        color: $teal;
+      }
+    }
+  }
+
+  .container > ul {
+    list-style: none;
+
+    li {
+      @include media($menu-breakpoint) {
+        display: inline-block;
+        text-align: right;
+      }
+    }
+  }
+
+  li {
+    border-top: 1px solid $text-gray;
+    font-size: 1em; // reset li font-size to 16px/1em
+
+    @include media($menu-breakpoint) {
+      border-top: 0;
+    }
+
+    &:first-child {
+      border-top: 0;
+    }
+
+    &:hover {
+      background-color: $li-black;
+
+      @include media($menu-breakpoint) {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.sub-nav-container {
+  @include media($menu-breakpoint) {
+    position: relative;
+  }
+}
+
+.sub-nav {
+  display: none;
+
+  @include media($menu-breakpoint) {
+    background-color: transparentize($white, .1);
+    left: auto;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 2;
+  }
+
+  &-open {
+    display: block;
+  }
+
+  a {
+    background-color: darken($tagline-black, 5%);
+    font-size: .7em; // 12px
+    padding: .9em .9em .9em 1.7em; // Indent sub nav just slightly
+
+    @include media($menu-breakpoint) {
+      background-color: transparent;
+      font-size: .875em; // 14px
+      text-align: right;
+      padding: .6em .8em; // 8px 10px
+    }
+  }
+
+  li:first-child {
+    border-top: 1px solid $text-gray;
+
+    @include media($menu-breakpoint) {
+      border-top: 0;
+    }
+  }
+}

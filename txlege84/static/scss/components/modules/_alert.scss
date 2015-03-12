@@ -1,0 +1,71 @@
+$alert-salmon: rgb(255, 98, 73);
+$alert-nowrap-bp: new-breakpoint(min-width 51.25em); // 820px
+
+.alert-bar {
+  background-color: $alert-salmon;
+  color: $white;
+  position: relative;
+  text-align: center;
+
+  &:not(:only-of-type) {
+    margin: 0 0 .3125em;
+  }
+
+  &:hover {
+    background-color: darken($alert-salmon, 5%);
+  }
+
+  a {
+    display: block;
+    padding: .625em 0; // 10px 0
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  p {
+    color: $white;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+
+    @include media($alert-nowrap-bp) {
+      display: inline-block;
+    }
+  }
+
+  .alert-chamber {
+    font-family: $georgia;
+    font-size: 1.125em;
+    font-weight: 800;
+    letter-spacing: .03em;
+    margin: 0 0 .25em;
+
+    @include media($alert-nowrap-bp) {
+      display: inline-block;
+      margin: 0;
+    }
+  }
+
+  .alert-time {
+    font-size: .75em;
+    font-style: italic;
+  }
+
+  .alert-arrow {
+    color: $white;
+    font-size: 1.3125em;
+    margin: 0 .5em 0 0;
+    position: absolute;
+    right: 0;
+    top: 35%; // do not like this magic number, but it works
+
+    @include media($alert-nowrap-bp) {
+      margin: 0 0 .0625em;
+      position: static;
+      vertical-align: middle;
+    }
+  }
+}

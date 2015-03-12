@@ -4,30 +4,38 @@
   {% include "includes/og/og_texplainer.html" %}
 {% endblock %}
 
-{% block mobileheader %}
-  {% include "components/page-headers/texplainer_header.html" %}
-{% endblock %}
-
-{% block desktopheader %}
-  {% include "components/page-headers/texplainer_header.html" %}
-{% endblock %}
-
 {% block content %}
-
-<section>
-
- {% for explainer in object_list %}
-  <div class="texplainer-content-box">
-    <h3 class="headline">{{ explainer.name }}</h3>
-    <div class="flexible-video">
-      <iframe width="560" height="315" src="//www.youtube.com/embed/{{ explainer.youtube_id }}" frameborder="0" allowfullscreen></iframe>
+  <section>
+    <header class="page-header">
+      <h2>How the Legislature Works</h2>
+      <p class="sub-text">Your guide to understanding the session.</p>
+    </header>
+    <div class="share-page">
+      <ul>
+        <a href="mailto:?subject=The%20Texas%20Tribune%27s%20Texas%20Legislative%20Guide&body=I%20thought%20you%20might%20be%20interested%20in%20learning%20more%20about%20how%20the%20Texas%20Legislature%20works.%20Here%20are%20some%20videos%20by%20The%20Texas%20Tribune%20to%20help%20you%20navigate%20this%20year%E2%80%99s%20session%3A%20%0A%0Ahttp%3A%2F%2Ftxlege.texastribune.org{% url 'explainer-list-detail'|urlencode:"" %}">
+          <li class="email"><i class="fa fa-envelope"></i></li>
+        </a>
+        <a href="https://twitter.com/intent/tweet?text=Check%20out%20%40texastribune's%20guide%20to%20understanding%20how%20%23txlege%20works%20http%3A%2F%2Ftxlege.texastribune.org{% url 'explainer-list-detail'|urlencode:"" %}" title="share on Twitter" class="social-share" target="_blank">
+          <li class="twitter"><i class="fa fa-twitter"></i></li>
+        </a>
+        <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=http%3A%2F%2Ftxlege.texastribune.org{% url 'explainer-list-detail'|urlencode:"" %}&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
+          <li class="facebook"><i class="fa fa-facebook"></i></li>
+        </a>
+      </ul>
     </div>
-    <p>{{ explainer.text|safe }}</p>
-  </div>
-
-  <hr>
-  {% endfor %}
-</section>
-
-
+  </section>
+  <section>
+   {% for explainer in object_list %}
+    <article class="texplainer-content-box">
+      <header>
+        <p class="emphasis">{{ explainer.name }}</p>
+      </header>
+      <div class="flexible-video">
+        <iframe width="560" height="315" src="//www.youtube.com/embed/{{ explainer.youtube_id }}" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <p class="sub-text">{{ explainer.text|safe }}</p>
+    </article>
+    <hr class="video-divider">
+    {% endfor %}
+  </section>
 {% endblock %}

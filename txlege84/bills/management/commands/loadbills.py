@@ -116,6 +116,16 @@ class Command(BaseCommand):
     def load_bill(self, data):
         self.stdout.write(u'Loading {}...'.format(data['bill_id']))
 
+        bill_name = data['bill_id']
+        chamber_str = data['chamber']
+
+        # if the chamber and bill ID doesn't match, something's fishy
+        if chamber_str == 'lower' and bill_name[0] == 'S':
+            return
+
+        if chamber_str == 'upper' and bill_name[0] == 'H':
+            return
+
         first_action_date = (data['action_dates']['first'].split(' ')[0]
                              if data['action_dates']['first'] else None)
         last_action_date = (data['action_dates']['last'].split(' ')[0]
@@ -129,12 +139,12 @@ class Command(BaseCommand):
 
         # Creates or updates the bill
         bill, created = Bill.objects.update_or_create(
-            name=data['bill_id'],
+            name=bill_name,
             openstates_id=data['id'],
             defaults={
                 'description': data['title'],
                 'bill_type': data['type'][0].lower(),
-                'chamber': (self.senate_chamber if data['chamber'] == 'upper'
+                'chamber': (self.senate_chamber if chamber_str == 'upper'
                             else self.house_chamber),
                 'first_action_date': first_action_date,
                 'last_action_date': last_action_date,

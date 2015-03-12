@@ -4,59 +4,107 @@
   {% include "includes/og/og_lawmaker.html" %}
 {% endblock %}
 
-{% block mobileheader %}
-  {% include "components/page-headers/legislator-page-header.html" %}
-{% endblock %}
-
-{% block desktopheader %}
-  {% include "components/page-headers/legislator-page-header.html" %}
-{% endblock %}
-
 {% block content %}
+<section>
+  <section class="desktop-header">
+    <div class="lawmaker-photo">
+      <img class="desktop-image" src="{{ object.tribune_photo }}">
+    </div>
+    <div class="lawmaker-desktop-intro">
+      <header class="lawmaker-name page-header">
+        <h2>{{ object.chamber.short_name }} {{ object.full_name }}</h2>
+        <p class="sub-text">District {{ object.district }} (<span class="{{ object.party.name|lower }}">{{ object.party.short_name }}</span> - {{ object.tribune_city }})</p>
+        <p class="sub-text"><a href="{{ object.tribune_directory_url }} target=_blank">View in Directory</a> | <a href="{{ object.tribune_ethics_url }} target=_blank">View in Ethics Explorer</a></p>
+      </header>
+  </div>
+    <section class="share-page">
+    <ul>
+      <a href="mailto:?subject=The%20Texas%20Tribune%27s%20Texas%20Legislative%20Guide%3A%20{{ object.chamber.short_name|urlencode:"" }}%20{{ object.full_name|urlencode:"" }}&body=Learn%20more%20about%20bills%20filed%20by%20{{ object.chamber.short_name|urlencode:"" }}%20{{ object.full_name|urlencode:"" }}%20with%20The%20Texas%20Tribune%27s%20Texas%20Legislative%20Guide.%20%20%0D%0Dhttp%3A%2F%2Ftxlege.texastribune.org{{ object.get_absolute_url }}" class="social-share">
+        <li class="email"><i class="fa fa-envelope"></i></li>
+      </a>
+      <a href="https://twitter.com/intent/tweet?text=&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
+        <li class="twitter"><i class="fa fa-twitter"></i></li>
+      </a>
+      <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=TK&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
+        <li class="facebook"><i class="fa fa-facebook"></i></li>
+      </a>
+    </ul>
+    </section>
+  </section>
 
-{% if object.memberships.first != null %}
-<header>
-  <h3 class="section-header">Committee assignments</h3>
-</header>
-<div class="committee-assignments">
-  <ul>
-    {% for membership in object.memberships.all %}
-    <li>
-      {{ membership.role }}, <a href="{{ membership.committee.get_absolute_url }}">{{ membership.committee }}</a>
-    </li>
-    {% endfor %}
-  </ul>
-</div>
-{% endif %}
+  <section class="mobile-header legislator-details">
+    <header>
+      <div class="headshot">
+        <img class="lawmaker-img" src="{{ object.tribune_photo }}">
+        <p class="lawmaker-name emphasis">{{ object.chamber.short_name }} {{ object.full_name }}</p>
+        <p class="subtext">District {{ object.district }} (<span class="{{ object.party.name|lower }}">{{ object.party.short_name }}</span>-{{ object.tribune_city }})</p>
+      </div>
+    </header>
+    <section class="share-page">
+      <ul>
+        <a href="mailto:?subject=The%20Texas%20Tribune%27s%20Texas%20Legislative%20Guide%3A%20{{ object.chamber.short_name|urlencode:"" }}%20{{ object.full_name|urlencode:"" }}&body=Learn%20more%20about%20bills%20filed%20by%20{{ object.chamber.short_name|urlencode:"" }}%20{{ object.full_name|urlencode:"" }}%20with%20The%20Texas%20Tribune%27s%20Texas%20Legislative%20Guide.%20%20%0D%0Dhttp%3A%2F%2Ftxlege.texastribune.org{{ object.get_absolute_url }}" class="social-share">
+          <li class="email"><i class="fa fa-envelope"></i></li>
+        </a>
+        <a href="https://twitter.com/intent/tweet?text=&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
+          <li class="facebook"><i class="fa fa-twitter"></i></li>
+        </a>
+        <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=TK&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
+          <li class="twitter"><i class="fa fa-facebook"></i></li>
+        </a>
+      </ul>
+    </section>
+    <section class="lawmaker-links">
+      <a href="{{ object.tribune_directory_url }}"><button class="button">View in Directory</button></a>
+      <a href="{{ object.tribune_ethics_url }}"><button class="button">View in Ethics Explorer</button></a>
+    </section>
+  </section>
+</section>
+  {% if object.memberships.first != null %}
+  <section>
+    <header>
+      <h3 class="section-header">Committees</h3>
+    </header>
+    <div class="committee-assignments">
+      <ul class="sans">
+        {% for membership in object.chair_memberships %}
+          <li>Chair, <a href="{{ membership.committee.get_absolute_url }}">{{ membership.committee.name }}</a></li>
+        {% endfor %}
+        {% for membership in object.vicechair_memberships %}
+          <li>Vice Chair, <a href="{{ membership.committee.get_absolute_url }}">{{ membership.committee.name }}</a></li>
+        {% endfor %}
+        {% for membership in object.member_memberships %}
+          <li>Member, <a href="{{ membership.committee.get_absolute_url }}">{{ membership.committee.name }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
 
-<header>
-  <h3 class="section-header">Filed legislation</h3>
-</header>
-<div class="bill-table">
-  {% if object.authored_bills.first = None %}
-    <p>This lawmaker hasn't filed any legislation yet.</p>
-  {% else %}
-    <table>
-      <thead>
-        <tr>
-          <th>Bill</th>
-          <th>Caption</th>
-          <th>Date of last action</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for sponsorship in object.sponsorships.all %}
-          {% if sponsorship.role = 'author' %}
+    <header>
+      <h3 class="section-header">Filed legislation</h3>
+    </header>
+    <div class="bill-table">
+    {% if object.sponsorships.first != null %}
+      <table>
+        <thead>
+          <tr>
+            <th>Bill</th>
+            <th>Caption</th>
+            <th>Date of last action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for sponsorship in object.sponsorships.all %}
           <tr>
             <td data-title="Bill"><a href="{{ sponsorship.bill.get_absolute_url }}">{{ sponsorship.bill.name }}</a></td>
             <td data-title="Caption">{{ sponsorship.bill.description }}</td>
             <td data-title="Date of last action">{{ sponsorship.bill.last_action_date|date:"SHORT_DATE_FORMAT" }}</td>
           </tr>
-          {% endif %}
-        {% endfor %}
-      </tbody>
-    </table>
-  {% endif %}
-</div>
-
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>This legislator hasn't filed any bills yet.</p>
+      {% endif %}
+    </div>
+  </section>
 {% endblock %}

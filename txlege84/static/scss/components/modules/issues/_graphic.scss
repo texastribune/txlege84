@@ -1,0 +1,30 @@
+.graphic {
+  float: left;
+  width: 2em;
+  margin: -.375em .375em 0 0;
+
+  &.header {
+    width: 1.5em;
+  }
+
+  @include media($medium) {
+    &.list {
+      margin: 0 .5em 4em;
+    }
+
+    &.header {
+      margin: -.25em .5em 0 0;
+    }
+  }
+
+  @include media($large) {
+    &.list {
+      margin: 0 .5em 4em;
+    }
+
+    &.header {
+      margin: -.25em .5em 0 0;
+    }
+  }
+
+}

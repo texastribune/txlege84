@@ -1,20 +1,12 @@
 from django.views.generic import ListView
 
-from bills.mixins import AllSubjectsMixin
-from legislators.mixins import AllLegislatorsMixin, ChambersMixin
+from core.mixins import ConveneTimeMixin
+from topics.mixins import FeaturedTopicMixin
 
-from explainers.models import Explainer
-from topics.models import Topic, TopIssue
+from topics.models import FeaturedTopic, Topic
 
 
-class LandingView(AllSubjectsMixin, AllLegislatorsMixin,
-                  ChambersMixin, ListView):
-    model = Topic
+class LandingView(FeaturedTopicMixin, ConveneTimeMixin, ListView):
+    # only returns the one not considered a featured topic
+    queryset = Topic.objects.exclude(id=FeaturedTopic.objects.first().topic.id)
     template_name = 'landing.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(LandingView, self).get_context_data(**kwargs)
-        context['top_issues'] = TopIssue.objects.all()[:4]
-        context['explainer_list'] = Explainer.objects.all().published()
-
-        return context

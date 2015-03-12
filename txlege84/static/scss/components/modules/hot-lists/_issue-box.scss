@@ -1,100 +1,68 @@
+$issue-bp: new-breakpoint(min-width 671px);
+
 .issue-box {
   @include clearfix;
   background-color: $background-gray;
-  margin-bottom: 1.5em;
+  margin: 1em 0 0;
+  padding: .5em 1.25em;
 
-  .share-box {
-    @include span-columns(12);
-    color: $tribune-black;
-    background-color: $tribune-yellow;
-
-    h5 {
-      font-size: .7em;
-      font-weight: 400;
-      letter-spacing: .1em;
-      text-align: center;
-
-      i {
-        font-size: 1.5em;
-        padding: .25em 0;
-        margin: 0 .5em;
-      }
-
-      a {
-        border-bottom: 0;
-        text-decoration: none;
-      }
-    }
+  p {
+    font-family: $base-serif;
+    line-height: 1.4;
   }
 }
 
-.issue {
-  @extend %content-block;
+.share-box {
   @include clearfix;
+  color: $tribune-black;
+  background-color: $tribune-yellow;
+  margin-bottom: 1em;
+  padding: .1em 0;
+  width: 100%;
 
-  h3 {
-    padding: 1.5em 0 .25em;
+  p {
+    font-size: .9em;
+    margin: .25em 0;
+    text-transform: uppercase;
+    text-align: center;
+
+    i {
+      font-size: 1.1em;
+      padding: .25em .5em;
+      margin: 0 .25em 0 0;
+    }
 
     a {
-    color: $text-black;
+      border-bottom: 0;
+      color: $text-gray;
+      text-decoration: none;
+
+      &:hover {
+        color: $teal;
+      }
     }
   }
-
-  ul {
-    margin-bottom: 1em;
-  }
-
-  li {
-    margin: 0 0 .25em;
-  }
-
-  .related-legislation,
-  .related-content {
-    @include clearfix;
-    margin-top: 0;
-
-    h5 {
-      padding-top: 1em;
-    }
-
-    ul {
-      list-style: disc;
-      padding-left: 1.1em;
-    }
-  }
-
-  .related-legislation {
-    @include span-columns(12);
-
-    @include media($small) {
-      @include span-columns(4);
-    }
-
-    @include media($medium) {
-      @include span-columns(4);
-    }
-
-    @include media($large) {
-      @include span-columns(4);
-    }
-  }
-
-  .related-content {
-    @include span-columns(12);
-
-    @include media($small) {
-      @include span-columns(8);
-    }
-
-    @include media($medium) {
-      @include span-columns(8);
-    }
-
-    @include media($large) {
-      @include span-columns(8);
-    }
-
-  }
-
 }
 
+
+.issue-prose {
+  @include media($issue-bp) {
+    @include span-columns(8);
+  }
+}
+
+.related-legislation {
+  li {
+    @include media($issue-bp) {
+      @include span-columns(6);
+      @include omega(2n);
+    }
+  }
+}
+
+.related-content {
+  @include media($issue-bp) {
+    @include span-columns(4);
+    @include omega();
+  }
+}

@@ -1,0 +1,20 @@
+article.issue-nav-box {
+  margin: 0;
+  padding: 0 0 .25em;
+}
+
+.more-issues {
+  span {
+    color: $teal;
+  }
+
+  a {
+    color: $li-black;
+    text-decoration: none;
+
+    &:hover {
+      color: $teal;
+      text-decoration: none;
+    }
+  }
+}

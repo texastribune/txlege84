@@ -33,6 +33,29 @@ class Chamber(models.Model):
 
         super(Chamber, self).save(*args, **kwargs)
 
+    @property
+    def member_title(self):
+        if self.name == 'Texas House':
+            return u'Representative'
+        elif self.name == 'Texas Senate':
+            return u'Senator'
+        else:
+            return u''
+
+    @property
+    def short_name(self):
+        if self.name == 'Texas House':
+            return u'Rep.'
+        elif self.name == 'Texas Senate':
+            return u'Sen.'
+
+    @property
+    def chamber_name(self):
+        if self.name == 'Texas House':
+            return u'House'
+        if self.name == 'Texas Senate':
+            return u'Senate'
+
 
 class Legislator(models.Model):
     first_name = models.CharField(max_length=40)
@@ -61,6 +84,9 @@ class Legislator(models.Model):
     openstates_id = models.CharField(max_length=9, unique=True)
 
     objects = ActiveQuerySet.as_manager()
+
+    class Meta:
+        ordering = ('last_name',)
 
     def __unicode__(self):
         return self.full_name
@@ -102,5 +128,13 @@ class Legislator(models.Model):
             self.tribune_slug)
 
     @property
-    def authored_bills(self):
-        return self.sponsorships.filter(role="author")
+    def chair_memberships(self):
+        return self.memberships.filter(role='Chair')
+
+    @property
+    def vicechair_memberships(self):
+        return self.memberships.filter(role='Vice Chair')
+
+    @property
+    def member_memberships(self):
+        return self.memberships.filter(role='Member')
