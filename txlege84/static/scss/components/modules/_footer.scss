@@ -137,7 +137,7 @@ $bp-footer: new-breakpoint(min-width 720px);
   }
 
   .donate {
-    background-color: $teal;
+    background: $teal;
     color: $white;
     font-family: Helvetica;
     padding: .25em 0 2em;
@@ -188,3 +188,4 @@ $bp-footer: new-breakpoint(min-width 720px);
     }
   }
 }
+
