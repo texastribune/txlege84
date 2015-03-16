@@ -3,11 +3,8 @@
   "private": true,
   "devDependencies": {
     "bourbon": "~4.0.2",
-    "neat": "~1.7.0",
+    "neat": "~1.6.0",
     "newsapps-styles": "texastribune/newsapps-styles#0.5"
-  },
-  "resolutions": {
-    "neat": "~1.7.0"
   },
   "dependencies": {
     "typeahead.js": "~0.10.5",
