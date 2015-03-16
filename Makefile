@@ -22,6 +22,15 @@ prep_for_development:
 	python txlege84/manage.py loadfakeissues
 	python txlege84/manage.py loadfakeexplainers
 
+
+local/datadump:
+	aws s3 cp --profile newsapps ${S3_SOURCE} pg.dump
+
+local/loaddata: local/datadump
+	dropdb txlege84
+	createdb txlege84
+	pg_restore -d txlege84 pg.dump
+
 pull:
 	git pull
 
