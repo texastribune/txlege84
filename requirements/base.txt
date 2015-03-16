@@ -1,4 +1,4 @@
-Django>=1.7
+Django==1.7.6
 
 clint==0.4.1
 django-admin-sortable2==0.3.2
