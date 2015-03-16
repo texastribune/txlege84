@@ -11,6 +11,9 @@ bower_components
 # SQLite3 things
 *.db
 
+# PostgreSQL things
+*.dump
+
 # Logs
 *.log
 
