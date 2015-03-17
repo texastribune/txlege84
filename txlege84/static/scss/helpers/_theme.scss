@@ -450,15 +450,31 @@ hr.video-divider {
   .button {
     @include span-columns(12);
     padding: .6em;
+
     @include media($large) {
       @include span-columns(3);
     }
+
     @include media($medium) {
       @include span-columns(3);
     }
+
     &:hover {
       padding: .7em;
     }
   }
 }
 
+.fourohfour {
+  margin: 4em 0;
+
+  p {
+    line-height: 1.5;
+  }
+
+  @include media($small) {
+    p {
+      text-align: center;
+    }
+  }
+}
