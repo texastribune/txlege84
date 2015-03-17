@@ -12,6 +12,10 @@ $max-width: 1081px;
   @extend %container;
 }
 
+.main-container {
+  padding-bottom: 1em;
+}
+
 .side-bar {
   @include clearfix;
   @include span-columns(12);
