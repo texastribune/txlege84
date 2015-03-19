@@ -252,7 +252,7 @@
             <h3 class="section-header">Related issues</h3>
           </header>
           <div>
-          {% for issue in object.issues.all %}
+          {% for issue in object.issues.all.published %}
             <p><a href="{{ issue.get_absolute_url }}"><img class="hot-list-graphic" src="{% static 'images/icons/' %}{{ issue.topic.slug }}.svg">{{ issue.name }}</a></p>
           {% endfor %}
           </div>

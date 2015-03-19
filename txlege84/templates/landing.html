@@ -46,7 +46,7 @@
             <h5 class="sub-section-header">Top issues</h5>
           </header>
           <ul class="serif">
-            {% for issue in featured_topic.topic.issues.all|slice:":3" %}
+            {% for issue in featured_topic.topic.issues.all.published|slice:":3" %}
             <li><span><a href="{{ issue.get_absolute_url }}">{{ issue }}</a></span></li>
             {% endfor %}
           </ul>
@@ -87,7 +87,7 @@
             <h5 class="sub-section-header">Top issues</h5>
           </header>
           <ul class="serif">
-            {% for issue in topic.issues.all|slice:":3" %}
+            {% for issue in topic.issues.all.published|slice:":3" %}
             <li><span><a href="{{ issue.get_absolute_url }}">{{ issue }}</a></span></li>
             {% endfor %}
           </ul>
