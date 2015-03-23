@@ -37,6 +37,7 @@ class Subject(models.Model):
 
 class Bill(models.Model):
     name = models.CharField(max_length=10)
+    bill_number = models.IntegerField(null=True, blank=True)
     description = models.TextField()
     chamber = models.ForeignKey(Chamber, related_name='bills')
     sponsors = models.ManyToManyField(Legislator, through='Sponsorship')
