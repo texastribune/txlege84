@@ -22,7 +22,15 @@ class Command(BaseCommand):
                             '/SessionTime/{}SessTime.js'.format(chamber))
 
         time_string = page.text.strip()[16:-3]
-        status, time = time_string.split(' until ')
+        try:
+            status, time = time_string.split(' until ')
+        except ValueError:
+            if 'Convenes' in time_string:
+                status = 'Convenes'
+                time = time_string.split('Convenes ')[1]
+            else:
+                raise ValueError('Time string not recognized.', time_string)
+
         time = timezone.make_aware(
             parse(time.replace(' noon', '')), timezone.get_default_timezone())
 
