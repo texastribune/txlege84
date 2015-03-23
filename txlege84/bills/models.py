@@ -53,7 +53,7 @@ class Bill(models.Model):
     became_law = models.DateField(null=True, blank=True)
 
     class Meta:
-        ordering = ('name',)
+        ordering = ('chamber__name', 'bill_type', 'bill_number',)
 
     def __unicode__(self):
         return self.name
