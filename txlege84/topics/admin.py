@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib import admin
 from django.db import models
-from django.forms import TextInput
+from django.forms import SelectMultiple, TextInput
 from django.utils.safestring import mark_safe
 
 from adminsortable.admin import SortableInlineAdminMixin
@@ -58,7 +58,9 @@ class IssueTextInline(admin.TabularInline):
 @admin.register(Issue)
 class IssueAdmin(admin.ModelAdmin):
     formfield_overrides = {
-        models.CharField: {'widget': TextInput(attrs={'size': '80'})}
+        models.CharField: {'widget': TextInput(attrs={'size': '80'})},
+        models.ManyToManyField: {'widget': SelectMultiple(
+            attrs={'class': 'chosen'})}
     }
 
     fieldsets = (
@@ -70,9 +72,13 @@ class IssueAdmin(admin.ModelAdmin):
         }),
     )
 
-    raw_id_fields = ('active_text',)
+    class Media:
+        css = {
+            'screen': ('chosen/chosen.css', 'admin/chosen_select.css',)
+        }
+        js = ('chosen/chosen.jquery.min.js', 'admin/chosen_init.js',)
 
-    filter_horizontal = ('related_bills',)
+    raw_id_fields = ('active_text',)
 
     inlines = (StoryPointerInline,)
 
