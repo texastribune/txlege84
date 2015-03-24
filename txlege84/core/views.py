@@ -7,6 +7,8 @@ from topics.models import FeaturedTopic, Topic
 
 
 class LandingView(FeaturedTopicMixin, ConveneTimeMixin, ListView):
-    # only returns the one not considered a featured topic
-    queryset = Topic.objects.exclude(id=FeaturedTopic.objects.first().topic.id)
     template_name = 'landing.html'
+
+    def get_queryset(self):
+        # only returns the one not considered a featured topic
+        return Topic.objects.exclude(id=FeaturedTopic.objects.first().topic.id)
