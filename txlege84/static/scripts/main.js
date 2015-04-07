@@ -1,6 +1,6 @@
 /* global Bloodhound, FastClick */
 
-(function() {
+$(document).ready(function() {
   'use strict';
 
   // Fastclick initialize
@@ -155,4 +155,4 @@
   };
 
   roofline.init();
-})();
+});
