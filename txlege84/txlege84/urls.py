@@ -9,7 +9,7 @@ from bills.views import (BillDetail, BillSearchView, BillSearchJson,
 from core.views import LandingView
 from committees.views import (ChamberCommitteeList,
                               CommitteeDetail, CommitteeList)
-from explainers.views import ExplainerListDetail, ExplainerDetail
+from explainers.views import ExplainerDetail, ExplainerListDetail
 from legislators.views import LegislatorDetail, LegislatorList
 from topics.views import IssueDetail, TopicDetail
 
