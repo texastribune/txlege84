@@ -1,10 +1,41 @@
 {% extends 'base.html' %}
 
 {% block og_data %}
-  {% include "includes/og/og_bill.html" %}
+  {% include "includes/og/og_texplainer.html" %}
 {% endblock %}
 
 {% load staticfiles %}
 {% block content %}
+<section>
+  <header class="page-header">
+    <h2>How the Legislature Works</h2>
+    <p class="sub-text">Your guide to understanding the session.</p>
+  </header>
+  <div class="share-page">
+    <ul>
+      <a href="mailto:?subject=The%20Texas%20Tribune%27s%20Texas%20Legislative%20Guide&body=I%20thought%20you%20might%20be%20interested%20in%20learning%20more%20about%20how%20the%20Texas%20Legislature%20works.%20Here%20are%20some%20videos%20by%20The%20Texas%20Tribune%20to%20help%20you%20navigate%20this%20year%E2%80%99s%20session%3A%20%0A%0Ahttp%3A%2F%2Ftxlege.texastribune.org{{ object.get_absolute_url }}">
+        <li class="email"><i class="fa fa-envelope"></i></li>
+      </a>
+      <a href="https://twitter.com/intent/tweet?text=Check%20out%20%40texastribune's%20guide%20to%20understanding%20how%20%23txlege%20works%20http%3A%2F%2Ftxlege.texastribune.org{{ object.get_absolute_url }}" title="share on Twitter" class="social-share" target="_blank">
+        <li class="twitter"><i class="fa fa-twitter"></i></li>
+      </a>
+      <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=http%3A%2F%2Ftxlege.texastribune.org{{ object.get_absolute_url }}&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
+        <li class="facebook"><i class="fa fa-facebook"></i></li>
+      </a>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <article class="texplainer-content-box">
+    <header>
+      <p class="emphasis">{{ explainer.name }}</p>
+    </header>
+    <div class="flexible-video">
+      <iframe width="560" height="315" src="//www.youtube.com/embed/{{ explainer.youtube_id }}" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <p class="sub-text">{{ explainer.text|safe }}</p>
+  </article>
+</section>
 
 {% endblock %}
