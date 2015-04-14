@@ -9,7 +9,7 @@ from bills.views import (BillDetail, BillSearchView, BillSearchJson,
 from core.views import LandingView
 from committees.views import (ChamberCommitteeList,
                               CommitteeDetail, CommitteeList)
-from explainers.views import ExplainerListDetail
+from explainers.views import ExplainerListDetail, ExplainerDetail
 from legislators.views import LegislatorDetail, LegislatorList
 from topics.views import IssueDetail, TopicDetail
 
@@ -55,6 +55,8 @@ urlpatterns = patterns(
     # Explainer pages
     url(r'^how-session-works/$',
         ExplainerListDetail.as_view(), name='explainer-list-detail'),
+    url(r'^how-session-works/(?P<slug>[-\w]+)/$',
+        ExplainerDetail.as_view(), name='explainer-detail'),
 
     # Livestream pages
     url(r'^livestream/$',
