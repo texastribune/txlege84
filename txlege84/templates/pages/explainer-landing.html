@@ -28,7 +28,7 @@
    {% for explainer in object_list %}
     <article class="texplainer-content-box">
       <header>
-        <p class="emphasis">{{ explainer.name }}</p>
+        <a href="{{ explainer.get_absolute_url }}"><p class="emphasis">{{ explainer.name }}</p></a>
       </header>
       <div class="flexible-video">
         <iframe width="560" height="315" src="//www.youtube.com/embed/{{ explainer.youtube_id }}" frameborder="0" allowfullscreen></iframe>
