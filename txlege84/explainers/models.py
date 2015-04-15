@@ -35,3 +35,7 @@ class Explainer(models.Model):
             self.slug = slugify(self.name)[:50]
 
         super(Explainer, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+        return reverse('explainer-detail', args=(self.slug,))
