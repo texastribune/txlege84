@@ -91,20 +91,20 @@
       {% endif %}
 
       {% if object.chamber.name == 'Texas House' %}
-      <div class="bill-stage {% if object.passed_house %} complete {% endif %}">
+      <div class="bill-stage {% if object.passed_senate %} complete {% endif %}">
         <div class="bill-stage-name">
           <p class="mini-emphasis">Approved by Senate</p>
         </div>
         <div class="fa-stack">
-          {% if object.passed_house %}
+          {% if object.passed_senate %}
           <i class="fa fa-check-circle fa-stack-1x"></i>
           {% else %}
           <i class="fa fa-times-circle fa-stack-1x"></i>
           {% endif %}
         </div>
-        {% if object.passed_house %}
+        {% if object.passed_senate %}
         <div class="date-stage-complete">
-          <p class="sub-section-header">{{ object.passed_house }}</p>
+          <p class="sub-section-header">{{ object.passed_senate }}</p>
         </div>
         {% endif %}
       </div>
