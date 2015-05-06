@@ -92,7 +92,9 @@ $(document).ready(function() {
     },
     'senate-stream': {
       subdomain: 'tlcsenate',
-      cameraId: '8'
+      cameraId: '8',
+      feedId: '5',
+      eventId: '929'
     }
   };
 
@@ -110,7 +112,11 @@ $(document).ready(function() {
     var stream = streamMapping[id];
     var iframeHeight = height + 30;
 
-    return '<iframe scrolling="no" style="border:0" width="' + width + '" height="' + iframeHeight + '" id="GranicusFlashPlayerFrame" src="http://' + stream.subdomain + '.granicus.com/mediaplayer.php?camera_id=' + stream.cameraId + '&embed=1&player_width=' + width + '&player_height=' + height + '"></iframe>';
+    if (stream.feedId) {
+      return '<iframe scrolling="no" style="border:0" width="' + width + '" height="' + iframeHeight + '" id="GranicusFlashPlayerFrame" src="http://' + stream.subdomain + '.granicus.com/mediaplayer.php?feed_id=' + stream.feedId + '&event_id=' + stream.eventId + '&embed=1&player_width=' + width + '&player_height=' + height + '"></iframe>';
+    } else {
+      return '<iframe scrolling="no" style="border:0" width="' + width + '" height="' + iframeHeight + '" id="GranicusFlashPlayerFrame" src="http://' + stream.subdomain + '.granicus.com/mediaplayer.php?camera_id=' + stream.cameraId + '&embed=1&player_width=' + width + '&player_height=' + height + '"></iframe>';
+    }
   }
 
   // Rotating Ad
