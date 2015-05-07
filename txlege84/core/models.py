@@ -25,3 +25,26 @@ class ConveneTime(models.Model):
         if (self.time < timezone.now()) and self.active:
             return True
         return False
+
+
+class Stream(models.Model):
+    chamber = models.OneToOneField(
+        Chamber,
+        help_text='Chamber viewable in stream',
+        related_name='stream_for')
+    granicus_subdomain = models.CharField(
+        help_text='Granicus subdomain for stream', max_length=20)
+    camera_id = models.IntegerField(
+        help_text='Identifier for direct camera stream')
+    direct_event_feed = models.BooleanField(
+        help_text='Use an event feed instead of a camera feed',
+        default=False)
+    feed_id = models.IntegerField(
+        help_text='Feed identifier for direct embed',
+        null=True, blank=True)
+    event_id = models.IntegerField(
+        help_text='Event identifier for direct embed',
+        null=True, blank=True)
+
+    def __unicode__(self):
+        return u'Stream for {}'.format(self.chamber)
