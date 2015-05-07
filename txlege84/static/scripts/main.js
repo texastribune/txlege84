@@ -1,4 +1,4 @@
-/* global Bloodhound, FastClick */
+/* global Bloodhound, FastClick, streamMapping */
 
 $(document).ready(function() {
   'use strict';
@@ -85,38 +85,27 @@ $(document).ready(function() {
   });
 
   // LegeStream
-  var streamMapping = {
-    'house-stream': {
-      subdomain: 'tlchouse',
-      cameraId: '3'
-    },
-    'senate-stream': {
-      subdomain: 'tlcsenate',
-      cameraId: '8',
-      feedId: '5',
-      eventId: '929'
-    }
-  };
+  if (typeof streamMapping !== 'undefined') {
+    var streamLoader = function(id, width, height) {
+      var stream = streamMapping[id];
+      var iframeHeight = height + 30;
 
-  var $streamPlaceholder = $('.stream-placeholder');
+      if (stream.feedId) {
+        return '<iframe scrolling="no" style="border:0" width="' + width + '" height="' + iframeHeight + '" id="GranicusFlashPlayerFrame" src="http://' + stream.subdomain + '.granicus.com/mediaplayer.php?feed_id=' + stream.feedId + '&event_id=' + stream.eventId + '&embed=1&player_width=' + width + '&player_height=' + height + '"></iframe>';
+      } else {
+        return '<iframe scrolling="no" style="border:0" width="' + width + '" height="' + iframeHeight + '" id="GranicusFlashPlayerFrame" src="http://' + stream.subdomain + '.granicus.com/mediaplayer.php?camera_id=' + stream.cameraId + '&embed=1&player_width=' + width + '&player_height=' + height + '"></iframe>';
+      }
+    };
 
-  $streamPlaceholder.one('click', function() {
-    var $this = $(this);
-    $this.addClass('stream-activated');
-    var width = $this.parent().width();
-    var height = width * 0.5625;
-    $this.find('.stream-prompt').replaceWith(streamLoader(this.id, width, height));
-  });
+    var $streamPlaceholder = $('.stream-placeholder');
 
-  function streamLoader(id, width, height) {
-    var stream = streamMapping[id];
-    var iframeHeight = height + 30;
-
-    if (stream.feedId) {
-      return '<iframe scrolling="no" style="border:0" width="' + width + '" height="' + iframeHeight + '" id="GranicusFlashPlayerFrame" src="http://' + stream.subdomain + '.granicus.com/mediaplayer.php?feed_id=' + stream.feedId + '&event_id=' + stream.eventId + '&embed=1&player_width=' + width + '&player_height=' + height + '"></iframe>';
-    } else {
-      return '<iframe scrolling="no" style="border:0" width="' + width + '" height="' + iframeHeight + '" id="GranicusFlashPlayerFrame" src="http://' + stream.subdomain + '.granicus.com/mediaplayer.php?camera_id=' + stream.cameraId + '&embed=1&player_width=' + width + '&player_height=' + height + '"></iframe>';
-    }
+    $streamPlaceholder.one('click', function() {
+      var $this = $(this);
+      $this.addClass('stream-activated');
+      var width = $this.parent().width();
+      var height = width * 0.5625;
+      $this.find('.stream-prompt').replaceWith(streamLoader(this.id, width, height));
+    });
   }
 
   // Rotating Ad

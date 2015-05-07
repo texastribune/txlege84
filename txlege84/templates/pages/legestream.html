@@ -52,3 +52,21 @@
     </article>
   </section>
 {% endblock %}
+
+{% block extra_head %}
+{{ block.super }}
+<script>
+var streamMapping = {
+  'house-stream': {
+    subdomain: '{{ house.stream_for.granicus_subdomain }}',
+  {% if house.stream_for.direct_event_feed %}feedId: '{{ house.stream_for.feed_id }}', eventId: '{{ house.stream_for.event_id }}'
+  {% else %}cameraId: '{{ house.stream_for.camera_id }}'{% endif %}
+  },
+  'senate-stream': {
+    subdomain: '{{ senate.stream_for.granicus_subdomain }}',
+  {% if senate.stream_for.direct_event_feed %}feedId: '{{ senate.stream_for.feed_id }}', eventId: '{{ senate.stream_for.event_id }}'
+  {% else %}cameraId: '{{ senate.stream_for.camera_id }}'{% endif %}
+  }
+};
+</script>
+{% endblock %}
