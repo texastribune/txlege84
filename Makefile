@@ -4,7 +4,7 @@ IMAGE=${PROJECT}/${APP}
 FOO ?= 83
 
 # can override with an environment variable:
-DATABASE_URL?=postgresql://docker:docker@db:5432/docker
+DOCKER_DATABASE_URL?=postgresql://docker:docker@db:5432/docker
 S3_SOURCE?=s3://${APP}-postgres-exports/pg.dump
 
 new_prep_for_development:
@@ -90,7 +90,7 @@ docker/refresh-db:
 		--link=${APP}-dev-db:db \
 		--env=AWS_ACCESS_KEY_ID \
 		--env=AWS_SECRET_ACCESS_KEY \
-		--env=DATABASE_URL=${DATABASE_URL} \
+		--env=DATABASE_URL=${DOCKER_DATABASE_URL} \
 		--env=S3_SOURCE=${S3_SOURCE} \
 		texastribune/pg-tools /app/import-from-s3.sh
 
@@ -99,12 +99,12 @@ docker/refresh-db:
 docker/reset-db:
 	docker run -it --rm \
 		--link=${APP}-dev-db:db \
-		--env=DATABASE_URL=${DATABASE_URL} \
+		--env=DATABASE_URL=${DOCKER_DATABASE_URL} \
 		--entrypoint=phd \
 		texastribune/pg-tools "dropdb" "--if-exists"
 	docker run -it --rm \
 		--link=${APP}-dev-db:db \
-		--env=DATABASE_URL=${DATABASE_URL} \
+		--env=DATABASE_URL=${DOCKER_DATABASE_URL} \
 		--entrypoint=phd \
 		texastribune/pg-tools "createdb" "--template=template_db"
 
