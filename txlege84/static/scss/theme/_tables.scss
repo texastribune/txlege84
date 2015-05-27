@@ -142,7 +142,8 @@ tr {
 
 .new-law-table {
   table {
-    .align-left {
+    td.align-left,
+    th.align-left {
       text-align: left;
     }
   }
