@@ -31,11 +31,7 @@
       <p class="sub-text">Convenes {{ house.time_for.time|date:"N j, Y" }} at {{ house.time_for.time|date:"f a"}}</p>
     </header>
     <article>
-      <div id="house-stream" class="stream-placeholder house-stream">
-        <div class="stream-prompt">
-          <i class="fa fa-play fa-4x"></i>
-        </div>
-      </div>
+      <div id="house-stream" class="stream-placeholder house-stream"></div>
     </article>
     {% include "includes/rotating_ad.html" %}
     {% include "includes/rotating_ad_mobile.html" %}
@@ -44,11 +40,7 @@
       <p class="sub-text">Convenes {{ senate.time_for.time|date:"N j, Y" }} at {{ senate.time_for.time|date:"f a"}}</p>
     </header>
     <article>
-      <div id="senate-stream" class="stream-placeholder senate-stream">
-        <div class="stream-prompt">
-          <i class="fa fa-play fa-4x"></i>
-        </div>
-      </div>
+      <div id="senate-stream" class="stream-placeholder senate-stream"></div>
     </article>
   </section>
 {% endblock %}
