@@ -1,0 +1,27 @@
+.banner-links {
+  background-color: transparentize($light-teal, .6);
+  position: relative;
+  text-align: center;
+  padding: 1em 0;
+  margin-bottom: .25em;
+
+  p {
+    color: $tribune-black;
+    font-family: $georgia;
+    font-size: 1.125em;
+    font-weight: 800;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  // a {
+  //   color: $text-gray;
+
+  //   &:hover {
+  //     color: $text-gray;
+  //   }
+
+  // }
+}

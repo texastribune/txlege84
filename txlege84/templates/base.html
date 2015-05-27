@@ -77,12 +77,14 @@
     </header>
   </section>
 
-  {% if house_convene.stream_is_live %}
+  {% include "components/banner_links.html" %}
+
+<!--   {% if house_convene.stream_is_live %}
     {% include "components/alert.html" with convene_time=house_convene %}
   {% endif %}
   {% if senate_convene.stream_is_live %}
     {% include "components/alert.html" with convene_time=senate_convene %}
-  {% endif %}
+  {% endif %} -->
 
   <main class="main-container">
     {% block page_header %}{% endblock %}
