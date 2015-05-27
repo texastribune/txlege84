@@ -52,7 +52,7 @@
     <div class="container">
       <ul>
         <li><a href="{% url 'find-bills' %}">New Laws</a></li>
-        <li><a href="{% url 'find-bills' %}">Vetoes</a></li>
+        <li><a href="{% url 'find-bills' %}">Vetoed Bills</a></li>
         <li><a href="{% url 'find-bills' %}">Find Bills</a></li>
         <li><a href="{% url 'landing-view' %}">Issues by Topic</a></li>
         <li><a href="{% url 'legestream' %}">Livestream</a></li>
@@ -79,7 +79,7 @@
     </header>
   </section>
 
-  {% include "components/banner_links.html" %}
+  {% include "components/end_of_session_banner.html" %}
 
 <!--   {% if house_convene.stream_is_live %}
     {% include "components/alert.html" with convene_time=house_convene %}

@@ -1,8 +1,8 @@
-.banner-links {
+.end-of-session {
   background-color: transparentize($light-teal, .8);
   position: relative;
   text-align: center;
-  padding: 1em 0;
+  padding: 1em;
   margin-bottom: .25em;
 
   p {
@@ -14,23 +14,23 @@
     margin: 0;
     padding: 0;
     text-align: center;
-  }
 
-  li {
-    @include span-columns(6);
-    @include omega(2n);
+    span {
+      color: $teal;
 
-    &:last-child {
-      border-left: 1px solid $teal;
+      &:hover {
+        color: $teal;
+        text-decoration: underline;
+      }
     }
   }
 
-  // a {
-  //   color: $text-gray;
+  a {
+    color: $tribune-black;
 
-  //   &:hover {
-  //     color: $text-gray;
-  //   }
-
-  // }
+    &:hover {
+      color: $tribune-black;
+      text-decoration: none;
+    }
+  }
 }
