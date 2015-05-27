@@ -7,10 +7,9 @@
 {% load staticfiles %}
 {% block content %}
 
-<!-- <section>
+<section>
   <header class="page-header">
-  <h2>Bill categories</h2>
-  <p class="sub-text">Bills are categorized by <a href="http://openstates.org/">Open States</a>, a product of the Sunlight Foundation.</p>
+  <h2>Vetoed bills</h2>
   </header>
   <div class="share-page">
     <ul>
@@ -25,7 +24,7 @@
       </a>
     </ul>
   </div>
-</section> -->
+</section>
 
   {% include "includes/banner_ad.html" %}
 
@@ -36,7 +35,6 @@
         <tr>
           <th>Bill</th>
           <th class="align-left">Description</th>
-          <th>Last action</th>
         </tr>
       </thead>
       <tbody>
@@ -45,7 +43,6 @@
         <tr>
           <td data-title="Bill">{{ bill.name }}</td>
           <td class="align-left" data-title="Description">{{ bill.description }}</td>
-          <td data-title="Last action">{{ bill.actions.last.text }}</td>
         </tr>
         {% endif %}
       {% endfor %}
