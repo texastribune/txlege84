@@ -14,6 +14,12 @@ class BillDetail(AllSubjectsMixin, AllLegislatorsMixin,
     template_name = 'pages/bill.html'
 
 
+class NewLawsListDetail(AllSubjectsMixin, AllLegislatorsMixin,
+                        ConveneTimeMixin, ListView):
+    model = Bill
+    template_name = 'pages/new-laws.html'
+
+
 class SubjectDetail(AllSubjectsMixin, AllLegislatorsMixin,
                     ConveneTimeMixin, DetailView):
     model = Subject

@@ -5,7 +5,8 @@ from django.views.generic import RedirectView
 from django.contrib import admin
 
 from bills.views import (BillDetail, BillSearchView, BillSearchJson,
-                         SubjectDetail, SubjectListDetail, LegeStreamDetail)
+                         SubjectDetail, SubjectListDetail, LegeStreamDetail,
+                         NewLawsListDetail)
 from core.views import LandingView
 from committees.views import (ChamberCommitteeList,
                               CommitteeDetail, CommitteeList)
@@ -28,6 +29,8 @@ urlpatterns = patterns(
         RedirectView.as_view(pattern_name='landing-view')),
 
     # Bill pages
+    url(r'^84/bills/new-laws/$',
+        NewLawsListDetail.as_view(), name='new-laws'),
     url(r'^84/bills/(?P<slug>[-\w]+)/$',
         BillDetail.as_view(), name='bill-detail'),
     url(r'^84/bills/$', BillSearchView.as_view(), name='find-bills'),
