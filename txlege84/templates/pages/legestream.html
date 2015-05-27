@@ -45,6 +45,8 @@
   </section>
 {% endblock %}
 
+{% comment "Stream loading is currently disabled - remove comment to reactivate" %}
+
 {% block extra_head %}
 {{ block.super }}
 <script>
@@ -62,3 +64,5 @@ var streamMapping = {
 };
 </script>
 {% endblock %}
+
+{% endcomment %}
