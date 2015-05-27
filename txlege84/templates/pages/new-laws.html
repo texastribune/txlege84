@@ -32,7 +32,7 @@
       <thead>
         <tr>
           <th>Bill</th>
-          <th>Description</th>
+          <th class="align-left">Description</th>
           <th>Last action</th>
         </tr>
       </thead>
@@ -40,9 +40,9 @@
       {% for bill in bill_list %}
         {% if bill.became_law %}
         <tr>
-          <td data-title="Action">{{ bill.name }}</td>
-          <td data-title="Date">{{ bill.description }}</td>
-          <td data-title="Acting Chamber">{{ bill.actions.last.text }}</td>
+          <td data-title="Bill">{{ bill.name }}</td>
+          <td class="align-left" data-title="Description">{{ bill.description }}</td>
+          <td data-title="Last action">{{ bill.actions.last.text }}</td>
         </tr>
         {% endif %}
       {% endfor %}
