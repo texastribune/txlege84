@@ -78,7 +78,33 @@
       </ul>
     </div>
     {% endif %}
-
+    {% if object.sponsorships.all.bill.became_law != 'null' %}
+    <header>
+      <h3 class="section-header">Passed legislation</h3>
+    </header>
+    <div class="bill-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Bill</th>
+            <th>Caption</th>
+            <th>Date of last action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for sponsorship in object.sponsorships.all %}
+            {% if sponsorship.bill.became_law %}
+          <tr>
+            <td data-title="Bill"><a href="{{ sponsorship.bill.get_absolute_url }}">{{ sponsorship.bill.name }}</a></td>
+            <td data-title="Caption">{{ sponsorship.bill.description }}</td>
+            <td data-title="Date of last action">{{ sponsorship.bill.last_action_date|date:"SHORT_DATE_FORMAT" }}</td>
+          </tr>
+            {% endif %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
     <header>
       <h3 class="section-header">Filed legislation</h3>
     </header>
