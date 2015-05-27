@@ -51,6 +51,7 @@ class Bill(models.Model):
     passed_senate = models.DateField(null=True, blank=True)
     passed_house = models.DateField(null=True, blank=True)
     became_law = models.DateField(null=True, blank=True)
+    vetoed = models.DateField(null=True, blank=True)
 
     class Meta:
         ordering = ('chamber__name', 'bill_type', 'bill_number',)
