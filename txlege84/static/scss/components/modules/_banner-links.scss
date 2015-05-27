@@ -16,6 +16,15 @@
     text-align: center;
   }
 
+  li {
+    @include span-columns(6);
+    @include omega(2n);
+
+    &:last-child {
+      border-left: 1px solid $teal;
+    }
+  }
+
   // a {
   //   color: $text-gray;
 
