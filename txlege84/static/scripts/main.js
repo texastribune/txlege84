@@ -85,6 +85,10 @@ $(document).ready(function() {
   });
 
   // LegeStream
+  // This code handles hot-swapping of the Granicus stream embeds - if `streamMapping`
+  // is set on a page, it triggers this section and preps for loading. `streamMapping` is
+  // a global variable set in a template that represents what video to load.
+  //
   // if (typeof streamMapping !== 'undefined') {
   //   var streamLoader = function(id, width, height) {
   //     var stream = streamMapping[id];
