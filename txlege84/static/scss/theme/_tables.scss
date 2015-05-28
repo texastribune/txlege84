@@ -11,6 +11,11 @@ table {
     display: block;
     font-size: .875em;
   }
+
+  td.align-left,
+  th.align-left {
+    text-align: left;
+  }
 }
 
 thead {
@@ -138,13 +143,4 @@ tr {
 
   }
 
-}
-
-.new-law-table {
-  table {
-    td.align-left,
-    th.align-left {
-      text-align: left;
-    }
-  }
 }
