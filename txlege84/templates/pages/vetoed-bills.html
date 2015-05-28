@@ -29,7 +29,7 @@
   {% include "includes/banner_ad.html" %}
 
 <section>
-  <div class="new-law-table">
+  <div class="vetoes">
     <table>
       <thead>
         <tr>
@@ -39,9 +39,9 @@
       </thead>
       <tbody>
       {% for bill in bill_list %}
-        {% if bill.became_law %}
+        {% if bill.vetoed %}
         <tr>
-          <td data-title="Bill">{{ bill.name }}</td>
+          <td data-title="Bill"><a href="{{ bill.get_absolute_url }}">{{ bill.name }}</a></td>
           <td class="align-left" data-title="Description">{{ bill.description }}</td>
         </tr>
         {% endif %}
