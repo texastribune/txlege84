@@ -51,13 +51,15 @@
   <nav id="menu-nav" class="menu-nav">
     <div class="container">
       <ul>
+        <li><a href="{% url 'find-bills' %}">New Laws</a></li>
+        <li><a href="{% url 'vetoed-bills' %}">Vetoed Bills</a></li>
         <li><a href="{% url 'find-bills' %}">Find Bills</a></li>
         <li><a href="{% url 'landing-view' %}">Issues by Topic</a></li>
         <li><a href="{% url 'legestream' %}">Livestream</a></li>
-        <li><a href="{% url 'explainer-list-detail' %}">How Session Works</a></li>
         <li id="sub-nav-container" class="sub-nav-container">
           <a id="sub-nav-trigger" href="javascript:void(0)">Resources <i class="fa fa-chevron-down"></i></a>
           <ul id="sub-nav" class="sub-nav">
+            <li><a href="{% url 'explainer-list-detail' %}">How Session Works</a></li>
             <li><a href="http://www.texastribune.org/bidness/explore/">Ethics Explorer</a></li>
             <li><a href="http://www.texastribune.org/directory/">Elected Officials Directory</a></li>
             <li><a href="http://s3.amazonaws.com/static.texastribune.org/media/documents/TT-84thLege-HouseSeating2015.pdf">House Seating Chart</a></li>
@@ -77,12 +79,16 @@
     </header>
   </section>
 
+  {% include "components/end-of-session-banner.html" %}
+
+  {% comment "Disable imports of stream notifiers" %}
   {% if house_convene.stream_is_live %}
     {% include "components/alert.html" with convene_time=house_convene %}
   {% endif %}
   {% if senate_convene.stream_is_live %}
     {% include "components/alert.html" with convene_time=senate_convene %}
   {% endif %}
+  {% endcomment %}
 
   <main class="main-container">
     {% block page_header %}{% endblock %}

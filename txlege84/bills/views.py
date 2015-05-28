@@ -20,6 +20,12 @@ class NewLawsListDetail(AllSubjectsMixin, AllLegislatorsMixin,
     template_name = 'pages/new-laws.html'
 
 
+class VetoedListDetail(AllSubjectsMixin, AllLegislatorsMixin,
+                       ConveneTimeMixin, ListView):
+    queryset = Bill.objects.filter(vetoed__isnull=False)
+    template_name = 'pages/vetoed-bills.html'
+
+
 class SubjectDetail(AllSubjectsMixin, AllLegislatorsMixin,
                     ConveneTimeMixin, DetailView):
     model = Subject

@@ -6,7 +6,11 @@ from django.contrib import admin
 
 from bills.views import (BillDetail, BillSearchView, BillSearchJson,
                          SubjectDetail, SubjectListDetail, LegeStreamDetail,
+<<<<<<< HEAD
                          NewLawsListDetail)
+=======
+                         VetoedListDetail)
+>>>>>>> sunset
 from core.views import LandingView
 from committees.views import (ChamberCommitteeList,
                               CommitteeDetail, CommitteeList)
@@ -31,6 +35,8 @@ urlpatterns = patterns(
     # Bill pages
     url(r'^84/bills/new-laws/$',
         NewLawsListDetail.as_view(), name='new-laws'),
+    url(r'^84/bills/vetoed/$',
+        VetoedListDetail.as_view(), name='vetoed-bills'),
     url(r'^84/bills/(?P<slug>[-\w]+)/$',
         BillDetail.as_view(), name='bill-detail'),
     url(r'^84/bills/$', BillSearchView.as_view(), name='find-bills'),
