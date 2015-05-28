@@ -41,13 +41,11 @@
       </thead>
       <tbody>
       {% for bill in bill_list %}
-        {% if bill.vetoed %}
         <tr>
           <td data-title="Bill"><a href="{{ bill.get_absolute_url }}">{{ bill.name }}</a></td>
           <td class="align-left" data-title="Description">{{ bill.description }}</td>
           <td data-title="Date vetoed">{{ bill.actions.last.date|date:"SHORT_DATE_FORMAT" }}</td>
         </tr>
-        {% endif %}
       {% endfor %}
       </tbody>
     </table>
