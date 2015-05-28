@@ -1,4 +1,4 @@
-/* global Bloodhound, FastClick, streamMapping */
+/* global Bloodhound, FastClick */
 
 $(document).ready(function() {
   'use strict';
@@ -85,28 +85,32 @@ $(document).ready(function() {
   });
 
   // LegeStream
-  if (typeof streamMapping !== 'undefined') {
-    var streamLoader = function(id, width, height) {
-      var stream = streamMapping[id];
-      var iframeHeight = height + 30;
-
-      if (stream.feedId) {
-        return '<iframe scrolling="no" style="border:0" width="' + width + '" height="' + iframeHeight + '" id="GranicusFlashPlayerFrame" src="http://' + stream.subdomain + '.granicus.com/mediaplayer.php?feed_id=' + stream.feedId + '&event_id=' + stream.eventId + '&embed=1&player_width=' + width + '&player_height=' + height + '"></iframe>';
-      } else {
-        return '<iframe scrolling="no" style="border:0" width="' + width + '" height="' + iframeHeight + '" id="GranicusFlashPlayerFrame" src="http://' + stream.subdomain + '.granicus.com/mediaplayer.php?camera_id=' + stream.cameraId + '&embed=1&player_width=' + width + '&player_height=' + height + '"></iframe>';
-      }
-    };
-
-    var $streamPlaceholder = $('.stream-placeholder');
-
-    $streamPlaceholder.one('click', function() {
-      var $this = $(this);
-      $this.addClass('stream-activated');
-      var width = $this.parent().width();
-      var height = width * 0.5625;
-      $this.find('.stream-prompt').replaceWith(streamLoader(this.id, width, height));
-    });
-  }
+  // This code handles hot-swapping of the Granicus stream embeds - if `streamMapping`
+  // is set on a page, it triggers this section and preps for loading. `streamMapping` is
+  // a global variable set in a template that represents what video to load.
+  //
+  // if (typeof streamMapping !== 'undefined') {
+  //   var streamLoader = function(id, width, height) {
+  //     var stream = streamMapping[id];
+  //     var iframeHeight = height + 30;
+  //
+  //     if (stream.feedId) {
+  //       return '<iframe scrolling="no" style="border:0" width="' + width + '" height="' + iframeHeight + '" id="GranicusFlashPlayerFrame" src="http://' + stream.subdomain + '.granicus.com/mediaplayer.php?feed_id=' + stream.feedId + '&event_id=' + stream.eventId + '&embed=1&player_width=' + width + '&player_height=' + height + '"></iframe>';
+  //     } else {
+  //       return '<iframe scrolling="no" style="border:0" width="' + width + '" height="' + iframeHeight + '" id="GranicusFlashPlayerFrame" src="http://' + stream.subdomain + '.granicus.com/mediaplayer.php?camera_id=' + stream.cameraId + '&embed=1&player_width=' + width + '&player_height=' + height + '"></iframe>';
+  //     }
+  //   };
+  //
+  //   var $streamPlaceholder = $('.stream-placeholder');
+  //
+  //   $streamPlaceholder.one('click', function() {
+  //     var $this = $(this);
+  //     $this.addClass('stream-activated');
+  //     var width = $this.parent().width();
+  //     var height = width * 0.5625;
+  //     $this.find('.stream-prompt').replaceWith(streamLoader(this.id, width, height));
+  //   });
+  // }
 
   // Rotating Ad
   var roofline = {
