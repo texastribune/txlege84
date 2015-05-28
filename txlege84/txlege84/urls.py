@@ -34,7 +34,6 @@ urlpatterns = patterns(
         BillDetail.as_view(), name='bill-detail'),
     url(r'^84/bills/$', BillSearchView.as_view(), name='find-bills'),
 
-
     # Subject pages
     url(r'^84/categories/(?P<slug>[-\w]+)/$',
         SubjectDetail.as_view(), name='category-detail'),
