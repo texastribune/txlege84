@@ -6,11 +6,8 @@ from django.contrib import admin
 
 from bills.views import (BillDetail, BillSearchView, BillSearchJson,
                          SubjectDetail, SubjectListDetail, LegeStreamDetail,
-<<<<<<< HEAD
-                         NewLawsListDetail)
-=======
-                         VetoedListDetail)
->>>>>>> sunset
+                         NewLawsListDetail, VetoedListDetail)
+
 from core.views import LandingView
 from committees.views import (ChamberCommitteeList,
                               CommitteeDetail, CommitteeList)
