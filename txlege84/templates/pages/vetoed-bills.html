@@ -35,6 +35,7 @@
         <tr>
           <th>Bill</th>
           <th class="align-left">Description</th>
+          <th>Date vetoed</th>
         </tr>
       </thead>
       <tbody>
@@ -43,6 +44,7 @@
         <tr>
           <td data-title="Bill"><a href="{{ bill.get_absolute_url }}">{{ bill.name }}</a></td>
           <td class="align-left" data-title="Description">{{ bill.description }}</td>
+          <td data-title="Date vetoed">{{ bill.actions.last.date|date:"SHORT_DATE_FORMAT" }}</td>
         </tr>
         {% endif %}
       {% endfor %}
