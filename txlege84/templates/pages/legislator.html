@@ -78,9 +78,9 @@
       </ul>
     </div>
     {% endif %}
-    {% if object.sponsorships.all.bill.became_law %}
+    {% if object.sponsorships.all.bill.became_law != 'null' %}
     <header>
-      <h3 class="section-header">Passed legislation</h3>
+      <h3 class="section-header">Bills sent to governor</h3>
     </header>
     <div class="bill-table">
       <table>
@@ -88,7 +88,7 @@
           <tr>
             <th>Bill</th>
             <th>Caption</th>
-            <th>Date of last action</th>
+            <th>Date effective</th>
           </tr>
         </thead>
         <tbody>
@@ -97,7 +97,7 @@
           <tr>
             <td data-title="Bill"><a href="{{ sponsorship.bill.get_absolute_url }}">{{ sponsorship.bill.name }}</a></td>
             <td data-title="Caption">{{ sponsorship.bill.description }}</td>
-            <td data-title="Date of last action">{{ sponsorship.bill.last_action_date|date:"SHORT_DATE_FORMAT" }}</td>
+            <td data-title="Date of last action">{{ sponsorship.bill.actions.last.text }}</td>
           </tr>
             {% endif %}
           {% endfor %}
