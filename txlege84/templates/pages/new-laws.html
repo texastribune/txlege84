@@ -41,13 +41,11 @@
       </thead>
       <tbody>
       {% for bill in bill_list %}
-        {% if bill.became_law %}
         <tr>
           <td data-title="Bill"><a href="{{ bill.get_absolute_url }}">{{ bill.name }}</a></td>
           <td class="align-left" data-title="Description">{{ bill.description }}</td>
           <td data-title="Last action">{{ bill.actions.last.text }}</td>
         </tr>
-        {% endif %}
       {% endfor %}
       </tbody>
     </table>
