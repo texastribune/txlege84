@@ -16,7 +16,7 @@ class BillDetail(AllSubjectsMixin, AllLegislatorsMixin,
 
 class VetoedListDetail(AllSubjectsMixin, AllLegislatorsMixin,
                        ConveneTimeMixin, ListView):
-    model = Bill
+    queryset = Bill.objects.filter(vetoed__isnull=False)
     template_name = 'pages/vetoed-bills.html'
 
 
