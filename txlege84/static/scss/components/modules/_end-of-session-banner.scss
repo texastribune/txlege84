@@ -1,36 +1,23 @@
+$end-of-session-bar: lighten($light-teal, 20%);
+
 .end-of-session {
-  background-color: transparentize($light-teal, .8);
-  position: relative;
-  text-align: center;
-  padding: 1em;
-  margin-bottom: .25em;
+  background-color: $end-of-session-bar;
+
+  &:hover {
+    background-color: darken($end-of-session-bar, 5%);
+  }
 
   p {
     color: $tribune-black;
-    font-family: $georgia;
-    font-size: 1.125em;
-    font-weight: 800;
-    line-height: 1.4;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-
-    span {
-      color: $teal;
-
-      &:hover {
-        color: $teal;
-        text-decoration: underline;
-      }
-    }
+    line-height: 1.2;
   }
 
-  a {
-    color: $tribune-black;
+  .alert-chamber {
+    margin: 0;
+  }
 
-    &:hover {
-      color: $tribune-black;
-      text-decoration: none;
-    }
+  .session-arrow {
+    color: $tribune-black;
+    font-size: 1em;
   }
 }
