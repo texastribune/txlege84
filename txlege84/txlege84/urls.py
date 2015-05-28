@@ -29,7 +29,8 @@ urlpatterns = patterns(
         RedirectView.as_view(pattern_name='landing-view')),
 
     # Bill pages
-    url(r'^84/bills/vetoed/$', VetoedListDetail.as_view(), name='vetoes'),
+    url(r'^84/bills/vetoed/$',
+        VetoedListDetail.as_view(), name='vetoed-bills'),
     url(r'^84/bills/(?P<slug>[-\w]+)/$',
         BillDetail.as_view(), name='bill-detail'),
     url(r'^84/bills/$', BillSearchView.as_view(), name='find-bills'),
