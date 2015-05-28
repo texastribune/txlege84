@@ -81,12 +81,14 @@
 
   {% include "components/end_of_session_banner.html" %}
 
-<!--   {% if house_convene.stream_is_live %}
+  {% comment "Disable imports of stream notifiers" %}
+  {% if house_convene.stream_is_live %}
     {% include "components/alert.html" with convene_time=house_convene %}
   {% endif %}
   {% if senate_convene.stream_is_live %}
     {% include "components/alert.html" with convene_time=senate_convene %}
-  {% endif %} -->
+  {% endif %}
+  {% endcomment %}
 
   <main class="main-container">
     {% block page_header %}{% endblock %}
