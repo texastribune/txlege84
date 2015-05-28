@@ -11,6 +11,11 @@ table {
     display: block;
     font-size: .875em;
   }
+
+  td.align-left,
+  th.align-left {
+    text-align: left;
+  }
 }
 
 thead {
