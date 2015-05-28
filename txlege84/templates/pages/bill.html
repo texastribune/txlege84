@@ -185,7 +185,7 @@
           <h3 class="section-header">Bill sponsors</h3>
         </header>
         {% for sponsor in object.sponsors %}
-            <p>{{ object.chamber.short_name }}<a href="{{ sponsor.legislator.get_absolute_url }}">{{ sponsor.legislator }} <span class="{{ sponsor.legislator.party.name|lower }}">({{ sponsor.legislator.party.short_name }})</span></a></p>
+            <p>{{ sponsor.legislator.chamber.short_name }}<a href="{{ sponsor.legislator.get_absolute_url }}">{{ sponsor.legislator }} <span class="{{ sponsor.legislator.party.name|lower }}">({{ sponsor.legislator.party.short_name }})</span></a></p>
         {% endfor %}
       </article>
       {% endif %}
