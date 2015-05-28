@@ -16,7 +16,7 @@ class BillDetail(AllSubjectsMixin, AllLegislatorsMixin,
 
 class NewLawsListDetail(AllSubjectsMixin, AllLegislatorsMixin,
                         ConveneTimeMixin, ListView):
-    model = Bill
+    queryset = Bill.objects.filter(became_law__isnull=False)
     template_name = 'pages/new-laws.html'
 
 
