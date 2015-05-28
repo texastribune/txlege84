@@ -1,0 +1,23 @@
+$end-of-session-bar: lighten($light-teal, 20%);
+
+.end-of-session {
+  background-color: $end-of-session-bar;
+
+  &:hover {
+    background-color: darken($end-of-session-bar, 5%);
+  }
+
+  p {
+    color: $tribune-black;
+    line-height: 1.2;
+  }
+
+  .alert-chamber {
+    margin: 0;
+  }
+
+  .session-arrow {
+    color: $tribune-black;
+    font-size: 1em;
+  }
+}
