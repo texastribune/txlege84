@@ -138,3 +138,25 @@ class Legislator(models.Model):
     @property
     def member_memberships(self):
         return self.memberships.filter(role='Member')
+
+    @property
+    def authored_bills(self):
+        return self.sponsorships.filter(role='author')
+
+
+    # @property
+    # def new_laws(self):
+    #     return self.sponsorships.filter(
+    #         role='author', bill__became_law__isnull=False)
+
+    # @property
+    # def vetoed_laws(self):
+    #     return self.sponsorships.filter(
+    #         role='author', bill__vetoed__isnull=False)
+
+    # @property
+    # def passed_both(self):
+    #     return self.sponsorships.filter(
+    #         role='author', bill__passed_se)
+
+
