@@ -79,6 +79,7 @@
     </div>
     {% endif %}
     <!-- vetoed bills table -->
+    {% if objct.authored_bills.all.bill.vetoed != null %}
     <header>
       <h3 class="section-header">Vetoed bills</h3>
     </header>
@@ -104,6 +105,7 @@
         </tbody>
       </table>
     </div>
+    {% endif %}
     <!-- new laws table -->
     <header>
       <h3 class="section-header">New laws</h3>
