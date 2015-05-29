@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Q
 from django.utils.text import slugify
 
 from txlege84.managers import ActiveQuerySet
@@ -138,3 +139,29 @@ class Legislator(models.Model):
     @property
     def member_memberships(self):
         return self.memberships.filter(role='Member')
+
+    @property
+    def authored_bills(self):
+        return self.sponsorships.filter(role='author')
+
+    @property
+    def new_laws(self):
+        return self.authored_bills.filter(
+            bill__became_law__isnull=False).select_related('bill')
+
+    @property
+    def vetoed_bills(self):
+        return self.authored_bills.filter(
+            bill__vetoed__isnull=False).select_related('bill')
+
+    @property
+    def passed_house_and_senate(self):
+        return self.authored_bills.filter(
+            bill__passed_house__isnull=False,
+            bill__passed_senate__isnull=False).select_related('bill')
+
+    @property
+    def failed_bills(self):
+        return self.authored_bills.filter(
+            Q(bill__passed_house__isnull=True) |
+            Q(bill__passed_senate__isnull=True)).select_related('bill')
