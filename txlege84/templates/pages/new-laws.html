@@ -10,7 +10,7 @@
 <section>
   <header class="page-header">
     <h2>New laws</h2>
-    <p class="sub-text">You’ll find a list of bills from the 84th legislative session that became law below. Not every bill that passes both chambers becomes law. The governor has 20 days post-adjournment to veto bills, and you can find a list of bills that were vetoed here.</p>
+    <p class="sub-text">Below is a list of bills from the 84th legislative session that have become law. Not every bill that passes both chambers becomes law. After the session adjourns, the governor has 20 days to veto bills. You can find a list of vetoed bills here.</p>
   </header>
   <div class="share-page">
     <ul>
@@ -36,7 +36,7 @@
         <tr>
           <th>Bill</th>
           <th class="align-left">Description</th>
-          <th>Effective date</th>
+          <th>Effective Date</th>
         </tr>
       </thead>
       <tbody>
@@ -44,7 +44,7 @@
         <tr>
           <td data-title="Bill"><a href="{{ bill.get_absolute_url }}">{{ bill.name }}</a></td>
           <td class="align-left" data-title="Description">{{ bill.description }}</td>
-          <td data-title="Last action">{{ bill.actions.last.text }}</td>
+          <td data-title="Effective Date">{{ bill.actions.last.text }}</td>
         </tr>
       {% endfor %}
       </tbody>
