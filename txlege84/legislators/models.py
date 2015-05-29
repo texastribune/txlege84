@@ -157,5 +157,5 @@ class Legislator(models.Model):
     def passed_both(self):
         return self.sponsorships.filter(
             role='author',
-            bill__passed_senate__isnull=False,
+            bill__passed_house__isnull=False,
             bill__passed_senate__isnull=False)
