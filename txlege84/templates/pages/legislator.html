@@ -130,6 +130,33 @@
         </tbody>
       </table>
     </div>
+    <!-- passed both chambers, limbo table -->
+    <header>
+      <h3 class="section-header">Passed both chambers</h3>
+    </header>
+    <div class="bill-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Bill</th>
+            <th>Caption</th>
+            <th>Last action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for sponsorship in object.authored_bills.all %}
+            {% if sponsorship.bill.passed_senate and sponsorship.bill.passed_house %}
+          <tr>
+            <td data-title="Bill"><a href="{{ sponsorship.bill.get_absolute_url }}">{{ sponsorship.bill.name }}</a></td>
+            <td data-title="Caption">{{ sponsorship.bill.description }}</td>
+            <td data-title="Last action">{{ sponsorship.bill.actions.last.text }}</td>
+          </tr>
+            {% endif %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <!-- loser bills that didn't go anywhere -->
     <header>
       <h3 class="section-header">Filed legislation</h3>
     </header>
