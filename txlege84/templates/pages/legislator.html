@@ -171,7 +171,7 @@
         </thead>
         <tbody>
           {% for sponsorship in object.authored_bills.all %}
-          {% if sponsorship.passed_house == null or sponsorship_passed_senate == null %}
+          {% if sponsorship.bill.passed_house == null or sponsorship.bill.passed_senate == null %}
           <tr>
             <td data-title="Bill"><a href="{{ sponsorship.bill.get_absolute_url }}">{{ sponsorship.bill.name }}</a></td>
             <td data-title="Caption">{{ sponsorship.bill.description }}</td>
