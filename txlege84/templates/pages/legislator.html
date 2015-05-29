@@ -135,6 +135,7 @@
     </div>
     {% endif %}
     <!-- passed both chambers, limbo table -->
+    {% if object.passed_both %}
     <header>
       <h3 class="section-header">Passed both chambers</h3>
     </header>
@@ -160,6 +161,7 @@
         </tbody>
       </table>
     </div>
+    {% endif %}
     <!-- loser bills that didn't go anywhere -->
     <header>
       <h3 class="section-header">Filed legislation</h3>

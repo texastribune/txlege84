@@ -153,9 +153,9 @@ class Legislator(models.Model):
         return self.sponsorships.filter(
             role='author', bill__vetoed__isnull=False)
 
-    # @property
-    # def passed_both(self):
-    #     return self.sponsorships.filter(
-    #         role='author',
-    #         bill__passed_senate__isnull=False,
-    #         bill__passed_senate__isnul=False)
+    @property
+    def passed_both(self):
+        return self.sponsorships.filter(
+            role='author',
+            bill__passed_senate__isnull=False,
+            bill__passed_senate__isnull=False)
