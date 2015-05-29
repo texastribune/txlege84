@@ -145,17 +145,14 @@ class Legislator(models.Model):
 
     @property
     def new_laws(self):
-        return self.sponsorships.filter(
-            role='author', bill__became_law__isnull=False)
+        return self.authored_bills.filter(bill__became_law__isnull=False)
 
     @property
     def vetoed_bills(self):
-        return self.sponsorships.filter(
-            role='author', bill__vetoed__isnull=False)
+        return self.authored_bills.filter(bill__vetoed__isnull=False)
 
     @property
-    def passed_both(self):
-        return self.sponsorships.filter(
-            role='author',
-            bill__passed_senate__isnull=False,
-            bill__passed_house__isnull=False)
+    def passed_house_and_senate(self):
+        return self.authored_bills.filter(
+            bill__passed_house__isnull=False,
+            bill__passed_senate__isnull=False)
