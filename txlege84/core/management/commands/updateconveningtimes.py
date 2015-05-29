@@ -28,6 +28,9 @@ class Command(BaseCommand):
             if 'Convenes' in time_string:
                 status = 'Convenes'
                 time = time_string.split('Convenes ')[1]
+            elif 'Adj. Pending' in time_string:
+                status = 'Convenes'
+                time = time_string.split('Adj. Pending ')[1]
             else:
                 raise ValueError('Time string not recognized.', time_string)
 
