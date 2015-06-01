@@ -160,7 +160,7 @@ class Legislator(models.Model):
             bill__passed_house__isnull=False,
             bill__passed_senate__isnull=False,
             bill__vetoed__isnull=True,
-            bill__new_laws__isnull=True).select_related('bill')
+            bill__became_law__isnull=True).select_related('bill')
 
     @property
     def failed_bills(self):
