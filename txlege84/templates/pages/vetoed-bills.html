@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block og_data %}
+  {% include "includes/og/og_bill.html" %}
+{% endblock %}
+
+{% load staticfiles %}
+{% block content %}
+
+<section>
+  <header class="page-header">
+  <h2>Vetoed Bills</h2>
+  <p class="sub-text">Below is a list of bills that Gov. Greg Abbott has vetoed. The governor has until June 21, 2015 to veto bills approved by both chambers in the 84th legislative session. After that date, bills automatically become law. <a href="{% url 'new-laws' %}">See a list of bills that became new laws</a>.</p>
+  </header>
+  <div class="share-page">
+    <ul>
+      <a href="mailto:?subject=The%20Texas%20Tribune%27s%20Texas%20Legislative%20Guide&body=Check%20out%20this%20list%20of%20vetoed%20bills%20from%20Texas%E2%80%99%2084th%20legislative%20session%2C%20courtesy%20of%20The%20Texas%20Tribune%27s%20Texas%20Legislative%20Guide.%20%20%0D%0Dhttp%3A%2F%2Ftxlege.texastribune.org{% url 'vetoed-bills' %}">
+        <li class="email"><i class="fa fa-envelope"></i></li>
+      </a>
+      <a href="https://twitter.com/intent/tweet?text=&via=texastribune" title="share on Twitter" class="social-share" target="_blank">
+        <li class="twitter"><i class="fa fa-twitter"></i></li>
+      </a>
+      <a href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=http%3A%2F%2Ftxlege.texastribune.org&redirect_uri=http%3A%2F%2Ftxlege.texastribune.org" title="share on Facebook" class="social-share" target="_blank">
+        <li class="facebook"><i class="fa fa-facebook"></i></li>
+      </a>
+    </ul>
+  </div>
+</section>
+
+  {% include "includes/banner_ad.html" %}
+
+<section>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>Bill</th>
+          <th class="align-left">Description</th>
+          <th>Date of Veto</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for bill in bill_list %}
+        <tr>
+          <td data-title="Bill"><a href="{{ bill.get_absolute_url }}">{{ bill.name }}</a></td>
+          <td class="align-left" data-title="Description">{{ bill.description }}</td>
+          <td data-title="Date of Veto">{{ bill.actions.last.date|date:"SHORT_DATE_FORMAT" }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{% endblock %}

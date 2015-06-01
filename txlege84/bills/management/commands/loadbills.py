@@ -113,6 +113,13 @@ class Command(BaseCommand):
     def fetch_bill(self, openstates_id):
         return openstates.bill(openstates_id)
 
+    def check_veto_status(self, actions):
+        for action in actions:
+            if 'veto' in action['action'].lower():
+                return action['date'].split(' ')[0]
+
+        return None
+
     def load_bill(self, data):
         self.stdout.write(u'Loading {}...'.format(data['bill_id']))
 
@@ -136,6 +143,7 @@ class Command(BaseCommand):
                          if data['action_dates']['passed_upper'] else None)
         became_law = (data['action_dates']['signed'].split(' ')[0]
                       if data['action_dates']['signed'] else None)
+        vetoed = self.check_veto_status(data['actions'])
 
         # Creates or updates the bill
         bill, created = Bill.objects.update_or_create(
@@ -151,6 +159,7 @@ class Command(BaseCommand):
                 'passed_house': passed_house,
                 'passed_senate': passed_senate,
                 'became_law': became_law,
+                'vetoed': vetoed,
             }
         )
 
