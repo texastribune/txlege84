@@ -78,36 +78,10 @@
       </ul>
     </div>
     {% endif %}
-    {# vetoed bills table #}
-    {% if legislator.vetoed_bills %}
-    <header>
-      <h3 class="section-header">Vetoed bills</h3>
-    </header>
-    <div class="bill-table">
-      <table>
-        <thead>
-          <tr>
-            <th>Bill</th>
-            <th>Caption</th>
-            <th>Date Vetoed</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for sponsorship in legislator.vetoed_bills %}
-          <tr>
-            <td data-title="Bill"><a href="{{ sponsorship.bill.get_absolute_url }}">{{ sponsorship.bill.name }}</a></td>
-            <td data-title="Caption">{{ sponsorship.bill.description }}</td>
-            <td data-title="Date Vetoed">{{ sponsorship.bill.last_action_date|date:"SHORT_DATE_FORMAT"  }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
-    {% endif %}
     {# new laws table #}
     {% if legislator.new_laws %}
     <header>
-      <h3 class="section-header">New laws</h3>
+      <h3 class="section-header">New Laws</h3>
     </header>
     <div class="bill-table">
       <table>
@@ -130,10 +104,36 @@
       </table>
     </div>
     {% endif %}
+    {# vetoed bills table #}
+    {% if legislator.vetoed_bills %}
+    <header>
+      <h3 class="section-header">Vetoed Bills</h3>
+    </header>
+    <div class="bill-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Bill</th>
+            <th>Caption</th>
+            <th>Date Vetoed</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for sponsorship in legislator.vetoed_bills %}
+          <tr>
+            <td data-title="Bill"><a href="{{ sponsorship.bill.get_absolute_url }}">{{ sponsorship.bill.name }}</a></td>
+            <td data-title="Caption">{{ sponsorship.bill.description }}</td>
+            <td data-title="Date Vetoed">{{ sponsorship.bill.last_action_date|date:"SHORT_DATE_FORMAT"  }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
     {# passed both chambers, limbo table #}
     {% if legislator.passed_house_and_senate %}
     <header>
-      <h3 class="section-header">Passed both chambers</h3>
+      <h3 class="section-header">Passed Both Chambers</h3>
     </header>
     <div class="bill-table">
       <table>
@@ -159,7 +159,7 @@
     {# loser bills that didn't go anywhere #}
     {% if legislator.failed_bills %}
     <header>
-      <h3 class="section-header">Other legislation</h3>
+      <h3 class="section-header">Other Legislation</h3>
     </header>
     <div class="bill-table">
       <table>
