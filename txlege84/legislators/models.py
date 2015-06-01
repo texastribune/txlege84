@@ -158,7 +158,9 @@ class Legislator(models.Model):
     def passed_house_and_senate(self):
         return self.authored_bills.filter(
             bill__passed_house__isnull=False,
-            bill__passed_senate__isnull=False).select_related('bill')
+            bill__passed_senate__isnull=False,
+            bill__vetoed__isnull=True,
+            bill__became_law__isnull=True).select_related('bill')
 
     @property
     def failed_bills(self):
