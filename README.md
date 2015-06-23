@@ -95,3 +95,24 @@ Then, run the make command to load the data.
 ```bash
 make prep_for_development
 ```
+
+## Docker
+
+Here's how to set up the database with Docker. You'll need to do this to get an updated database from the Sunlight Foundation.
+
+First, start-up docker: `boot2docker up`
+
+If you get an error, run `docker ps` to make sure there aren't conflicts with other running containers. Run `docker stop [container_id]` to shut down other containers.
+
+Next, create your .env file, and add your DATABASE_URL to that file:
+
+`export DATABASE_URL=postgres://docker:docker@docker.local:5432/docker`
+
+Run `source .env` after creating the file.
+
+Then refresh your database, `make docker/refresh-db`.
+
+
+
+
+
