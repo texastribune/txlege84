@@ -196,8 +196,6 @@ class Command(BaseCommand):
                 openstates_id=member['leg_id']
             )
 
-            print(legislator)
-
             Sponsorship.objects.update_or_create(
                 legislator=legislator,
                 bill=bill,
