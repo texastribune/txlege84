@@ -128,7 +128,11 @@ class Sponsorship(models.Model):
     legislator = models.ForeignKey(Legislator, related_name='sponsorships')
     bill = models.ForeignKey(Bill, related_name='sponsorships')
     role = models.CharField(max_length=20)
+    ordering = models.PositiveIntegerField(default=0)
 
     def __unicode__(self):
         return u'{0} as {1} of {2}'.format(
             self.legislator.full_name, self.role, self.bill)
+
+    class Meta:
+        ordering = ['ordering']
