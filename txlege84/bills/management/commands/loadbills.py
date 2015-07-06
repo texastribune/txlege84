@@ -35,6 +35,13 @@ class Command(BaseCommand):
                   'the current session.')
         ),
         make_option(
+            '--bill',
+            action='store',
+            dest='specific_bill',
+            default=None,
+            help=('Load only this bill from the targeted session.')
+        ),
+        make_option(
             '--since',
             action='store',
             dest='since',
@@ -57,7 +64,8 @@ class Command(BaseCommand):
 
             self.bulk_load_bills(kwargs['session'])
         else:
-            self.load_bills(kwargs['session'], kwargs['since'])
+            self.load_bills(kwargs['session'], kwargs['since'],
+                            kwargs['specific_bill'])
 
     def get_latest_download_date(self):
         latest_date = openstates.state_metadata('tx')
@@ -86,7 +94,7 @@ class Command(BaseCommand):
 
                 self.load_bill(data)
 
-    def load_bills(self, session, date):
+    def load_bills(self, session, date, specific_bill):
         search_kwargs = {
             'state': 'tx',
             'search_window': ('session:{}'.format(session)
@@ -97,6 +105,9 @@ class Command(BaseCommand):
 
         if date:
             search_kwargs['updated_since'] = date
+
+        if specific_bill:
+            search_kwargs['bill_id'] = specific_bill
 
         while True:
             bills = openstates.bills(**search_kwargs)
@@ -177,7 +188,7 @@ class Command(BaseCommand):
             sponsorship.delete()
 
         # Add or update remaining sponsors
-        for member in data['sponsors']:
+        for ordering, member in enumerate(data['sponsors']):
             if not member['leg_id']:
                 continue
 
@@ -185,11 +196,14 @@ class Command(BaseCommand):
                 openstates_id=member['leg_id']
             )
 
+            print(legislator)
+
             Sponsorship.objects.update_or_create(
                 legislator=legislator,
                 bill=bill,
                 defaults={
-                    'role': member['official_type'].lower()
+                    'role': member['official_type'].lower(),
+                    'ordering': ordering,
                 },
             )
 
